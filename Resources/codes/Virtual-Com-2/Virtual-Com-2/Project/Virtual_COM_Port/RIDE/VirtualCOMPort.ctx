@@ -1,0 +1,102 @@
+
+<Debug>
+	<VirtualCOMPort>
+		<SpyWatch>
+			<Report>
+				<Def Header="InspectReport" NbCol="4" >
+					<Col Type="PT_STRING" Header="Name" sizeCache="DDDDDDDDDDDD" AutoSize="1" Edit="1" Sortable="1" />
+					<Col Type="PT_STRING" Header="Value" sizeCache="DDDDDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" />
+					<Col Type="PT_STRING" Header="File" sizeCache="DDDD" AutoSize="1" Edit="0" Visible="0" />
+					<Col Type="PT_STRING" Header="Line" sizeCache="DDDD" AutoSize="1" Edit="0" Visible="0" />
+																																																						
+				</Def>
+				<Rows>
+					<Row Name="msg_buf" Value="error(3): Undefined symbol" File="C:\Documents and Settings\user\My Documents\Downloads\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src\main.c" Line="619" />
+					<Row Expand="0" Name="msg_buf1" Value="{ 0x64 'd', 0x41 'A' }" File="C:\Documents and Settings\user\My Documents\Downloads\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src\main.c" Line="614" />
+					<Row Name="trans_buf" Value="error(3): Undefined symbol" File="C:\Documents and Settings\user\My Documents\Downloads\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src\main.c" Line="560" />
+					<Row Name="Step" Value="error(3): Undefined symbol" File="C:\Documents and Settings\user\My Documents\Downloads\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src\main.c" Line="372" />
+					<Row Name="Serial_Checksum" Value="error(3): Undefined symbol" File="C:\Documents and Settings\user\My Documents\Downloads\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src\main.c" Line="376" />
+																																																						
+				</Rows>
+																																										
+			</Report>
+																														
+		</SpyWatch>
+		<CodeView TopRow="134218526" Focus="4294967295" >
+			<CodeReport>
+				<0>60</0>
+				<1>66</1>
+				<2>36</2>
+				<3>200</3>
+				<4>36</4>
+				<5>77</5>
+																																										
+			</CodeReport>
+																														
+		</CodeView>
+		<MemoryView Focus="134243180" TopRow="0" NbPerLine="8" />
+																		
+	</VirtualCOMPort>
+	<Flags>
+		<Report>
+			<Def Header="FlagReport" NbCol="9" >
+				<Col Type="PT_BOOL" Header="Check" sizeCache="18" AutoSize="0" Edit="1" Sortable="1" Icon="C:\Program Files\Raisonance\Ride\Config\Resources\check.bmp" />
+				<Col Type="PT_STRING" Header="Kind" sizeCache="DDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" />
+				<Col Type="PT_STRING" Header="KindID" sizeCache="DD" AutoSize="1" Edit="0" Sortable="1" Visible="0" />
+				<Col Type="PT_STRING" Header="Space" sizeCache="DDDDDD" AutoSize="1" Edit="0" Sortable="1" />
+				<Col Type="PT_STRING" Header="SpaceID" sizeCache="DD" AutoSize="0" Edit="0" Sortable="0" Visible="0" />
+				<Col Type="PT_STRING" Header="Line" sizeCache="DDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" Visible="1" />
+				<Col Type="PT_STRING" Header="File" sizeCache="DDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" Visible="1" />
+				<Col Type="PT_STRING" Header="Path" sizeCache="DDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="0" Visible="0" />
+				<Col Type="PT_STRING" Header="Condition" sizeCache="DDDDDDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="0" />
+				<Col Type="PT_STRING" Header="Condexpr" sizeCache="DD" AutoSize="1" Edit="0" Sortable="0" Visible="0" />
+				<Col Type="PT_STRING" Header="Condcount" sizeCache="DD" AutoSize="1" Edit="0" Sortable="0" Visible="0" />
+							
+			</Def>
+			<Rows/>
+					
+		</Report>
+			
+	</Flags>
+	<Views>
+		<View File="C:\Documents and Settings\user\My Documents\Downloads\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src\mainJTAGRemap.c" Line="173" Index="0" />
+		<View File="C:\Documents and Settings\user\My Documents\Downloads\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src\maincc25xprog.c" Line="356" Index="1" />
+		<View File="C:\Documents and Settings\user\My Documents\Downloads\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src\main_VCOM-PC-Demo.c" Line="150" Index="2" />
+		<View File="C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src\main.c" Line="150" Index="3" focus="1" />
+	</Views>
+	<Grep>
+		<GrepIncludeSub>yes</GrepIncludeSub>
+		<GrepMatchCase>no</GrepMatchCase>
+		<GrepMatchWhole>no</GrepMatchWhole>
+		<GrepRegExp>no</GrepRegExp>
+		<GrepReplaceMode>no</GrepReplaceMode>
+		<GrepFileTypes>
+			<GrepFileTypesValue>*.c;*.h</GrepFileTypesValue>
+			<GrepFileType>*.c;*.h</GrepFileType>
+		</GrepFileTypes>
+		<GrepFindWhat>
+			<GrepFindWhatValue>RGB_BLACK</GrepFindWhatValue>
+			<GrepFindStr>delay</GrepFindStr>
+			<GrepFindStr>LED_Init</GrepFindStr>
+			<GrepFindStr>RGB_BLACK</GrepFindStr>
+			<GrepFindStr>SHUTDOWN_Action</GrepFindStr>
+			<GrepFindStr>TOUCH_L</GrepFindStr>
+		</GrepFindWhat>
+		<GrepFindWhere>
+			<GrepFindWhereValue>C:\Downloaded Files\Circle-OS-4.2</GrepFindWhereValue>
+			<GrepPathStr>Application Files</GrepPathStr>
+			<GrepPathStr>Application Path</GrepPathStr>
+			<GrepPathStr>C:\Documents and Settings\user\My Documents\Downloads\Virtual-Com-1\um0424 Virtual Com EVO</GrepPathStr>
+			<GrepPathStr>C:\Documents and Settings\user\My Documents\Downloads\Virtual-Com-1\um0424 Virtual Com EVO\STM32_USB-FS-Device_Lib_V3.2.1\Project\Virtual_COM_Port\RIDE</GrepPathStr>
+			<GrepPathStr>C:\Downloaded Files\Circle-OS-4.2</GrepPathStr>
+			<GrepPathStr>C:\Program Files\Raisonance\Ride\Examples\ARM\ST</GrepPathStr>
+		</GrepFindWhere>
+		<GrepReplaceWhat>
+			<GrepReplaceWhatValue/>
+		</GrepReplaceWhat>
+	</Grep>
+	<FindStrings>
+		<Find>FSMC_NORSRAMInitTypeDef</Find>
+	</FindStrings>
+	<ReplaceStrings/>
+</Debug>

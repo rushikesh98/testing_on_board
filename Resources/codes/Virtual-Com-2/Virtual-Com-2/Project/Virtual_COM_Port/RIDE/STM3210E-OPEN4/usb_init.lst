@@ -1,0 +1,67 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_init.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_init.o
+
+
+Disassembly of section .text.USB_Init:
+
+00000000 <USB_Init>:
+USB_Init():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_init.c:54
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void USB_Init(void)
+{
+   0:	b508      	push	{r3, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_init.c:55
+  pInformation = &Device_Info;
+   2:	4a07      	ldr	r2, [pc, #28]	; (20 <USB_Init+0x20>)
+   4:	4b07      	ldr	r3, [pc, #28]	; (24 <USB_Init+0x24>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_init.c:58
+  pInformation->ControlState = 2;
+  pProperty = &Device_Property;
+  pUser_Standard_Requests = &User_Standard_Requests;
+   6:	4908      	ldr	r1, [pc, #32]	; (28 <USB_Init+0x28>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_init.c:55
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void USB_Init(void)
+{
+  pInformation = &Device_Info;
+   8:	6013      	str	r3, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_init.c:56
+  pInformation->ControlState = 2;
+   a:	2202      	movs	r2, #2
+   c:	721a      	strb	r2, [r3, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_init.c:57
+  pProperty = &Device_Property;
+   e:	4b07      	ldr	r3, [pc, #28]	; (2c <USB_Init+0x2c>)
+  10:	4a07      	ldr	r2, [pc, #28]	; (30 <USB_Init+0x30>)
+  12:	6013      	str	r3, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_init.c:58
+  pUser_Standard_Requests = &User_Standard_Requests;
+  14:	4a07      	ldr	r2, [pc, #28]	; (34 <USB_Init+0x34>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_init.c:60
+  /* Initialize devices one by one */
+  pProperty->Init();
+  16:	681b      	ldr	r3, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_init.c:58
+void USB_Init(void)
+{
+  pInformation = &Device_Info;
+  pInformation->ControlState = 2;
+  pProperty = &Device_Property;
+  pUser_Standard_Requests = &User_Standard_Requests;
+  18:	6011      	str	r1, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_init.c:60
+  /* Initialize devices one by one */
+  pProperty->Init();
+  1a:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_init.c:61
+}
+  1c:	bd08      	pop	{r3, pc}
+  1e:	bf00      	nop
+	...

@@ -1,0 +1,54 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\startup_stm32f10x_hd.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\startup_stm32f10x_hd.o
+
+
+Disassembly of section .text:
+
+00000000 <.text>:
+	...
+
+Disassembly of section .text.Reset_Handler:
+
+00000000 <Reset_Handler>:
+Reset_Handler():
+   0:	2100      	movs	r1, #0
+   2:	e003      	b.n	c <LoopCopyDataInit>
+
+00000004 <CopyDataInit>:
+CopyDataInit():
+   4:	4b0a      	ldr	r3, [pc, #40]	; (30 <LoopFillZerobss+0x10>)
+   6:	585b      	ldr	r3, [r3, r1]
+   8:	5043      	str	r3, [r0, r1]
+   a:	3104      	adds	r1, #4
+
+0000000c <LoopCopyDataInit>:
+LoopCopyDataInit():
+   c:	4809      	ldr	r0, [pc, #36]	; (34 <LoopFillZerobss+0x14>)
+   e:	4b0a      	ldr	r3, [pc, #40]	; (38 <LoopFillZerobss+0x18>)
+  10:	1842      	adds	r2, r0, r1
+  12:	429a      	cmp	r2, r3
+  14:	d3f6      	bcc.n	4 <CopyDataInit>
+  16:	4a09      	ldr	r2, [pc, #36]	; (3c <LoopFillZerobss+0x1c>)
+  18:	e002      	b.n	20 <LoopFillZerobss>
+
+0000001a <FillZerobss>:
+FillZerobss():
+  1a:	2300      	movs	r3, #0
+  1c:	f842 3b04 	str.w	r3, [r2], #4
+
+00000020 <LoopFillZerobss>:
+LoopFillZerobss():
+  20:	4b07      	ldr	r3, [pc, #28]	; (40 <LoopFillZerobss+0x20>)
+  22:	429a      	cmp	r2, r3
+  24:	d3f9      	bcc.n	1a <FillZerobss>
+  26:	f7ff fffe 	bl	0 <SystemInit>
+  2a:	f7ff fffe 	bl	0 <main>
+  2e:	4770      	bx	lr
+	...
+
+Disassembly of section .text.Default_Handler:
+
+00000000 <ADC1_2_IRQHandler>:
+DMA2_Channel4_5_IRQHandler():
+   0:	e7fe      	b.n	0 <ADC1_2_IRQHandler>

@@ -1,0 +1,8 @@
+CMP R0, R1   ; Compare R0 and R1
+ITTEE GT     ; If R0 > R1 Then
+  ; if true, first 2 statements execute,
+  ; if false, other 2 statements execute
+MOVGT R2, R0 ;      R2 = R0
+MOVGT R3, R1 ;      R3 = R1
+MOVLE R2, R0 ; Else R2 = R1
+MOVLE R3, R1 ;      R3 = R0

@@ -1,0 +1,149 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_endp.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_endp.o
+
+
+Disassembly of section .text.EP1_IN_Callback:
+
+00000000 <EP1_IN_Callback>:
+EP1_IN_Callback():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:52
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void EP1_IN_Callback (void)
+{
+   0:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:54
+
+  if (USB_Tx_State == 1)
+   2:	4b07      	ldr	r3, [pc, #28]	; (20 <EP1_IN_Callback+0x20>)
+   4:	781a      	ldrb	r2, [r3, #0]
+   6:	2a01      	cmp	r2, #1
+   8:	d101      	bne.n	e <EP1_IN_Callback+0xe>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:56
+  {
+      USB_Tx_State = 0;
+   a:	3a01      	subs	r2, #1
+   c:	701a      	strb	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:58
+  }
+    SetEPTxCount(ENDP1, 0);
+   e:	2001      	movs	r0, #1
+  10:	2100      	movs	r1, #0
+  12:	f7ff fffe 	bl	0 <SetEPTxCount>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:59
+    SetEPTxValid(ENDP1); 
+  16:	2001      	movs	r0, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:61
+  
+}
+  18:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:59
+  if (USB_Tx_State == 1)
+  {
+      USB_Tx_State = 0;
+  }
+    SetEPTxCount(ENDP1, 0);
+    SetEPTxValid(ENDP1); 
+  1c:	f7ff bffe 	b.w	0 <SetEPTxValid>
+  20:	00000000 	.word	0x00000000
+
+Disassembly of section .text.EP3_OUT_Callback:
+
+00000000 <EP3_OUT_Callback>:
+EP3_OUT_Callback():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:71
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void EP3_OUT_Callback(void)
+{
+   0:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:74
+uint16_t USB_Rx_Cnt;
+   
+    count_out = GetEPRxCount(ENDP3);
+   2:	2003      	movs	r0, #3
+   4:	f7ff fffe 	bl	0 <GetEPRxCount>
+   8:	4b05      	ldr	r3, [pc, #20]	; (20 <EP3_OUT_Callback+0x20>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:77
+ 
+    /* Get the received data buffer and update the counter */
+    USB_Rx_Cnt = USB_SIL_Read(EP3_OUT, USB_Rx_Buffer);
+   a:	4906      	ldr	r1, [pc, #24]	; (24 <EP3_OUT_Callback+0x24>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:74
+*******************************************************************************/
+void EP3_OUT_Callback(void)
+{
+uint16_t USB_Rx_Cnt;
+   
+    count_out = GetEPRxCount(ENDP3);
+   c:	6018      	str	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:77
+ 
+    /* Get the received data buffer and update the counter */
+    USB_Rx_Cnt = USB_SIL_Read(EP3_OUT, USB_Rx_Buffer);
+   e:	2003      	movs	r0, #3
+  10:	f7ff fffe 	bl	0 <USB_SIL_Read>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:81
+  
+#ifndef STM32F10X_CL
+  /* Enable the receive of data on EP3 */
+  SetEPRxValid(ENDP3);
+  14:	2003      	movs	r0, #3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:83
+#endif /* STM32F10X_CL */
+}
+  16:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:81
+    /* Get the received data buffer and update the counter */
+    USB_Rx_Cnt = USB_SIL_Read(EP3_OUT, USB_Rx_Buffer);
+  
+#ifndef STM32F10X_CL
+  /* Enable the receive of data on EP3 */
+  SetEPRxValid(ENDP3);
+  1a:	f7ff bffe 	b.w	0 <SetEPRxValid>
+  1e:	bf00      	nop
+	...
+
+Disassembly of section .text.SOF_Callback:
+
+00000000 <SOF_Callback>:
+SOF_Callback():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:101
+void SOF_Callback(void)
+#endif /* STM32F10X_CL */
+{
+  static uint32_t FrameCount = 0;
+  
+  if(bDeviceState == CONFIGURED)
+   0:	4b07      	ldr	r3, [pc, #28]	; (20 <SOF_Callback+0x20>)
+   2:	681b      	ldr	r3, [r3, #0]
+   4:	2b05      	cmp	r3, #5
+   6:	d109      	bne.n	1c <SOF_Callback+0x1c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:103
+  {
+    if (FrameCount++ == VCOMPORT_IN_FRAME_INTERVAL)
+   8:	4b06      	ldr	r3, [pc, #24]	; (24 <SOF_Callback+0x24>)
+   a:	685a      	ldr	r2, [r3, #4]
+   c:	1c51      	adds	r1, r2, #1
+   e:	2a05      	cmp	r2, #5
+  10:	6059      	str	r1, [r3, #4]
+  12:	d103      	bne.n	1c <SOF_Callback+0x1c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:106
+    {
+      /* Reset the frame counter */
+      FrameCount = 0;
+  14:	3a05      	subs	r2, #5
+  16:	605a      	str	r2, [r3, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_endp.c:109
+      
+      /* Check the data to be sent through IN pipe */
+      Handle_USBAsynchXfer();
+  18:	f7ff bffe 	b.w	0 <Handle_USBAsynchXfer>
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+	...

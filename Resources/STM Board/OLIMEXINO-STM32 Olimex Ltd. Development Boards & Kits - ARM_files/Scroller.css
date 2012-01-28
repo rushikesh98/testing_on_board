@@ -1,0 +1,253 @@
+body
+{
+}
+
+.AlsoBought input.text
+{
+	text-decoration: underline;
+	background-color: #CCFFFF;
+}
+
+div.scrollable { 
+ 
+    /* required settings */ 
+    position:relative; 
+    overflow:hidden; 
+    width: 750px; 
+    height:250px; 
+} 
+
+div.scrollable_dis { 
+ 
+    /* required settings */ 
+    position:relative;    
+    overflow-y:scroll;
+    overflow-x:hidden;
+    width: 760px; 
+    height:250px;
+} 
+ 
+/* 
+    root element for scrollable items. Must be absolutely positioned 
+    and it should have a extremely large width to accomodate scrollable items. 
+    it's enough that you set width and height for the root element and 
+    not for this element. 
+*/ 
+div.scrollable div.items { 
+    /* this cannot be too large */ 
+    width:20000em; 
+    position:absolute; 
+} 
+
+
+ 
+/* 
+    a single item. must be floated in horizontal scrolling. 
+    typically, this element is the one that *you* will style 
+    the most. 
+*/ 
+div.scrollable div.items div { 
+    float:left; 
+} 
+ 
+ div.scrollable_dis div.items_dis div { 
+    float:left; 
+} 
+
+/* you may want to setup some decorations to active the item */ 
+div.items div.active { 
+    border:1px inset #ccc; 
+    background-color:#fff; 
+}
+
+/* this makes it possible to add next button beside scrollable */
+.scrollable {
+	float:left;	
+}
+
+/* prev, next, prevPage and nextPage buttons */
+.AlsoBought a.browse {
+	background:url(../images/hori_large.png) no-repeat;
+	display:block;
+	width:30px;
+	height:30px;
+	float:left;
+	margin:40px 10px;
+	cursor:pointer;
+	font-size:1px;
+}
+
+/* right */
+.AlsoBought a.right 				{ background-position: 0 -30px; clear:right; margin-right: 0px;}
+.AlsoBought a.right:hover 		{ background-position:-30px -30px; }
+.AlsoBought a.right:active 	{ background-position:-60px -30px; } 
+
+
+/* left */
+.AlsoBought a.left				{ margin-left: 0px; } 
+.AlsoBought a.left:hover  		{ background-position:-30px 0; }
+.AlsoBought a.left:active  	{ background-position:-60px 0; }
+
+/* up and down */
+.AlsoBought a.up, a.down		{ 
+	background:url(../images/vert_large.png) no-repeat; 
+	float: none;
+	margin: 10px 50px;
+}
+
+/* up */
+.AlsoBought a.up:hover  		{ background-position:-30px 0; }
+.AlsoBought a.up:active  		{ background-position:-60px 0; }
+
+/* down */
+.AlsoBought a.down 				{ background-position: 0 -30px; }
+.AlsoBought a.down:hover  		{ background-position:-30px -30px; }
+.AlsoBought a.down:active  	{ background-position:-60px -30px; } 
+
+
+/* disabled navigational button */
+.AlsoBought a.disabled {
+	visibility:hidden !important;		
+} 	
+.AlsoBought h2 {
+    color:#004a85;
+}
+/*
+	root element for the scrollable.
+	when scrolling occurs this element stays still.
+*/
+.scrollable {
+
+	/* required settings */
+	position:relative;
+	overflow:hidden;
+	float:left;
+	width: 680px;
+	height:120px;
+
+	/* custom decorations */
+	border:0px solid #ccc;
+	/*background:url(/img/global/gradient/h300.png) repeat-x;*/
+}
+
+.scrollable_dis {
+
+	/* required settings */
+	position:relative;
+    
+    
+	float:left;
+	width: 680px;
+	
+
+	/* custom decorations */
+	border:0px solid #ccc;
+	/*background:url(/img/global/gradient/h300.png) repeat-x;*/
+}
+
+/*
+	root element for scrollable items. Must be absolutely positioned
+	and it should have a extremely large width to accomodate scrollable items.
+	it's enough that you set the width and height for the root element and
+	not for this element.
+*/
+.scrollable .items{
+	/* this cannot be too large */
+	width:20000em;
+	position:absolute;
+	clear:both;
+}
+
+.scrollable_dis .items_dis{
+	/* this cannot be too large */
+	width:20000em;
+	position:absolute;
+	clear:both;
+	width:750px;
+	
+}
+
+/* single scrollable item */
+.scrollable img1 {
+	float:left;
+	margin:20px 5px 20px 21px;
+	background-color:#fff;
+	padding:2px;
+	border:1px solid #ccc;
+	cursor:pointer;
+	width:100px;
+	height:75px;
+	
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+}
+
+.scrollable table.list
+{
+    border-style: solid dashed solid solid;
+    border-width: 0px 1px 0px 0px;
+    border-color: #ccc;
+    float: left;
+    margin: 10px 8px 5px 5px;
+    background-color: #fff;
+    padding: 2px;
+    cursor: pointer;
+    width: 138px;
+    height: 75px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.scrollable_dis table.list
+{
+    border-style: solid dashed solid solid;
+    border-width: 0px 1px 0px 0px;
+    border-color: #ccc;
+    float: left;
+    margin: 20px 5px 20px 21px;
+    background-color: #fff;
+    padding: 2px;
+    cursor: pointer;
+    width: 120px;
+    height: 75px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+/* active item */
+.scrollable .active {
+	border:2px solid #000;
+	z-index:9999;
+	position:relative;
+}
+
+.fade
+{
+    border-style: solid;
+    border-width: 1px 0px 0px 0px;
+    border-color: #d3d3d3;
+    margin-bottom: 10px;
+    padding: 5px;
+    background: #fff url(../images/block-fade.png) repeat-x 0 1px;
+}
+
+.text_ellipsis1
+{
+   text-overflow:ellipsis;
+
+   overflow:hidden;
+   width:30px; 
+}
+span.ellipsis {
+
+   white-space:nowrap;
+
+   text-overflow:ellipsis;
+
+   overflow:hidden;
+
+   width:130px;
+
+   display:block;
+
+}

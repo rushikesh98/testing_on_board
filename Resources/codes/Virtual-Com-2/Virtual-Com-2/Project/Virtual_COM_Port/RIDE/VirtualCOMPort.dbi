@@ -1,0 +1,26 @@
+[Application]
+ApplicationPath=C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\VirtualCOMPort.elf
+CSX=0
+HighBankAddr=400000
+BootMode=0
+Format=ELF
+CodeOffset=0x0
+LoaderTool=ARM
+Target=ARM
+DebugTool=RLINK_CORTEX
+ApplicationComponents=
+[Device]
+Name=STM32F103VET6
+[ARMSigDrv options]
+CXS=0
+[Debug]
+Explore=No
+Startup=1
+StartupSymb=main
+ToolName=RLINK_CORTEX
+[SIM-ARM]
+Crystal=12.000
+[General]
+FreqXTal=12.000
+[SimFile]
+path=C:\Program Files\Raisonance\Ride\sim\ARM\STM32F103VET6.sim

@@ -1,0 +1,1872 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\lcd.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\lcd.o
+
+
+Disassembly of section .text.LCD_DrawCharSetFilter:
+
+00000000 <LCD_DrawCharSetFilter>:
+LCD_DrawCharSetFilter():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:66
+*  @param[in]  ymax        The first non-authorized column
+*
+**/
+/******************************************************************************/
+void LCD_DrawCharSetFilter( coord_t xmin, coord_t xmax, coord_t ymin, coord_t ymax )
+{
+   0:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:67
+    CharFilter_XMin = xmin;
+   2:	4c03      	ldr	r4, [pc, #12]	; (10 <LCD_DrawCharSetFilter+0x10>)
+   4:	8020      	strh	r0, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:68
+    CharFilter_XMax = xmax;
+   6:	4803      	ldr	r0, [pc, #12]	; (14 <LCD_DrawCharSetFilter+0x14>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:69
+    CharFilter_YMin = ymin;
+   8:	8062      	strh	r2, [r4, #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:68
+**/
+/******************************************************************************/
+void LCD_DrawCharSetFilter( coord_t xmin, coord_t xmax, coord_t ymin, coord_t ymax )
+{
+    CharFilter_XMin = xmin;
+    CharFilter_XMax = xmax;
+   a:	8001      	strh	r1, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:70
+    CharFilter_YMin = ymin;
+    CharFilter_YMax = ymax;
+   c:	8043      	strh	r3, [r0, #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:71
+}
+   e:	bd10      	pop	{r4, pc}
+	...
+
+Disassembly of section .text.LCD_DrawChar:
+
+00000000 <LCD_DrawChar>:
+LCD_DrawChar():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:95
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DrawChar( coord_t x, coord_t y, coord_t width, const u8* bmp, color_t textColor, color_t bGndColor, mag_t charMagniCoeff )
+{
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:104
+    counter_t j;
+    mag_t k1;
+    mag_t k2;
+    coord_t lin0;
+    coord_t lin1;
+    coord_t x0 = MAX( x, CharFilter_XMin );
+   4:	4da5      	ldr	r5, [pc, #660]	; (29c <LCD_DrawChar+0x29c>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:95
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DrawChar( coord_t x, coord_t y, coord_t width, const u8* bmp, color_t textColor, color_t bGndColor, mag_t charMagniCoeff )
+{
+   6:	b093      	sub	sp, #76	; 0x4c
+   8:	930e      	str	r3, [sp, #56]	; 0x38
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:104
+    counter_t j;
+    mag_t k1;
+    mag_t k2;
+    coord_t lin0;
+    coord_t lin1;
+    coord_t x0 = MAX( x, CharFilter_XMin );
+   a:	f9b5 3000 	ldrsh.w	r3, [r5]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:95
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DrawChar( coord_t x, coord_t y, coord_t width, const u8* bmp, color_t textColor, color_t bGndColor, mag_t charMagniCoeff )
+{
+   e:	9c1e      	ldr	r4, [sp, #120]	; 0x78
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:104
+    counter_t j;
+    mag_t k1;
+    mag_t k2;
+    coord_t lin0;
+    coord_t lin1;
+    coord_t x0 = MAX( x, CharFilter_XMin );
+  10:	4298      	cmp	r0, r3
+  12:	bfa8      	it	ge
+  14:	4603      	movge	r3, r0
+  16:	b29b      	uxth	r3, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:112
+    static coord_t height0;
+    u8 j2;
+
+    UNREFERENCED_PARAMETER( width );
+
+    width0 = MIN( Char_Width * charMagniCoeff,  CharFilter_XMax - x0 );
+  18:	b21e      	sxth	r6, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:104
+    counter_t j;
+    mag_t k1;
+    mag_t k2;
+    coord_t lin0;
+    coord_t lin1;
+    coord_t x0 = MAX( x, CharFilter_XMin );
+  1a:	9305      	str	r3, [sp, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:112
+    static coord_t height0;
+    u8 j2;
+
+    UNREFERENCED_PARAMETER( width );
+
+    width0 = MIN( Char_Width * charMagniCoeff,  CharFilter_XMax - x0 );
+  1c:	4ba0      	ldr	r3, [pc, #640]	; (2a0 <LCD_DrawChar+0x2a0>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:95
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DrawChar( coord_t x, coord_t y, coord_t width, const u8* bmp, color_t textColor, color_t bGndColor, mag_t charMagniCoeff )
+{
+  1e:	f8bd 2074 	ldrh.w	r2, [sp, #116]	; 0x74
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:112
+    static coord_t height0;
+    u8 j2;
+
+    UNREFERENCED_PARAMETER( width );
+
+    width0 = MIN( Char_Width * charMagniCoeff,  CharFilter_XMax - x0 );
+  22:	f893 c004 	ldrb.w	ip, [r3, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:95
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DrawChar( coord_t x, coord_t y, coord_t width, const u8* bmp, color_t textColor, color_t bGndColor, mag_t charMagniCoeff )
+{
+  26:	9208      	str	r2, [sp, #32]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:112
+    static coord_t height0;
+    u8 j2;
+
+    UNREFERENCED_PARAMETER( width );
+
+    width0 = MIN( Char_Width * charMagniCoeff,  CharFilter_XMax - x0 );
+  28:	fb0c fc04 	mul.w	ip, ip, r4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:105
+    mag_t k1;
+    mag_t k2;
+    coord_t lin0;
+    coord_t lin1;
+    coord_t x0 = MAX( x, CharFilter_XMin );
+    coord_t y0 = MAX( y, CharFilter_YMin );
+  2c:	f9b5 7002 	ldrsh.w	r7, [r5, #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:112
+    static coord_t height0;
+    u8 j2;
+
+    UNREFERENCED_PARAMETER( width );
+
+    width0 = MIN( Char_Width * charMagniCoeff,  CharFilter_XMax - x0 );
+  30:	f9b3 2000 	ldrsh.w	r2, [r3]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:113
+    height0 = MIN( Char_Height * charMagniCoeff,  CharFilter_YMax - y0 );
+  34:	f893 a005 	ldrb.w	sl, [r3, #5]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:105
+    mag_t k1;
+    mag_t k2;
+    coord_t lin0;
+    coord_t lin1;
+    coord_t x0 = MAX( x, CharFilter_XMin );
+    coord_t y0 = MAX( y, CharFilter_YMin );
+  38:	42b9      	cmp	r1, r7
+  3a:	bfa8      	it	ge
+  3c:	460f      	movge	r7, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:112
+    static coord_t height0;
+    u8 j2;
+
+    UNREFERENCED_PARAMETER( width );
+
+    width0 = MIN( Char_Width * charMagniCoeff,  CharFilter_XMax - x0 );
+  3e:	1b92      	subs	r2, r2, r6
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:113
+    height0 = MIN( Char_Height * charMagniCoeff,  CharFilter_YMax - y0 );
+  40:	fb0a fa04 	mul.w	sl, sl, r4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:112
+    static coord_t height0;
+    u8 j2;
+
+    UNREFERENCED_PARAMETER( width );
+
+    width0 = MIN( Char_Width * charMagniCoeff,  CharFilter_XMax - x0 );
+  44:	4594      	cmp	ip, r2
+  46:	bfb8      	it	lt
+  48:	4662      	movlt	r2, ip
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:105
+    mag_t k1;
+    mag_t k2;
+    coord_t lin0;
+    coord_t lin1;
+    coord_t x0 = MAX( x, CharFilter_XMin );
+    coord_t y0 = MAX( y, CharFilter_YMin );
+  4a:	b2bf      	uxth	r7, r7
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:113
+    u8 j2;
+
+    UNREFERENCED_PARAMETER( width );
+
+    width0 = MIN( Char_Width * charMagniCoeff,  CharFilter_XMax - x0 );
+    height0 = MIN( Char_Height * charMagniCoeff,  CharFilter_YMax - y0 );
+  4c:	f9b3 c002 	ldrsh.w	ip, [r3, #2]
+  50:	fa0f f987 	sxth.w	r9, r7
+  54:	ebc9 0c0c 	rsb	ip, r9, ip
+  58:	45e2      	cmp	sl, ip
+  5a:	bfb8      	it	lt
+  5c:	46d4      	movlt	ip, sl
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:112
+    static coord_t height0;
+    u8 j2;
+
+    UNREFERENCED_PARAMETER( width );
+
+    width0 = MIN( Char_Width * charMagniCoeff,  CharFilter_XMax - x0 );
+  5e:	b292      	uxth	r2, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:113
+    height0 = MIN( Char_Height * charMagniCoeff,  CharFilter_YMax - y0 );
+  60:	fa1f fc8c 	uxth.w	ip, ip
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:116
+
+
+    if ( y0 > y )
+  64:	4589      	cmp	r9, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:95
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DrawChar( coord_t x, coord_t y, coord_t width, const u8* bmp, color_t textColor, color_t bGndColor, mag_t charMagniCoeff )
+{
+  66:	f8bd 8070 	ldrh.w	r8, [sp, #112]	; 0x70
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:112
+    static coord_t height0;
+    u8 j2;
+
+    UNREFERENCED_PARAMETER( width );
+
+    width0 = MIN( Char_Width * charMagniCoeff,  CharFilter_XMax - x0 );
+  6a:	80aa      	strh	r2, [r5, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:113
+    height0 = MIN( Char_Height * charMagniCoeff,  CharFilter_YMax - y0 );
+  6c:	46bb      	mov	fp, r7
+  6e:	f8a5 c006 	strh.w	ip, [r5, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:116
+
+
+    if ( y0 > y )
+  72:	dd03      	ble.n	7c <LCD_DrawChar+0x7c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:117
+        height0 -= ( y0 - y );
+  74:	1bcb      	subs	r3, r1, r7
+  76:	449c      	add	ip, r3
+  78:	f8a5 c006 	strh.w	ip, [r5, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:119
+
+    if ( x0 > x )
+  7c:	4286      	cmp	r6, r0
+  7e:	dd05      	ble.n	8c <LCD_DrawChar+0x8c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:120
+        width0 -= ( x0 - x );
+  80:	f8dd c014 	ldr.w	ip, [sp, #20]
+  84:	ebcc 0300 	rsb	r3, ip, r0
+  88:	189a      	adds	r2, r3, r2
+  8a:	80aa      	strh	r2, [r5, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:122
+
+    if (( width0 <= 0 ) || ( height0 <= 0 ) )
+  8c:	f9b5 2004 	ldrsh.w	r2, [r5, #4]
+  90:	2a00      	cmp	r2, #0
+  92:	f340 8121 	ble.w	2d8 <LCD_DrawChar+0x2d8>
+  96:	4b81      	ldr	r3, [pc, #516]	; (29c <LCD_DrawChar+0x29c>)
+  98:	88db      	ldrh	r3, [r3, #6]
+  9a:	fa0f fc83 	sxth.w	ip, r3
+  9e:	f1bc 0f00 	cmp.w	ip, #0
+  a2:	f340 8119 	ble.w	2d8 <LCD_DrawChar+0x2d8>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:127
+        return;
+
+    i0 = ( x0 - x ) / charMagniCoeff;
+    i1 = width0 / charMagniCoeff;
+    lin0 = ( y0 - y ) ;
+  a6:	1a79      	subs	r1, r7, r1
+  a8:	b289      	uxth	r1, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:126
+
+    if (( width0 <= 0 ) || ( height0 <= 0 ) )
+        return;
+
+    i0 = ( x0 - x ) / charMagniCoeff;
+    i1 = width0 / charMagniCoeff;
+  aa:	fb92 f2f4 	sdiv	r2, r2, r4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:128
+    lin0 = ( y0 - y ) ;
+    lin1 = height0 + lin0;
+  ae:	18cb      	adds	r3, r1, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:154
+                    if (( n < lin0 ) || ( n >= lin1 ) )
+                        continue;
+                    if ( (Transparency == 0) || (charMagniCoeff>3) )
+                    {
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor >> 8 ) : ( bGndColor >> 8 ) );
+  b0:	f8dd b020 	ldr.w	fp, [sp, #32]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:126
+
+    if (( width0 <= 0 ) || ( height0 <= 0 ) )
+        return;
+
+    i0 = ( x0 - x ) / charMagniCoeff;
+    i1 = width0 / charMagniCoeff;
+  b4:	b292      	uxth	r2, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:128
+    lin0 = ( y0 - y ) ;
+    lin1 = height0 + lin0;
+  b6:	b29b      	uxth	r3, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:125
+        width0 -= ( x0 - x );
+
+    if (( width0 <= 0 ) || ( height0 <= 0 ) )
+        return;
+
+    i0 = ( x0 - x ) / charMagniCoeff;
+  b8:	1a36      	subs	r6, r6, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:126
+    i1 = width0 / charMagniCoeff;
+  ba:	920f      	str	r2, [sp, #60]	; 0x3c
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:128
+    lin0 = ( y0 - y ) ;
+    lin1 = height0 + lin0;
+  bc:	930a      	str	r3, [sp, #40]	; 0x28
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:127
+    if (( width0 <= 0 ) || ( height0 <= 0 ) )
+        return;
+
+    i0 = ( x0 - x ) / charMagniCoeff;
+    i1 = width0 / charMagniCoeff;
+    lin0 = ( y0 - y ) ;
+  be:	b28a      	uxth	r2, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:161
+                    else
+                    {
+                        if ( ( bmp[2 * i] & j ) )
+                        {
+                            LCD_SendLCDData( textColor & 255  );
+                            LCD_SendLCDData( textColor >> 8 );
+  c0:	ea4f 2318 	mov.w	r3, r8, lsr #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:154
+                    if (( n < lin0 ) || ( n >= lin1 ) )
+                        continue;
+                    if ( (Transparency == 0) || (charMagniCoeff>3) )
+                    {
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor >> 8 ) : ( bGndColor >> 8 ) );
+  c4:	ea4f 2b1b 	mov.w	fp, fp, lsr #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:125
+        width0 -= ( x0 - x );
+
+    if (( width0 <= 0 ) || ( height0 <= 0 ) )
+        return;
+
+    i0 = ( x0 - x ) / charMagniCoeff;
+  c8:	fb96 f6f4 	sdiv	r6, r6, r4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:127
+    i1 = width0 / charMagniCoeff;
+    lin0 = ( y0 - y ) ;
+  cc:	9209      	str	r2, [sp, #36]	; 0x24
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:161
+                    else
+                    {
+                        if ( ( bmp[2 * i] & j ) )
+                        {
+                            LCD_SendLCDData( textColor & 255  );
+                            LCD_SendLCDData( textColor >> 8 );
+  ce:	9306      	str	r3, [sp, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:154
+                    if (( n < lin0 ) || ( n >= lin1 ) )
+                        continue;
+                    if ( (Transparency == 0) || (charMagniCoeff>3) )
+                    {
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor >> 8 ) : ( bGndColor >> 8 ) );
+  d0:	f8cd b030 	str.w	fp, [sp, #48]	; 0x30
+  d4:	e0f7      	b.n	2c6 <LCD_DrawChar+0x2c6>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:132
+    lin0 = ( y0 - y ) ;
+    lin1 = height0 + lin0;
+    
+    for ( i = i0; i < i1; i++ )
+    {
+        if ( Transparency && (charMagniCoeff < 4) ) // save the column pixels if transparency is on
+  d6:	4a73      	ldr	r2, [pc, #460]	; (2a4 <LCD_DrawChar+0x2a4>)
+  d8:	7813      	ldrb	r3, [r2, #0]
+  da:	b173      	cbz	r3, fa <LCD_DrawChar+0xfa>
+  dc:	2c03      	cmp	r4, #3
+  de:	dc0c      	bgt.n	fa <LCD_DrawChar+0xfa>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:133
+            LCD_RectRead(x0+(charMagniCoeff*i), y0, charMagniCoeff, height0, (u8*) &bmpTmp );
+  e0:	f8dd c014 	ldr.w	ip, [sp, #20]
+  e4:	4a70      	ldr	r2, [pc, #448]	; (2a8 <LCD_DrawChar+0x2a8>)
+  e6:	fb04 c006 	mla	r0, r4, r6, ip
+  ea:	9200      	str	r2, [sp, #0]
+  ec:	f9b5 3006 	ldrsh.w	r3, [r5, #6]
+  f0:	b200      	sxth	r0, r0
+  f2:	b239      	sxth	r1, r7
+  f4:	b222      	sxth	r2, r4
+  f6:	f7ff fffe 	bl	0 <LCD_RectRead>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:136
+
+        /* Select the area for LCD output.*/
+        LCD_SetRect_For_Cmd( x0+(charMagniCoeff*i), y0, charMagniCoeff, height0 );
+  fa:	9b05      	ldr	r3, [sp, #20]
+  fc:	b239      	sxth	r1, r7
+  fe:	fb04 3006 	mla	r0, r4, r6, r3
+ 102:	b222      	sxth	r2, r4
+ 104:	f9b5 3006 	ldrsh.w	r3, [r5, #6]
+ 108:	b200      	sxth	r0, r0
+ 10a:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:139
+
+        /* Select LCD output mode.*/
+        LCD_SendLCDCmd_RAM_Access();
+ 10e:	f7ff fffe 	bl	0 <LCD_SendLCDCmd_RAM_Access>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:158
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor >> 8 ) : ( bGndColor >> 8 ) );
+                    }
+                    else
+                    {
+                        if ( ( bmp[2 * i] & j ) )
+ 112:	b233      	sxth	r3, r6
+ 114:	990e      	ldr	r1, [sp, #56]	; 0x38
+ 116:	005b      	lsls	r3, r3, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:186
+                        LCD_SendLCDData(( bmp[2 * i + 1] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+                        LCD_SendLCDData(( bmp[2 * i + 1] & j ) ? ( textColor >> 8 ) : ( bGndColor >> 8 ) );
+                    }
+                    else
+                    {
+                        if ( ( bmp[2 * i + 1] & j ) )
+ 118:	9a0e      	ldr	r2, [sp, #56]	; 0x38
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:158
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor >> 8 ) : ( bGndColor >> 8 ) );
+                    }
+                    else
+                    {
+                        if ( ( bmp[2 * i] & j ) )
+ 11a:	18c9      	adds	r1, r1, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:186
+                        LCD_SendLCDData(( bmp[2 * i + 1] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+                        LCD_SendLCDData(( bmp[2 * i + 1] & j ) ? ( textColor >> 8 ) : ( bGndColor >> 8 ) );
+                    }
+                    else
+                    {
+                        if ( ( bmp[2 * i + 1] & j ) )
+ 11c:	3301      	adds	r3, #1
+ 11e:	18d3      	adds	r3, r2, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:158
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor >> 8 ) : ( bGndColor >> 8 ) );
+                    }
+                    else
+                    {
+                        if ( ( bmp[2 * i] & j ) )
+ 120:	910b      	str	r1, [sp, #44]	; 0x2c
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:186
+                        LCD_SendLCDData(( bmp[2 * i + 1] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+                        LCD_SendLCDData(( bmp[2 * i + 1] & j ) ? ( textColor >> 8 ) : ( bGndColor >> 8 ) );
+                    }
+                    else
+                    {
+                        if ( ( bmp[2 * i + 1] & j ) )
+ 122:	930d      	str	r3, [sp, #52]	; 0x34
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:141
+        LCD_SetRect_For_Cmd( x0+(charMagniCoeff*i), y0, charMagniCoeff, height0 );
+
+        /* Select LCD output mode.*/
+        LCD_SendLCDCmd_RAM_Access();
+
+        for ( k1 = 0; k1 < charMagniCoeff; k1++ )
+ 124:	f04f 0900 	mov.w	r9, #0
+ 128:	9610      	str	r6, [sp, #64]	; 0x40
+ 12a:	9711      	str	r7, [sp, #68]	; 0x44
+ 12c:	f8cd 8010 	str.w	r8, [sp, #16]
+ 130:	9403      	str	r4, [sp, #12]
+ 132:	e0bd      	b.n	2b0 <LCD_DrawChar+0x2b0>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:149
+            j2 = 0;
+            for ( j = 0x80; j; j >>= 1 , j2++ ) // For all 8 bits
+            {
+                for ( k2 = 0; k2 < charMagniCoeff; k2++ , n++ )
+                {
+                    if (( n < lin0 ) || ( n >= lin1 ) )
+ 134:	f8dd c024 	ldr.w	ip, [sp, #36]	; 0x24
+ 138:	b233      	sxth	r3, r6
+ 13a:	fa0f f28c 	sxth.w	r2, ip
+ 13e:	4293      	cmp	r3, r2
+ 140:	db3a      	blt.n	1b8 <LCD_DrawChar+0x1b8>
+ 142:	990a      	ldr	r1, [sp, #40]	; 0x28
+ 144:	b20a      	sxth	r2, r1
+ 146:	4293      	cmp	r3, r2
+ 148:	da36      	bge.n	1b8 <LCD_DrawChar+0x1b8>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:151
+                        continue;
+                    if ( (Transparency == 0) || (charMagniCoeff>3) )
+ 14a:	4b56      	ldr	r3, [pc, #344]	; (2a4 <LCD_DrawChar+0x2a4>)
+ 14c:	990b      	ldr	r1, [sp, #44]	; 0x2c
+ 14e:	781a      	ldrb	r2, [r3, #0]
+ 150:	780b      	ldrb	r3, [r1, #0]
+ 152:	b112      	cbz	r2, 15a <LCD_DrawChar+0x15a>
+ 154:	9a03      	ldr	r2, [sp, #12]
+ 156:	2a03      	cmp	r2, #3
+ 158:	dd11      	ble.n	17e <LCD_DrawChar+0x17e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:153
+                    {
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+ 15a:	421f      	tst	r7, r3
+ 15c:	bf15      	itete	ne
+ 15e:	9b04      	ldrne	r3, [sp, #16]
+ 160:	f8dd c020 	ldreq.w	ip, [sp, #32]
+ 164:	b2d8      	uxtbne	r0, r3
+ 166:	fa5f f08c 	uxtbeq.w	r0, ip
+ 16a:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:154
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor >> 8 ) : ( bGndColor >> 8 ) );
+ 16e:	990b      	ldr	r1, [sp, #44]	; 0x2c
+ 170:	980c      	ldr	r0, [sp, #48]	; 0x30
+ 172:	780b      	ldrb	r3, [r1, #0]
+ 174:	9a06      	ldr	r2, [sp, #24]
+ 176:	421f      	tst	r7, r3
+ 178:	bf18      	it	ne
+ 17a:	4610      	movne	r0, r2
+ 17c:	e01a      	b.n	1b4 <LCD_DrawChar+0x1b4>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:158
+                    }
+                    else
+                    {
+                        if ( ( bmp[2 * i] & j ) )
+ 17e:	421f      	tst	r7, r3
+ 180:	d005      	beq.n	18e <LCD_DrawChar+0x18e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:160
+                        {
+                            LCD_SendLCDData( textColor & 255  );
+ 182:	9b04      	ldr	r3, [sp, #16]
+ 184:	b2d8      	uxtb	r0, r3
+ 186:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:161
+                            LCD_SendLCDData( textColor >> 8 );
+ 18a:	9806      	ldr	r0, [sp, #24]
+ 18c:	e012      	b.n	1b4 <LCD_DrawChar+0x1b4>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:165
+                        }
+                        else
+                        {
+                            LCD_SendLCDData(bmpTmp[height0*k1+n]&0xff);
+ 18e:	f9b5 3006 	ldrsh.w	r3, [r5, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:94
+*
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DrawChar( coord_t x, coord_t y, coord_t width, const u8* bmp, color_t textColor, color_t bGndColor, mag_t charMagniCoeff )
+ 192:	fa0f f88b 	sxth.w	r8, fp
+ 196:	44d0      	add	r8, sl
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:165
+                            LCD_SendLCDData( textColor & 255  );
+                            LCD_SendLCDData( textColor >> 8 );
+                        }
+                        else
+                        {
+                            LCD_SendLCDData(bmpTmp[height0*k1+n]&0xff);
+ 198:	fb03 8309 	mla	r3, r3, r9, r8
+ 19c:	4c42      	ldr	r4, [pc, #264]	; (2a8 <LCD_DrawChar+0x2a8>)
+ 19e:	f814 0013 	ldrb.w	r0, [r4, r3, lsl #1]
+ 1a2:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:166
+                            LCD_SendLCDData(bmpTmp[height0*k1+n]>>8);
+ 1a6:	f9b5 3006 	ldrsh.w	r3, [r5, #6]
+ 1aa:	fb03 8809 	mla	r8, r3, r9, r8
+ 1ae:	f834 0018 	ldrh.w	r0, [r4, r8, lsl #1]
+ 1b2:	0a00      	lsrs	r0, r0, #8
+ 1b4:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:147
+        {
+            coord_t n = 0;
+            j2 = 0;
+            for ( j = 0x80; j; j >>= 1 , j2++ ) // For all 8 bits
+            {
+                for ( k2 = 0; k2 < charMagniCoeff; k2++ , n++ )
+ 1b8:	3601      	adds	r6, #1
+ 1ba:	f10a 0a01 	add.w	sl, sl, #1
+ 1be:	b2b6      	uxth	r6, r6
+ 1c0:	9903      	ldr	r1, [sp, #12]
+ 1c2:	458a      	cmp	sl, r1
+ 1c4:	dbb6      	blt.n	134 <LCD_DrawChar+0x134>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:145
+
+        for ( k1 = 0; k1 < charMagniCoeff; k1++ )
+        {
+            coord_t n = 0;
+            j2 = 0;
+            for ( j = 0x80; j; j >>= 1 , j2++ ) // For all 8 bits
+ 1c6:	9a07      	ldr	r2, [sp, #28]
+ 1c8:	087f      	lsrs	r7, r7, #1
+ 1ca:	3a01      	subs	r2, #1
+ 1cc:	9207      	str	r2, [sp, #28]
+ 1ce:	d107      	bne.n	1e0 <LCD_DrawChar+0x1e0>
+ 1d0:	2780      	movs	r7, #128	; 0x80
+ 1d2:	e058      	b.n	286 <LCD_DrawChar+0x286>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:141
+        LCD_SetRect_For_Cmd( x0+(charMagniCoeff*i), y0, charMagniCoeff, height0 );
+
+        /* Select LCD output mode.*/
+        LCD_SendLCDCmd_RAM_Access();
+
+        for ( k1 = 0; k1 < charMagniCoeff; k1++ )
+ 1d4:	2308      	movs	r3, #8
+ 1d6:	9307      	str	r3, [sp, #28]
+ 1d8:	2780      	movs	r7, #128	; 0x80
+ 1da:	f04f 0b00 	mov.w	fp, #0
+ 1de:	e000      	b.n	1e2 <LCD_DrawChar+0x1e2>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:145
+        {
+            coord_t n = 0;
+            j2 = 0;
+            for ( j = 0x80; j; j >>= 1 , j2++ ) // For all 8 bits
+ 1e0:	46b3      	mov	fp, r6
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:154
+                    if (( n < lin0 ) || ( n >= lin1 ) )
+                        continue;
+                    if ( (Transparency == 0) || (charMagniCoeff>3) )
+                    {
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+                        LCD_SendLCDData(( bmp[2 * i] & j ) ? ( textColor >> 8 ) : ( bGndColor >> 8 ) );
+ 1e2:	465e      	mov	r6, fp
+ 1e4:	f04f 0a00 	mov.w	sl, #0
+ 1e8:	e7ea      	b.n	1c0 <LCD_DrawChar+0x1c0>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:176
+
+            for ( j = 0x80; j > (16-Char_Height); j >>= 1 , j2++ ) // 8
+            {
+                for ( k2 = 0; k2 < charMagniCoeff; k2++ , n++ )
+                {
+                    if (( n < lin0 ) || ( n >= lin1 ) )
+ 1ea:	f8dd c024 	ldr.w	ip, [sp, #36]	; 0x24
+ 1ee:	fa0f f38b 	sxth.w	r3, fp
+ 1f2:	fa0f f28c 	sxth.w	r2, ip
+ 1f6:	4293      	cmp	r3, r2
+ 1f8:	db3a      	blt.n	270 <LCD_DrawChar+0x270>
+ 1fa:	990a      	ldr	r1, [sp, #40]	; 0x28
+ 1fc:	b20a      	sxth	r2, r1
+ 1fe:	4293      	cmp	r3, r2
+ 200:	da36      	bge.n	270 <LCD_DrawChar+0x270>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:179
+                        continue;
+
+                    if ( (Transparency == 0) || (charMagniCoeff>3) )
+ 202:	4b28      	ldr	r3, [pc, #160]	; (2a4 <LCD_DrawChar+0x2a4>)
+ 204:	990d      	ldr	r1, [sp, #52]	; 0x34
+ 206:	781a      	ldrb	r2, [r3, #0]
+ 208:	780b      	ldrb	r3, [r1, #0]
+ 20a:	b112      	cbz	r2, 212 <LCD_DrawChar+0x212>
+ 20c:	9a03      	ldr	r2, [sp, #12]
+ 20e:	2a03      	cmp	r2, #3
+ 210:	dd11      	ble.n	236 <LCD_DrawChar+0x236>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:181
+                    {
+                        LCD_SendLCDData(( bmp[2 * i + 1] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+ 212:	421f      	tst	r7, r3
+ 214:	bf15      	itete	ne
+ 216:	9b04      	ldrne	r3, [sp, #16]
+ 218:	f8dd c020 	ldreq.w	ip, [sp, #32]
+ 21c:	b2d8      	uxtbne	r0, r3
+ 21e:	fa5f f08c 	uxtbeq.w	r0, ip
+ 222:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:182
+                        LCD_SendLCDData(( bmp[2 * i + 1] & j ) ? ( textColor >> 8 ) : ( bGndColor >> 8 ) );
+ 226:	990d      	ldr	r1, [sp, #52]	; 0x34
+ 228:	980c      	ldr	r0, [sp, #48]	; 0x30
+ 22a:	780b      	ldrb	r3, [r1, #0]
+ 22c:	9a06      	ldr	r2, [sp, #24]
+ 22e:	421f      	tst	r7, r3
+ 230:	bf18      	it	ne
+ 232:	4610      	movne	r0, r2
+ 234:	e01a      	b.n	26c <LCD_DrawChar+0x26c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:186
+                    }
+                    else
+                    {
+                        if ( ( bmp[2 * i + 1] & j ) )
+ 236:	421f      	tst	r7, r3
+ 238:	d005      	beq.n	246 <LCD_DrawChar+0x246>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:188
+                        {
+                            LCD_SendLCDData( textColor & 255  );
+ 23a:	9b04      	ldr	r3, [sp, #16]
+ 23c:	b2d8      	uxtb	r0, r3
+ 23e:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:189
+                            LCD_SendLCDData( textColor >> 8 );
+ 242:	9806      	ldr	r0, [sp, #24]
+ 244:	e012      	b.n	26c <LCD_DrawChar+0x26c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:193
+                        }
+                        else
+                        {
+                            LCD_SendLCDData(bmpTmp[height0*k1+n]&0xff);
+ 246:	f9b5 3006 	ldrsh.w	r3, [r5, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:94
+*
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DrawChar( coord_t x, coord_t y, coord_t width, const u8* bmp, color_t textColor, color_t bGndColor, mag_t charMagniCoeff )
+ 24a:	fa0f f886 	sxth.w	r8, r6
+ 24e:	44d0      	add	r8, sl
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:193
+                            LCD_SendLCDData( textColor & 255  );
+                            LCD_SendLCDData( textColor >> 8 );
+                        }
+                        else
+                        {
+                            LCD_SendLCDData(bmpTmp[height0*k1+n]&0xff);
+ 250:	fb03 8309 	mla	r3, r3, r9, r8
+ 254:	4c14      	ldr	r4, [pc, #80]	; (2a8 <LCD_DrawChar+0x2a8>)
+ 256:	f814 0013 	ldrb.w	r0, [r4, r3, lsl #1]
+ 25a:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:194
+                            LCD_SendLCDData(bmpTmp[height0*k1+n]>>8);
+ 25e:	f9b5 3006 	ldrsh.w	r3, [r5, #6]
+ 262:	fb03 8809 	mla	r8, r3, r9, r8
+ 266:	f834 0018 	ldrh.w	r0, [r4, r8, lsl #1]
+ 26a:	0a00      	lsrs	r0, r0, #8
+ 26c:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:174
+                }
+            }
+
+            for ( j = 0x80; j > (16-Char_Height); j >>= 1 , j2++ ) // 8
+            {
+                for ( k2 = 0; k2 < charMagniCoeff; k2++ , n++ )
+ 270:	f10b 0b01 	add.w	fp, fp, #1
+ 274:	f10a 0a01 	add.w	sl, sl, #1
+ 278:	fa1f fb8b 	uxth.w	fp, fp
+ 27c:	9903      	ldr	r1, [sp, #12]
+ 27e:	458a      	cmp	sl, r1
+ 280:	dbb3      	blt.n	1ea <LCD_DrawChar+0x1ea>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:172
+                        }
+                    }
+                }
+            }
+
+            for ( j = 0x80; j > (16-Char_Height); j >>= 1 , j2++ ) // 8
+ 282:	087f      	lsrs	r7, r7, #1
+ 284:	465e      	mov	r6, fp
+ 286:	4a06      	ldr	r2, [pc, #24]	; (2a0 <LCD_DrawChar+0x2a0>)
+ 288:	7953      	ldrb	r3, [r2, #5]
+ 28a:	f1c3 0310 	rsb	r3, r3, #16
+ 28e:	429f      	cmp	r7, r3
+ 290:	d90c      	bls.n	2ac <LCD_DrawChar+0x2ac>
+ 292:	46b3      	mov	fp, r6
+ 294:	f04f 0a00 	mov.w	sl, #0
+ 298:	e7f0      	b.n	27c <LCD_DrawChar+0x27c>
+ 29a:	bf00      	nop
+	...
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:141
+        LCD_SetRect_For_Cmd( x0+(charMagniCoeff*i), y0, charMagniCoeff, height0 );
+
+        /* Select LCD output mode.*/
+        LCD_SendLCDCmd_RAM_Access();
+
+        for ( k1 = 0; k1 < charMagniCoeff; k1++ )
+ 2ac:	f109 0901 	add.w	r9, r9, #1
+ 2b0:	9b03      	ldr	r3, [sp, #12]
+ 2b2:	4599      	cmp	r9, r3
+ 2b4:	db8e      	blt.n	1d4 <LCD_DrawChar+0x1d4>
+ 2b6:	9e10      	ldr	r6, [sp, #64]	; 0x40
+ 2b8:	9f11      	ldr	r7, [sp, #68]	; 0x44
+ 2ba:	f8dd 8010 	ldr.w	r8, [sp, #16]
+ 2be:	461c      	mov	r4, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:201
+                    }
+                }
+            }
+        }
+        /* End of select screen area to access.*/
+        LCD_SendLCDCmd_RAM_Access_End();
+ 2c0:	f7ff fffe 	bl	0 <LCD_SendLCDCmd_RAM_Access_End>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:130
+    i0 = ( x0 - x ) / charMagniCoeff;
+    i1 = width0 / charMagniCoeff;
+    lin0 = ( y0 - y ) ;
+    lin1 = height0 + lin0;
+    
+    for ( i = i0; i < i1; i++ )
+ 2c4:	3601      	adds	r6, #1
+ 2c6:	f8dd b03c 	ldr.w	fp, [sp, #60]	; 0x3c
+ 2ca:	b2b6      	uxth	r6, r6
+ 2cc:	b232      	sxth	r2, r6
+ 2ce:	fa0f f38b 	sxth.w	r3, fp
+ 2d2:	429a      	cmp	r2, r3
+ 2d4:	f6ff aeff 	blt.w	d6 <LCD_DrawChar+0xd6>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:204
+        }
+        /* End of select screen area to access.*/
+        LCD_SendLCDCmd_RAM_Access_End();
+    }
+
+}
+ 2d8:	b013      	add	sp, #76	; 0x4c
+ 2da:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 2de:	bf00      	nop
+
+Disassembly of section .text.LCD_Handler:
+
+00000000 <LCD_Handler>:
+LCD_Handler():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:226
+**/
+/******************************************************************************/
+void LCD_Handler( void )
+{
+#if BACKLIGHT_INTERFACE
+    if ( ++HandlerDivider % BACKLIGHT_DIVIDER )
+   0:	68934a06 	.word	0x68934a06
+   4:	3301      	adds	r3, #1
+   6:	6093      	str	r3, [r2, #8]
+   8:	f44f 72fa 	mov.w	r2, #500	; 0x1f4
+   c:	fb93 f1f2 	sdiv	r1, r3, r2
+  10:	fb02 3311 	mls	r3, r2, r1, r3
+  14:	b90b      	cbnz	r3, 6 <LCD_BackLightChange+0x6>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:231
+    {
+        return;
+    }
+
+    LCD_BackLightChange();
+  16:	f7ff bffe 	b.w	0 <LCD_BackLightChange>
+  1a:	4770      	bx	lr
+  1c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LCD_FillRect_Circle:
+
+00000000 <LCD_FillRect_Circle>:
+LCD_FillRect_Circle():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:258
+*  Rq : this function does not check parameters validity
+*
+**/
+/******************************************************************************/
+void LCD_FillRect_Circle( coord_t x, coord_t y, coord_t width, coord_t height, color_t color )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	f8bd 4018 	ldrh.w	r4, [sp, #24]
+   8:	4615      	mov	r5, r2
+   a:	461e      	mov	r6, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:274
+    for ( Line = width; Line > 0; --Line )
+    {
+        for ( Column = height; Column > 0; Column-- )
+        {
+            LCD_SendLCDData( color & 0xff );
+            LCD_SendLCDData(( color >> 8 ) & 0xff );
+   c:	ea4f 2814 	mov.w	r8, r4, lsr #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:263
+{
+    coord_t Line;
+    coord_t Column;
+
+    /* Select LCD screen area. */
+    LCD_SetRect_For_Cmd( x, y, width, height );
+  10:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:266
+
+    /* Send LCD RAM write command. */
+    LCD_SendLCDCmd_RAM_Access();
+  14:	f7ff fffe 	bl	0 <LCD_SendLCDCmd_RAM_Access>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:269
+
+    /* Fill selected LCD screen area with provided color. */
+    for ( Line = width; Line > 0; --Line )
+  18:	e00c      	b.n	34 <LCD_FillRect_Circle+0x34>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:273
+    {
+        for ( Column = height; Column > 0; Column-- )
+        {
+            LCD_SendLCDData( color & 0xff );
+  1a:	b2e0      	uxtb	r0, r4
+  1c:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:274
+            LCD_SendLCDData(( color >> 8 ) & 0xff );
+  20:	4640      	mov	r0, r8
+  22:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:271
+    LCD_SendLCDCmd_RAM_Access();
+
+    /* Fill selected LCD screen area with provided color. */
+    for ( Line = width; Line > 0; --Line )
+    {
+        for ( Column = height; Column > 0; Column-- )
+  26:	3f01      	subs	r7, #1
+  28:	b2bf      	uxth	r7, r7
+  2a:	b23b      	sxth	r3, r7
+  2c:	2b00      	cmp	r3, #0
+  2e:	dcf4      	bgt.n	1a <LCD_FillRect_Circle+0x1a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:269
+
+    /* Send LCD RAM write command. */
+    LCD_SendLCDCmd_RAM_Access();
+
+    /* Fill selected LCD screen area with provided color. */
+    for ( Line = width; Line > 0; --Line )
+  30:	3d01      	subs	r5, #1
+  32:	b2ad      	uxth	r5, r5
+  34:	b22b      	sxth	r3, r5
+  36:	2b00      	cmp	r3, #0
+  38:	dd01      	ble.n	3e <LCD_FillRect_Circle+0x3e>
+  3a:	4637      	mov	r7, r6
+  3c:	e7f5      	b.n	2a <LCD_FillRect_Circle+0x2a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:280
+        }
+    }
+
+    /* End of select screen area to access.*/
+    LCD_SendLCDCmd_RAM_Access_End();
+}
+  3e:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:279
+            LCD_SendLCDData(( color >> 8 ) & 0xff );
+        }
+    }
+
+    /* End of select screen area to access.*/
+    LCD_SendLCDCmd_RAM_Access_End();
+  42:	f7ff bffe 	b.w	0 <LCD_SendLCDCmd_RAM_Access_End>
+
+Disassembly of section .text.LCD_DisplayChar:
+
+00000000 <LCD_DisplayChar>:
+LCD_DisplayChar():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:426
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DisplayChar( coord_t x, coord_t y, u8 ascii, color_t  textColor, color_t  bGndColor, mag_t charMagCoeff )
+{
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:428
+    /* Display the selected bitmap according to the provided ASCII character.*/
+    if ( (ascii >= CurrentFontDef->ASCII_start) && (ascii <= CurrentFontDef->ASCII_end) )
+   2:	4d0e      	ldr	r5, [pc, #56]	; (3c <LCD_DisplayChar+0x3c>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:426
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DisplayChar( coord_t x, coord_t y, u8 ascii, color_t  textColor, color_t  bGndColor, mag_t charMagCoeff )
+{
+   4:	b085      	sub	sp, #20
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:428
+    /* Display the selected bitmap according to the provided ASCII character.*/
+    if ( (ascii >= CurrentFontDef->ASCII_start) && (ascii <= CurrentFontDef->ASCII_end) )
+   6:	68ae      	ldr	r6, [r5, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:426
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DisplayChar( coord_t x, coord_t y, u8 ascii, color_t  textColor, color_t  bGndColor, mag_t charMagCoeff )
+{
+   8:	f8bd 7028 	ldrh.w	r7, [sp, #40]	; 0x28
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:428
+    /* Display the selected bitmap according to the provided ASCII character.*/
+    if ( (ascii >= CurrentFontDef->ASCII_start) && (ascii <= CurrentFontDef->ASCII_end) )
+   c:	7934      	ldrb	r4, [r6, #4]
+   e:	42a2      	cmp	r2, r4
+  10:	d312      	bcc.n	38 <LCD_DisplayChar+0x38>
+  12:	7976      	ldrb	r6, [r6, #5]
+  14:	4296      	cmp	r6, r2
+  16:	d30f      	bcc.n	38 <LCD_DisplayChar+0x38>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:429
+        LCD_DrawChar( x, y, Char_Width, ( u8* )&CurrentFont[( ascii-CurrentFontDef->ASCII_start ) * (2*Char_Width)], textColor, bGndColor, charMagCoeff );
+  18:	1b14      	subs	r4, r2, r4
+  1a:	4a09      	ldr	r2, [pc, #36]	; (40 <LCD_DisplayChar+0x40>)
+  1c:	f895 e004 	ldrb.w	lr, [r5, #4]
+  20:	6815      	ldr	r5, [r2, #0]
+  22:	9300      	str	r3, [sp, #0]
+  24:	9b0b      	ldr	r3, [sp, #44]	; 0x2c
+  26:	ea4f 064e 	mov.w	r6, lr, lsl #1
+  2a:	9302      	str	r3, [sp, #8]
+  2c:	4672      	mov	r2, lr
+  2e:	fb04 5306 	mla	r3, r4, r6, r5
+  32:	9701      	str	r7, [sp, #4]
+  34:	f7ff fffe 	bl	0 <LCD_DisplayChar>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:430
+}
+  38:	b005      	add	sp, #20
+  3a:	bdf0      	pop	{r4, r5, r6, r7, pc}
+	...
+
+Disassembly of section .text.LCD_SetBackLight:
+
+00000000 <LCD_SetBackLight>:
+LCD_SetBackLight():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:449
+*
+**/
+/******************************************************************************/
+void LCD_SetBackLight( backlight_t newBacklightStart )
+{
+    if ( newBacklightStart >= BACKLIGHTMIN )
+   0:	f5b0 5f80 	cmp.w	r0, #4096	; 0x1000
+   4:	4b03      	ldr	r3, [pc, #12]	; (14 <LCD_SetBackLight+0x14>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:455
+    {
+        Current_CCR_BackLightStart = newBacklightStart;
+    }
+    else
+    {
+        Current_CCR_BackLightStart = DEFAULT_CCR_BACKLIGHTSTART;
+   6:	bf36      	itet	cc
+   8:	f44f 4200 	movcc.w	r2, #32768	; 0x8000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:451
+/******************************************************************************/
+void LCD_SetBackLight( backlight_t newBacklightStart )
+{
+    if ( newBacklightStart >= BACKLIGHTMIN )
+    {
+        Current_CCR_BackLightStart = newBacklightStart;
+   c:	6018      	strcs	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:455
+    }
+    else
+    {
+        Current_CCR_BackLightStart = DEFAULT_CCR_BACKLIGHTSTART;
+   e:	601a      	strcc	r2, [r3, #0]
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+  14:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LCD_SetBackLightOff:
+
+00000000 <LCD_SetBackLightOff>:
+LCD_SetBackLightOff():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:472
+*
+**/
+/******************************************************************************/
+void LCD_SetBackLightOff( void )
+{
+    Current_CCR_BackLightStart = 0;
+   0:	22004b01 	.word	0x22004b01
+   4:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:473
+}
+   6:	4770      	bx	lr
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LCD_SetBackLightOn:
+
+00000000 <LCD_SetBackLightOn>:
+LCD_SetBackLightOn():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:488
+*
+**/
+/******************************************************************************/
+void LCD_SetBackLightOn( void )
+{
+    Current_CCR_BackLightStart = DEFAULT_CCR_BACKLIGHTSTART;
+   0:	4b02      	ldr	r3, [pc, #8]	; (c <LCD_SetBackLightOn+0xc>)
+   2:	f44f 4200 	mov.w	r2, #32768	; 0x8000
+   6:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:489
+}
+   8:	4770      	bx	lr
+   a:	bf00      	nop
+   c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LCD_GetBackLight:
+
+00000000 <LCD_GetBackLight>:
+LCD_GetBackLight():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:507
+**/
+/******************************************************************************/
+backlight_t LCD_GetBackLight( void )
+{
+    return Current_CCR_BackLightStart;
+}
+   0:	68184b01 	.word	0x68184b01
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LCD_SetRotateScreen:
+
+00000000 <LCD_SetRotateScreen>:
+LCD_SetRotateScreen():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:527
+*
+**/
+/******************************************************************************/
+void LCD_SetRotateScreen( bool RotateScreen )
+{
+    CurrentRotateScreen = RotateScreen;
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <LCD_SetRotateScreen+0x8>)
+   2:	7018      	strb	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:528
+}
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LCD_GetRotateScreen:
+
+00000000 <LCD_GetRotateScreen>:
+LCD_GetRotateScreen():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:547
+**/
+/******************************************************************************/
+bool LCD_GetRotateScreen( void )
+{
+    return CurrentRotateScreen;
+}
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <LCD_GetRotateScreen+0x8>)
+   2:	7818      	ldrb	r0, [r3, #0]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LCD_SetScreenOrientation:
+
+00000000 <LCD_SetScreenOrientation>:
+LCD_SetScreenOrientation():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:564
+*
+**/
+/******************************************************************************/
+void LCD_SetScreenOrientation( Rotate_H12_V_Match_TypeDef ScreenOrientation )
+{
+    CurrentScreenOrientation = ScreenOrientation;
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <LCD_SetScreenOrientation+0x8>)
+   2:	7018      	strb	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:566
+
+    LCD_DisplayRotate( CurrentScreenOrientation );
+   4:	f7ff bffe 	b.w	0 <LCD_DisplayRotate>
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LCD_GetScreenOrientation:
+
+00000000 <LCD_GetScreenOrientation>:
+LCD_GetScreenOrientation():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:585
+**/
+/******************************************************************************/
+Rotate_H12_V_Match_TypeDef LCD_GetScreenOrientation( void )
+{
+    return CurrentScreenOrientation;
+}
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <LCD_GetScreenOrientation+0x8>)
+   2:	7818      	ldrb	r0, [r3, #0]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LCD_FillRect:
+
+00000000 <LCD_FillRect>:
+LCD_FillRect():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:335
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_FillRect( coord_t x, coord_t y, coord_t width, coord_t height, color_t color )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4616      	mov	r6, r2
+   6:	461d      	mov	r5, r3
+   8:	4604      	mov	r4, r0
+   a:	460f      	mov	r7, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:339
+
+    /* Rq : this fuction is just a wrapper with parameter limit checks*/
+
+    if( (LCD_GetScreenOrientation()%2) == 1 )
+   c:	f7ff fffe 	bl	0 <LCD_FillRect>
+  10:	f010 0f01 	tst.w	r0, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:335
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_FillRect( coord_t x, coord_t y, coord_t width, coord_t height, color_t color )
+{
+  14:	f8bd 8018 	ldrh.w	r8, [sp, #24]
+  18:	4b18      	ldr	r3, [pc, #96]	; (7c <LCD_FillRect+0x7c>)
+  1a:	4a19      	ldr	r2, [pc, #100]	; (80 <LCD_FillRect+0x80>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:339
+
+    /* Rq : this fuction is just a wrapper with parameter limit checks*/
+
+    if( (LCD_GetScreenOrientation()%2) == 1 )
+  1c:	d00d      	beq.n	3a <LCD_FillRect+0x3a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:341
+        {
+        if ( x > Screen_Height )
+  1e:	881b      	ldrh	r3, [r3, #0]
+  20:	b219      	sxth	r1, r3
+  22:	428c      	cmp	r4, r1
+  24:	bfb4      	ite	lt
+  26:	4620      	movlt	r0, r4
+  28:	4608      	movge	r0, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:343
+            x = Screen_Height;
+        if (( x + width ) > Screen_Height )
+  2a:	1834      	adds	r4, r6, r0
+  2c:	428c      	cmp	r4, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:344
+            width = Screen_Height - x;
+  2e:	bfc4      	itt	gt
+  30:	ebc0 0603 	rsbgt	r6, r0, r3
+  34:	b236      	sxthgt	r6, r6
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:347
+
+        /* Check the y parameters*/
+        if ( y > Screen_Width )
+  36:	8813      	ldrh	r3, [r2, #0]
+  38:	e00c      	b.n	54 <LCD_FillRect+0x54>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:355
+            height = Screen_Width - y;
+        }
+    else
+        {
+        /* Check the x parameters*/
+        if ( x > Screen_Width )
+  3a:	8812      	ldrh	r2, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:361
+            x = Screen_Width;
+        if (( x + width ) > Screen_Width )
+            width = Screen_Width - x;
+
+        /* Check the y parameters*/
+        if ( y > Screen_Height )
+  3c:	881b      	ldrh	r3, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:355
+            height = Screen_Width - y;
+        }
+    else
+        {
+        /* Check the x parameters*/
+        if ( x > Screen_Width )
+  3e:	b211      	sxth	r1, r2
+  40:	428c      	cmp	r4, r1
+  42:	bfb4      	ite	lt
+  44:	4620      	movlt	r0, r4
+  46:	4608      	movge	r0, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:357
+            x = Screen_Width;
+        if (( x + width ) > Screen_Width )
+  48:	1834      	adds	r4, r6, r0
+  4a:	428c      	cmp	r4, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:358
+            width = Screen_Width - x;
+  4c:	bfc4      	itt	gt
+  4e:	ebc0 0602 	rsbgt	r6, r0, r2
+  52:	b236      	sxthgt	r6, r6
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:361
+
+        /* Check the y parameters*/
+        if ( y > Screen_Height )
+  54:	b21a      	sxth	r2, r3
+  56:	4297      	cmp	r7, r2
+  58:	bfb4      	ite	lt
+  5a:	4639      	movlt	r1, r7
+  5c:	4611      	movge	r1, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:363
+            y = Screen_Height;
+        if (( y + height ) > Screen_Height )
+  5e:	186c      	adds	r4, r5, r1
+  60:	4294      	cmp	r4, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:364
+            height = Screen_Height - y;
+  62:	bfc4      	itt	gt
+  64:	ebc1 0503 	rsbgt	r5, r1, r3
+  68:	b22d      	sxthgt	r5, r5
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:369
+        }
+
+
+    /* Call the native function*/
+    LCD_FillRect_Circle( x, y, width, height, color );
+  6a:	4632      	mov	r2, r6
+  6c:	462b      	mov	r3, r5
+  6e:	f8cd 8018 	str.w	r8, [sp, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:370
+}
+  72:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:369
+            height = Screen_Height - y;
+        }
+
+
+    /* Call the native function*/
+    LCD_FillRect_Circle( x, y, width, height, color );
+  76:	f7ff bffe 	b.w	0 <LCD_FillRect>
+  7a:	bf00      	nop
+	...
+
+Disassembly of section .text.LCD_DrawRect:
+
+00000000 <LCD_DrawRect>:
+LCD_DrawRect():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:392
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DrawRect( coord_t x, coord_t y, coord_t width, coord_t height, color_t color )
+{
+   0:	e92d 41f3 	stmdb	sp!, {r0, r1, r4, r5, r6, r7, r8, lr}
+   4:	f8bd 4020 	ldrh.w	r4, [sp, #32]
+   8:	460e      	mov	r6, r1
+   a:	461d      	mov	r5, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:394
+    /* Draw horizontal sides.*/
+    LCD_FillRect( x, y,              width, 1, color );
+   c:	2301      	movs	r3, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:392
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DrawRect( coord_t x, coord_t y, coord_t width, coord_t height, color_t color )
+{
+   e:	4607      	mov	r7, r0
+  10:	4690      	mov	r8, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:394
+    /* Draw horizontal sides.*/
+    LCD_FillRect( x, y,              width, 1, color );
+  12:	9400      	str	r4, [sp, #0]
+  14:	f7ff fffe 	bl	0 <LCD_DrawRect>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:395
+    LCD_FillRect( x, y + height - 1, width, 1, color );
+  18:	1e71      	subs	r1, r6, #1
+  1a:	1949      	adds	r1, r1, r5
+  1c:	4638      	mov	r0, r7
+  1e:	4642      	mov	r2, r8
+  20:	2301      	movs	r3, #1
+  22:	b209      	sxth	r1, r1
+  24:	9400      	str	r4, [sp, #0]
+  26:	f7ff fffe 	bl	0 <LCD_DrawRect>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:398
+
+    /* Draw vertical sides.*/
+    LCD_FillRect( x,              y, 1, height, color );
+  2a:	4638      	mov	r0, r7
+  2c:	4631      	mov	r1, r6
+  2e:	2201      	movs	r2, #1
+  30:	462b      	mov	r3, r5
+  32:	9400      	str	r4, [sp, #0]
+  34:	f7ff fffe 	bl	0 <LCD_DrawRect>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:399
+    LCD_FillRect( x + width - 1,  y, 1, height, color );
+  38:	3f01      	subs	r7, #1
+  3a:	44b8      	add	r8, r7
+  3c:	fa0f f088 	sxth.w	r0, r8
+  40:	4631      	mov	r1, r6
+  42:	2201      	movs	r2, #1
+  44:	462b      	mov	r3, r5
+  46:	9408      	str	r4, [sp, #32]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:400
+}
+  48:	b002      	add	sp, #8
+  4a:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:399
+    LCD_FillRect( x, y,              width, 1, color );
+    LCD_FillRect( x, y + height - 1, width, 1, color );
+
+    /* Draw vertical sides.*/
+    LCD_FillRect( x,              y, 1, height, color );
+    LCD_FillRect( x + width - 1,  y, 1, height, color );
+  4e:	f7ff bffe 	b.w	0 <LCD_DrawRect>
+
+Disassembly of section .text.LCD_ClearAllScreen:
+
+00000000 <LCD_ClearAllScreen>:
+LCD_ClearAllScreen():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:298
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+NODEBUG2 void LCD_ClearAllScreen( color_t color )
+{
+   0:	b537      	push	{r0, r1, r2, r4, r5, lr}
+   2:	4605      	mov	r5, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:300
+    // Backup orientation
+    Rotate_H12_V_Match_TypeDef backupOrientation = LCD_GetScreenOrientation();
+   4:	f7ff fffe 	bl	0 <LCD_ClearAllScreen>
+   8:	4604      	mov	r4, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:303
+
+    // Clear the application and toolbar screen
+    LCD_SetScreenOrientation( V12 );
+   a:	2000      	movs	r0, #0
+   c:	f7ff fffe 	bl	0 <LCD_ClearAllScreen>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:304
+    LCD_FillRect_Circle( 0, 0, PHYS_SCREEN_WIDTH, PHYS_SCREEN_HEIGHT, color );
+  10:	2000      	movs	r0, #0
+  12:	4601      	mov	r1, r0
+  14:	22f0      	movs	r2, #240	; 0xf0
+  16:	f44f 73a0 	mov.w	r3, #320	; 0x140
+  1a:	9500      	str	r5, [sp, #0]
+  1c:	f7ff fffe 	bl	0 <LCD_ClearAllScreen>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:307
+
+    // Restore orientation
+    LCD_SetScreenOrientation( backupOrientation );
+  20:	4620      	mov	r0, r4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:308
+}
+  22:	b003      	add	sp, #12
+  24:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:307
+    // Clear the application and toolbar screen
+    LCD_SetScreenOrientation( V12 );
+    LCD_FillRect_Circle( 0, 0, PHYS_SCREEN_WIDTH, PHYS_SCREEN_HEIGHT, color );
+
+    // Restore orientation
+    LCD_SetScreenOrientation( backupOrientation );
+  28:	f7ff bffe 	b.w	0 <LCD_ClearAllScreen>
+
+Disassembly of section .text.LCD_SetFont:
+
+00000000 <LCD_SetFont>:
+LCD_SetFont():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:601
+*
+**/
+/******************************************************************************/
+void LCD_SetFont( const u8* NewFont )
+{
+    CurrentFont = NewFont;
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <LCD_SetFont+0x8>)
+   2:	6018      	str	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:602
+}
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LCD_SetFontDef:
+
+00000000 <LCD_SetFontDef>:
+LCD_SetFontDef():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:617
+*   @param[in] FontDef : Pointer of the new font definition structure
+*
+**/
+/******************************************************************************/
+void LCD_SetFontDef( tFontDef* FontDef )
+{
+   0:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:618
+    if(FontDef)
+   2:	b1b0      	cbz	r0, 32 <LCD_SetFontDef+0x32>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:620
+    {
+        CurrentFontDef = FontDef;
+   4:	4c0b      	ldr	r4, [pc, #44]	; (34 <LCD_SetFontDef+0x34>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:621
+        Char_Width = CurrentFontDef->width;
+   6:	7843      	ldrb	r3, [r0, #1]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:620
+/******************************************************************************/
+void LCD_SetFontDef( tFontDef* FontDef )
+{
+    if(FontDef)
+    {
+        CurrentFontDef = FontDef;
+   8:	60a0      	str	r0, [r4, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:621
+        Char_Width = CurrentFontDef->width;
+   a:	7123      	strb	r3, [r4, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:622
+        Char_Height = CurrentFontDef->height;
+   c:	7883      	ldrb	r3, [r0, #2]
+   e:	7163      	strb	r3, [r4, #5]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:623
+        DRAW_SetCharMagniCoeff(CurrentFontDef->FontCoeff);
+  10:	78c0      	ldrb	r0, [r0, #3]
+  12:	f7ff fffe 	bl	0 <DRAW_SetCharMagniCoeff>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:625
+        //Set DeltaY to prevent scrolling bugs (if odd height or magnification coefficient > 1 )
+        DeltaY = ((( Char_Height % 2 == 0 ) || ( DRAW_GetCharMagniCoeff()==2 ) ) ? 2 : 1 );
+  16:	7963      	ldrb	r3, [r4, #5]
+  18:	f013 0f01 	tst.w	r3, #1
+  1c:	d006      	beq.n	10 <DRAW_GetCharMagniCoeff+0x10>
+  1e:	f7ff fffe 	bl	0 <DRAW_GetCharMagniCoeff>
+  22:	2802      	cmp	r0, #2
+  24:	bf0c      	ite	eq
+  26:	2002      	moveq	r0, #2
+  28:	2001      	movne	r0, #1
+  2a:	e000      	b.n	2e <LCD_SetFontDef+0x2e>
+  2c:	2002      	movs	r0, #2
+  2e:	4b02      	ldr	r3, [pc, #8]	; (38 <LCD_SetFontDef+0x38>)
+  30:	7018      	strb	r0, [r3, #0]
+  32:	bd10      	pop	{r4, pc}
+	...
+
+Disassembly of section .text.LCD_GetFontDef:
+
+00000000 <LCD_GetFontDef>:
+LCD_GetFontDef():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:645
+**/
+/******************************************************************************/
+tFontDef* LCD_GetFontDef( void )
+{
+    return CurrentFontDef;
+}
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <LCD_GetFontDef+0x8>)
+   2:	6898      	ldr	r0, [r3, #8]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LCD_ChangeFont:
+
+00000000 <LCD_ChangeFont>:
+LCD_ChangeFont():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:677
+*
+**/
+/******************************************************************************/
+void LCD_ChangeFont( enum ENUM_FontID ID )
+{
+    if ( ID < Font_Table.nb )
+   0:	4b11      	ldr	r3, [pc, #68]	; (48 <LCD_ChangeFont+0x48>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:676
+*   @param[in] ID : the font's ID
+*
+**/
+/******************************************************************************/
+void LCD_ChangeFont( enum ENUM_FontID ID )
+{
+   2:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:677
+    if ( ID < Font_Table.nb )
+   4:	781a      	ldrb	r2, [r3, #0]
+   6:	4282      	cmp	r2, r0
+   8:	d91d      	bls.n	46 <LCD_ChangeFont+0x46>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:679
+    {
+        CurrentFontDef = (tFontDef*) &Font_Table.fonts[ID];
+   a:	221c      	movs	r2, #28
+   c:	fb02 3300 	mla	r3, r2, r0, r3
+  10:	4c0e      	ldr	r4, [pc, #56]	; (4c <LCD_ChangeFont+0x4c>)
+  12:	1d1a      	adds	r2, r3, #4
+  14:	60a2      	str	r2, [r4, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:680
+        Char_Width = CurrentFontDef->width;
+  16:	795a      	ldrb	r2, [r3, #5]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:682
+        Char_Height = CurrentFontDef->height;
+        CurrentFont = CurrentFontDef->font;
+  18:	68d9      	ldr	r1, [r3, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:680
+void LCD_ChangeFont( enum ENUM_FontID ID )
+{
+    if ( ID < Font_Table.nb )
+    {
+        CurrentFontDef = (tFontDef*) &Font_Table.fonts[ID];
+        Char_Width = CurrentFontDef->width;
+  1a:	7122      	strb	r2, [r4, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:681
+        Char_Height = CurrentFontDef->height;
+  1c:	799a      	ldrb	r2, [r3, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:683
+        CurrentFont = CurrentFontDef->font;
+        DRAW_SetCharMagniCoeff(CurrentFontDef->FontCoeff);
+  1e:	79d8      	ldrb	r0, [r3, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:681
+{
+    if ( ID < Font_Table.nb )
+    {
+        CurrentFontDef = (tFontDef*) &Font_Table.fonts[ID];
+        Char_Width = CurrentFontDef->width;
+        Char_Height = CurrentFontDef->height;
+  20:	7162      	strb	r2, [r4, #5]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:682
+        CurrentFont = CurrentFontDef->font;
+  22:	4a0b      	ldr	r2, [pc, #44]	; (50 <LCD_ChangeFont+0x50>)
+  24:	6011      	str	r1, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:683
+        DRAW_SetCharMagniCoeff(CurrentFontDef->FontCoeff);
+  26:	f7ff fffe 	bl	0 <DRAW_SetCharMagniCoeff>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:685
+        //Set DeltaY to prevent scrolling bugs (if odd height or magnification coefficient > 1 )
+        DeltaY = ((( Char_Height % 2 == 0 ) || ( DRAW_GetCharMagniCoeff()==2 ) ) ? 2 : 1 );
+  2a:	7963      	ldrb	r3, [r4, #5]
+  2c:	f013 0f01 	tst.w	r3, #1
+  30:	d006      	beq.n	10 <DRAW_GetCharMagniCoeff+0x10>
+  32:	f7ff fffe 	bl	0 <DRAW_GetCharMagniCoeff>
+  36:	2802      	cmp	r0, #2
+  38:	bf0c      	ite	eq
+  3a:	2002      	moveq	r0, #2
+  3c:	2001      	movne	r0, #1
+  3e:	e000      	b.n	42 <LCD_ChangeFont+0x42>
+  40:	2002      	movs	r0, #2
+  42:	4b04      	ldr	r3, [pc, #16]	; (54 <LCD_ChangeFont+0x54>)
+  44:	7018      	strb	r0, [r3, #0]
+  46:	bd10      	pop	{r4, pc}
+	...
+
+Disassembly of section .text.LCD_SetDefaultFont:
+
+00000000 <LCD_SetDefaultFont>:
+LCD_SetDefaultFont():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:660
+*
+**/
+/******************************************************************************/
+void LCD_SetDefaultFont( void )
+{
+    LCD_ChangeFont(0);
+   0:	2000      	movs	r0, #0
+   2:	f7ff bffe 	b.w	0 <LCD_SetDefaultFont>
+
+Disassembly of section .text.LCD_SetOffset:
+
+00000000 <LCD_SetOffset>:
+LCD_SetOffset():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:707
+**/
+/******************************************************************************/
+void LCD_SetOffset( ENUM_Offset Offset )
+{
+
+    if ( Offset == OFFSET_ON )
+   0:	2838      	cmp	r0, #56	; 0x38
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:705
+*         OFFSET_ON  = x pixels are turned black on each side of the screen.
+*
+**/
+/******************************************************************************/
+void LCD_SetOffset( ENUM_Offset Offset )
+{
+   2:	b537      	push	{r0, r1, r2, r4, r5, lr}
+   4:	4604      	mov	r4, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:707
+
+    if ( Offset == OFFSET_ON )
+   6:	d11d      	bne.n	44 <LCD_SetOffset+0x44>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:709
+    {
+        LCD_FillRect( 0, 0, Offset, APP_SCREEN_HEIGHT, RGB_WHITE );
+   8:	2000      	movs	r0, #0
+   a:	f64f 75ff 	movw	r5, #65535	; 0xffff
+   e:	4601      	mov	r1, r0
+  10:	4622      	mov	r2, r4
+  12:	23f0      	movs	r3, #240	; 0xf0
+  14:	9500      	str	r5, [sp, #0]
+  16:	f7ff fffe 	bl	0 <LCD_SetOffset>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:710
+        LCD_FillRect( 0, 0, APP_SCREEN_WIDTH, Offset, RGB_WHITE );
+  1a:	2000      	movs	r0, #0
+  1c:	4601      	mov	r1, r0
+  1e:	22f0      	movs	r2, #240	; 0xf0
+  20:	4623      	mov	r3, r4
+  22:	9500      	str	r5, [sp, #0]
+  24:	f7ff fffe 	bl	0 <LCD_SetOffset>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:711
+        LCD_FillRect( 0, APP_SCREEN_HEIGHT - Offset, APP_SCREEN_WIDTH, Offset, RGB_WHITE );
+  28:	2000      	movs	r0, #0
+  2a:	21b8      	movs	r1, #184	; 0xb8
+  2c:	22f0      	movs	r2, #240	; 0xf0
+  2e:	4623      	mov	r3, r4
+  30:	9500      	str	r5, [sp, #0]
+  32:	f7ff fffe 	bl	0 <LCD_SetOffset>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:712
+        LCD_FillRect( APP_SCREEN_WIDTH - Offset, 0, Offset, APP_SCREEN_HEIGHT, RGB_WHITE );
+  36:	20b8      	movs	r0, #184	; 0xb8
+  38:	2100      	movs	r1, #0
+  3a:	4622      	mov	r2, r4
+  3c:	23f0      	movs	r3, #240	; 0xf0
+  3e:	9500      	str	r5, [sp, #0]
+  40:	f7ff fffe 	bl	0 <LCD_SetOffset>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:715
+    }
+
+    LCD_Offset = Offset;
+  44:	4b0e      	ldr	r3, [pc, #56]	; (80 <LCD_SetOffset+0x80>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:730
+*/
+    PosCurY = Screen_Height - Char_Height;
+    RightMarginX = Screen_Width;
+    HighMarginY = Screen_Height;
+
+    LCD_DrawCharSetFilter( 0, Screen_Width, 0, Screen_Height );
+  46:	2000      	movs	r0, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:715
+        LCD_FillRect( 0, 0, APP_SCREEN_WIDTH, Offset, RGB_WHITE );
+        LCD_FillRect( 0, APP_SCREEN_HEIGHT - Offset, APP_SCREEN_WIDTH, Offset, RGB_WHITE );
+        LCD_FillRect( APP_SCREEN_WIDTH - Offset, 0, Offset, APP_SCREEN_HEIGHT, RGB_WHITE );
+    }
+
+    LCD_Offset = Offset;
+  48:	701c      	strb	r4, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:717
+
+    Screen_Width = APP_SCREEN_WIDTH - ( 2 * LCD_Offset );
+  4a:	f1c4 0478 	rsb	r4, r4, #120	; 0x78
+  4e:	0064      	lsls	r4, r4, #1
+  50:	b2a4      	uxth	r4, r4
+  52:	4b0c      	ldr	r3, [pc, #48]	; (84 <LCD_SetOffset+0x84>)
+  54:	b2a1      	uxth	r1, r4
+  56:	8019      	strh	r1, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:718
+    Screen_Height = APP_SCREEN_HEIGHT - ( 2 * LCD_Offset );
+  58:	4b0b      	ldr	r3, [pc, #44]	; (88 <LCD_SetOffset+0x88>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:730
+*/
+    PosCurY = Screen_Height - Char_Height;
+    RightMarginX = Screen_Width;
+    HighMarginY = Screen_Height;
+
+    LCD_DrawCharSetFilter( 0, Screen_Width, 0, Screen_Height );
+  5a:	4602      	mov	r2, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:718
+    }
+
+    LCD_Offset = Offset;
+
+    Screen_Width = APP_SCREEN_WIDTH - ( 2 * LCD_Offset );
+    Screen_Height = APP_SCREEN_HEIGHT - ( 2 * LCD_Offset );
+  5c:	8019      	strh	r1, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:726
+    POINTER_Info.xPos = ( Screen_Width / 2 ) - ( POINTER_WIDTH / 2 ) - 1;
+    POINTER_Info.yPos = ( Screen_Width / 2 ) - ( POINTER_WIDTH / 2 ) - 1;
+    POINTER_Info.shift_PosX = 0;
+    POINTER_Info.shift_PosY = 0;
+*/
+    PosCurY = Screen_Height - Char_Height;
+  5e:	4b0b      	ldr	r3, [pc, #44]	; (8c <LCD_SetOffset+0x8c>)
+  60:	795b      	ldrb	r3, [r3, #5]
+  62:	1ae4      	subs	r4, r4, r3
+  64:	4b0a      	ldr	r3, [pc, #40]	; (90 <LCD_SetOffset+0x90>)
+  66:	801c      	strh	r4, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:727
+    RightMarginX = Screen_Width;
+  68:	4b0a      	ldr	r3, [pc, #40]	; (94 <LCD_SetOffset+0x94>)
+  6a:	8019      	strh	r1, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:728
+    HighMarginY = Screen_Height;
+  6c:	4b0a      	ldr	r3, [pc, #40]	; (98 <LCD_SetOffset+0x98>)
+  6e:	8019      	strh	r1, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:730
+
+    LCD_DrawCharSetFilter( 0, Screen_Width, 0, Screen_Height );
+  70:	b209      	sxth	r1, r1
+  72:	460b      	mov	r3, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:732
+
+}
+  74:	b003      	add	sp, #12
+  76:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:730
+*/
+    PosCurY = Screen_Height - Char_Height;
+    RightMarginX = Screen_Width;
+    HighMarginY = Screen_Height;
+
+    LCD_DrawCharSetFilter( 0, Screen_Width, 0, Screen_Height );
+  7a:	f7ff bffe 	b.w	0 <LCD_SetOffset>
+  7e:	bf00      	nop
+	...
+
+Disassembly of section .text.LCD_GetScreenWidth:
+
+00000000 <LCD_GetScreenWidth>:
+LCD_GetScreenWidth():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:750
+**/
+/******************************************************************************/
+coord_t LCD_GetScreenWidth( void )
+{
+    return Screen_Width;
+}
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <LCD_GetScreenWidth+0x8>)
+   2:	f9b3 0000 	ldrsh.w	r0, [r3]
+   6:	4770      	bx	lr
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LCD_GetScreenHeight:
+
+00000000 <LCD_GetScreenHeight>:
+LCD_GetScreenHeight():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:768
+**/
+/******************************************************************************/
+coord_t LCD_GetScreenHeight( void )
+{
+    return Screen_Height;
+}
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <LCD_GetScreenHeight+0x8>)
+   2:	f9b3 0000 	ldrsh.w	r0, [r3]
+   6:	4770      	bx	lr
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LCD_SetTransparency:
+
+00000000 <LCD_SetTransparency>:
+LCD_SetTransparency():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:785
+*
+**/
+/******************************************************************************/
+void LCD_SetTransparency( u8 NewTransparency )
+{
+    Transparency = NewTransparency;
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <LCD_SetTransparency+0x8>)
+   2:	7018      	strb	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:786
+}
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LCD_GetTransparency:
+
+00000000 <LCD_GetTransparency>:
+LCD_GetTransparency():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd.c:804
+**/
+/******************************************************************************/
+u8 LCD_GetTransparency( void )
+{
+    return Transparency;
+}
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <LCD_GetTransparency+0x8>)
+   2:	7818      	ldrb	r0, [r3, #0]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000

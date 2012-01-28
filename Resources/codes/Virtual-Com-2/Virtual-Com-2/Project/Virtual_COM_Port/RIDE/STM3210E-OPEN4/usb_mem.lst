@@ -1,0 +1,161 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_mem.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_mem.o
+
+
+Disassembly of section .text.UserToPMABufferCopy:
+
+00000000 <UserToPMABufferCopy>:
+UserToPMABufferCopy():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:41
+void UserToPMABufferCopy(uint8_t *pbUsrBuf, uint16_t wPMABufAddr, uint16_t wNBytes)
+{
+  uint32_t n = (wNBytes + 1) >> 1;   /* n = (wNBytes + 1) / 2 */
+  uint32_t i, temp1, temp2;
+  uint16_t *pdwVal;
+  pdwVal = (uint16_t *)(wPMABufAddr * 2 + PMAAddr);
+   0:	f101 5100 	add.w	r1, r1, #536870912	; 0x20000000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:38
+* Output         : None.
+* Return         : None	.
+*******************************************************************************/
+void UserToPMABufferCopy(uint8_t *pbUsrBuf, uint16_t wPMABufAddr, uint16_t wNBytes)
+{
+  uint32_t n = (wNBytes + 1) >> 1;   /* n = (wNBytes + 1) / 2 */
+   4:	3201      	adds	r2, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:41
+  uint32_t i, temp1, temp2;
+  uint16_t *pdwVal;
+  pdwVal = (uint16_t *)(wPMABufAddr * 2 + PMAAddr);
+   6:	f501 5140 	add.w	r1, r1, #12288	; 0x3000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:37
+*                  - wNBytes: no. of bytes to be copied.
+* Output         : None.
+* Return         : None	.
+*******************************************************************************/
+void UserToPMABufferCopy(uint8_t *pbUsrBuf, uint16_t wPMABufAddr, uint16_t wNBytes)
+{
+   a:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:41
+  uint32_t n = (wNBytes + 1) >> 1;   /* n = (wNBytes + 1) / 2 */
+  uint32_t i, temp1, temp2;
+  uint16_t *pdwVal;
+  pdwVal = (uint16_t *)(wPMABufAddr * 2 + PMAAddr);
+   c:	0049      	lsls	r1, r1, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:42
+  for (i = n; i != 0; i--)
+   e:	0852      	lsrs	r2, r2, #1
+  10:	e008      	b.n	24 <UserToPMABufferCopy+0x24>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:46
+  {
+    temp1 = (uint16_t) * pbUsrBuf;
+    pbUsrBuf++;
+    temp2 = temp1 | (uint16_t) * pbUsrBuf << 8;
+  12:	f810 4c01 	ldrb.w	r4, [r0, #-1]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:44
+  uint32_t i, temp1, temp2;
+  uint16_t *pdwVal;
+  pdwVal = (uint16_t *)(wPMABufAddr * 2 + PMAAddr);
+  for (i = n; i != 0; i--)
+  {
+    temp1 = (uint16_t) * pbUsrBuf;
+  16:	f810 3c02 	ldrb.w	r3, [r0, #-2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:42
+{
+  uint32_t n = (wNBytes + 1) >> 1;   /* n = (wNBytes + 1) / 2 */
+  uint32_t i, temp1, temp2;
+  uint16_t *pdwVal;
+  pdwVal = (uint16_t *)(wPMABufAddr * 2 + PMAAddr);
+  for (i = n; i != 0; i--)
+  1a:	3a01      	subs	r2, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:46
+  {
+    temp1 = (uint16_t) * pbUsrBuf;
+    pbUsrBuf++;
+    temp2 = temp1 | (uint16_t) * pbUsrBuf << 8;
+  1c:	ea43 2304 	orr.w	r3, r3, r4, lsl #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:47
+    *pdwVal++ = temp2;
+  20:	f821 3c04 	strh.w	r3, [r1, #-4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:42
+{
+  uint32_t n = (wNBytes + 1) >> 1;   /* n = (wNBytes + 1) / 2 */
+  uint32_t i, temp1, temp2;
+  uint16_t *pdwVal;
+  pdwVal = (uint16_t *)(wPMABufAddr * 2 + PMAAddr);
+  for (i = n; i != 0; i--)
+  24:	3002      	adds	r0, #2
+  26:	3104      	adds	r1, #4
+  28:	2a00      	cmp	r2, #0
+  2a:	d1f2      	bne.n	12 <UserToPMABufferCopy+0x12>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:51
+    temp2 = temp1 | (uint16_t) * pbUsrBuf << 8;
+    *pdwVal++ = temp2;
+    pdwVal++;
+    pbUsrBuf++;
+  }
+}
+  2c:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.PMAToUserBufferCopy:
+
+00000000 <PMAToUserBufferCopy>:
+PMAToUserBufferCopy():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:66
+void PMAToUserBufferCopy(uint8_t *pbUsrBuf, uint16_t wPMABufAddr, uint16_t wNBytes)
+{
+  uint32_t n = (wNBytes + 1) >> 1;/* /2*/
+  uint32_t i;
+  uint32_t *pdwVal;
+  pdwVal = (uint32_t *)(wPMABufAddr * 2 + PMAAddr);
+   0:	f101 5100 	add.w	r1, r1, #536870912	; 0x20000000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:63
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void PMAToUserBufferCopy(uint8_t *pbUsrBuf, uint16_t wPMABufAddr, uint16_t wNBytes)
+{
+  uint32_t n = (wNBytes + 1) >> 1;/* /2*/
+   4:	3201      	adds	r2, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:66
+  uint32_t i;
+  uint32_t *pdwVal;
+  pdwVal = (uint32_t *)(wPMABufAddr * 2 + PMAAddr);
+   6:	f501 5140 	add.w	r1, r1, #12288	; 0x3000
+   a:	0049      	lsls	r1, r1, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:67
+  for (i = n; i != 0; i--)
+   c:	0852      	lsrs	r2, r2, #1
+   e:	e004      	b.n	1a <PMAToUserBufferCopy+0x1a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:69
+  {
+    *(uint16_t*)pbUsrBuf++ = *pdwVal++;
+  10:	f851 3b04 	ldr.w	r3, [r1], #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:67
+{
+  uint32_t n = (wNBytes + 1) >> 1;/* /2*/
+  uint32_t i;
+  uint32_t *pdwVal;
+  pdwVal = (uint32_t *)(wPMABufAddr * 2 + PMAAddr);
+  for (i = n; i != 0; i--)
+  14:	3a01      	subs	r2, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:69
+  {
+    *(uint16_t*)pbUsrBuf++ = *pdwVal++;
+  16:	f820 3b02 	strh.w	r3, [r0], #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:67
+{
+  uint32_t n = (wNBytes + 1) >> 1;/* /2*/
+  uint32_t i;
+  uint32_t *pdwVal;
+  pdwVal = (uint32_t *)(wPMABufAddr * 2 + PMAAddr);
+  for (i = n; i != 0; i--)
+  1a:	2a00      	cmp	r2, #0
+  1c:	d1f8      	bne.n	10 <PMAToUserBufferCopy+0x10>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_mem.c:72
+  {
+    *(uint16_t*)pbUsrBuf++ = *pdwVal++;
+    pbUsrBuf++;
+  }
+}
+  1e:	4770      	bx	lr

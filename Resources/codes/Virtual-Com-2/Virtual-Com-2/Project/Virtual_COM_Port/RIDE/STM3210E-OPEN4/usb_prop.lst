@@ -1,0 +1,734 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_prop.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_prop.o
+
+
+Disassembly of section .text.Virtual_Com_Port_SetConfiguration:
+
+00000000 <Virtual_Com_Port_SetConfiguration>:
+Virtual_Com_Port_SetConfiguration():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:208
+*******************************************************************************/
+void Virtual_Com_Port_SetConfiguration(void)
+{
+  DEVICE_INFO *pInfo = &Device_Info;
+
+  if (pInfo->Current_Configuration != 0)
+   0:	4b03      	ldr	r3, [pc, #12]	; (10 <Virtual_Com_Port_SetConfiguration+0x10>)
+   2:	7a9b      	ldrb	r3, [r3, #10]
+   4:	b113      	cbz	r3, c <Virtual_Com_Port_SetConfiguration+0xc>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:211
+  {
+    /* Device configured */
+    bDeviceState = CONFIGURED;
+   6:	4b03      	ldr	r3, [pc, #12]	; (14 <Virtual_Com_Port_SetConfiguration+0x14>)
+   8:	2205      	movs	r2, #5
+   a:	601a      	str	r2, [r3, #0]
+   c:	4770      	bx	lr
+   e:	bf00      	nop
+	...
+
+Disassembly of section .text.Virtual_Com_Port_SetDeviceAddress:
+
+00000000 <Virtual_Com_Port_SetDeviceAddress>:
+Virtual_Com_Port_SetDeviceAddress():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:224
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void Virtual_Com_Port_SetDeviceAddress (void)
+{
+  bDeviceState = ADDRESSED;
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <Virtual_Com_Port_SetDeviceAddress+0x8>)
+   2:	2204      	movs	r2, #4
+   4:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:225
+}
+   6:	4770      	bx	lr
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.Virtual_Com_Port_Status_Out:
+
+00000000 <Virtual_Com_Port_Status_Out>:
+Virtual_Com_Port_Status_Out():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:251
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void Virtual_Com_Port_Status_Out(void)
+{}
+   0:	4770      	bx	lr
+
+Disassembly of section .text.Virtual_Com_Port_Data_Setup:
+
+00000000 <Virtual_Com_Port_Data_Setup>:
+Virtual_Com_Port_Data_Setup():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:266
+{
+  uint8_t    *(*CopyRoutine)(uint16_t);
+
+  CopyRoutine = NULL;
+
+  if (RequestNo == GET_LINE_CODING)
+   0:	2821      	cmp	r0, #33	; 0x21
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:261
+* Input          : Request Nb.
+* Output         : None.
+* Return         : USB_UNSUPPORT or USB_SUCCESS.
+*******************************************************************************/
+RESULT Virtual_Com_Port_Data_Setup(uint8_t RequestNo)
+{
+   2:	b508      	push	{r3, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:266
+  uint8_t    *(*CopyRoutine)(uint16_t);
+
+  CopyRoutine = NULL;
+
+  if (RequestNo == GET_LINE_CODING)
+   4:	d108      	bne.n	18 <Virtual_Com_Port_Data_Setup+0x18>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:268
+  {
+    if (Type_Recipient == (CLASS_REQUEST | INTERFACE_RECIPIENT))
+   6:	4b13      	ldr	r3, [pc, #76]	; (54 <Virtual_Com_Port_Data_Setup+0x54>)
+   8:	681b      	ldr	r3, [r3, #0]
+   a:	781b      	ldrb	r3, [r3, #0]
+   c:	f003 037f 	and.w	r3, r3, #127	; 0x7f
+  10:	2b21      	cmp	r3, #33	; 0x21
+  12:	d011      	beq.n	38 <Virtual_Com_Port_Data_Setup+0x38>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:284
+    Request = SET_LINE_CODING;
+  }
+
+  if (CopyRoutine == NULL)
+  {
+    return USB_UNSUPPORT;
+  14:	381f      	subs	r0, #31
+  16:	bd08      	pop	{r3, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:273
+    if (Type_Recipient == (CLASS_REQUEST | INTERFACE_RECIPIENT))
+    {
+      CopyRoutine = Virtual_Com_Port_GetLineCoding;
+    }
+  }
+  else if (RequestNo == SET_LINE_CODING)
+  18:	2820      	cmp	r0, #32
+  1a:	d117      	bne.n	4c <Virtual_Com_Port_Data_Setup+0x4c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:275
+  {
+    if (Type_Recipient == (CLASS_REQUEST | INTERFACE_RECIPIENT))
+  1c:	4b0d      	ldr	r3, [pc, #52]	; (54 <Virtual_Com_Port_Data_Setup+0x54>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:264
+*******************************************************************************/
+RESULT Virtual_Com_Port_Data_Setup(uint8_t RequestNo)
+{
+  uint8_t    *(*CopyRoutine)(uint16_t);
+
+  CopyRoutine = NULL;
+  1e:	4a0e      	ldr	r2, [pc, #56]	; (58 <Virtual_Com_Port_Data_Setup+0x58>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:275
+      CopyRoutine = Virtual_Com_Port_GetLineCoding;
+    }
+  }
+  else if (RequestNo == SET_LINE_CODING)
+  {
+    if (Type_Recipient == (CLASS_REQUEST | INTERFACE_RECIPIENT))
+  20:	681b      	ldr	r3, [r3, #0]
+  22:	781b      	ldrb	r3, [r3, #0]
+  24:	f003 037f 	and.w	r3, r3, #127	; 0x7f
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:264
+*******************************************************************************/
+RESULT Virtual_Com_Port_Data_Setup(uint8_t RequestNo)
+{
+  uint8_t    *(*CopyRoutine)(uint16_t);
+
+  CopyRoutine = NULL;
+  28:	2b21      	cmp	r3, #33	; 0x21
+  2a:	bf0c      	ite	eq
+  2c:	4613      	moveq	r3, r2
+  2e:	2300      	movne	r3, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:279
+  {
+    if (Type_Recipient == (CLASS_REQUEST | INTERFACE_RECIPIENT))
+    {
+      CopyRoutine = Virtual_Com_Port_SetLineCoding;
+    }
+    Request = SET_LINE_CODING;
+  30:	4a0a      	ldr	r2, [pc, #40]	; (5c <Virtual_Com_Port_Data_Setup+0x5c>)
+  32:	7010      	strb	r0, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:282
+  }
+
+  if (CopyRoutine == NULL)
+  34:	b90b      	cbnz	r3, 3a <Virtual_Com_Port_Data_Setup+0x3a>
+  36:	e00b      	b.n	50 <Virtual_Com_Port_Data_Setup+0x50>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:270
+
+  if (RequestNo == GET_LINE_CODING)
+  {
+    if (Type_Recipient == (CLASS_REQUEST | INTERFACE_RECIPIENT))
+    {
+      CopyRoutine = Virtual_Com_Port_GetLineCoding;
+  38:	4b09      	ldr	r3, [pc, #36]	; (60 <Virtual_Com_Port_Data_Setup+0x60>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:287
+  if (CopyRoutine == NULL)
+  {
+    return USB_UNSUPPORT;
+  }
+
+  pInformation->Ctrl_Info.CopyData = CopyRoutine;
+  3a:	4a06      	ldr	r2, [pc, #24]	; (54 <Virtual_Com_Port_Data_Setup+0x54>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:288
+  pInformation->Ctrl_Info.Usb_wOffset = 0;
+  3c:	2100      	movs	r1, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:287
+  if (CopyRoutine == NULL)
+  {
+    return USB_UNSUPPORT;
+  }
+
+  pInformation->Ctrl_Info.CopyData = CopyRoutine;
+  3e:	6812      	ldr	r2, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:289
+  pInformation->Ctrl_Info.Usb_wOffset = 0;
+  (*CopyRoutine)(0);
+  40:	2000      	movs	r0, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:287
+  if (CopyRoutine == NULL)
+  {
+    return USB_UNSUPPORT;
+  }
+
+  pInformation->Ctrl_Info.CopyData = CopyRoutine;
+  42:	6193      	str	r3, [r2, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:288
+  pInformation->Ctrl_Info.Usb_wOffset = 0;
+  44:	8251      	strh	r1, [r2, #18]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:289
+  (*CopyRoutine)(0);
+  46:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:290
+  return USB_SUCCESS;
+  48:	2000      	movs	r0, #0
+  4a:	bd08      	pop	{r3, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:284
+    Request = SET_LINE_CODING;
+  }
+
+  if (CopyRoutine == NULL)
+  {
+    return USB_UNSUPPORT;
+  4c:	2002      	movs	r0, #2
+  4e:	bd08      	pop	{r3, pc}
+  50:	2002      	movs	r0, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:291
+
+  pInformation->Ctrl_Info.CopyData = CopyRoutine;
+  pInformation->Ctrl_Info.Usb_wOffset = 0;
+  (*CopyRoutine)(0);
+  return USB_SUCCESS;
+}
+  52:	bd08      	pop	{r3, pc}
+	...
+
+Disassembly of section .text.Virtual_Com_Port_NoData_Setup:
+
+00000000 <Virtual_Com_Port_NoData_Setup>:
+Virtual_Com_Port_NoData_Setup():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:303
+* Return         : USB_UNSUPPORT or USB_SUCCESS.
+*******************************************************************************/
+RESULT Virtual_Com_Port_NoData_Setup(uint8_t RequestNo)
+{
+
+  if (Type_Recipient == (CLASS_REQUEST | INTERFACE_RECIPIENT))
+   0:	4b08      	ldr	r3, [pc, #32]	; (24 <Virtual_Com_Port_NoData_Setup+0x24>)
+   2:	681b      	ldr	r3, [r3, #0]
+   4:	781b      	ldrb	r3, [r3, #0]
+   6:	f003 037f 	and.w	r3, r3, #127	; 0x7f
+   a:	2b21      	cmp	r3, #33	; 0x21
+   c:	d106      	bne.n	1c <Virtual_Com_Port_NoData_Setup+0x1c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:305
+  {
+    if (RequestNo == SET_COMM_FEATURE)
+   e:	2802      	cmp	r0, #2
+  10:	d006      	beq.n	20 <Virtual_Com_Port_NoData_Setup+0x20>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:315
+    {
+      return USB_SUCCESS;
+    }
+  }
+
+  return USB_UNSUPPORT;
+  12:	2822      	cmp	r0, #34	; 0x22
+  14:	bf14      	ite	ne
+  16:	2002      	movne	r0, #2
+  18:	2000      	moveq	r0, #0
+  1a:	4770      	bx	lr
+  1c:	2002      	movs	r0, #2
+  1e:	4770      	bx	lr
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:307
+
+  if (Type_Recipient == (CLASS_REQUEST | INTERFACE_RECIPIENT))
+  {
+    if (RequestNo == SET_COMM_FEATURE)
+    {
+      return USB_SUCCESS;
+  20:	2000      	movs	r0, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:316
+      return USB_SUCCESS;
+    }
+  }
+
+  return USB_UNSUPPORT;
+}
+  22:	4770      	bx	lr
+  24:	00000000 	.word	0x00000000
+
+Disassembly of section .text.Virtual_Com_Port_Get_Interface_Setting:
+
+00000000 <Virtual_Com_Port_Get_Interface_Setting>:
+Virtual_Com_Port_Get_Interface_Setting():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:373
+* Output         : None.
+* Return         : The address of the string descriptors.
+*******************************************************************************/
+RESULT Virtual_Com_Port_Get_Interface_Setting(uint8_t Interface, uint8_t AlternateSetting)
+{
+  if (AlternateSetting > 0)
+   0:	b921      	cbnz	r1, c <Virtual_Com_Port_Get_Interface_Setting+0xc>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:379
+  {
+    return USB_UNSUPPORT;
+  }
+  else if (Interface > 1)
+  {
+    return USB_UNSUPPORT;
+   2:	2801      	cmp	r0, #1
+   4:	bf8c      	ite	hi
+   6:	2002      	movhi	r0, #2
+   8:	2000      	movls	r0, #0
+   a:	4770      	bx	lr
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:375
+*******************************************************************************/
+RESULT Virtual_Com_Port_Get_Interface_Setting(uint8_t Interface, uint8_t AlternateSetting)
+{
+  if (AlternateSetting > 0)
+  {
+    return USB_UNSUPPORT;
+   c:	2002      	movs	r0, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:382
+  else if (Interface > 1)
+  {
+    return USB_UNSUPPORT;
+  }
+  return USB_SUCCESS;
+}
+   e:	4770      	bx	lr
+
+Disassembly of section .text.Virtual_Com_Port_GetLineCoding:
+
+00000000 <Virtual_Com_Port_GetLineCoding>:
+Virtual_Com_Port_GetLineCoding():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:393
+* Output         : None.
+* Return         : Inecoding structure base address.
+*******************************************************************************/
+uint8_t *Virtual_Com_Port_GetLineCoding(uint16_t Length)
+{
+  if (Length == 0)
+   0:	b920      	cbnz	r0, c <Virtual_Com_Port_GetLineCoding+0xc>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:395
+  {
+    pInformation->Ctrl_Info.Usb_wLength = sizeof(linecoding);
+   2:	4b03      	ldr	r3, [pc, #12]	; (10 <Virtual_Com_Port_GetLineCoding+0x10>)
+   4:	2208      	movs	r2, #8
+   6:	681b      	ldr	r3, [r3, #0]
+   8:	821a      	strh	r2, [r3, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:396
+    return NULL;
+   a:	4770      	bx	lr
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:398
+  }
+  return(uint8_t *)&linecoding;
+   c:	4801      	ldr	r0, [pc, #4]	; (14 <Virtual_Com_Port_GetLineCoding+0x14>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:399
+}
+   e:	4770      	bx	lr
+	...
+
+Disassembly of section .text.Virtual_Com_Port_SetLineCoding:
+
+00000000 <Virtual_Com_Port_SetLineCoding>:
+Virtual_Com_Port_SetLineCoding():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:410
+* Output         : None.
+* Return         : Linecoding structure base address.
+*******************************************************************************/
+uint8_t *Virtual_Com_Port_SetLineCoding(uint16_t Length)
+{
+  if (Length == 0)
+   0:	b920      	cbnz	r0, c <Virtual_Com_Port_SetLineCoding+0xc>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:412
+  {
+    pInformation->Ctrl_Info.Usb_wLength = sizeof(linecoding);
+   2:	4b03      	ldr	r3, [pc, #12]	; (10 <Virtual_Com_Port_SetLineCoding+0x10>)
+   4:	2208      	movs	r2, #8
+   6:	681b      	ldr	r3, [r3, #0]
+   8:	821a      	strh	r2, [r3, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:413
+    return NULL;
+   a:	4770      	bx	lr
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:415
+  }
+  return(uint8_t *)&linecoding;
+   c:	4801      	ldr	r0, [pc, #4]	; (14 <Virtual_Com_Port_SetLineCoding+0x14>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:416
+}
+   e:	4770      	bx	lr
+	...
+
+Disassembly of section .text.Virtual_Com_Port_GetStringDescriptor:
+
+00000000 <Virtual_Com_Port_GetStringDescriptor>:
+Virtual_Com_Port_GetStringDescriptor():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:351
+* Output         : None.
+* Return         : The address of the string descriptors.
+*******************************************************************************/
+uint8_t *Virtual_Com_Port_GetStringDescriptor(uint16_t Length)
+{
+  uint8_t wValue0 = pInformation->USBwValue0;
+   0:	4b05      	ldr	r3, [pc, #20]	; (18 <Virtual_Com_Port_GetStringDescriptor+0x18>)
+   2:	681b      	ldr	r3, [r3, #0]
+   4:	78db      	ldrb	r3, [r3, #3]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:352
+  if (wValue0 > 4)
+   6:	2b04      	cmp	r3, #4
+   8:	d804      	bhi.n	14 <Virtual_Com_Port_GetStringDescriptor+0x14>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:358
+  {
+    return NULL;
+  }
+  else
+  {
+    return Standard_GetDescriptorData(Length, &String_Descriptor[wValue0]);
+   a:	4904      	ldr	r1, [pc, #16]	; (1c <Virtual_Com_Port_GetStringDescriptor+0x1c>)
+   c:	eb01 01c3 	add.w	r1, r1, r3, lsl #3
+  10:	f7ff bffe 	b.w	0 <Standard_GetDescriptorData>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:360
+  }
+}
+  14:	2000      	movs	r0, #0
+  16:	4770      	bx	lr
+  18:	00000000 	.word	0x00000000
+  1c:	00000008 	.word	0x00000008
+
+Disassembly of section .text.Virtual_Com_Port_GetConfigDescriptor:
+
+00000000 <Virtual_Com_Port_GetConfigDescriptor>:
+Virtual_Com_Port_GetConfigDescriptor():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:339
+* Output         : None.
+* Return         : The address of the configuration descriptor.
+*******************************************************************************/
+uint8_t *Virtual_Com_Port_GetConfigDescriptor(uint16_t Length)
+{
+  return Standard_GetDescriptorData(Length, &Config_Descriptor);
+   0:	f7ff4901 	.word	0xf7ff4901
+   4:	bffe      	ittt	<und>
+   6:	bf00      	nop<und>
+   8:	00000028 	.word	0x00000028
+
+Disassembly of section .text.Virtual_Com_Port_GetDeviceDescriptor:
+
+00000000 <Virtual_Com_Port_GetDeviceDescriptor>:
+Virtual_Com_Port_GetDeviceDescriptor():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:327
+* Output         : None.
+* Return         : The address of the device descriptor.
+*******************************************************************************/
+uint8_t *Virtual_Com_Port_GetDeviceDescriptor(uint16_t Length)
+{
+  return Standard_GetDescriptorData(Length, &Device_Descriptor);
+   0:	4901      	ldr	r1, [pc, #4]	; (8 <Virtual_Com_Port_GetDeviceDescriptor+0x8>)
+   2:	f7ff bffe 	b<und>.w	0 <Standard_GetDescriptorData>	; unpredictable branch in IT block
+
+   6:	bf00      	nop<und>
+   8:	00000030 	.word	0x00000030
+
+Disassembly of section .text.Virtual_Com_Port_Status_In:
+
+00000000 <Virtual_Com_Port_Status_In>:
+Virtual_Com_Port_Status_In():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:235
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void Virtual_Com_Port_Status_In(void)
+{
+   0:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:236
+  if (Request == SET_LINE_CODING)
+   2:	4c04      	ldr	r4, [pc, #16]	; (14 <Virtual_Com_Port_Status_In+0x14>)
+   4:	7823      	ldrb	r3, [r4, #0]
+   6:	2b20      	cmp	r3, #32
+   8:	d103      	bne.n	12 <Virtual_Com_Port_Status_In+0x12>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:238
+  {
+    USART_Config();
+   a:	f7ff fffe 	bl	0 <USART_Config>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:239
+    Request = 0;
+   e:	2300      	movs	r3, #0
+  10:	7023      	strb	r3, [r4, #0]
+  12:	bd10      	pop	{r4, pc}
+  14:	00000000 	.word	0x00000000
+
+Disassembly of section .text.Virtual_Com_Port_Reset:
+
+00000000 <Virtual_Com_Port_Reset>:
+Virtual_Com_Port_Reset():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:139
+* Return         : None.
+*******************************************************************************/
+void Virtual_Com_Port_Reset(void)
+{
+  /* Set Virtual_Com_Port DEVICE as not configured */
+  pInformation->Current_Configuration = 0;
+   0:	4b33      	ldr	r3, [pc, #204]	; (d0 <Virtual_Com_Port_Reset+0xd0>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:142
+
+  /* Current Feature initialization */
+  pInformation->Current_Feature = Virtual_Com_Port_ConfigDescriptor[7];
+   2:	4a34      	ldr	r2, [pc, #208]	; (d4 <Virtual_Com_Port_Reset+0xd4>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:139
+* Return         : None.
+*******************************************************************************/
+void Virtual_Com_Port_Reset(void)
+{
+  /* Set Virtual_Com_Port DEVICE as not configured */
+  pInformation->Current_Configuration = 0;
+   4:	681b      	ldr	r3, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:142
+
+  /* Current Feature initialization */
+  pInformation->Current_Feature = Virtual_Com_Port_ConfigDescriptor[7];
+   6:	79d2      	ldrb	r2, [r2, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:137
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void Virtual_Com_Port_Reset(void)
+{
+   8:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:139
+  /* Set Virtual_Com_Port DEVICE as not configured */
+  pInformation->Current_Configuration = 0;
+   a:	2400      	movs	r4, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:142
+
+  /* Current Feature initialization */
+  pInformation->Current_Feature = Virtual_Com_Port_ConfigDescriptor[7];
+   c:	725a      	strb	r2, [r3, #9]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:139
+* Return         : None.
+*******************************************************************************/
+void Virtual_Com_Port_Reset(void)
+{
+  /* Set Virtual_Com_Port DEVICE as not configured */
+  pInformation->Current_Configuration = 0;
+   e:	729c      	strb	r4, [r3, #10]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:145
+
+  /* Current Feature initialization */
+  pInformation->Current_Feature = Virtual_Com_Port_ConfigDescriptor[7];
+
+  /* Set Virtual_Com_Port DEVICE with the default Interface*/
+  pInformation->Current_Interface = 0;
+  10:	72dc      	strb	r4, [r3, #11]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:160
+
+  /* Init EP3 OUT as Bulk endpoint */
+  OTG_DEV_EP_Init(EP3_OUT, OTG_DEV_EP_TYPE_BULK, VIRTUAL_COM_PORT_DATA_SIZE);  
+#else 
+
+  SetBTABLE(BTABLE_ADDRESS);
+  12:	4620      	mov	r0, r4
+  14:	f7ff fffe 	bl	0 <SetBTABLE>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:163
+
+  /* Initialize Endpoint 0 */
+  SetEPType(ENDP0, EP_CONTROL);
+  18:	4620      	mov	r0, r4
+  1a:	f44f 7100 	mov.w	r1, #512	; 0x200
+  1e:	f7ff fffe 	bl	0 <SetEPType>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:164
+  SetEPTxStatus(ENDP0, EP_TX_STALL);
+  22:	2110      	movs	r1, #16
+  24:	4620      	mov	r0, r4
+  26:	f7ff fffe 	bl	0 <SetEPTxStatus>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:165
+  SetEPRxAddr(ENDP0, ENDP0_RXADDR);
+  2a:	2140      	movs	r1, #64	; 0x40
+  2c:	4620      	mov	r0, r4
+  2e:	f7ff fffe 	bl	0 <SetEPRxAddr>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:166
+  SetEPTxAddr(ENDP0, ENDP0_TXADDR);
+  32:	2180      	movs	r1, #128	; 0x80
+  34:	4620      	mov	r0, r4
+  36:	f7ff fffe 	bl	0 <SetEPTxAddr>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:167
+  Clear_Status_Out(ENDP0);
+  3a:	4620      	mov	r0, r4
+  3c:	f7ff fffe 	bl	0 <Clear_Status_Out>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:168
+  SetEPRxCount(ENDP0, Device_Property.MaxPacketSize);
+  40:	4b25      	ldr	r3, [pc, #148]	; (d8 <Virtual_Com_Port_Reset+0xd8>)
+  42:	4620      	mov	r0, r4
+  44:	f893 1064 	ldrb.w	r1, [r3, #100]	; 0x64
+  48:	f7ff fffe 	bl	0 <SetEPRxCount>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:169
+  SetEPRxValid(ENDP0);
+  4c:	4620      	mov	r0, r4
+  4e:	f7ff fffe 	bl	0 <SetEPRxValid>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:172
+
+  /* Initialize Endpoint 1 */
+  SetEPType(ENDP1, EP_BULK);
+  52:	2001      	movs	r0, #1
+  54:	4621      	mov	r1, r4
+  56:	f7ff fffe 	bl	0 <SetEPType>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:173
+  SetEPTxAddr(ENDP1, ENDP1_TXADDR);
+  5a:	2001      	movs	r0, #1
+  5c:	21c0      	movs	r1, #192	; 0xc0
+  5e:	f7ff fffe 	bl	0 <SetEPTxAddr>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:174
+  SetEPTxStatus(ENDP1, EP_TX_NAK);
+  62:	2001      	movs	r0, #1
+  64:	2120      	movs	r1, #32
+  66:	f7ff fffe 	bl	0 <SetEPTxStatus>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:175
+  SetEPRxStatus(ENDP1, EP_RX_DIS);
+  6a:	2001      	movs	r0, #1
+  6c:	4621      	mov	r1, r4
+  6e:	f7ff fffe 	bl	0 <SetEPRxStatus>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:178
+
+  /* Initialize Endpoint 2 */
+  SetEPType(ENDP2, EP_INTERRUPT);
+  72:	2002      	movs	r0, #2
+  74:	f44f 61c0 	mov.w	r1, #1536	; 0x600
+  78:	f7ff fffe 	bl	0 <SetEPType>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:179
+  SetEPTxAddr(ENDP2, ENDP2_TXADDR);
+  7c:	2002      	movs	r0, #2
+  7e:	f44f 7180 	mov.w	r1, #256	; 0x100
+  82:	f7ff fffe 	bl	0 <SetEPTxAddr>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:180
+  SetEPRxStatus(ENDP2, EP_RX_DIS);
+  86:	2002      	movs	r0, #2
+  88:	4621      	mov	r1, r4
+  8a:	f7ff fffe 	bl	0 <SetEPRxStatus>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:181
+  SetEPTxStatus(ENDP2, EP_TX_NAK);
+  8e:	2002      	movs	r0, #2
+  90:	2120      	movs	r1, #32
+  92:	f7ff fffe 	bl	0 <SetEPTxStatus>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:184
+
+  /* Initialize Endpoint 3 */
+  SetEPType(ENDP3, EP_BULK);
+  96:	2003      	movs	r0, #3
+  98:	4621      	mov	r1, r4
+  9a:	f7ff fffe 	bl	0 <SetEPType>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:185
+  SetEPRxAddr(ENDP3, ENDP3_RXADDR);
+  9e:	2003      	movs	r0, #3
+  a0:	f44f 7188 	mov.w	r1, #272	; 0x110
+  a4:	f7ff fffe 	bl	0 <SetEPRxAddr>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:186
+  SetEPRxCount(ENDP3, VIRTUAL_COM_PORT_DATA_SIZE);
+  a8:	2003      	movs	r0, #3
+  aa:	2140      	movs	r1, #64	; 0x40
+  ac:	f7ff fffe 	bl	0 <SetEPRxCount>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:187
+  SetEPRxStatus(ENDP3, EP_RX_VALID);
+  b0:	2003      	movs	r0, #3
+  b2:	f44f 5140 	mov.w	r1, #12288	; 0x3000
+  b6:	f7ff fffe 	bl	0 <SetEPRxStatus>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:188
+  SetEPTxStatus(ENDP3, EP_TX_DIS);
+  ba:	2003      	movs	r0, #3
+  bc:	4621      	mov	r1, r4
+  be:	f7ff fffe 	bl	0 <SetEPTxStatus>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:191
+
+  /* Set this device to response on default address */
+  SetDeviceAddress(0);
+  c2:	4620      	mov	r0, r4
+  c4:	f7ff fffe 	bl	0 <SetDeviceAddress>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:194
+#endif /* STM32F10X_CL */
+
+  bDeviceState = ATTACHED;
+  c8:	4b04      	ldr	r3, [pc, #16]	; (dc <Virtual_Com_Port_Reset+0xdc>)
+  ca:	2201      	movs	r2, #1
+  cc:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:195
+}
+  ce:	bd10      	pop	{r4, pc}
+	...
+
+Disassembly of section .text.Virtual_Com_Port_init:
+
+00000000 <Virtual_Com_Port_init>:
+Virtual_Com_Port_init():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:109
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void Virtual_Com_Port_init(void)
+{
+   0:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:113
+
+  /* Update the serial number string descriptor with the data from the unique
+  ID*/
+  Get_SerialNum();
+   2:	f7ff fffe 	bl	0 <Get_SerialNum>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:115
+
+  pInformation->Current_Configuration = 0;
+   6:	4b06      	ldr	r3, [pc, #24]	; (20 <Virtual_Com_Port_init+0x20>)
+   8:	2400      	movs	r4, #0
+   a:	681b      	ldr	r3, [r3, #0]
+   c:	729c      	strb	r4, [r3, #10]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:118
+
+  /* Connect the device */
+  PowerOn();
+   e:	f7ff fffe 	bl	0 <PowerOn>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:121
+
+  /* Perform basic device initialization operations */
+  USB_SIL_Init();
+  12:	f7ff fffe 	bl	0 <USB_SIL_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:124
+
+  /* configure the USART to the default settings */
+  USART_Config_Default();
+  16:	f7ff fffe 	bl	0 <USART_Config_Default>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:126
+
+  bDeviceState = UNCONNECTED;
+  1a:	4b02      	ldr	r3, [pc, #8]	; (24 <Virtual_Com_Port_init+0x24>)
+  1c:	601c      	str	r4, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_prop.c:127
+}
+  1e:	bd10      	pop	{r4, pc}
+	...

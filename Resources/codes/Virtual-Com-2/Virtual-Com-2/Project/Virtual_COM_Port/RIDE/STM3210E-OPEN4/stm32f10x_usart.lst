@@ -1,0 +1,1454 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\stm32f10x_usart.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\stm32f10x_usart.o
+
+
+Disassembly of section .text.USART_DeInit:
+
+00000000 <USART_DeInit>:
+USART_DeInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:133
+void USART_DeInit(USART_TypeDef* USARTx)
+{
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+
+  if (USARTx == USART1)
+   0:	4b20      	ldr	r3, [pc, #128]	; (84 <USART_DeInit+0x84>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:129
+  * @param  USARTx: Select the USART or the UART peripheral. 
+  *   This parameter can be one of the following values: USART1, USART2, USART3, UART4 or UART5.
+  * @retval None
+  */
+void USART_DeInit(USART_TypeDef* USARTx)
+{
+   2:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:133
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+
+  if (USARTx == USART1)
+   4:	4298      	cmp	r0, r3
+   6:	d10b      	bne.n	20 <USART_DeInit+0x20>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:135
+  {
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_USART1, ENABLE);
+   8:	2101      	movs	r1, #1
+   a:	f44f 4080 	mov.w	r0, #16384	; 0x4000
+   e:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:136
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_USART1, DISABLE);
+  12:	f44f 4080 	mov.w	r0, #16384	; 0x4000
+  16:	2100      	movs	r1, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:161
+    { 
+      RCC_APB1PeriphResetCmd(RCC_APB1Periph_UART5, ENABLE);
+      RCC_APB1PeriphResetCmd(RCC_APB1Periph_UART5, DISABLE);
+    }
+  }
+}
+  18:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:136
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+
+  if (USARTx == USART1)
+  {
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_USART1, ENABLE);
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_USART1, DISABLE);
+  1c:	f7ff bffe 	b.w	0 <RCC_APB2PeriphResetCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:138
+  }
+  else if (USARTx == USART2)
+  20:	4b19      	ldr	r3, [pc, #100]	; (88 <USART_DeInit+0x88>)
+  22:	4298      	cmp	r0, r3
+  24:	d107      	bne.n	36 <USART_DeInit+0x36>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:140
+  {
+    RCC_APB1PeriphResetCmd(RCC_APB1Periph_USART2, ENABLE);
+  26:	f44f 3000 	mov.w	r0, #131072	; 0x20000
+  2a:	2101      	movs	r1, #1
+  2c:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:141
+    RCC_APB1PeriphResetCmd(RCC_APB1Periph_USART2, DISABLE);
+  30:	f44f 3000 	mov.w	r0, #131072	; 0x20000
+  34:	e01f      	b.n	76 <USART_DeInit+0x76>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:143
+  }
+  else if (USARTx == USART3)
+  36:	4b15      	ldr	r3, [pc, #84]	; (8c <USART_DeInit+0x8c>)
+  38:	4298      	cmp	r0, r3
+  3a:	d107      	bne.n	4c <USART_DeInit+0x4c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:145
+  {
+    RCC_APB1PeriphResetCmd(RCC_APB1Periph_USART3, ENABLE);
+  3c:	f44f 2080 	mov.w	r0, #262144	; 0x40000
+  40:	2101      	movs	r1, #1
+  42:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:146
+    RCC_APB1PeriphResetCmd(RCC_APB1Periph_USART3, DISABLE);
+  46:	f44f 2080 	mov.w	r0, #262144	; 0x40000
+  4a:	e014      	b.n	76 <USART_DeInit+0x76>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:148
+  }    
+  else if (USARTx == UART4)
+  4c:	4b10      	ldr	r3, [pc, #64]	; (90 <USART_DeInit+0x90>)
+  4e:	4298      	cmp	r0, r3
+  50:	d107      	bne.n	62 <USART_DeInit+0x62>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:150
+  {
+    RCC_APB1PeriphResetCmd(RCC_APB1Periph_UART4, ENABLE);
+  52:	f44f 2000 	mov.w	r0, #524288	; 0x80000
+  56:	2101      	movs	r1, #1
+  58:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:151
+    RCC_APB1PeriphResetCmd(RCC_APB1Periph_UART4, DISABLE);
+  5c:	f44f 2000 	mov.w	r0, #524288	; 0x80000
+  60:	e009      	b.n	76 <USART_DeInit+0x76>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:155
+  }    
+  else
+  {
+    if (USARTx == UART5)
+  62:	4b0c      	ldr	r3, [pc, #48]	; (94 <USART_DeInit+0x94>)
+  64:	4298      	cmp	r0, r3
+  66:	d10b      	bne.n	80 <USART_DeInit+0x80>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:157
+    { 
+      RCC_APB1PeriphResetCmd(RCC_APB1Periph_UART5, ENABLE);
+  68:	f44f 1080 	mov.w	r0, #1048576	; 0x100000
+  6c:	2101      	movs	r1, #1
+  6e:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:158
+      RCC_APB1PeriphResetCmd(RCC_APB1Periph_UART5, DISABLE);
+  72:	f44f 1080 	mov.w	r0, #1048576	; 0x100000
+  76:	2100      	movs	r1, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:161
+    }
+  }
+}
+  78:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:158
+  else
+  {
+    if (USARTx == UART5)
+    { 
+      RCC_APB1PeriphResetCmd(RCC_APB1Periph_UART5, ENABLE);
+      RCC_APB1PeriphResetCmd(RCC_APB1Periph_UART5, DISABLE);
+  7c:	f7ff bffe 	b.w	0 <RCC_APB1PeriphResetCmd>
+  80:	bd10      	pop	{r4, pc}
+  82:	bf00      	nop
+  84:	40013800 	.word	0x40013800
+  88:	40004400 	.word	0x40004400
+  8c:	40004800 	.word	0x40004800
+  90:	40004c00 	.word	0x40004c00
+  94:	40005000 	.word	0x40005000
+
+Disassembly of section .text.USART_Init:
+
+00000000 <USART_Init>:
+USART_Init():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:174
+  * @param  USART_InitStruct: pointer to a USART_InitTypeDef structure
+  *   that contains the configuration information for the specified USART peripheral.
+  * @retval None
+  */
+void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct)
+{
+   0:	b530      	push	{r4, r5, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:197
+  }
+
+  usartxbase = (uint32_t)USARTx;
+
+/*---------------------------- USART CR2 Configuration -----------------------*/
+  tmpreg = USARTx->CR2;
+   2:	8a03      	ldrh	r3, [r0, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:202
+  /* Clear STOP[13:12] bits */
+  tmpreg &= CR2_STOP_CLEAR_Mask;
+  /* Configure the USART Stop Bits, Clock, CPOL, CPHA and LastBit ------------*/
+  /* Set STOP[13:12] bits according to USART_StopBits value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_StopBits;
+   4:	88ca      	ldrh	r2, [r1, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:199
+  usartxbase = (uint32_t)USARTx;
+
+/*---------------------------- USART CR2 Configuration -----------------------*/
+  tmpreg = USARTx->CR2;
+  /* Clear STOP[13:12] bits */
+  tmpreg &= CR2_STOP_CLEAR_Mask;
+   6:	f423 5340 	bic.w	r3, r3, #12288	; 0x3000
+   a:	041b      	lsls	r3, r3, #16
+   c:	0c1b      	lsrs	r3, r3, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:205
+  /* Configure the USART Stop Bits, Clock, CPOL, CPHA and LastBit ------------*/
+  /* Set STOP[13:12] bits according to USART_StopBits value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_StopBits;
+  
+  /* Write to USART CR2 */
+  USARTx->CR2 = (uint16_t)tmpreg;
+   e:	4313      	orrs	r3, r2
+  10:	8203      	strh	r3, [r0, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:174
+  * @param  USART_InitStruct: pointer to a USART_InitTypeDef structure
+  *   that contains the configuration information for the specified USART peripheral.
+  * @retval None
+  */
+void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct)
+{
+  12:	460d      	mov	r5, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:208
+  
+  /* Write to USART CR2 */
+  USARTx->CR2 = (uint16_t)tmpreg;
+
+/*---------------------------- USART CR1 Configuration -----------------------*/
+  tmpreg = USARTx->CR1;
+  14:	8983      	ldrh	r3, [r0, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:215
+  tmpreg &= CR1_CLEAR_Mask;
+  /* Configure the USART Word Length, Parity and mode ----------------------- */
+  /* Set the M bits according to USART_WordLength value */
+  /* Set PCE and PS bits according to USART_Parity value */
+  /* Set TE and RE bits according to USART_Mode value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+  16:	8909      	ldrh	r1, [r1, #8]
+  18:	88aa      	ldrh	r2, [r5, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:210
+  USARTx->CR2 = (uint16_t)tmpreg;
+
+/*---------------------------- USART CR1 Configuration -----------------------*/
+  tmpreg = USARTx->CR1;
+  /* Clear M, PCE, PS, TE and RE bits */
+  tmpreg &= CR1_CLEAR_Mask;
+  1a:	f423 53b0 	bic.w	r3, r3, #5632	; 0x1600
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:215
+  /* Configure the USART Word Length, Parity and mode ----------------------- */
+  /* Set the M bits according to USART_WordLength value */
+  /* Set PCE and PS bits according to USART_Parity value */
+  /* Set TE and RE bits according to USART_Mode value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+  1e:	ea41 0202 	orr.w	r2, r1, r2
+  22:	8969      	ldrh	r1, [r5, #10]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:210
+  USARTx->CR2 = (uint16_t)tmpreg;
+
+/*---------------------------- USART CR1 Configuration -----------------------*/
+  tmpreg = USARTx->CR1;
+  /* Clear M, PCE, PS, TE and RE bits */
+  tmpreg &= CR1_CLEAR_Mask;
+  24:	f023 030c 	bic.w	r3, r3, #12
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:215
+  /* Configure the USART Word Length, Parity and mode ----------------------- */
+  /* Set the M bits according to USART_WordLength value */
+  /* Set PCE and PS bits according to USART_Parity value */
+  /* Set TE and RE bits according to USART_Mode value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+  28:	430a      	orrs	r2, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:210
+  USARTx->CR2 = (uint16_t)tmpreg;
+
+/*---------------------------- USART CR1 Configuration -----------------------*/
+  tmpreg = USARTx->CR1;
+  /* Clear M, PCE, PS, TE and RE bits */
+  tmpreg &= CR1_CLEAR_Mask;
+  2a:	041b      	lsls	r3, r3, #16
+  2c:	0c1b      	lsrs	r3, r3, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:215
+  /* Configure the USART Word Length, Parity and mode ----------------------- */
+  /* Set the M bits according to USART_WordLength value */
+  /* Set PCE and PS bits according to USART_Parity value */
+  /* Set TE and RE bits according to USART_Mode value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+  2e:	b292      	uxth	r2, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:218
+            USART_InitStruct->USART_Mode;
+  /* Write to USART CR1 */
+  USARTx->CR1 = (uint16_t)tmpreg;
+  30:	ea42 0303 	orr.w	r3, r2, r3
+  34:	8183      	strh	r3, [r0, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:221
+
+/*---------------------------- USART CR3 Configuration -----------------------*/  
+  tmpreg = USARTx->CR3;
+  36:	8a83      	ldrh	r3, [r0, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:226
+  /* Clear CTSE and RTSE bits */
+  tmpreg &= CR3_CLEAR_Mask;
+  /* Configure the USART HFC -------------------------------------------------*/
+  /* Set CTSE and RTSE bits according to USART_HardwareFlowControl value */
+  tmpreg |= USART_InitStruct->USART_HardwareFlowControl;
+  38:	89aa      	ldrh	r2, [r5, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:223
+  USARTx->CR1 = (uint16_t)tmpreg;
+
+/*---------------------------- USART CR3 Configuration -----------------------*/  
+  tmpreg = USARTx->CR3;
+  /* Clear CTSE and RTSE bits */
+  tmpreg &= CR3_CLEAR_Mask;
+  3a:	f423 7340 	bic.w	r3, r3, #768	; 0x300
+  3e:	041b      	lsls	r3, r3, #16
+  40:	0c1b      	lsrs	r3, r3, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:174
+  * @param  USART_InitStruct: pointer to a USART_InitTypeDef structure
+  *   that contains the configuration information for the specified USART peripheral.
+  * @retval None
+  */
+void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct)
+{
+  42:	b087      	sub	sp, #28
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:228
+  tmpreg &= CR3_CLEAR_Mask;
+  /* Configure the USART HFC -------------------------------------------------*/
+  /* Set CTSE and RTSE bits according to USART_HardwareFlowControl value */
+  tmpreg |= USART_InitStruct->USART_HardwareFlowControl;
+  /* Write to USART CR3 */
+  USARTx->CR3 = (uint16_t)tmpreg;
+  44:	4313      	orrs	r3, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:174
+  * @param  USART_InitStruct: pointer to a USART_InitTypeDef structure
+  *   that contains the configuration information for the specified USART peripheral.
+  * @retval None
+  */
+void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct)
+{
+  46:	4604      	mov	r4, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:228
+  tmpreg &= CR3_CLEAR_Mask;
+  /* Configure the USART HFC -------------------------------------------------*/
+  /* Set CTSE and RTSE bits according to USART_HardwareFlowControl value */
+  tmpreg |= USART_InitStruct->USART_HardwareFlowControl;
+  /* Write to USART CR3 */
+  USARTx->CR3 = (uint16_t)tmpreg;
+  48:	8283      	strh	r3, [r0, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:232
+
+/*---------------------------- USART BRR Configuration -----------------------*/
+  /* Configure the USART Baud Rate -------------------------------------------*/
+  RCC_GetClocksFreq(&RCC_ClocksStatus);
+  4a:	a801      	add	r0, sp, #4
+  4c:	f7ff fffe 	bl	0 <RCC_GetClocksFreq>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:233
+  if (usartxbase == USART1_BASE)
+  50:	4b18      	ldr	r3, [pc, #96]	; (b4 <USART_Init+0xb4>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:243
+  {
+    apbclock = RCC_ClocksStatus.PCLK1_Frequency;
+  }
+  
+  /* Determine the integer part */
+  if ((USARTx->CR1 & CR1_OVER8_Set) != 0)
+  52:	89a2      	ldrh	r2, [r4, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:233
+  USARTx->CR3 = (uint16_t)tmpreg;
+
+/*---------------------------- USART BRR Configuration -----------------------*/
+  /* Configure the USART Baud Rate -------------------------------------------*/
+  RCC_GetClocksFreq(&RCC_ClocksStatus);
+  if (usartxbase == USART1_BASE)
+  54:	429c      	cmp	r4, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:243
+  {
+    apbclock = RCC_ClocksStatus.PCLK1_Frequency;
+  }
+  
+  /* Determine the integer part */
+  if ((USARTx->CR1 & CR1_OVER8_Set) != 0)
+  56:	b212      	sxth	r2, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:235
+/*---------------------------- USART BRR Configuration -----------------------*/
+  /* Configure the USART Baud Rate -------------------------------------------*/
+  RCC_GetClocksFreq(&RCC_ClocksStatus);
+  if (usartxbase == USART1_BASE)
+  {
+    apbclock = RCC_ClocksStatus.PCLK2_Frequency;
+  58:	bf0c      	ite	eq
+  5a:	9b04      	ldreq	r3, [sp, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:239
+  }
+  else
+  {
+    apbclock = RCC_ClocksStatus.PCLK1_Frequency;
+  5c:	9b03      	ldrne	r3, [sp, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:243
+  }
+  
+  /* Determine the integer part */
+  if ((USARTx->CR1 & CR1_OVER8_Set) != 0)
+  5e:	2a00      	cmp	r2, #0
+  60:	f04f 0119 	mov.w	r1, #25
+  64:	682a      	ldr	r2, [r5, #0]
+  66:	da02      	bge.n	6e <USART_Init+0x6e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:246
+  {
+    /* Integer part computing in case Oversampling mode is 8 Samples */
+    integerdivider = ((25 * apbclock) / (2 * (USART_InitStruct->USART_BaudRate)));    
+  68:	4359      	muls	r1, r3
+  6a:	0052      	lsls	r2, r2, #1
+  6c:	e001      	b.n	72 <USART_Init+0x72>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:251
+  }
+  else /* if ((USARTx->CR1 & CR1_OVER8_Set) == 0) */
+  {
+    /* Integer part computing in case Oversampling mode is 16 Samples */
+    integerdivider = ((25 * apbclock) / (4 * (USART_InitStruct->USART_BaudRate)));    
+  6e:	4359      	muls	r1, r3
+  70:	0092      	lsls	r2, r2, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:253
+  }
+  tmpreg = (integerdivider / 100) << 4;
+  72:	2364      	movs	r3, #100	; 0x64
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:251
+    integerdivider = ((25 * apbclock) / (2 * (USART_InitStruct->USART_BaudRate)));    
+  }
+  else /* if ((USARTx->CR1 & CR1_OVER8_Set) == 0) */
+  {
+    /* Integer part computing in case Oversampling mode is 16 Samples */
+    integerdivider = ((25 * apbclock) / (4 * (USART_InitStruct->USART_BaudRate)));    
+  74:	fbb1 f1f2 	udiv	r1, r1, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:253
+  }
+  tmpreg = (integerdivider / 100) << 4;
+  78:	fbb1 f2f3 	udiv	r2, r1, r3
+  7c:	0112      	lsls	r2, r2, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:256
+
+  /* Determine the fractional part */
+  fractionaldivider = integerdivider - (100 * (tmpreg >> 4));
+  7e:	0910      	lsrs	r0, r2, #4
+  80:	fb03 1110 	mls	r1, r3, r0, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:259
+
+  /* Implement the fractional part in the register */
+  if ((USARTx->CR1 & CR1_OVER8_Set) != 0)
+  84:	89a0      	ldrh	r0, [r4, #12]
+  86:	b200      	sxth	r0, r0
+  88:	2800      	cmp	r0, #0
+  8a:	da06      	bge.n	9a <USART_Init+0x9a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:261
+  {
+    tmpreg |= ((((fractionaldivider * 8) + 50) / 100)) & ((uint8_t)0x07);
+  8c:	00c9      	lsls	r1, r1, #3
+  8e:	3132      	adds	r1, #50	; 0x32
+  90:	fbb1 f3f3 	udiv	r3, r1, r3
+  94:	f003 0307 	and.w	r3, r3, #7
+  98:	e005      	b.n	a6 <USART_Init+0xa6>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:265
+  }
+  else /* if ((USARTx->CR1 & CR1_OVER8_Set) == 0) */
+  {
+    tmpreg |= ((((fractionaldivider * 16) + 50) / 100)) & ((uint8_t)0x0F);
+  9a:	0109      	lsls	r1, r1, #4
+  9c:	3132      	adds	r1, #50	; 0x32
+  9e:	fbb1 f3f3 	udiv	r3, r1, r3
+  a2:	f003 030f 	and.w	r3, r3, #15
+  a6:	ea43 0202 	orr.w	r2, r3, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:269
+  }
+  
+  /* Write to USART BRR */
+  USARTx->BRR = (uint16_t)tmpreg;
+  aa:	b292      	uxth	r2, r2
+  ac:	8122      	strh	r2, [r4, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:270
+}
+  ae:	b007      	add	sp, #28
+  b0:	bd30      	pop	{r4, r5, pc}
+  b2:	bf00      	nop
+  b4:	40013800 	.word	0x40013800
+
+Disassembly of section .text.USART_StructInit:
+
+00000000 <USART_StructInit>:
+USART_StructInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:281
+  * @retval None
+  */
+void USART_StructInit(USART_InitTypeDef* USART_InitStruct)
+{
+  /* USART_InitStruct members default value */
+  USART_InitStruct->USART_BaudRate = 9600;
+   0:	f44f 5316 	mov.w	r3, #9600	; 0x2580
+   4:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:285
+  USART_InitStruct->USART_WordLength = USART_WordLength_8b;
+  USART_InitStruct->USART_StopBits = USART_StopBits_1;
+  USART_InitStruct->USART_Parity = USART_Parity_No ;
+  USART_InitStruct->USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+   6:	220c      	movs	r2, #12
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:282
+  */
+void USART_StructInit(USART_InitTypeDef* USART_InitStruct)
+{
+  /* USART_InitStruct members default value */
+  USART_InitStruct->USART_BaudRate = 9600;
+  USART_InitStruct->USART_WordLength = USART_WordLength_8b;
+   8:	2300      	movs	r3, #0
+   a:	8083      	strh	r3, [r0, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:283
+  USART_InitStruct->USART_StopBits = USART_StopBits_1;
+   c:	80c3      	strh	r3, [r0, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:284
+  USART_InitStruct->USART_Parity = USART_Parity_No ;
+   e:	8103      	strh	r3, [r0, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:285
+  USART_InitStruct->USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+  10:	8142      	strh	r2, [r0, #10]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:286
+  USART_InitStruct->USART_HardwareFlowControl = USART_HardwareFlowControl_None;  
+  12:	8183      	strh	r3, [r0, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:287
+}
+  14:	4770      	bx	lr
+
+Disassembly of section .text.USART_ClockInit:
+
+00000000 <USART_ClockInit>:
+USART_ClockInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:319
+  /* Set CLKEN bit according to USART_Clock value */
+  /* Set CPOL bit according to USART_CPOL value */
+  /* Set CPHA bit according to USART_CPHA value */
+  /* Set LBCL bit according to USART_LastBit value */
+  tmpreg |= (uint32_t)USART_ClockInitStruct->USART_Clock | USART_ClockInitStruct->USART_CPOL | 
+                 USART_ClockInitStruct->USART_CPHA | USART_ClockInitStruct->USART_LastBit;
+   0:	880a      	ldrh	r2, [r1, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:300
+  *   USART peripheral.  
+  * @note The Smart Card mode is not available for UART4 and UART5.
+  * @retval None
+  */
+void USART_ClockInit(USART_TypeDef* USARTx, USART_ClockInitTypeDef* USART_ClockInitStruct)
+{
+   2:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:319
+  /* Set CLKEN bit according to USART_Clock value */
+  /* Set CPOL bit according to USART_CPOL value */
+  /* Set CPHA bit according to USART_CPHA value */
+  /* Set LBCL bit according to USART_LastBit value */
+  tmpreg |= (uint32_t)USART_ClockInitStruct->USART_Clock | USART_ClockInitStruct->USART_CPOL | 
+                 USART_ClockInitStruct->USART_CPHA | USART_ClockInitStruct->USART_LastBit;
+   4:	884c      	ldrh	r4, [r1, #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:310
+  assert_param(IS_USART_CPOL(USART_ClockInitStruct->USART_CPOL));
+  assert_param(IS_USART_CPHA(USART_ClockInitStruct->USART_CPHA));
+  assert_param(IS_USART_LASTBIT(USART_ClockInitStruct->USART_LastBit));
+  
+/*---------------------------- USART CR2 Configuration -----------------------*/
+  tmpreg = USARTx->CR2;
+   6:	8a03      	ldrh	r3, [r0, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:319
+  /* Set CLKEN bit according to USART_Clock value */
+  /* Set CPOL bit according to USART_CPOL value */
+  /* Set CPHA bit according to USART_CPHA value */
+  /* Set LBCL bit according to USART_LastBit value */
+  tmpreg |= (uint32_t)USART_ClockInitStruct->USART_Clock | USART_ClockInitStruct->USART_CPOL | 
+                 USART_ClockInitStruct->USART_CPHA | USART_ClockInitStruct->USART_LastBit;
+   8:	ea44 0202 	orr.w	r2, r4, r2
+   c:	888c      	ldrh	r4, [r1, #4]
+   e:	88c9      	ldrh	r1, [r1, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:312
+  assert_param(IS_USART_LASTBIT(USART_ClockInitStruct->USART_LastBit));
+  
+/*---------------------------- USART CR2 Configuration -----------------------*/
+  tmpreg = USARTx->CR2;
+  /* Clear CLKEN, CPOL, CPHA and LBCL bits */
+  tmpreg &= CR2_CLOCK_CLEAR_Mask;
+  10:	f423 6370 	bic.w	r3, r3, #3840	; 0xf00
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:319
+  /* Set CLKEN bit according to USART_Clock value */
+  /* Set CPOL bit according to USART_CPOL value */
+  /* Set CPHA bit according to USART_CPHA value */
+  /* Set LBCL bit according to USART_LastBit value */
+  tmpreg |= (uint32_t)USART_ClockInitStruct->USART_Clock | USART_ClockInitStruct->USART_CPOL | 
+                 USART_ClockInitStruct->USART_CPHA | USART_ClockInitStruct->USART_LastBit;
+  14:	4322      	orrs	r2, r4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:312
+  assert_param(IS_USART_LASTBIT(USART_ClockInitStruct->USART_LastBit));
+  
+/*---------------------------- USART CR2 Configuration -----------------------*/
+  tmpreg = USARTx->CR2;
+  /* Clear CLKEN, CPOL, CPHA and LBCL bits */
+  tmpreg &= CR2_CLOCK_CLEAR_Mask;
+  16:	041b      	lsls	r3, r3, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:319
+  /* Set CLKEN bit according to USART_Clock value */
+  /* Set CPOL bit according to USART_CPOL value */
+  /* Set CPHA bit according to USART_CPHA value */
+  /* Set LBCL bit according to USART_LastBit value */
+  tmpreg |= (uint32_t)USART_ClockInitStruct->USART_Clock | USART_ClockInitStruct->USART_CPOL | 
+                 USART_ClockInitStruct->USART_CPHA | USART_ClockInitStruct->USART_LastBit;
+  18:	430a      	orrs	r2, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:312
+  assert_param(IS_USART_LASTBIT(USART_ClockInitStruct->USART_LastBit));
+  
+/*---------------------------- USART CR2 Configuration -----------------------*/
+  tmpreg = USARTx->CR2;
+  /* Clear CLKEN, CPOL, CPHA and LBCL bits */
+  tmpreg &= CR2_CLOCK_CLEAR_Mask;
+  1a:	0c1b      	lsrs	r3, r3, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:319
+  /* Set CLKEN bit according to USART_Clock value */
+  /* Set CPOL bit according to USART_CPOL value */
+  /* Set CPHA bit according to USART_CPHA value */
+  /* Set LBCL bit according to USART_LastBit value */
+  tmpreg |= (uint32_t)USART_ClockInitStruct->USART_Clock | USART_ClockInitStruct->USART_CPOL | 
+                 USART_ClockInitStruct->USART_CPHA | USART_ClockInitStruct->USART_LastBit;
+  1c:	b292      	uxth	r2, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:321
+  /* Write to USART CR2 */
+  USARTx->CR2 = (uint16_t)tmpreg;
+  1e:	ea42 0303 	orr.w	r3, r2, r3
+  22:	8203      	strh	r3, [r0, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:322
+}
+  24:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.USART_ClockStructInit:
+
+00000000 <USART_ClockStructInit>:
+USART_ClockStructInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:333
+  * @retval None
+  */
+void USART_ClockStructInit(USART_ClockInitTypeDef* USART_ClockInitStruct)
+{
+  /* USART_ClockInitStruct members default value */
+  USART_ClockInitStruct->USART_Clock = USART_Clock_Disable;
+   0:	2300      	movs	r3, #0
+   2:	8003      	strh	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:334
+  USART_ClockInitStruct->USART_CPOL = USART_CPOL_Low;
+   4:	8043      	strh	r3, [r0, #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:335
+  USART_ClockInitStruct->USART_CPHA = USART_CPHA_1Edge;
+   6:	8083      	strh	r3, [r0, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:336
+  USART_ClockInitStruct->USART_LastBit = USART_LastBit_Disable;
+   8:	80c3      	strh	r3, [r0, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:337
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.USART_Cmd:
+
+00000000 <USART_Cmd>:
+USART_Cmd():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:354
+{
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   0:	b121      	cbz	r1, c <USART_Cmd+0xc>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:357
+  {
+    /* Enable the selected USART by setting the UE bit in the CR1 register */
+    USARTx->CR1 |= CR1_UE_Set;
+   2:	8983      	ldrh	r3, [r0, #12]
+   4:	b29b      	uxth	r3, r3
+   6:	f443 5300 	orr.w	r3, r3, #8192	; 0x2000
+   a:	e004      	b.n	16 <USART_Cmd+0x16>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:362
+  }
+  else
+  {
+    /* Disable the selected USART by clearing the UE bit in the CR1 register */
+    USARTx->CR1 &= CR1_UE_Reset;
+   c:	8983      	ldrh	r3, [r0, #12]
+   e:	f423 5300 	bic.w	r3, r3, #8192	; 0x2000
+  12:	041b      	lsls	r3, r3, #16
+  14:	0c1b      	lsrs	r3, r3, #16
+  16:	8183      	strh	r3, [r0, #12]
+  18:	4770      	bx	lr
+
+Disassembly of section .text.USART_ITConfig:
+
+00000000 <USART_ITConfig>:
+USART_ITConfig():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:402
+  }   
+  
+  usartxbase = (uint32_t)USARTx;
+
+  /* Get the USART register index */
+  usartreg = (((uint8_t)USART_IT) >> 0x05);
+   0:	b2cb      	uxtb	r3, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:386
+  * @param  NewState: new state of the specified USARTx interrupts.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void USART_ITConfig(USART_TypeDef* USARTx, uint16_t USART_IT, FunctionalState NewState)
+{
+   2:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:402
+  }   
+  
+  usartxbase = (uint32_t)USARTx;
+
+  /* Get the USART register index */
+  usartreg = (((uint8_t)USART_IT) >> 0x05);
+   4:	095b      	lsrs	r3, r3, #5
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:406
+
+  /* Get the interrupt position */
+  itpos = USART_IT & IT_Mask;
+  itmask = (((uint32_t)0x01) << itpos);
+   6:	2401      	movs	r4, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:405
+
+  /* Get the USART register index */
+  usartreg = (((uint8_t)USART_IT) >> 0x05);
+
+  /* Get the interrupt position */
+  itpos = USART_IT & IT_Mask;
+   8:	f001 011f 	and.w	r1, r1, #31
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:406
+  itmask = (((uint32_t)0x01) << itpos);
+   c:	fa14 f101 	lsls.w	r1, r4, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:408
+    
+  if (usartreg == 0x01) /* The IT is in CR1 register */
+  10:	42a3      	cmp	r3, r4
+  12:	d101      	bne.n	18 <USART_ITConfig+0x18>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:410
+  {
+    usartxbase += 0x0C;
+  14:	300c      	adds	r0, #12
+  16:	e004      	b.n	22 <USART_ITConfig+0x22>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:412
+  }
+  else if (usartreg == 0x02) /* The IT is in CR2 register */
+  18:	2b02      	cmp	r3, #2
+  1a:	d101      	bne.n	20 <USART_ITConfig+0x20>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:414
+  {
+    usartxbase += 0x10;
+  1c:	3010      	adds	r0, #16
+  1e:	e000      	b.n	22 <USART_ITConfig+0x22>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:418
+  }
+  else /* The IT is in CR3 register */
+  {
+    usartxbase += 0x14; 
+  20:	3014      	adds	r0, #20
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:420
+  }
+  if (NewState != DISABLE)
+  22:	b11a      	cbz	r2, 2c <USART_ITConfig+0x2c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:422
+  {
+    *(__IO uint32_t*)usartxbase  |= itmask;
+  24:	6803      	ldr	r3, [r0, #0]
+  26:	ea43 0101 	orr.w	r1, r3, r1
+  2a:	e002      	b.n	32 <USART_ITConfig+0x32>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:426
+  }
+  else
+  {
+    *(__IO uint32_t*)usartxbase &= ~itmask;
+  2c:	6803      	ldr	r3, [r0, #0]
+  2e:	ea23 0101 	bic.w	r1, r3, r1
+  32:	6001      	str	r1, [r0, #0]
+  34:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.USART_DMACmd:
+
+00000000 <USART_DMACmd>:
+USART_DMACmd():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:450
+{
+  /* Check the parameters */
+  assert_param(IS_USART_1234_PERIPH(USARTx));
+  assert_param(IS_USART_DMAREQ(USART_DMAReq));  
+  assert_param(IS_FUNCTIONAL_STATE(NewState)); 
+  if (NewState != DISABLE)
+   0:	b11a      	cbz	r2, a <USART_DMACmd+0xa>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:454
+  {
+    /* Enable the DMA transfer for selected requests by setting the DMAT and/or
+       DMAR bits in the USART CR3 register */
+    USARTx->CR3 |= USART_DMAReq;
+   2:	8a83      	ldrh	r3, [r0, #20]
+   4:	b29b      	uxth	r3, r3
+   6:	4319      	orrs	r1, r3
+   8:	e003      	b.n	12 <USART_DMACmd+0x12>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:460
+  }
+  else
+  {
+    /* Disable the DMA transfer for selected requests by clearing the DMAT and/or
+       DMAR bits in the USART CR3 register */
+    USARTx->CR3 &= (uint16_t)~USART_DMAReq;
+   a:	8a83      	ldrh	r3, [r0, #20]
+   c:	b29b      	uxth	r3, r3
+   e:	ea23 0101 	bic.w	r1, r3, r1
+  12:	8281      	strh	r1, [r0, #20]
+  14:	4770      	bx	lr
+
+Disassembly of section .text.USART_SetAddress:
+
+00000000 <USART_SetAddress>:
+USART_SetAddress():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:479
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+  assert_param(IS_USART_ADDRESS(USART_Address)); 
+    
+  /* Clear the USART address */
+  USARTx->CR2 &= CR2_Address_Mask;
+   0:	8a03      	ldrh	r3, [r0, #16]
+   2:	f023 030f 	bic.w	r3, r3, #15
+   6:	041b      	lsls	r3, r3, #16
+   8:	0c1b      	lsrs	r3, r3, #16
+   a:	8203      	strh	r3, [r0, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:481
+  /* Set the USART address node */
+  USARTx->CR2 |= USART_Address;
+   c:	8a03      	ldrh	r3, [r0, #16]
+   e:	b29b      	uxth	r3, r3
+  10:	ea41 0303 	orr.w	r3, r1, r3
+  14:	8203      	strh	r3, [r0, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:482
+}
+  16:	4770      	bx	lr
+
+Disassembly of section .text.USART_WakeUpConfig:
+
+00000000 <USART_WakeUpConfig>:
+USART_WakeUpConfig():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:501
+{
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+  assert_param(IS_USART_WAKEUP(USART_WakeUp));
+  
+  USARTx->CR1 &= CR1_WAKE_Mask;
+   0:	8983      	ldrh	r3, [r0, #12]
+   2:	f423 6300 	bic.w	r3, r3, #2048	; 0x800
+   6:	041b      	lsls	r3, r3, #16
+   8:	0c1b      	lsrs	r3, r3, #16
+   a:	8183      	strh	r3, [r0, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:502
+  USARTx->CR1 |= USART_WakeUp;
+   c:	8983      	ldrh	r3, [r0, #12]
+   e:	b29b      	uxth	r3, r3
+  10:	ea41 0303 	orr.w	r3, r1, r3
+  14:	8183      	strh	r3, [r0, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:503
+}
+  16:	4770      	bx	lr
+
+Disassembly of section .text.USART_ReceiverWakeUpCmd:
+
+00000000 <USART_ReceiverWakeUpCmd>:
+USART_ReceiverWakeUpCmd():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:520
+{
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState)); 
+  
+  if (NewState != DISABLE)
+   0:	b121      	cbz	r1, c <USART_ReceiverWakeUpCmd+0xc>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:523
+  {
+    /* Enable the USART mute mode  by setting the RWU bit in the CR1 register */
+    USARTx->CR1 |= CR1_RWU_Set;
+   2:	8983      	ldrh	r3, [r0, #12]
+   4:	b29b      	uxth	r3, r3
+   6:	f043 0302 	orr.w	r3, r3, #2
+   a:	e004      	b.n	16 <USART_ReceiverWakeUpCmd+0x16>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:528
+  }
+  else
+  {
+    /* Disable the USART mute mode by clearing the RWU bit in the CR1 register */
+    USARTx->CR1 &= CR1_RWU_Reset;
+   c:	8983      	ldrh	r3, [r0, #12]
+   e:	f023 0302 	bic.w	r3, r3, #2
+  12:	041b      	lsls	r3, r3, #16
+  14:	0c1b      	lsrs	r3, r3, #16
+  16:	8183      	strh	r3, [r0, #12]
+  18:	4770      	bx	lr
+
+Disassembly of section .text.USART_LINBreakDetectLengthConfig:
+
+00000000 <USART_LINBreakDetectLengthConfig>:
+USART_LINBreakDetectLengthConfig():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:549
+{
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+  assert_param(IS_USART_LIN_BREAK_DETECT_LENGTH(USART_LINBreakDetectLength));
+  
+  USARTx->CR2 &= CR2_LBDL_Mask;
+   0:	8a03      	ldrh	r3, [r0, #16]
+   2:	f023 0320 	bic.w	r3, r3, #32
+   6:	041b      	lsls	r3, r3, #16
+   8:	0c1b      	lsrs	r3, r3, #16
+   a:	8203      	strh	r3, [r0, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:550
+  USARTx->CR2 |= USART_LINBreakDetectLength;  
+   c:	8a03      	ldrh	r3, [r0, #16]
+   e:	b29b      	uxth	r3, r3
+  10:	ea41 0303 	orr.w	r3, r1, r3
+  14:	8203      	strh	r3, [r0, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:551
+}
+  16:	4770      	bx	lr
+
+Disassembly of section .text.USART_LINCmd:
+
+00000000 <USART_LINCmd>:
+USART_LINCmd():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:568
+{
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   0:	b121      	cbz	r1, c <USART_LINCmd+0xc>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:571
+  {
+    /* Enable the LIN mode by setting the LINEN bit in the CR2 register */
+    USARTx->CR2 |= CR2_LINEN_Set;
+   2:	8a03      	ldrh	r3, [r0, #16]
+   4:	b29b      	uxth	r3, r3
+   6:	f443 4380 	orr.w	r3, r3, #16384	; 0x4000
+   a:	e004      	b.n	16 <USART_LINCmd+0x16>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:576
+  }
+  else
+  {
+    /* Disable the LIN mode by clearing the LINEN bit in the CR2 register */
+    USARTx->CR2 &= CR2_LINEN_Reset;
+   c:	8a03      	ldrh	r3, [r0, #16]
+   e:	f423 4380 	bic.w	r3, r3, #16384	; 0x4000
+  12:	041b      	lsls	r3, r3, #16
+  14:	0c1b      	lsrs	r3, r3, #16
+  16:	8203      	strh	r3, [r0, #16]
+  18:	4770      	bx	lr
+
+Disassembly of section .text.USART_SendData:
+
+00000000 <USART_SendData>:
+USART_SendData():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:595
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+  assert_param(IS_USART_DATA(Data)); 
+    
+  /* Transmit Data */
+  USARTx->DR = (Data & (uint16_t)0x01FF);
+   0:	05c9      	lsls	r1, r1, #23
+   2:	0dc9      	lsrs	r1, r1, #23
+   4:	8081      	strh	r1, [r0, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:596
+}
+   6:	4770      	bx	lr
+
+Disassembly of section .text.USART_ReceiveData:
+
+00000000 <USART_ReceiveData>:
+USART_ReceiveData():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:611
+{
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+  
+  /* Receive Data */
+  return (uint16_t)(USARTx->DR & (uint16_t)0x01FF);
+   0:	8880      	ldrh	r0, [r0, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:612
+}
+   2:	05c0      	lsls	r0, r0, #23
+   4:	0dc0      	lsrs	r0, r0, #23
+   6:	4770      	bx	lr
+
+Disassembly of section .text.USART_SendBreak:
+
+00000000 <USART_SendBreak>:
+USART_SendBreak():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:627
+{
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+  
+  /* Send break characters */
+  USARTx->CR1 |= CR1_SBK_Set;
+   0:	8983      	ldrh	r3, [r0, #12]
+   2:	b29b      	uxth	r3, r3
+   4:	f043 0301 	orr.w	r3, r3, #1
+   8:	8183      	strh	r3, [r0, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:628
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.USART_SetGuardTime:
+
+00000000 <USART_SetGuardTime>:
+USART_SetGuardTime():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:643
+{    
+  /* Check the parameters */
+  assert_param(IS_USART_123_PERIPH(USARTx));
+  
+  /* Clear the USART Guard time */
+  USARTx->GTPR &= GTPR_LSB_Mask;
+   0:	8b03      	ldrh	r3, [r0, #24]
+   2:	b2db      	uxtb	r3, r3
+   4:	8303      	strh	r3, [r0, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:645
+  /* Set the USART guard time */
+  USARTx->GTPR |= (uint16_t)((uint16_t)USART_GuardTime << 0x08);
+   6:	8b03      	ldrh	r3, [r0, #24]
+   8:	b29b      	uxth	r3, r3
+   a:	ea43 2301 	orr.w	r3, r3, r1, lsl #8
+   e:	8303      	strh	r3, [r0, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:646
+}
+  10:	4770      	bx	lr
+
+Disassembly of section .text.USART_SetPrescaler:
+
+00000000 <USART_SetPrescaler>:
+USART_SetPrescaler():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:663
+{ 
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+  
+  /* Clear the USART prescaler */
+  USARTx->GTPR &= GTPR_MSB_Mask;
+   0:	8b03      	ldrh	r3, [r0, #24]
+   2:	f403 437f 	and.w	r3, r3, #65280	; 0xff00
+   6:	8303      	strh	r3, [r0, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:665
+  /* Set the USART prescaler */
+  USARTx->GTPR |= USART_Prescaler;
+   8:	8b03      	ldrh	r3, [r0, #24]
+   a:	b29b      	uxth	r3, r3
+   c:	ea41 0303 	orr.w	r3, r1, r3
+  10:	8303      	strh	r3, [r0, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:666
+}
+  12:	4770      	bx	lr
+
+Disassembly of section .text.USART_SmartCardCmd:
+
+00000000 <USART_SmartCardCmd>:
+USART_SmartCardCmd():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:681
+void USART_SmartCardCmd(USART_TypeDef* USARTx, FunctionalState NewState)
+{
+  /* Check the parameters */
+  assert_param(IS_USART_123_PERIPH(USARTx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+   0:	b121      	cbz	r1, c <USART_SmartCardCmd+0xc>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:684
+  {
+    /* Enable the SC mode by setting the SCEN bit in the CR3 register */
+    USARTx->CR3 |= CR3_SCEN_Set;
+   2:	8a83      	ldrh	r3, [r0, #20]
+   4:	b29b      	uxth	r3, r3
+   6:	f043 0320 	orr.w	r3, r3, #32
+   a:	e004      	b.n	16 <USART_SmartCardCmd+0x16>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:689
+  }
+  else
+  {
+    /* Disable the SC mode by clearing the SCEN bit in the CR3 register */
+    USARTx->CR3 &= CR3_SCEN_Reset;
+   c:	8a83      	ldrh	r3, [r0, #20]
+   e:	f023 0320 	bic.w	r3, r3, #32
+  12:	041b      	lsls	r3, r3, #16
+  14:	0c1b      	lsrs	r3, r3, #16
+  16:	8283      	strh	r3, [r0, #20]
+  18:	4770      	bx	lr
+
+Disassembly of section .text.USART_SmartCardNACKCmd:
+
+00000000 <USART_SmartCardNACKCmd>:
+USART_SmartCardNACKCmd():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:706
+void USART_SmartCardNACKCmd(USART_TypeDef* USARTx, FunctionalState NewState)
+{
+  /* Check the parameters */
+  assert_param(IS_USART_123_PERIPH(USARTx));  
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+   0:	b121      	cbz	r1, c <USART_SmartCardNACKCmd+0xc>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:709
+  {
+    /* Enable the NACK transmission by setting the NACK bit in the CR3 register */
+    USARTx->CR3 |= CR3_NACK_Set;
+   2:	8a83      	ldrh	r3, [r0, #20]
+   4:	b29b      	uxth	r3, r3
+   6:	f043 0310 	orr.w	r3, r3, #16
+   a:	e004      	b.n	16 <USART_SmartCardNACKCmd+0x16>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:714
+  }
+  else
+  {
+    /* Disable the NACK transmission by clearing the NACK bit in the CR3 register */
+    USARTx->CR3 &= CR3_NACK_Reset;
+   c:	8a83      	ldrh	r3, [r0, #20]
+   e:	f023 0310 	bic.w	r3, r3, #16
+  12:	041b      	lsls	r3, r3, #16
+  14:	0c1b      	lsrs	r3, r3, #16
+  16:	8283      	strh	r3, [r0, #20]
+  18:	4770      	bx	lr
+
+Disassembly of section .text.USART_HalfDuplexCmd:
+
+00000000 <USART_HalfDuplexCmd>:
+USART_HalfDuplexCmd():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:733
+{
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   0:	b121      	cbz	r1, c <USART_HalfDuplexCmd+0xc>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:736
+  {
+    /* Enable the Half-Duplex mode by setting the HDSEL bit in the CR3 register */
+    USARTx->CR3 |= CR3_HDSEL_Set;
+   2:	8a83      	ldrh	r3, [r0, #20]
+   4:	b29b      	uxth	r3, r3
+   6:	f043 0308 	orr.w	r3, r3, #8
+   a:	e004      	b.n	16 <USART_HalfDuplexCmd+0x16>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:741
+  }
+  else
+  {
+    /* Disable the Half-Duplex mode by clearing the HDSEL bit in the CR3 register */
+    USARTx->CR3 &= CR3_HDSEL_Reset;
+   c:	8a83      	ldrh	r3, [r0, #20]
+   e:	f023 0308 	bic.w	r3, r3, #8
+  12:	041b      	lsls	r3, r3, #16
+  14:	0c1b      	lsrs	r3, r3, #16
+  16:	8283      	strh	r3, [r0, #20]
+  18:	4770      	bx	lr
+
+Disassembly of section .text.USART_OverSampling8Cmd:
+
+00000000 <USART_OverSampling8Cmd>:
+USART_OverSampling8Cmd():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:764
+{
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   0:	b131      	cbz	r1, 10 <USART_OverSampling8Cmd+0x10>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:767
+  {
+    /* Enable the 8x Oversampling mode by setting the OVER8 bit in the CR1 register */
+    USARTx->CR1 |= CR1_OVER8_Set;
+   2:	8983      	ldrh	r3, [r0, #12]
+   4:	ea6f 4343 	mvn.w	r3, r3, lsl #17
+   8:	ea6f 4353 	mvn.w	r3, r3, lsr #17
+   c:	b29b      	uxth	r3, r3
+   e:	e002      	b.n	16 <USART_OverSampling8Cmd+0x16>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:772
+  }
+  else
+  {
+    /* Disable the 8x Oversampling mode by clearing the OVER8 bit in the CR1 register */
+    USARTx->CR1 &= CR1_OVER8_Reset;
+  10:	8983      	ldrh	r3, [r0, #12]
+  12:	045b      	lsls	r3, r3, #17
+  14:	0c5b      	lsrs	r3, r3, #17
+  16:	8183      	strh	r3, [r0, #12]
+  18:	4770      	bx	lr
+
+Disassembly of section .text.USART_OneBitMethodCmd:
+
+00000000 <USART_OneBitMethodCmd>:
+USART_OneBitMethodCmd():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:791
+{
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   0:	b121      	cbz	r1, c <USART_OneBitMethodCmd+0xc>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:794
+  {
+    /* Enable the one bit method by setting the ONEBITE bit in the CR3 register */
+    USARTx->CR3 |= CR3_ONEBITE_Set;
+   2:	8a83      	ldrh	r3, [r0, #20]
+   4:	b29b      	uxth	r3, r3
+   6:	f443 6300 	orr.w	r3, r3, #2048	; 0x800
+   a:	e004      	b.n	16 <USART_OneBitMethodCmd+0x16>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:799
+  }
+  else
+  {
+    /* Disable tthe one bit method by clearing the ONEBITE bit in the CR3 register */
+    USARTx->CR3 &= CR3_ONEBITE_Reset;
+   c:	8a83      	ldrh	r3, [r0, #20]
+   e:	f423 6300 	bic.w	r3, r3, #2048	; 0x800
+  12:	041b      	lsls	r3, r3, #16
+  14:	0c1b      	lsrs	r3, r3, #16
+  16:	8283      	strh	r3, [r0, #20]
+  18:	4770      	bx	lr
+
+Disassembly of section .text.USART_IrDAConfig:
+
+00000000 <USART_IrDAConfig>:
+USART_IrDAConfig():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:820
+{
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+  assert_param(IS_USART_IRDA_MODE(USART_IrDAMode));
+    
+  USARTx->CR3 &= CR3_IRLP_Mask;
+   0:	8a83      	ldrh	r3, [r0, #20]
+   2:	f023 0304 	bic.w	r3, r3, #4
+   6:	041b      	lsls	r3, r3, #16
+   8:	0c1b      	lsrs	r3, r3, #16
+   a:	8283      	strh	r3, [r0, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:821
+  USARTx->CR3 |= USART_IrDAMode;
+   c:	8a83      	ldrh	r3, [r0, #20]
+   e:	b29b      	uxth	r3, r3
+  10:	ea41 0303 	orr.w	r3, r1, r3
+  14:	8283      	strh	r3, [r0, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:822
+}
+  16:	4770      	bx	lr
+
+Disassembly of section .text.USART_IrDACmd:
+
+00000000 <USART_IrDACmd>:
+USART_IrDACmd():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:839
+{
+  /* Check the parameters */
+  assert_param(IS_USART_ALL_PERIPH(USARTx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+    
+  if (NewState != DISABLE)
+   0:	b121      	cbz	r1, c <USART_IrDACmd+0xc>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:842
+  {
+    /* Enable the IrDA mode by setting the IREN bit in the CR3 register */
+    USARTx->CR3 |= CR3_IREN_Set;
+   2:	8a83      	ldrh	r3, [r0, #20]
+   4:	b29b      	uxth	r3, r3
+   6:	f043 0302 	orr.w	r3, r3, #2
+   a:	e004      	b.n	16 <USART_IrDACmd+0x16>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:847
+  }
+  else
+  {
+    /* Disable the IrDA mode by clearing the IREN bit in the CR3 register */
+    USARTx->CR3 &= CR3_IREN_Reset;
+   c:	8a83      	ldrh	r3, [r0, #20]
+   e:	f023 0302 	bic.w	r3, r3, #2
+  12:	041b      	lsls	r3, r3, #16
+  14:	0c1b      	lsrs	r3, r3, #16
+  16:	8283      	strh	r3, [r0, #20]
+  18:	4770      	bx	lr
+
+Disassembly of section .text.USART_GetFlagStatus:
+
+00000000 <USART_GetFlagStatus>:
+USART_GetFlagStatus():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:882
+  if (USART_FLAG == USART_FLAG_CTS)
+  {
+    assert_param(IS_USART_123_PERIPH(USARTx));
+  }  
+  
+  if ((USARTx->SR & USART_FLAG) != (uint16_t)RESET)
+   0:	8803      	ldrh	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:884
+  {
+    bitstatus = SET;
+   2:	4219      	tst	r1, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:891
+  else
+  {
+    bitstatus = RESET;
+  }
+  return bitstatus;
+}
+   4:	bf0c      	ite	eq
+   6:	2000      	moveq	r0, #0
+   8:	2001      	movne	r0, #1
+   a:	4770      	bx	lr
+
+Disassembly of section .text.USART_ClearFlag:
+
+00000000 <USART_ClearFlag>:
+USART_ClearFlag():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:930
+  if ((USART_FLAG & USART_FLAG_CTS) == USART_FLAG_CTS)
+  {
+    assert_param(IS_USART_123_PERIPH(USARTx));
+  } 
+   
+  USARTx->SR = (uint16_t)~USART_FLAG;
+   0:	43c9      	mvns	r1, r1
+   2:	b289      	uxth	r1, r1
+   4:	8001      	strh	r1, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:931
+}
+   6:	4770      	bx	lr
+
+Disassembly of section .text.USART_GetITStatus:
+
+00000000 <USART_GetITStatus>:
+USART_GetITStatus():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:953
+  *     @arg USART_IT_FE:   Framing Error interrupt
+  *     @arg USART_IT_PE:   Parity Error interrupt
+  * @retval The new state of USART_IT (SET or RESET).
+  */
+ITStatus USART_GetITStatus(USART_TypeDef* USARTx, uint16_t USART_IT)
+{
+   0:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:966
+  {
+    assert_param(IS_USART_123_PERIPH(USARTx));
+  }   
+  
+  /* Get the USART register index */
+  usartreg = (((uint8_t)USART_IT) >> 0x05);
+   2:	b2cc      	uxtb	r4, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:969
+  /* Get the interrupt position */
+  itmask = USART_IT & IT_Mask;
+  itmask = (uint32_t)0x01 << itmask;
+   4:	2201      	movs	r2, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:966
+  {
+    assert_param(IS_USART_123_PERIPH(USARTx));
+  }   
+  
+  /* Get the USART register index */
+  usartreg = (((uint8_t)USART_IT) >> 0x05);
+   6:	0964      	lsrs	r4, r4, #5
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:968
+  /* Get the interrupt position */
+  itmask = USART_IT & IT_Mask;
+   8:	f001 031f 	and.w	r3, r1, #31
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:969
+  itmask = (uint32_t)0x01 << itmask;
+   c:	409a      	lsls	r2, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:971
+  
+  if (usartreg == 0x01) /* The IT  is in CR1 register */
+   e:	2c01      	cmp	r4, #1
+  10:	d101      	bne.n	16 <USART_GetITStatus+0x16>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:973
+  {
+    itmask &= USARTx->CR1;
+  12:	8983      	ldrh	r3, [r0, #12]
+  14:	e003      	b.n	1e <USART_GetITStatus+0x1e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:975
+  }
+  else if (usartreg == 0x02) /* The IT  is in CR2 register */
+  16:	2c02      	cmp	r4, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:977
+  {
+    itmask &= USARTx->CR2;
+  18:	bf0c      	ite	eq
+  1a:	8a03      	ldrheq	r3, [r0, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:981
+  }
+  else /* The IT  is in CR3 register */
+  {
+    itmask &= USARTx->CR3;
+  1c:	8a83      	ldrhne	r3, [r0, #20]
+  1e:	b29b      	uxth	r3, r3
+  20:	ea02 0303 	and.w	r3, r2, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:986
+  }
+  
+  bitpos = USART_IT >> 0x08;
+  bitpos = (uint32_t)0x01 << bitpos;
+  bitpos &= USARTx->SR;
+  24:	8802      	ldrh	r2, [r0, #0]
+  26:	b292      	uxth	r2, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:987
+  if ((itmask != (uint16_t)RESET)&&(bitpos != (uint16_t)RESET))
+  28:	b143      	cbz	r3, 3c <USART_GetITStatus+0x3c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:984
+  else /* The IT  is in CR3 register */
+  {
+    itmask &= USARTx->CR3;
+  }
+  
+  bitpos = USART_IT >> 0x08;
+  2a:	0a09      	lsrs	r1, r1, #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:985
+  bitpos = (uint32_t)0x01 << bitpos;
+  2c:	2301      	movs	r3, #1
+  2e:	fa13 f101 	lsls.w	r1, r3, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:952
+  *     @arg USART_IT_NE:   Noise Error interrupt
+  *     @arg USART_IT_FE:   Framing Error interrupt
+  *     @arg USART_IT_PE:   Parity Error interrupt
+  * @retval The new state of USART_IT (SET or RESET).
+  */
+ITStatus USART_GetITStatus(USART_TypeDef* USARTx, uint16_t USART_IT)
+  32:	4211      	tst	r1, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:989
+  bitpos = USART_IT >> 0x08;
+  bitpos = (uint32_t)0x01 << bitpos;
+  bitpos &= USARTx->SR;
+  if ((itmask != (uint16_t)RESET)&&(bitpos != (uint16_t)RESET))
+  {
+    bitstatus = SET;
+  34:	bf0c      	ite	eq
+  36:	2000      	moveq	r0, #0
+  38:	2001      	movne	r0, #1
+  3a:	bd10      	pop	{r4, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:993
+  }
+  else
+  {
+    bitstatus = RESET;
+  3c:	4618      	mov	r0, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:997
+  }
+  
+  return bitstatus;  
+}
+  3e:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.USART_ClearITPendingBit:
+
+00000000 <USART_ClearITPendingBit>:
+USART_ClearITPendingBit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:1039
+  {
+    assert_param(IS_USART_123_PERIPH(USARTx));
+  }   
+  
+  bitpos = USART_IT >> 0x08;
+  itmask = ((uint16_t)0x01 << (uint16_t)bitpos);
+   0:	0a09      	lsrs	r1, r1, #8
+   2:	2301      	movs	r3, #1
+   4:	408b      	lsls	r3, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:1040
+  USARTx->SR = (uint16_t)~itmask;
+   6:	43db      	mvns	r3, r3
+   8:	b29b      	uxth	r3, r3
+   a:	8003      	strh	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_usart.c:1041
+}
+   c:	4770      	bx	lr

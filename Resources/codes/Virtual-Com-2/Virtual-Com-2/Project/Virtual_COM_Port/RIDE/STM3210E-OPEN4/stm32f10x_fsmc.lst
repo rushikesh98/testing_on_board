@@ -1,0 +1,1665 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\stm32f10x_fsmc.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\stm32f10x_fsmc.o
+
+
+Disassembly of section .text.FSMC_NORSRAMDeInit:
+
+00000000 <FSMC_NORSRAMDeInit>:
+FSMC_NORSRAMDeInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:102
+  *     @arg FSMC_Bank1_NORSRAM3: FSMC Bank1 NOR/SRAM3 
+  *     @arg FSMC_Bank1_NORSRAM4: FSMC Bank1 NOR/SRAM4 
+  * @retval None
+  */
+void FSMC_NORSRAMDeInit(uint32_t FSMC_Bank)
+{
+   0:	f04f 4320 	mov.w	r3, #2684354560	; 0xa0000000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:107
+  /* Check the parameter */
+  assert_param(IS_FSMC_NORSRAM_BANK(FSMC_Bank));
+  
+  /* FSMC_Bank1_NORSRAM1 */
+  if(FSMC_Bank == FSMC_Bank1_NORSRAM1)
+   4:	b918      	cbnz	r0, e <FSMC_NORSRAMDeInit+0xe>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:109
+  {
+    FSMC_Bank1->BTCR[FSMC_Bank] = 0x000030DB;    
+   6:	f243 02db 	movw	r2, #12507	; 0x30db
+   a:	601a      	str	r2, [r3, #0]
+   c:	e003      	b.n	16 <FSMC_NORSRAMDeInit+0x16>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:114
+  }
+  /* FSMC_Bank1_NORSRAM2,  FSMC_Bank1_NORSRAM3 or FSMC_Bank1_NORSRAM4 */
+  else
+  {   
+    FSMC_Bank1->BTCR[FSMC_Bank] = 0x000030D2; 
+   e:	f243 02d2 	movw	r2, #12498	; 0x30d2
+  12:	f843 2020 	str.w	r2, [r3, r0, lsl #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:116
+  }
+  FSMC_Bank1->BTCR[FSMC_Bank + 1] = 0x0FFFFFFF;
+  16:	f06f 4370 	mvn.w	r3, #4026531840	; 0xf0000000
+  1a:	f04f 4220 	mov.w	r2, #2684354560	; 0xa0000000
+  1e:	1c41      	adds	r1, r0, #1
+  20:	f842 3021 	str.w	r3, [r2, r1, lsl #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:117
+  FSMC_Bank1E->BWTR[FSMC_Bank] = 0x0FFFFFFF;  
+  24:	4a01      	ldr	r2, [pc, #4]	; (2c <FSMC_NORSRAMDeInit+0x2c>)
+  26:	f842 3020 	str.w	r3, [r2, r0, lsl #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:118
+}
+  2a:	4770      	bx	lr
+  2c:	a0000104 	.word	0xa0000104
+
+Disassembly of section .text.FSMC_NANDDeInit:
+
+00000000 <FSMC_NANDDeInit>:
+FSMC_NANDDeInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:133
+void FSMC_NANDDeInit(uint32_t FSMC_Bank)
+{
+  /* Check the parameter */
+  assert_param(IS_FSMC_NAND_BANK(FSMC_Bank));
+  
+  if(FSMC_Bank == FSMC_Bank2_NAND)
+   0:	bf0c2810 	.word	0xbf0c2810
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:136
+  {
+    /* Set the FSMC_Bank2 registers to their reset values */
+    FSMC_Bank2->PCR2 = 0x00000018;
+   4:	4b05      	ldreq	r3, [pc, #20]	; (1c <FSMC_NANDDeInit+0x1c>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:145
+  }
+  /* FSMC_Bank3_NAND */  
+  else
+  {
+    /* Set the FSMC_Bank3 registers to their reset values */
+    FSMC_Bank3->PCR3 = 0x00000018;
+   6:	4b06      	ldrne	r3, [pc, #24]	; (20 <FSMC_NANDDeInit+0x20>)
+   8:	2240      	movs	r2, #64	; 0x40
+   a:	2118      	movs	r1, #24
+   c:	6019      	str	r1, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:146
+    FSMC_Bank3->SR3 = 0x00000040;
+   e:	605a      	str	r2, [r3, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:147
+    FSMC_Bank3->PMEM3 = 0xFCFCFCFC;
+  10:	f04f 32fc 	mov.w	r2, #4244438268	; 0xfcfcfcfc
+  14:	609a      	str	r2, [r3, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:148
+    FSMC_Bank3->PATT3 = 0xFCFCFCFC; 
+  16:	60da      	str	r2, [r3, #12]
+  18:	4770      	bx	lr
+  1a:	bf00      	nop
+  1c:	a0000060 	.word	0xa0000060
+  20:	a0000080 	.word	0xa0000080
+
+Disassembly of section .text.FSMC_PCCARDDeInit:
+
+00000000 <FSMC_PCCARDDeInit>:
+FSMC_PCCARDDeInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:160
+  * @retval None
+  */
+void FSMC_PCCARDDeInit(void)
+{
+  /* Set the FSMC_Bank4 registers to their reset values */
+  FSMC_Bank4->PCR4 = 0x00000018; 
+   0:	22184b05 	.word	0x22184b05
+   4:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:161
+  FSMC_Bank4->SR4 = 0x00000000;	
+   6:	3a18      	subs	r2, #24
+   8:	605a      	str	r2, [r3, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:162
+  FSMC_Bank4->PMEM4 = 0xFCFCFCFC;
+   a:	f04f 32fc 	mov.w	r2, #4244438268	; 0xfcfcfcfc
+   e:	609a      	str	r2, [r3, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:163
+  FSMC_Bank4->PATT4 = 0xFCFCFCFC;
+  10:	60da      	str	r2, [r3, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:164
+  FSMC_Bank4->PIO4 = 0xFCFCFCFC;
+  12:	611a      	str	r2, [r3, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:165
+}
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+  18:	a00000a0 	.word	0xa00000a0
+
+Disassembly of section .text.FSMC_NORSRAMInit:
+
+00000000 <FSMC_NORSRAMInit>:
+FSMC_NORSRAMInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:176
+  *   structure that contains the configuration information for 
+  *   the FSMC NOR/SRAM specified Banks.                       
+  * @retval None
+  */
+void FSMC_NORSRAMInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct)
+{ 
+   0:	b570      	push	{r4, r5, r6, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:201
+  assert_param(IS_FSMC_ACCESS_MODE(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AccessMode)); 
+  
+  /* Bank1 NOR/SRAM control register configuration */ 
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] = 
+            (uint32_t)FSMC_NORSRAMInitStruct->FSMC_DataAddressMux |
+            FSMC_NORSRAMInitStruct->FSMC_MemoryType |
+   2:	6884      	ldr	r4, [r0, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:200
+  assert_param(IS_FSMC_DATA_LATENCY(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataLatency));
+  assert_param(IS_FSMC_ACCESS_MODE(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AccessMode)); 
+  
+  /* Bank1 NOR/SRAM control register configuration */ 
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] = 
+            (uint32_t)FSMC_NORSRAMInitStruct->FSMC_DataAddressMux |
+   4:	6845      	ldr	r5, [r0, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:201
+            FSMC_NORSRAMInitStruct->FSMC_MemoryType |
+   6:	68c3      	ldr	r3, [r0, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:200
+  assert_param(IS_FSMC_DATA_LATENCY(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataLatency));
+  assert_param(IS_FSMC_ACCESS_MODE(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AccessMode)); 
+  
+  /* Bank1 NOR/SRAM control register configuration */ 
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] = 
+            (uint32_t)FSMC_NORSRAMInitStruct->FSMC_DataAddressMux |
+   8:	ea44 0505 	orr.w	r5, r4, r5
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:201
+            FSMC_NORSRAMInitStruct->FSMC_MemoryType |
+   c:	431d      	orrs	r5, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:202
+            FSMC_NORSRAMInitStruct->FSMC_MemoryDataWidth |
+   e:	6903      	ldr	r3, [r0, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:209
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignalPolarity |
+            FSMC_NORSRAMInitStruct->FSMC_WrapMode |
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignalActive |
+            FSMC_NORSRAMInitStruct->FSMC_WriteOperation |
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignal |
+            FSMC_NORSRAMInitStruct->FSMC_ExtendedMode |
+  10:	6a81      	ldr	r1, [r0, #40]	; 0x28
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:202
+  
+  /* Bank1 NOR/SRAM control register configuration */ 
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] = 
+            (uint32_t)FSMC_NORSRAMInitStruct->FSMC_DataAddressMux |
+            FSMC_NORSRAMInitStruct->FSMC_MemoryType |
+            FSMC_NORSRAMInitStruct->FSMC_MemoryDataWidth |
+  12:	431d      	orrs	r5, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:203
+            FSMC_NORSRAMInitStruct->FSMC_BurstAccessMode |
+  14:	6943      	ldr	r3, [r0, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:199
+  assert_param(IS_FSMC_CLK_DIV(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_CLKDivision));
+  assert_param(IS_FSMC_DATA_LATENCY(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataLatency));
+  assert_param(IS_FSMC_ACCESS_MODE(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AccessMode)); 
+  
+  /* Bank1 NOR/SRAM control register configuration */ 
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] = 
+  16:	6802      	ldr	r2, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:203
+            (uint32_t)FSMC_NORSRAMInitStruct->FSMC_DataAddressMux |
+            FSMC_NORSRAMInitStruct->FSMC_MemoryType |
+            FSMC_NORSRAMInitStruct->FSMC_MemoryDataWidth |
+            FSMC_NORSRAMInitStruct->FSMC_BurstAccessMode |
+  18:	431d      	orrs	r5, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:204
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignalPolarity |
+  1a:	6983      	ldr	r3, [r0, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:211
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignalActive |
+            FSMC_NORSRAMInitStruct->FSMC_WriteOperation |
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignal |
+            FSMC_NORSRAMInitStruct->FSMC_ExtendedMode |
+            FSMC_NORSRAMInitStruct->FSMC_WriteBurst;
+  if(FSMC_NORSRAMInitStruct->FSMC_MemoryType == FSMC_MemoryType_NOR)
+  1c:	2c08      	cmp	r4, #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:204
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] = 
+            (uint32_t)FSMC_NORSRAMInitStruct->FSMC_DataAddressMux |
+            FSMC_NORSRAMInitStruct->FSMC_MemoryType |
+            FSMC_NORSRAMInitStruct->FSMC_MemoryDataWidth |
+            FSMC_NORSRAMInitStruct->FSMC_BurstAccessMode |
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignalPolarity |
+  1e:	ea45 0503 	orr.w	r5, r5, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:205
+            FSMC_NORSRAMInitStruct->FSMC_WrapMode |
+  22:	69c3      	ldr	r3, [r0, #28]
+  24:	ea45 0503 	orr.w	r5, r5, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:206
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignalActive |
+  28:	6a03      	ldr	r3, [r0, #32]
+  2a:	ea45 0503 	orr.w	r5, r5, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:207
+            FSMC_NORSRAMInitStruct->FSMC_WriteOperation |
+  2e:	6a43      	ldr	r3, [r0, #36]	; 0x24
+  30:	ea45 0503 	orr.w	r5, r5, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:209
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignal |
+            FSMC_NORSRAMInitStruct->FSMC_ExtendedMode |
+  34:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:208
+            FSMC_NORSRAMInitStruct->FSMC_BurstAccessMode |
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignalPolarity |
+            FSMC_NORSRAMInitStruct->FSMC_WrapMode |
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignalActive |
+            FSMC_NORSRAMInitStruct->FSMC_WriteOperation |
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignal |
+  36:	ea45 0501 	orr.w	r5, r5, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:209
+            FSMC_NORSRAMInitStruct->FSMC_ExtendedMode |
+  3a:	ea45 0503 	orr.w	r5, r5, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:199
+  assert_param(IS_FSMC_CLK_DIV(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_CLKDivision));
+  assert_param(IS_FSMC_DATA_LATENCY(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataLatency));
+  assert_param(IS_FSMC_ACCESS_MODE(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AccessMode)); 
+  
+  /* Bank1 NOR/SRAM control register configuration */ 
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] = 
+  3e:	f04f 4320 	mov.w	r3, #2684354560	; 0xa0000000
+  42:	f843 5022 	str.w	r5, [r3, r2, lsl #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:211
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignalActive |
+            FSMC_NORSRAMInitStruct->FSMC_WriteOperation |
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignal |
+            FSMC_NORSRAMInitStruct->FSMC_ExtendedMode |
+            FSMC_NORSRAMInitStruct->FSMC_WriteBurst;
+  if(FSMC_NORSRAMInitStruct->FSMC_MemoryType == FSMC_MemoryType_NOR)
+  46:	d105      	bne.n	54 <FSMC_NORSRAMInit+0x54>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:213
+  {
+    FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] |= (uint32_t)BCR_FACCEN_Set;
+  48:	f853 4022 	ldr.w	r4, [r3, r2, lsl #2]
+  4c:	f044 0440 	orr.w	r4, r4, #64	; 0x40
+  50:	f843 4022 	str.w	r4, [r3, r2, lsl #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:217
+  }
+  /* Bank1 NOR/SRAM timing register configuration */
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank+1] = 
+            (uint32_t)FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AddressSetupTime |
+  54:	6b03      	ldr	r3, [r0, #48]	; 0x30
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:216
+  if(FSMC_NORSRAMInitStruct->FSMC_MemoryType == FSMC_MemoryType_NOR)
+  {
+    FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] |= (uint32_t)BCR_FACCEN_Set;
+  }
+  /* Bank1 NOR/SRAM timing register configuration */
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank+1] = 
+  56:	1c54      	adds	r4, r2, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:217
+            (uint32_t)FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AddressSetupTime |
+  58:	699e      	ldr	r6, [r3, #24]
+  5a:	681d      	ldr	r5, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:227
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataLatency << 24) |
+             FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AccessMode;
+            
+    
+  /* Bank1 NOR/SRAM timing register for write configuration, if extended mode is used */
+  if(FSMC_NORSRAMInitStruct->FSMC_ExtendedMode == FSMC_ExtendedMode_Enable)
+  5c:	f5b1 4f80 	cmp.w	r1, #16384	; 0x4000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:217
+  {
+    FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] |= (uint32_t)BCR_FACCEN_Set;
+  }
+  /* Bank1 NOR/SRAM timing register configuration */
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank+1] = 
+            (uint32_t)FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AddressSetupTime |
+  60:	ea46 0505 	orr.w	r5, r6, r5
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:218
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AddressHoldTime << 4) |
+  64:	685e      	ldr	r6, [r3, #4]
+  66:	ea45 1506 	orr.w	r5, r5, r6, lsl #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:219
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataSetupTime << 8) |
+  6a:	689e      	ldr	r6, [r3, #8]
+  6c:	ea45 2506 	orr.w	r5, r5, r6, lsl #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:220
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_BusTurnAroundDuration << 16) |
+  70:	68de      	ldr	r6, [r3, #12]
+  72:	ea45 4506 	orr.w	r5, r5, r6, lsl #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:221
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_CLKDivision << 20) |
+  76:	691e      	ldr	r6, [r3, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:222
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataLatency << 24) |
+  78:	695b      	ldr	r3, [r3, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:221
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank+1] = 
+            (uint32_t)FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AddressSetupTime |
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AddressHoldTime << 4) |
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataSetupTime << 8) |
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_BusTurnAroundDuration << 16) |
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_CLKDivision << 20) |
+  7a:	ea45 5506 	orr.w	r5, r5, r6, lsl #20
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:222
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataLatency << 24) |
+  7e:	ea45 6503 	orr.w	r5, r5, r3, lsl #24
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:216
+  if(FSMC_NORSRAMInitStruct->FSMC_MemoryType == FSMC_MemoryType_NOR)
+  {
+    FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] |= (uint32_t)BCR_FACCEN_Set;
+  }
+  /* Bank1 NOR/SRAM timing register configuration */
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank+1] = 
+  82:	f04f 4320 	mov.w	r3, #2684354560	; 0xa0000000
+  86:	f843 5024 	str.w	r5, [r3, r4, lsl #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:227
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataLatency << 24) |
+             FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AccessMode;
+            
+    
+  /* Bank1 NOR/SRAM timing register for write configuration, if extended mode is used */
+  if(FSMC_NORSRAMInitStruct->FSMC_ExtendedMode == FSMC_ExtendedMode_Enable)
+  8a:	d111      	bne.n	b0 <FSMC_NORSRAMInit+0xb0>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:236
+    assert_param(IS_FSMC_DATASETUP_TIME(FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataSetupTime));
+    assert_param(IS_FSMC_CLK_DIV(FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_CLKDivision));
+    assert_param(IS_FSMC_DATA_LATENCY(FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataLatency));
+    assert_param(IS_FSMC_ACCESS_MODE(FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AccessMode));
+    FSMC_Bank1E->BWTR[FSMC_NORSRAMInitStruct->FSMC_Bank] = 
+              (uint32_t)FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AddressSetupTime |
+  8c:	6b43      	ldr	r3, [r0, #52]	; 0x34
+  8e:	6998      	ldr	r0, [r3, #24]
+  90:	6819      	ldr	r1, [r3, #0]
+  92:	ea40 0101 	orr.w	r1, r0, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:237
+              (FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AddressHoldTime << 4 )|
+  96:	6858      	ldr	r0, [r3, #4]
+  98:	ea41 1100 	orr.w	r1, r1, r0, lsl #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:238
+              (FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataSetupTime << 8) |
+  9c:	6898      	ldr	r0, [r3, #8]
+  9e:	ea41 2100 	orr.w	r1, r1, r0, lsl #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:239
+              (FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_CLKDivision << 20) |
+  a2:	6918      	ldr	r0, [r3, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:240
+              (FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataLatency << 24) |
+  a4:	695b      	ldr	r3, [r3, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:239
+    assert_param(IS_FSMC_ACCESS_MODE(FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AccessMode));
+    FSMC_Bank1E->BWTR[FSMC_NORSRAMInitStruct->FSMC_Bank] = 
+              (uint32_t)FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AddressSetupTime |
+              (FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AddressHoldTime << 4 )|
+              (FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataSetupTime << 8) |
+              (FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_CLKDivision << 20) |
+  a6:	ea41 5100 	orr.w	r1, r1, r0, lsl #20
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:240
+              (FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataLatency << 24) |
+  aa:	ea41 6103 	orr.w	r1, r1, r3, lsl #24
+  ae:	e001      	b.n	b4 <FSMC_NORSRAMInit+0xb4>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:245
+               FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AccessMode;
+  }
+  else
+  {
+    FSMC_Bank1E->BWTR[FSMC_NORSRAMInitStruct->FSMC_Bank] = 0x0FFFFFFF;
+  b0:	f06f 4170 	mvn.w	r1, #4026531840	; 0xf0000000
+  b4:	4b01      	ldr	r3, [pc, #4]	; (bc <FSMC_NORSRAMInit+0xbc>)
+  b6:	f843 1022 	str.w	r1, [r3, r2, lsl #2]
+  ba:	bd70      	pop	{r4, r5, r6, pc}
+  bc:	a0000104 	.word	0xa0000104
+
+Disassembly of section .text.FSMC_NANDInit:
+
+00000000 <FSMC_NANDInit>:
+FSMC_NANDInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:257
+  * @param  FSMC_NANDInitStruct : pointer to a FSMC_NANDInitTypeDef 
+  *   structure that contains the configuration information for the FSMC NAND specified Banks.                       
+  * @retval None
+  */
+void FSMC_NANDInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct)
+{
+   0:	6883b530 	.word	0x6883b530
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:279
+  assert_param(IS_FSMC_HOLD_TIME(FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime));
+  assert_param(IS_FSMC_HIZ_TIME(FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime));
+  
+  /* Set the tmppcr value according to FSMC_NANDInitStruct parameters */
+  tmppcr = (uint32_t)FSMC_NANDInitStruct->FSMC_Waitfeature |
+            PCR_MemoryType_NAND |
+   4:	6844      	ldr	r4, [r0, #4]
+   6:	431c      	orrs	r4, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:281
+            FSMC_NANDInitStruct->FSMC_MemoryDataWidth |
+            FSMC_NANDInitStruct->FSMC_ECC |
+   8:	68c3      	ldr	r3, [r0, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:280
+  assert_param(IS_FSMC_HIZ_TIME(FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime));
+  
+  /* Set the tmppcr value according to FSMC_NANDInitStruct parameters */
+  tmppcr = (uint32_t)FSMC_NANDInitStruct->FSMC_Waitfeature |
+            PCR_MemoryType_NAND |
+            FSMC_NANDInitStruct->FSMC_MemoryDataWidth |
+   a:	f044 0408 	orr.w	r4, r4, #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:281
+            FSMC_NANDInitStruct->FSMC_ECC |
+   e:	431c      	orrs	r4, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:282
+            FSMC_NANDInitStruct->FSMC_ECCPageSize |
+  10:	6903      	ldr	r3, [r0, #16]
+  12:	431c      	orrs	r4, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:283
+            (FSMC_NANDInitStruct->FSMC_TCLRSetupTime << 9 )|
+  14:	6943      	ldr	r3, [r0, #20]
+  16:	ea44 2443 	orr.w	r4, r4, r3, lsl #9
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:284
+            (FSMC_NANDInitStruct->FSMC_TARSetupTime << 13);
+  1a:	6983      	ldr	r3, [r0, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:278
+  assert_param(IS_FSMC_WAIT_TIME(FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime));
+  assert_param(IS_FSMC_HOLD_TIME(FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime));
+  assert_param(IS_FSMC_HIZ_TIME(FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime));
+  
+  /* Set the tmppcr value according to FSMC_NANDInitStruct parameters */
+  tmppcr = (uint32_t)FSMC_NANDInitStruct->FSMC_Waitfeature |
+  1c:	ea44 3443 	orr.w	r4, r4, r3, lsl #13
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:287
+            FSMC_NANDInitStruct->FSMC_ECCPageSize |
+            (FSMC_NANDInitStruct->FSMC_TCLRSetupTime << 9 )|
+            (FSMC_NANDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set tmppmem value according to FSMC_CommonSpaceTimingStructure parameters */
+  tmppmem = (uint32_t)FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+  20:	69c3      	ldr	r3, [r0, #28]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:289
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  22:	6899      	ldr	r1, [r3, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:288
+            (FSMC_NANDInitStruct->FSMC_TCLRSetupTime << 9 )|
+            (FSMC_NANDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set tmppmem value according to FSMC_CommonSpaceTimingStructure parameters */
+  tmppmem = (uint32_t)FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  24:	685a      	ldr	r2, [r3, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:289
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  26:	0409      	lsls	r1, r1, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:287
+            FSMC_NANDInitStruct->FSMC_ECCPageSize |
+            (FSMC_NANDInitStruct->FSMC_TCLRSetupTime << 9 )|
+            (FSMC_NANDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set tmppmem value according to FSMC_CommonSpaceTimingStructure parameters */
+  tmppmem = (uint32_t)FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+  28:	ea41 2102 	orr.w	r1, r1, r2, lsl #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:288
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  2c:	681a      	ldr	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:290
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+  2e:	68db      	ldr	r3, [r3, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:288
+            (FSMC_NANDInitStruct->FSMC_TCLRSetupTime << 9 )|
+            (FSMC_NANDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set tmppmem value according to FSMC_CommonSpaceTimingStructure parameters */
+  tmppmem = (uint32_t)FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  30:	4311      	orrs	r1, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:287
+            FSMC_NANDInitStruct->FSMC_ECCPageSize |
+            (FSMC_NANDInitStruct->FSMC_TCLRSetupTime << 9 )|
+            (FSMC_NANDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set tmppmem value according to FSMC_CommonSpaceTimingStructure parameters */
+  tmppmem = (uint32_t)FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+  32:	ea41 6103 	orr.w	r1, r1, r3, lsl #24
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:293
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set tmppatt value according to FSMC_AttributeSpaceTimingStructure parameters */
+  tmppatt = (uint32_t)FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+  36:	6a03      	ldr	r3, [r0, #32]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:295
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  38:	689a      	ldr	r2, [r3, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:294
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set tmppatt value according to FSMC_AttributeSpaceTimingStructure parameters */
+  tmppatt = (uint32_t)FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  3a:	685d      	ldr	r5, [r3, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:295
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  3c:	0412      	lsls	r2, r2, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:293
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set tmppatt value according to FSMC_AttributeSpaceTimingStructure parameters */
+  tmppatt = (uint32_t)FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+  3e:	ea42 2205 	orr.w	r2, r2, r5, lsl #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:294
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  42:	681d      	ldr	r5, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:296
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);
+  44:	68db      	ldr	r3, [r3, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:294
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set tmppatt value according to FSMC_AttributeSpaceTimingStructure parameters */
+  tmppatt = (uint32_t)FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  46:	432a      	orrs	r2, r5
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:293
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set tmppatt value according to FSMC_AttributeSpaceTimingStructure parameters */
+  tmppatt = (uint32_t)FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+  48:	ea42 6203 	orr.w	r2, r2, r3, lsl #24
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:298
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);
+  
+  if(FSMC_NANDInitStruct->FSMC_Bank == FSMC_Bank2_NAND)
+  4c:	6803      	ldr	r3, [r0, #0]
+  4e:	2b10      	cmp	r3, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:301
+  {
+    /* FSMC_Bank2_NAND registers configuration */
+    FSMC_Bank2->PCR2 = tmppcr;
+  50:	bf0c      	ite	eq
+  52:	4b03      	ldreq	r3, [pc, #12]	; (60 <FSMC_NANDInit+0x60>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:308
+    FSMC_Bank2->PATT2 = tmppatt;
+  }
+  else
+  {
+    /* FSMC_Bank3_NAND registers configuration */
+    FSMC_Bank3->PCR3 = tmppcr;
+  54:	4b03      	ldrne	r3, [pc, #12]	; (64 <FSMC_NANDInit+0x64>)
+  56:	601c      	str	r4, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:309
+    FSMC_Bank3->PMEM3 = tmppmem;
+  58:	6099      	str	r1, [r3, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:310
+    FSMC_Bank3->PATT3 = tmppatt;
+  5a:	60da      	str	r2, [r3, #12]
+  5c:	bd30      	pop	{r4, r5, pc}
+  5e:	bf00      	nop
+  60:	a0000060 	.word	0xa0000060
+  64:	a0000080 	.word	0xa0000080
+
+Disassembly of section .text.FSMC_PCCARDInit:
+
+00000000 <FSMC_PCCARDInit>:
+FSMC_PCCARDInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:344
+  assert_param(IS_FSMC_HOLD_TIME(FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime));
+  assert_param(IS_FSMC_HIZ_TIME(FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HiZSetupTime));
+  
+  /* Set the PCR4 register value according to FSMC_PCCARDInitStruct parameters */
+  FSMC_Bank4->PCR4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_Waitfeature |
+                     FSMC_MemoryDataWidth_16b |  
+   0:	6802      	ldr	r2, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:345
+                     (FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime << 9) |
+   2:	6843      	ldr	r3, [r0, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:344
+  assert_param(IS_FSMC_HOLD_TIME(FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime));
+  assert_param(IS_FSMC_HIZ_TIME(FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HiZSetupTime));
+  
+  /* Set the PCR4 register value according to FSMC_PCCARDInitStruct parameters */
+  FSMC_Bank4->PCR4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_Waitfeature |
+                     FSMC_MemoryDataWidth_16b |  
+   4:	f042 0210 	orr.w	r2, r2, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:345
+                     (FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime << 9) |
+   8:	ea42 2243 	orr.w	r2, r2, r3, lsl #9
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:346
+                     (FSMC_PCCARDInitStruct->FSMC_TARSetupTime << 13);
+   c:	6883      	ldr	r3, [r0, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:322
+  * @param  FSMC_PCCARDInitStruct : pointer to a FSMC_PCCARDInitTypeDef
+  *   structure that contains the configuration information for the FSMC PCCARD Bank.                       
+  * @retval None
+  */
+void FSMC_PCCARDInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct)
+{
+   e:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:345
+  assert_param(IS_FSMC_HIZ_TIME(FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HiZSetupTime));
+  
+  /* Set the PCR4 register value according to FSMC_PCCARDInitStruct parameters */
+  FSMC_Bank4->PCR4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_Waitfeature |
+                     FSMC_MemoryDataWidth_16b |  
+                     (FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime << 9) |
+  10:	ea42 3243 	orr.w	r2, r2, r3, lsl #13
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:343
+  assert_param(IS_FSMC_WAIT_TIME(FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_WaitSetupTime));
+  assert_param(IS_FSMC_HOLD_TIME(FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime));
+  assert_param(IS_FSMC_HIZ_TIME(FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HiZSetupTime));
+  
+  /* Set the PCR4 register value according to FSMC_PCCARDInitStruct parameters */
+  FSMC_Bank4->PCR4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_Waitfeature |
+  14:	4b13      	ldr	r3, [pc, #76]	; (64 <FSMC_PCCARDInit+0x64>)
+  16:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:349
+                     FSMC_MemoryDataWidth_16b |  
+                     (FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime << 9) |
+                     (FSMC_PCCARDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set PMEM4 register value according to FSMC_CommonSpaceTimingStructure parameters */
+  FSMC_Bank4->PMEM4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+  18:	68c2      	ldr	r2, [r0, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:351
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  1a:	6891      	ldr	r1, [r2, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:350
+                     (FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime << 9) |
+                     (FSMC_PCCARDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set PMEM4 register value according to FSMC_CommonSpaceTimingStructure parameters */
+  FSMC_Bank4->PMEM4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  1c:	6854      	ldr	r4, [r2, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:351
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  1e:	0409      	lsls	r1, r1, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:349
+                     FSMC_MemoryDataWidth_16b |  
+                     (FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime << 9) |
+                     (FSMC_PCCARDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set PMEM4 register value according to FSMC_CommonSpaceTimingStructure parameters */
+  FSMC_Bank4->PMEM4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+  20:	ea41 2104 	orr.w	r1, r1, r4, lsl #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:350
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  24:	6814      	ldr	r4, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:352
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+  26:	68d2      	ldr	r2, [r2, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:350
+                     (FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime << 9) |
+                     (FSMC_PCCARDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set PMEM4 register value according to FSMC_CommonSpaceTimingStructure parameters */
+  FSMC_Bank4->PMEM4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  28:	4321      	orrs	r1, r4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:351
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  2a:	ea41 6202 	orr.w	r2, r1, r2, lsl #24
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:349
+                     FSMC_MemoryDataWidth_16b |  
+                     (FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime << 9) |
+                     (FSMC_PCCARDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set PMEM4 register value according to FSMC_CommonSpaceTimingStructure parameters */
+  FSMC_Bank4->PMEM4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+  2e:	609a      	str	r2, [r3, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:355
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set PATT4 register value according to FSMC_AttributeSpaceTimingStructure parameters */
+  FSMC_Bank4->PATT4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+  30:	6902      	ldr	r2, [r0, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:357
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  32:	6891      	ldr	r1, [r2, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:356
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set PATT4 register value according to FSMC_AttributeSpaceTimingStructure parameters */
+  FSMC_Bank4->PATT4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  34:	6854      	ldr	r4, [r2, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:357
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  36:	0409      	lsls	r1, r1, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:355
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set PATT4 register value according to FSMC_AttributeSpaceTimingStructure parameters */
+  FSMC_Bank4->PATT4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+  38:	ea41 2104 	orr.w	r1, r1, r4, lsl #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:356
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  3c:	6814      	ldr	r4, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:358
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);	
+  3e:	68d2      	ldr	r2, [r2, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:356
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set PATT4 register value according to FSMC_AttributeSpaceTimingStructure parameters */
+  FSMC_Bank4->PATT4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  40:	4321      	orrs	r1, r4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:357
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  42:	ea41 6202 	orr.w	r2, r1, r2, lsl #24
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:355
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set PATT4 register value according to FSMC_AttributeSpaceTimingStructure parameters */
+  FSMC_Bank4->PATT4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+  46:	60da      	str	r2, [r3, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:361
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);	
+            
+  /* Set PIO4 register value according to FSMC_IOSpaceTimingStructure parameters */
+  FSMC_Bank4->PIO4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_SetupTime |
+  48:	6942      	ldr	r2, [r0, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:363
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  4a:	6891      	ldr	r1, [r2, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:362
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);	
+            
+  /* Set PIO4 register value according to FSMC_IOSpaceTimingStructure parameters */
+  FSMC_Bank4->PIO4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_SetupTime |
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  4c:	6850      	ldr	r0, [r2, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:363
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  4e:	0409      	lsls	r1, r1, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:361
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);	
+            
+  /* Set PIO4 register value according to FSMC_IOSpaceTimingStructure parameters */
+  FSMC_Bank4->PIO4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_SetupTime |
+  50:	ea41 2100 	orr.w	r1, r1, r0, lsl #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:362
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  54:	6810      	ldr	r0, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:364
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HiZSetupTime << 24);             
+  56:	68d2      	ldr	r2, [r2, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:362
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);	
+            
+  /* Set PIO4 register value according to FSMC_IOSpaceTimingStructure parameters */
+  FSMC_Bank4->PIO4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_SetupTime |
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  58:	4301      	orrs	r1, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:363
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  5a:	ea41 6202 	orr.w	r2, r1, r2, lsl #24
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:361
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);	
+            
+  /* Set PIO4 register value according to FSMC_IOSpaceTimingStructure parameters */
+  FSMC_Bank4->PIO4 = (uint32_t)FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_SetupTime |
+  5e:	611a      	str	r2, [r3, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:365
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HiZSetupTime << 24);             
+}
+  60:	bd10      	pop	{r4, pc}
+  62:	bf00      	nop
+  64:	a00000a0 	.word	0xa00000a0
+
+Disassembly of section .text.FSMC_NORSRAMStructInit:
+
+00000000 <FSMC_NORSRAMStructInit>:
+FSMC_NORSRAMStructInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:377
+  */
+void FSMC_NORSRAMStructInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct)
+{  
+  /* Reset NOR/SRAM Init structure parameters values */
+  FSMC_NORSRAMInitStruct->FSMC_Bank = FSMC_Bank1_NORSRAM1;
+  FSMC_NORSRAMInitStruct->FSMC_DataAddressMux = FSMC_DataAddressMux_Enable;
+   0:	2202      	movs	r2, #2
+   2:	6042      	str	r2, [r0, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:384
+  FSMC_NORSRAMInitStruct->FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_8b;
+  FSMC_NORSRAMInitStruct->FSMC_BurstAccessMode = FSMC_BurstAccessMode_Disable;
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignalPolarity = FSMC_WaitSignalPolarity_Low;
+  FSMC_NORSRAMInitStruct->FSMC_WrapMode = FSMC_WrapMode_Disable;
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignalActive = FSMC_WaitSignalActive_BeforeWaitState;
+  FSMC_NORSRAMInitStruct->FSMC_WriteOperation = FSMC_WriteOperation_Enable;
+   4:	f44f 5280 	mov.w	r2, #4096	; 0x1000
+   8:	6202      	str	r2, [r0, #32]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:388
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignal = FSMC_WaitSignal_Enable;
+  FSMC_NORSRAMInitStruct->FSMC_ExtendedMode = FSMC_ExtendedMode_Disable;
+  FSMC_NORSRAMInitStruct->FSMC_WriteBurst = FSMC_WriteBurst_Disable;
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AddressSetupTime = 0xF;
+   a:	6b01      	ldr	r1, [r0, #48]	; 0x30
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:385
+  FSMC_NORSRAMInitStruct->FSMC_BurstAccessMode = FSMC_BurstAccessMode_Disable;
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignalPolarity = FSMC_WaitSignalPolarity_Low;
+  FSMC_NORSRAMInitStruct->FSMC_WrapMode = FSMC_WrapMode_Disable;
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignalActive = FSMC_WaitSignalActive_BeforeWaitState;
+  FSMC_NORSRAMInitStruct->FSMC_WriteOperation = FSMC_WriteOperation_Enable;
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignal = FSMC_WaitSignal_Enable;
+   c:	f44f 5200 	mov.w	r2, #8192	; 0x2000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:374
+  * @param  FSMC_NORSRAMInitStruct: pointer to a FSMC_NORSRAMInitTypeDef 
+  *   structure which will be initialized.
+  * @retval None
+  */
+void FSMC_NORSRAMStructInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct)
+{  
+  10:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:385
+  FSMC_NORSRAMInitStruct->FSMC_BurstAccessMode = FSMC_BurstAccessMode_Disable;
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignalPolarity = FSMC_WaitSignalPolarity_Low;
+  FSMC_NORSRAMInitStruct->FSMC_WrapMode = FSMC_WrapMode_Disable;
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignalActive = FSMC_WaitSignalActive_BeforeWaitState;
+  FSMC_NORSRAMInitStruct->FSMC_WriteOperation = FSMC_WriteOperation_Enable;
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignal = FSMC_WaitSignal_Enable;
+  12:	6242      	str	r2, [r0, #36]	; 0x24
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:376
+  * @retval None
+  */
+void FSMC_NORSRAMStructInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct)
+{  
+  /* Reset NOR/SRAM Init structure parameters values */
+  FSMC_NORSRAMInitStruct->FSMC_Bank = FSMC_Bank1_NORSRAM1;
+  14:	2300      	movs	r3, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:388
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignalActive = FSMC_WaitSignalActive_BeforeWaitState;
+  FSMC_NORSRAMInitStruct->FSMC_WriteOperation = FSMC_WriteOperation_Enable;
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignal = FSMC_WaitSignal_Enable;
+  FSMC_NORSRAMInitStruct->FSMC_ExtendedMode = FSMC_ExtendedMode_Disable;
+  FSMC_NORSRAMInitStruct->FSMC_WriteBurst = FSMC_WriteBurst_Disable;
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AddressSetupTime = 0xF;
+  16:	220f      	movs	r2, #15
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:390
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AddressHoldTime = 0xF;
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataSetupTime = 0xFF;
+  18:	24ff      	movs	r4, #255	; 0xff
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:376
+  * @retval None
+  */
+void FSMC_NORSRAMStructInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct)
+{  
+  /* Reset NOR/SRAM Init structure parameters values */
+  FSMC_NORSRAMInitStruct->FSMC_Bank = FSMC_Bank1_NORSRAM1;
+  1a:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:378
+  FSMC_NORSRAMInitStruct->FSMC_DataAddressMux = FSMC_DataAddressMux_Enable;
+  FSMC_NORSRAMInitStruct->FSMC_MemoryType = FSMC_MemoryType_SRAM;
+  1c:	6083      	str	r3, [r0, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:379
+  FSMC_NORSRAMInitStruct->FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_8b;
+  1e:	60c3      	str	r3, [r0, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:380
+  FSMC_NORSRAMInitStruct->FSMC_BurstAccessMode = FSMC_BurstAccessMode_Disable;
+  20:	6103      	str	r3, [r0, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:381
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignalPolarity = FSMC_WaitSignalPolarity_Low;
+  22:	6143      	str	r3, [r0, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:382
+  FSMC_NORSRAMInitStruct->FSMC_WrapMode = FSMC_WrapMode_Disable;
+  24:	6183      	str	r3, [r0, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:383
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignalActive = FSMC_WaitSignalActive_BeforeWaitState;
+  26:	61c3      	str	r3, [r0, #28]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:386
+  FSMC_NORSRAMInitStruct->FSMC_WriteOperation = FSMC_WriteOperation_Enable;
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignal = FSMC_WaitSignal_Enable;
+  FSMC_NORSRAMInitStruct->FSMC_ExtendedMode = FSMC_ExtendedMode_Disable;
+  28:	6283      	str	r3, [r0, #40]	; 0x28
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:387
+  FSMC_NORSRAMInitStruct->FSMC_WriteBurst = FSMC_WriteBurst_Disable;
+  2a:	62c3      	str	r3, [r0, #44]	; 0x2c
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:388
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AddressSetupTime = 0xF;
+  2c:	600a      	str	r2, [r1, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:389
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AddressHoldTime = 0xF;
+  2e:	604a      	str	r2, [r1, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:390
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataSetupTime = 0xFF;
+  30:	608c      	str	r4, [r1, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:391
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_BusTurnAroundDuration = 0xF;
+  32:	60ca      	str	r2, [r1, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:392
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_CLKDivision = 0xF;
+  34:	610a      	str	r2, [r1, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:393
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataLatency = 0xF;
+  36:	614a      	str	r2, [r1, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:394
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AccessMode = FSMC_AccessMode_A; 
+  38:	618b      	str	r3, [r1, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:395
+  FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AddressSetupTime = 0xF;
+  3a:	6b41      	ldr	r1, [r0, #52]	; 0x34
+  3c:	600a      	str	r2, [r1, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:396
+  FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AddressHoldTime = 0xF;
+  3e:	604a      	str	r2, [r1, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:397
+  FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataSetupTime = 0xFF;
+  40:	608c      	str	r4, [r1, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:398
+  FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_BusTurnAroundDuration = 0xF;
+  42:	60ca      	str	r2, [r1, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:399
+  FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_CLKDivision = 0xF;
+  44:	610a      	str	r2, [r1, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:400
+  FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataLatency = 0xF;
+  46:	614a      	str	r2, [r1, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:401
+  FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AccessMode = FSMC_AccessMode_A;
+  48:	618b      	str	r3, [r1, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:402
+}
+  4a:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.FSMC_NANDStructInit:
+
+00000000 <FSMC_NANDStructInit>:
+FSMC_NANDStructInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:413
+  * @retval None
+  */
+void FSMC_NANDStructInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct)
+{ 
+  /* Reset NAND Init structure parameters values */
+  FSMC_NANDInitStruct->FSMC_Bank = FSMC_Bank2_NAND;
+   0:	2310      	movs	r3, #16
+   2:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:420
+  FSMC_NANDInitStruct->FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_8b;
+  FSMC_NANDInitStruct->FSMC_ECC = FSMC_ECC_Disable;
+  FSMC_NANDInitStruct->FSMC_ECCPageSize = FSMC_ECCPageSize_256Bytes;
+  FSMC_NANDInitStruct->FSMC_TCLRSetupTime = 0x0;
+  FSMC_NANDInitStruct->FSMC_TARSetupTime = 0x0;
+  FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime = 0xFC;
+   4:	69c2      	ldr	r2, [r0, #28]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:414
+  */
+void FSMC_NANDStructInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct)
+{ 
+  /* Reset NAND Init structure parameters values */
+  FSMC_NANDInitStruct->FSMC_Bank = FSMC_Bank2_NAND;
+  FSMC_NANDInitStruct->FSMC_Waitfeature = FSMC_Waitfeature_Disable;
+   6:	3b10      	subs	r3, #16
+   8:	6043      	str	r3, [r0, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:415
+  FSMC_NANDInitStruct->FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_8b;
+   a:	6083      	str	r3, [r0, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:416
+  FSMC_NANDInitStruct->FSMC_ECC = FSMC_ECC_Disable;
+   c:	60c3      	str	r3, [r0, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:417
+  FSMC_NANDInitStruct->FSMC_ECCPageSize = FSMC_ECCPageSize_256Bytes;
+   e:	6103      	str	r3, [r0, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:418
+  FSMC_NANDInitStruct->FSMC_TCLRSetupTime = 0x0;
+  10:	6143      	str	r3, [r0, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:419
+  FSMC_NANDInitStruct->FSMC_TARSetupTime = 0x0;
+  12:	6183      	str	r3, [r0, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:420
+  FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime = 0xFC;
+  14:	33fc      	adds	r3, #252	; 0xfc
+  16:	6013      	str	r3, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:421
+  FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime = 0xFC;
+  18:	6053      	str	r3, [r2, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:422
+  FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime = 0xFC;
+  1a:	6093      	str	r3, [r2, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:423
+  FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime = 0xFC;
+  1c:	60d3      	str	r3, [r2, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:424
+  FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime = 0xFC;
+  1e:	6a02      	ldr	r2, [r0, #32]
+  20:	6013      	str	r3, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:425
+  FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime = 0xFC;
+  22:	6053      	str	r3, [r2, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:426
+  FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime = 0xFC;
+  24:	6093      	str	r3, [r2, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:427
+  FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime = 0xFC;	  
+  26:	60d3      	str	r3, [r2, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:428
+}
+  28:	4770      	bx	lr
+
+Disassembly of section .text.FSMC_PCCARDStructInit:
+
+00000000 <FSMC_PCCARDStructInit>:
+FSMC_PCCARDStructInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:442
+{
+  /* Reset PCCARD Init structure parameters values */
+  FSMC_PCCARDInitStruct->FSMC_Waitfeature = FSMC_Waitfeature_Disable;
+  FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime = 0x0;
+  FSMC_PCCARDInitStruct->FSMC_TARSetupTime = 0x0;
+  FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime = 0xFC;
+   0:	68c2      	ldr	r2, [r0, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:439
+  * @retval None
+  */
+void FSMC_PCCARDStructInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct)
+{
+  /* Reset PCCARD Init structure parameters values */
+  FSMC_PCCARDInitStruct->FSMC_Waitfeature = FSMC_Waitfeature_Disable;
+   2:	2300      	movs	r3, #0
+   4:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:440
+  FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime = 0x0;
+   6:	6043      	str	r3, [r0, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:441
+  FSMC_PCCARDInitStruct->FSMC_TARSetupTime = 0x0;
+   8:	6083      	str	r3, [r0, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:442
+  FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime = 0xFC;
+   a:	33fc      	adds	r3, #252	; 0xfc
+   c:	6013      	str	r3, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:443
+  FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime = 0xFC;
+   e:	6053      	str	r3, [r2, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:444
+  FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime = 0xFC;
+  10:	6093      	str	r3, [r2, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:445
+  FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime = 0xFC;
+  12:	60d3      	str	r3, [r2, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:446
+  FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime = 0xFC;
+  14:	6902      	ldr	r2, [r0, #16]
+  16:	6013      	str	r3, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:447
+  FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime = 0xFC;
+  18:	6053      	str	r3, [r2, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:448
+  FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime = 0xFC;
+  1a:	6093      	str	r3, [r2, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:449
+  FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime = 0xFC;	
+  1c:	60d3      	str	r3, [r2, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:450
+  FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_SetupTime = 0xFC;
+  1e:	6942      	ldr	r2, [r0, #20]
+  20:	6013      	str	r3, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:451
+  FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_WaitSetupTime = 0xFC;
+  22:	6053      	str	r3, [r2, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:452
+  FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime = 0xFC;
+  24:	6093      	str	r3, [r2, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:453
+  FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HiZSetupTime = 0xFC;
+  26:	60d3      	str	r3, [r2, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:454
+}
+  28:	4770      	bx	lr
+
+Disassembly of section .text.FSMC_NORSRAMCmd:
+
+00000000 <FSMC_NORSRAMCmd>:
+FSMC_NORSRAMCmd():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:468
+  *     @arg FSMC_Bank1_NORSRAM4: FSMC Bank1 NOR/SRAM4 
+  * @param  NewState: new state of the FSMC_Bank. This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState)
+{
+   0:	f04f 4320 	mov.w	r3, #2684354560	; 0xa0000000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:472
+  assert_param(IS_FSMC_NORSRAM_BANK(FSMC_Bank));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   4:	b121      	cbz	r1, 10 <FSMC_NORSRAMCmd+0x10>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:475
+  {
+    /* Enable the selected NOR/SRAM Bank by setting the PBKEN bit in the BCRx register */
+    FSMC_Bank1->BTCR[FSMC_Bank] |= BCR_MBKEN_Set;
+   6:	f853 2020 	ldr.w	r2, [r3, r0, lsl #2]
+   a:	f042 0201 	orr.w	r2, r2, #1
+   e:	e004      	b.n	1a <FSMC_NORSRAMCmd+0x1a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:480
+  }
+  else
+  {
+    /* Disable the selected NOR/SRAM Bank by clearing the PBKEN bit in the BCRx register */
+    FSMC_Bank1->BTCR[FSMC_Bank] &= BCR_MBKEN_Reset;
+  10:	f853 1020 	ldr.w	r1, [r3, r0, lsl #2]
+  14:	4a02      	ldr	r2, [pc, #8]	; (20 <FSMC_NORSRAMCmd+0x20>)
+  16:	ea01 0202 	and.w	r2, r1, r2
+  1a:	f843 2020 	str.w	r2, [r3, r0, lsl #2]
+  1e:	4770      	bx	lr
+  20:	000ffffe 	.word	0x000ffffe
+
+Disassembly of section .text.FSMC_NANDCmd:
+
+00000000 <FSMC_NANDCmd>:
+FSMC_NANDCmd():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:498
+void FSMC_NANDCmd(uint32_t FSMC_Bank, FunctionalState NewState)
+{
+  assert_param(IS_FSMC_NAND_BANK(FSMC_Bank));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   0:	b141      	cbz	r1, 14 <FSMC_NANDCmd+0x14>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:501
+  {
+    /* Enable the selected NAND Bank by setting the PBKEN bit in the PCRx register */
+    if(FSMC_Bank == FSMC_Bank2_NAND)
+   2:	2810      	cmp	r0, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:503
+    {
+      FSMC_Bank2->PCR2 |= PCR_PBKEN_Set;
+   4:	bf0c      	ite	eq
+   6:	4b08      	ldreq	r3, [pc, #32]	; (28 <FSMC_NANDCmd+0x28>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:507
+    }
+    else
+    {
+      FSMC_Bank3->PCR3 |= PCR_PBKEN_Set;
+   8:	4b08      	ldrne	r3, [pc, #32]	; (2c <FSMC_NANDCmd+0x2c>)
+   a:	681a      	ldr	r2, [r3, #0]
+   c:	f042 0204 	orr.w	r2, r2, #4
+  10:	601a      	str	r2, [r3, #0]
+  12:	4770      	bx	lr
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:513
+    }
+  }
+  else
+  {
+    /* Disable the selected NAND Bank by clearing the PBKEN bit in the PCRx register */
+    if(FSMC_Bank == FSMC_Bank2_NAND)
+  14:	2810      	cmp	r0, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:515
+    {
+      FSMC_Bank2->PCR2 &= PCR_PBKEN_Reset;
+  16:	bf0c      	ite	eq
+  18:	4a03      	ldreq	r2, [pc, #12]	; (28 <FSMC_NANDCmd+0x28>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:519
+    }
+    else
+    {
+      FSMC_Bank3->PCR3 &= PCR_PBKEN_Reset;
+  1a:	4a04      	ldrne	r2, [pc, #16]	; (2c <FSMC_NANDCmd+0x2c>)
+  1c:	4b04      	ldr	r3, [pc, #16]	; (30 <FSMC_NANDCmd+0x30>)
+  1e:	6811      	ldr	r1, [r2, #0]
+  20:	ea01 0303 	and.w	r3, r1, r3
+  24:	6013      	str	r3, [r2, #0]
+  26:	4770      	bx	lr
+  28:	a0000060 	.word	0xa0000060
+  2c:	a0000080 	.word	0xa0000080
+  30:	000ffffb 	.word	0x000ffffb
+
+Disassembly of section .text.FSMC_PCCARDCmd:
+
+00000000 <FSMC_PCCARDCmd>:
+FSMC_PCCARDCmd():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:531
+  * @param  NewState: new state of the PCCARD Memory Bank.  
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void FSMC_PCCARDCmd(FunctionalState NewState)
+{
+   0:	b1184b05 	.word	0xb1184b05
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:537
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+  {
+    /* Enable the PCCARD Bank by setting the PBKEN bit in the PCR4 register */
+    FSMC_Bank4->PCR4 |= PCR_PBKEN_Set;
+   4:	681a      	ldr	r2, [r3, #0]
+   6:	f042 0204 	orr.w	r2, r2, #4
+   a:	e003      	b.n	14 <FSMC_PCCARDCmd+0x14>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:542
+  }
+  else
+  {
+    /* Disable the PCCARD Bank by clearing the PBKEN bit in the PCR4 register */
+    FSMC_Bank4->PCR4 &= PCR_PBKEN_Reset;
+   c:	6819      	ldr	r1, [r3, #0]
+   e:	4a03      	ldr	r2, [pc, #12]	; (1c <FSMC_PCCARDCmd+0x1c>)
+  10:	ea01 0202 	and.w	r2, r1, r2
+  14:	601a      	str	r2, [r3, #0]
+  16:	4770      	bx	lr
+  18:	a00000a0 	.word	0xa00000a0
+  1c:	000ffffb 	.word	0x000ffffb
+
+Disassembly of section .text.FSMC_NANDECCCmd:
+
+00000000 <FSMC_NANDECCCmd>:
+FSMC_NANDECCCmd():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:561
+void FSMC_NANDECCCmd(uint32_t FSMC_Bank, FunctionalState NewState)
+{
+  assert_param(IS_FSMC_NAND_BANK(FSMC_Bank));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   0:	b141      	cbz	r1, 14 <FSMC_NANDECCCmd+0x14>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:564
+  {
+    /* Enable the selected NAND Bank ECC function by setting the ECCEN bit in the PCRx register */
+    if(FSMC_Bank == FSMC_Bank2_NAND)
+   2:	2810      	cmp	r0, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:566
+    {
+      FSMC_Bank2->PCR2 |= PCR_ECCEN_Set;
+   4:	bf0c      	ite	eq
+   6:	4b08      	ldreq	r3, [pc, #32]	; (28 <FSMC_NANDECCCmd+0x28>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:570
+    }
+    else
+    {
+      FSMC_Bank3->PCR3 |= PCR_ECCEN_Set;
+   8:	4b08      	ldrne	r3, [pc, #32]	; (2c <FSMC_NANDECCCmd+0x2c>)
+   a:	681a      	ldr	r2, [r3, #0]
+   c:	f042 0240 	orr.w	r2, r2, #64	; 0x40
+  10:	601a      	str	r2, [r3, #0]
+  12:	4770      	bx	lr
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:576
+    }
+  }
+  else
+  {
+    /* Disable the selected NAND Bank ECC function by clearing the ECCEN bit in the PCRx register */
+    if(FSMC_Bank == FSMC_Bank2_NAND)
+  14:	2810      	cmp	r0, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:578
+    {
+      FSMC_Bank2->PCR2 &= PCR_ECCEN_Reset;
+  16:	bf0c      	ite	eq
+  18:	4a03      	ldreq	r2, [pc, #12]	; (28 <FSMC_NANDECCCmd+0x28>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:582
+    }
+    else
+    {
+      FSMC_Bank3->PCR3 &= PCR_ECCEN_Reset;
+  1a:	4a04      	ldrne	r2, [pc, #16]	; (2c <FSMC_NANDECCCmd+0x2c>)
+  1c:	4b04      	ldr	r3, [pc, #16]	; (30 <FSMC_NANDECCCmd+0x30>)
+  1e:	6811      	ldr	r1, [r2, #0]
+  20:	ea01 0303 	and.w	r3, r1, r3
+  24:	6013      	str	r3, [r2, #0]
+  26:	4770      	bx	lr
+  28:	a0000060 	.word	0xa0000060
+  2c:	a0000080 	.word	0xa0000080
+  30:	000fffbf 	.word	0x000fffbf
+
+Disassembly of section .text.FSMC_GetECC:
+
+00000000 <FSMC_GetECC>:
+FSMC_GetECC():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:599
+  */
+uint32_t FSMC_GetECC(uint32_t FSMC_Bank)
+{
+  uint32_t eccval = 0x00000000;
+  
+  if(FSMC_Bank == FSMC_Bank2_NAND)
+   0:	d1022810 	.word	0xd1022810
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:602
+  {
+    /* Get the ECCR2 register value */
+    eccval = FSMC_Bank2->ECCR2;
+   4:	4b02      	ldr	r3, [pc, #8]	; (10 <FSMC_GetECC+0x10>)
+   6:	6958      	ldr	r0, [r3, #20]
+   8:	4770      	bx	lr
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:607
+  }
+  else
+  {
+    /* Get the ECCR3 register value */
+    eccval = FSMC_Bank3->ECCR3;
+   a:	4b02      	ldr	r3, [pc, #8]	; (14 <FSMC_GetECC+0x14>)
+   c:	6958      	ldr	r0, [r3, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:611
+  }
+  /* Return the error correction code value */
+  return(eccval);
+}
+   e:	4770      	bx	lr
+  10:	a0000060 	.word	0xa0000060
+  14:	a0000080 	.word	0xa0000080
+
+Disassembly of section .text.FSMC_ITConfig:
+
+00000000 <FSMC_ITConfig>:
+FSMC_ITConfig():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:635
+{
+  assert_param(IS_FSMC_IT_BANK(FSMC_Bank));
+  assert_param(IS_FSMC_IT(FSMC_IT));	
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   0:	b162      	cbz	r2, 1c <FSMC_ITConfig+0x1c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:638
+  {
+    /* Enable the selected FSMC_Bank2 interrupts */
+    if(FSMC_Bank == FSMC_Bank2_NAND)
+   2:	2810      	cmp	r0, #16
+   4:	d101      	bne.n	a <FSMC_ITConfig+0xa>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:640
+    {
+      FSMC_Bank2->SR2 |= FSMC_IT;
+   6:	4b0e      	ldr	r3, [pc, #56]	; (40 <FSMC_ITConfig+0x40>)
+   8:	e003      	b.n	12 <FSMC_ITConfig+0x12>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:643
+    }
+    /* Enable the selected FSMC_Bank3 interrupts */
+    else if (FSMC_Bank == FSMC_Bank3_NAND)
+   a:	f5b0 7f80 	cmp.w	r0, #256	; 0x100
+   e:	d103      	bne.n	18 <FSMC_ITConfig+0x18>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:645
+    {
+      FSMC_Bank3->SR3 |= FSMC_IT;
+  10:	4b0c      	ldr	r3, [pc, #48]	; (44 <FSMC_ITConfig+0x44>)
+  12:	685a      	ldr	r2, [r3, #4]
+  14:	4311      	orrs	r1, r2
+  16:	e010      	b.n	3a <FSMC_ITConfig+0x3a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:650
+    }
+    /* Enable the selected FSMC_Bank4 interrupts */
+    else
+    {
+      FSMC_Bank4->SR4 |= FSMC_IT;    
+  18:	4b0b      	ldr	r3, [pc, #44]	; (48 <FSMC_ITConfig+0x48>)
+  1a:	e7fa      	b.n	12 <FSMC_ITConfig+0x12>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:656
+    }
+  }
+  else
+  {
+    /* Disable the selected FSMC_Bank2 interrupts */
+    if(FSMC_Bank == FSMC_Bank2_NAND)
+  1c:	2810      	cmp	r0, #16
+  1e:	d104      	bne.n	2a <FSMC_ITConfig+0x2a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:659
+    {
+      
+      FSMC_Bank2->SR2 &= (uint32_t)~FSMC_IT;
+  20:	4b07      	ldr	r3, [pc, #28]	; (40 <FSMC_ITConfig+0x40>)
+  22:	685a      	ldr	r2, [r3, #4]
+  24:	ea22 0101 	bic.w	r1, r2, r1
+  28:	e007      	b.n	3a <FSMC_ITConfig+0x3a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:662
+    }
+    /* Disable the selected FSMC_Bank3 interrupts */
+    else if (FSMC_Bank == FSMC_Bank3_NAND)
+  2a:	f5b0 7f80 	cmp.w	r0, #256	; 0x100
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:664
+    {
+      FSMC_Bank3->SR3 &= (uint32_t)~FSMC_IT;
+  2e:	bf0c      	ite	eq
+  30:	4b04      	ldreq	r3, [pc, #16]	; (44 <FSMC_ITConfig+0x44>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:669
+    }
+    /* Disable the selected FSMC_Bank4 interrupts */
+    else
+    {
+      FSMC_Bank4->SR4 &= (uint32_t)~FSMC_IT;    
+  32:	4b05      	ldrne	r3, [pc, #20]	; (48 <FSMC_ITConfig+0x48>)
+  34:	43c9      	mvns	r1, r1
+  36:	685a      	ldr	r2, [r3, #4]
+  38:	4011      	ands	r1, r2
+  3a:	6059      	str	r1, [r3, #4]
+  3c:	4770      	bx	lr
+  3e:	bf00      	nop
+  40:	a0000060 	.word	0xa0000060
+  44:	a0000080 	.word	0xa0000080
+  48:	a00000a0 	.word	0xa00000a0
+
+Disassembly of section .text.FSMC_GetFlagStatus:
+
+00000000 <FSMC_GetFlagStatus>:
+FSMC_GetFlagStatus():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:698
+  
+  /* Check the parameters */
+  assert_param(IS_FSMC_GETFLAG_BANK(FSMC_Bank));
+  assert_param(IS_FSMC_GET_FLAG(FSMC_FLAG));
+  
+  if(FSMC_Bank == FSMC_Bank2_NAND)
+   0:	d1012810 	.word	0xd1012810
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:700
+  {
+    tmpsr = FSMC_Bank2->SR2;
+   4:	4b06      	ldr	r3, [pc, #24]	; (20 <FSMC_GetFlagStatus+0x20>)
+   6:	e004      	b.n	12 <FSMC_GetFlagStatus+0x12>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:702
+  }  
+  else if(FSMC_Bank == FSMC_Bank3_NAND)
+   8:	f5b0 7f80 	cmp.w	r0, #256	; 0x100
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:704
+  {
+    tmpsr = FSMC_Bank3->SR3;
+   c:	bf0c      	ite	eq
+   e:	4b05      	ldreq	r3, [pc, #20]	; (24 <FSMC_GetFlagStatus+0x24>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:709
+  }
+  /* FSMC_Bank4_PCCARD*/
+  else
+  {
+    tmpsr = FSMC_Bank4->SR4;
+  10:	4b05      	ldrne	r3, [pc, #20]	; (28 <FSMC_GetFlagStatus+0x28>)
+  12:	685b      	ldr	r3, [r3, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:715
+  } 
+  
+  /* Get the flag status */
+  if ((tmpsr & FSMC_FLAG) != (uint16_t)RESET )
+  {
+    bitstatus = SET;
+  14:	420b      	tst	r3, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:723
+  {
+    bitstatus = RESET;
+  }
+  /* Return the flag status */
+  return bitstatus;
+}
+  16:	bf0c      	ite	eq
+  18:	2000      	moveq	r0, #0
+  1a:	2001      	movne	r0, #1
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+  20:	a0000060 	.word	0xa0000060
+  24:	a0000080 	.word	0xa0000080
+  28:	a00000a0 	.word	0xa00000a0
+
+Disassembly of section .text.FSMC_ClearFlag:
+
+00000000 <FSMC_ClearFlag>:
+FSMC_ClearFlag():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:745
+{
+ /* Check the parameters */
+  assert_param(IS_FSMC_GETFLAG_BANK(FSMC_Bank));
+  assert_param(IS_FSMC_CLEAR_FLAG(FSMC_FLAG)) ;
+    
+  if(FSMC_Bank == FSMC_Bank2_NAND)
+   0:	2810      	cmp	r0, #16
+   2:	d104      	bne.n	e <FSMC_ClearFlag+0xe>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:747
+  {
+    FSMC_Bank2->SR2 &= ~FSMC_FLAG; 
+   4:	4b07      	ldr	r3, [pc, #28]	; (24 <FSMC_ClearFlag+0x24>)
+   6:	685a      	ldr	r2, [r3, #4]
+   8:	ea22 0101 	bic.w	r1, r2, r1
+   c:	e007      	b.n	1e <FSMC_ClearFlag+0x1e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:749
+  }  
+  else if(FSMC_Bank == FSMC_Bank3_NAND)
+   e:	f5b0 7f80 	cmp.w	r0, #256	; 0x100
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:751
+  {
+    FSMC_Bank3->SR3 &= ~FSMC_FLAG;
+  12:	bf0c      	ite	eq
+  14:	4b04      	ldreq	r3, [pc, #16]	; (28 <FSMC_ClearFlag+0x28>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:756
+  }
+  /* FSMC_Bank4_PCCARD*/
+  else
+  {
+    FSMC_Bank4->SR4 &= ~FSMC_FLAG;
+  16:	4b05      	ldrne	r3, [pc, #20]	; (2c <FSMC_ClearFlag+0x2c>)
+  18:	43c9      	mvns	r1, r1
+  1a:	685a      	ldr	r2, [r3, #4]
+  1c:	4011      	ands	r1, r2
+  1e:	6059      	str	r1, [r3, #4]
+  20:	4770      	bx	lr
+  22:	bf00      	nop
+  24:	a0000060 	.word	0xa0000060
+  28:	a0000080 	.word	0xa0000080
+  2c:	a00000a0 	.word	0xa00000a0
+
+Disassembly of section .text.FSMC_GetITStatus:
+
+00000000 <FSMC_GetITStatus>:
+FSMC_GetITStatus():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:783
+  
+  /* Check the parameters */
+  assert_param(IS_FSMC_IT_BANK(FSMC_Bank));
+  assert_param(IS_FSMC_GET_IT(FSMC_IT));
+  
+  if(FSMC_Bank == FSMC_Bank2_NAND)
+   0:	2810      	cmp	r0, #16
+   2:	d101      	bne.n	8 <FSMC_GetITStatus+0x8>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:785
+  {
+    tmpsr = FSMC_Bank2->SR2;
+   4:	4b08      	ldr	r3, [pc, #32]	; (28 <FSMC_GetITStatus+0x28>)
+   6:	e004      	b.n	12 <FSMC_GetITStatus+0x12>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:787
+  }  
+  else if(FSMC_Bank == FSMC_Bank3_NAND)
+   8:	f5b0 7f80 	cmp.w	r0, #256	; 0x100
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:789
+  {
+    tmpsr = FSMC_Bank3->SR3;
+   c:	bf0c      	ite	eq
+   e:	4b07      	ldreq	r3, [pc, #28]	; (2c <FSMC_GetITStatus+0x2c>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:794
+  }
+  /* FSMC_Bank4_PCCARD*/
+  else
+  {
+    tmpsr = FSMC_Bank4->SR4;
+  10:	4b07      	ldrne	r3, [pc, #28]	; (30 <FSMC_GetITStatus+0x30>)
+  12:	685b      	ldr	r3, [r3, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:800
+  } 
+  
+  itstatus = tmpsr & FSMC_IT;
+  
+  itenable = tmpsr & (FSMC_IT >> 3);
+  if ((itstatus != (uint32_t)RESET)  && (itenable != (uint32_t)RESET))
+  14:	ea13 0001 	ands.w	r0, r3, r1
+  18:	d004      	beq.n	24 <FSMC_GetITStatus+0x24>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:802
+  {
+    bitstatus = SET;
+  1a:	ea13 01d1 	ands.w	r1, r3, r1, lsr #3
+  1e:	bf0c      	ite	eq
+  20:	2000      	moveq	r0, #0
+  22:	2001      	movne	r0, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:809
+  else
+  {
+    bitstatus = RESET;
+  }
+  return bitstatus; 
+}
+  24:	4770      	bx	lr
+  26:	bf00      	nop
+  28:	a0000060 	.word	0xa0000060
+  2c:	a0000080 	.word	0xa0000080
+  30:	a00000a0 	.word	0xa00000a0
+
+Disassembly of section .text.FSMC_ClearITPendingBit:
+
+00000000 <FSMC_ClearITPendingBit>:
+FSMC_ClearITPendingBit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:831
+{
+  /* Check the parameters */
+  assert_param(IS_FSMC_IT_BANK(FSMC_Bank));
+  assert_param(IS_FSMC_IT(FSMC_IT));
+    
+  if(FSMC_Bank == FSMC_Bank2_NAND)
+   0:	d1042810 	.word	0xd1042810
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:833
+  {
+    FSMC_Bank2->SR2 &= ~(FSMC_IT >> 3); 
+   4:	4b07      	ldr	r3, [pc, #28]	; (24 <FSMC_ClearITPendingBit+0x24>)
+   6:	685a      	ldr	r2, [r3, #4]
+   8:	ea22 01d1 	bic.w	r1, r2, r1, lsr #3
+   c:	e008      	b.n	20 <FSMC_ClearITPendingBit+0x20>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:835
+  }  
+  else if(FSMC_Bank == FSMC_Bank3_NAND)
+   e:	f5b0 7f80 	cmp.w	r0, #256	; 0x100
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:837
+  {
+    FSMC_Bank3->SR3 &= ~(FSMC_IT >> 3);
+  12:	bf0c      	ite	eq
+  14:	4b04      	ldreq	r3, [pc, #16]	; (28 <FSMC_ClearITPendingBit+0x28>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_fsmc.c:842
+  }
+  /* FSMC_Bank4_PCCARD*/
+  else
+  {
+    FSMC_Bank4->SR4 &= ~(FSMC_IT >> 3);
+  16:	4b05      	ldrne	r3, [pc, #20]	; (2c <FSMC_ClearITPendingBit+0x2c>)
+  18:	08c9      	lsrs	r1, r1, #3
+  1a:	685a      	ldr	r2, [r3, #4]
+  1c:	ea22 0101 	bic.w	r1, r2, r1
+  20:	6059      	str	r1, [r3, #4]
+  22:	4770      	bx	lr
+  24:	a0000060 	.word	0xa0000060
+  28:	a0000080 	.word	0xa0000080
+  2c:	a00000a0 	.word	0xa00000a0

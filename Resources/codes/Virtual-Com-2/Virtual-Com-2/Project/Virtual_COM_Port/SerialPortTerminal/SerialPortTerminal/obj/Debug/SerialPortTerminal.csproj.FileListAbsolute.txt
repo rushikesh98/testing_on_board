@@ -1,0 +1,16 @@
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\bin\Debug\SerialPort Terminal.exe.config
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\bin\Debug\SerialPort Terminal.exe.manifest
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\bin\Debug\SerialPort Terminal.application
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\bin\Debug\SerialPort Terminal.exe
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\bin\Debug\SerialPort Terminal.pdb
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\obj\Debug\ResolveAssemblyReference.cache
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPortTerminal.frmAbout.resources
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPortTerminal.frmTerminal.resources
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPortTerminal.Properties.Resources.resources
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal.exe.manifest
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal.application
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal.exe
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal.pdb
+C:\Downloaded Files\SerialPortTerminal\SerialPortTerminal\obj\Debug\GenerateResource-ResGen.read.4.tlog

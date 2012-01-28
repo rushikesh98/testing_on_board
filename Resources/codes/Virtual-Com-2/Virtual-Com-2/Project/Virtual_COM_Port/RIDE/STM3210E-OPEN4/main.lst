@@ -1,0 +1,786 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\main.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\main.o
+
+
+Disassembly of section .text.LED_Init:
+
+00000000 <LED_Init>:
+LED_Init():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:69
+void LCD_Message_Init();
+void StopAllPeripherals();
+/* Private functions ---------------------------------------------------------*/
+
+// This function is found in the STM3210e_OPEN4.c file                        
+void LED_Init(void){
+   0:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:70
+    STM_OPEN4_LEDInit(LED1);
+   2:	2000      	movs	r0, #0
+   4:	f7ff fffe 	bl	0 <STM_OPEN4_LEDInit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:71
+    STM_OPEN4_LEDInit(LED2);
+   8:	2001      	movs	r0, #1
+   a:	f7ff fffe 	bl	0 <STM_OPEN4_LEDInit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:72
+    STM_OPEN4_LEDInit(LED3);
+   e:	2002      	movs	r0, #2
+  10:	f7ff fffe 	bl	0 <STM_OPEN4_LEDInit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:73
+    STM_OPEN4_LEDInit(LED4);
+  14:	2003      	movs	r0, #3
+  16:	f7ff fffe 	bl	0 <STM_OPEN4_LEDInit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:75
+
+    STM_OPEN4_LEDOff(LED3);
+  1a:	2002      	movs	r0, #2
+  1c:	f7ff fffe 	bl	0 <STM_OPEN4_LEDOff>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:76
+    STM_OPEN4_LEDOff(LED1);
+  20:	2000      	movs	r0, #0
+  22:	f7ff fffe 	bl	0 <STM_OPEN4_LEDOff>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:77
+    STM_OPEN4_LEDOn(LED4);
+  26:	2003      	movs	r0, #3
+  28:	f7ff fffe 	bl	0 <STM_OPEN4_LEDOn>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:78
+    STM_OPEN4_LEDOn(LED2);
+  2c:	2001      	movs	r0, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:80
+ 
+}
+  2e:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:78
+    STM_OPEN4_LEDInit(LED4);
+
+    STM_OPEN4_LEDOff(LED3);
+    STM_OPEN4_LEDOff(LED1);
+    STM_OPEN4_LEDOn(LED4);
+    STM_OPEN4_LEDOn(LED2);
+  32:	f7ff bffe 	b.w	0 <STM_OPEN4_LEDOn>
+
+Disassembly of section .text.LCD_Message_Init:
+
+00000000 <LCD_Message_Init>:
+LCD_Message_Init():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:82
+ 
+}
+
+void LCD_Message_Init(void){
+   0:	b537      	push	{r0, r1, r2, r4, r5, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:84
+    // Configure display
+    LCD_FullScreen( 1 );
+   2:	2001      	movs	r0, #1
+   4:	f7ff fffe 	bl	0 <LCD_FullScreen>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:85
+    LCD_SetScreenOrientation( V12 );
+   8:	2000      	movs	r0, #0
+   a:	f7ff fffe 	bl	0 <LCD_SetScreenOrientation>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:86
+    DRAW_SetDefaultColor();
+   e:	f7ff fffe 	bl	0 <DRAW_SetDefaultColor>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:89
+
+    // Display logo on top of the screen
+    LCD_SetLogoBW();
+  12:	f7ff fffe 	bl	0 <LCD_SetLogoBW>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:92
+
+    // Display background
+    DRAW_SetCharMagniCoeff( 2 );
+  16:	2002      	movs	r0, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:94
+    DRAW_SetTextColor( RGB_LIGHTPURPLE );
+    DRAW_DisplayStringWithMode( 0, 200, "Virtual Com", ALL_SCREEN, NORMAL_TEXT, CENTER );
+  18:	2400      	movs	r4, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:92
+
+    // Display logo on top of the screen
+    LCD_SetLogoBW();
+
+    // Display background
+    DRAW_SetCharMagniCoeff( 2 );
+  1a:	f7ff fffe 	bl	0 <DRAW_SetCharMagniCoeff>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:93
+    DRAW_SetTextColor( RGB_LIGHTPURPLE );
+  1e:	f241 00f8 	movw	r0, #4344	; 0x10f8
+  22:	f7ff fffe 	bl	0 <DRAW_SetTextColor>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:94
+    DRAW_DisplayStringWithMode( 0, 200, "Virtual Com", ALL_SCREEN, NORMAL_TEXT, CENTER );
+  26:	2501      	movs	r5, #1
+  28:	21c8      	movs	r1, #200	; 0xc8
+  2a:	4a1f      	ldr	r2, [pc, #124]	; (a8 <LCD_Message_Init+0xa8>)
+  2c:	f04f 33ff 	mov.w	r3, #4294967295
+  30:	4620      	mov	r0, r4
+  32:	9400      	str	r4, [sp, #0]
+  34:	9501      	str	r5, [sp, #4]
+  36:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:95
+    DRAW_SetCharMagniCoeff( 1 );
+  3a:	4628      	mov	r0, r5
+  3c:	f7ff fffe 	bl	0 <DRAW_SetCharMagniCoeff>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:96
+    DRAW_SetTextColor( RGB_BLACK );
+  40:	4620      	mov	r0, r4
+  42:	f7ff fffe 	bl	0 <DRAW_SetTextColor>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:97
+    DRAW_DisplayStringWithMode( 0, 180, "Complete Demo", ALL_SCREEN, NORMAL_TEXT, CENTER );
+  46:	4620      	mov	r0, r4
+  48:	21b4      	movs	r1, #180	; 0xb4
+  4a:	4a18      	ldr	r2, [pc, #96]	; (ac <LCD_Message_Init+0xac>)
+  4c:	f04f 33ff 	mov.w	r3, #4294967295
+  50:	9400      	str	r4, [sp, #0]
+  52:	9501      	str	r5, [sp, #4]
+  54:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:98
+    DRAW_DisplayStringWithMode( 0, 160, "of all Examples", ALL_SCREEN, NORMAL_TEXT, CENTER );
+  58:	4620      	mov	r0, r4
+  5a:	21a0      	movs	r1, #160	; 0xa0
+  5c:	4a14      	ldr	r2, [pc, #80]	; (b0 <LCD_Message_Init+0xb0>)
+  5e:	f04f 33ff 	mov.w	r3, #4294967295
+  62:	9400      	str	r4, [sp, #0]
+  64:	9501      	str	r5, [sp, #4]
+  66:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:100
+
+    DRAW_DisplayStringWithMode( 50, 120, "Fully explained code", 21, NORMAL_TEXT, LEFT );
+  6a:	2178      	movs	r1, #120	; 0x78
+  6c:	2315      	movs	r3, #21
+  6e:	2032      	movs	r0, #50	; 0x32
+  70:	4a10      	ldr	r2, [pc, #64]	; (b4 <LCD_Message_Init+0xb4>)
+  72:	9400      	str	r4, [sp, #0]
+  74:	9401      	str	r4, [sp, #4]
+  76:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:101
+    DRAW_SetTextColor( RGB_BLUE );
+  7a:	f44f 50f8 	mov.w	r0, #7936	; 0x1f00
+  7e:	f7ff fffe 	bl	0 <DRAW_SetTextColor>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:103
+
+    DRAW_DisplayStringWithMode( 0,  80, "Wouldn't that be Nice", ALL_SCREEN, NORMAL_TEXT, CENTER );
+  82:	4620      	mov	r0, r4
+  84:	2150      	movs	r1, #80	; 0x50
+  86:	4a0c      	ldr	r2, [pc, #48]	; (b8 <LCD_Message_Init+0xb8>)
+  88:	f04f 33ff 	mov.w	r3, #4294967295
+  8c:	9400      	str	r4, [sp, #0]
+  8e:	9501      	str	r5, [sp, #4]
+  90:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:104
+    DRAW_DisplayStringWithMode( 0,  60, "If Only someone would do it!", ALL_SCREEN, NORMAL_TEXT, CENTER );
+  94:	4620      	mov	r0, r4
+  96:	213c      	movs	r1, #60	; 0x3c
+  98:	4a08      	ldr	r2, [pc, #32]	; (bc <LCD_Message_Init+0xbc>)
+  9a:	f04f 33ff 	mov.w	r3, #4294967295
+  9e:	9400      	str	r4, [sp, #0]
+  a0:	9501      	str	r5, [sp, #4]
+  a2:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:105
+}
+  a6:	bd3e      	pop	{r1, r2, r3, r4, r5, pc}
+  a8:	00000000 	.word	0x00000000
+  ac:	0000000c 	.word	0x0000000c
+  b0:	0000001a 	.word	0x0000001a
+  b4:	0000002a 	.word	0x0000002a
+  b8:	0000003f 	.word	0x0000003f
+  bc:	00000055 	.word	0x00000055
+
+Disassembly of section .text.main:
+
+00000000 <main>:
+main():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:115
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+int main(void)
+{
+   0:	b573      	push	{r0, r1, r4, r5, r6, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:125
+uint16_t buttonPressed = 0;
+uint8_t mesg = 0;
+uint8_t testKeyboard = 0;
+
+// Initialize system and clocks
+    Set_System();
+   2:	f7ff fffe 	bl	0 <Set_System>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:129
+
+
+// Setup USB controller
+    Set_USBClock();
+   6:	f7ff fffe 	bl	0 <Set_USBClock>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:130
+    USB_Interrupts_Config();
+   a:	f7ff fffe 	bl	0 <USB_Interrupts_Config>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:131
+    USB_Init();
+   e:	f7ff fffe 	bl	0 <USB_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:134
+
+// Initialize LED
+    LED_Init();
+  12:	f7ff fffe 	bl	0 <main>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:137
+
+// Initialization LCD
+    LCD_Init();
+  16:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:140
+
+// LCD Startup Message
+    LCD_Message_Init();
+  1a:	f7ff fffe 	bl	0 <main>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:118
+*******************************************************************************/
+int main(void)
+{
+#define  SHUTDOWNCOUNT           0xFFFFF
+
+counter_t Button_HoldCounter = 0;
+  1e:	2500      	movs	r5, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:146
+
+  while (1)
+    {
+    // count_out >0 indicates that there is data in the USB Buffer
+    // bDeviceState == CONFIGURED indicates the USB device status
+    if ((count_out != 0) && (bDeviceState == CONFIGURED))
+  20:	4c8d      	ldr	r4, [pc, #564]	; (258 <main+0x258>)
+  22:	6823      	ldr	r3, [r4, #0]
+  24:	b32b      	cbz	r3, 72 <main+0x72>
+  26:	4b8d      	ldr	r3, [pc, #564]	; (25c <main+0x25c>)
+  28:	681b      	ldr	r3, [r3, #0]
+  2a:	2b05      	cmp	r3, #5
+  2c:	d121      	bne.n	72 <main+0x72>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:150
+    {
+    // USB_SIL_READ function gets data from the USB that was sent to
+    // the EP3_OUT endpoint from the PC and is then put in the msg_buf1
+        USB_SIL_Read(EP3_OUT, msg_buf1);
+  2e:	2003      	movs	r0, #3
+  30:	498b      	ldr	r1, [pc, #556]	; (260 <main+0x260>)
+  32:	f7ff fffe 	bl	0 <USB_SIL_Read>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:155
+
+    // USB_SIL_WRITE function stores data in msg_buf1 along with the 
+    // number of data bytes to be sent to the PC.  In this case only byte 
+    // that was just received is echoed back to hyperterminal
+        USB_SIL_Write(EP1_IN, msg_buf1,1);
+  36:	2201      	movs	r2, #1
+  38:	2081      	movs	r0, #129	; 0x81
+  3a:	4989      	ldr	r1, [pc, #548]	; (260 <main+0x260>)
+  3c:	f7ff fffe 	bl	0 <USB_SIL_Write>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:159
+    
+    //  SetEPTxValid function sets the EP_TX_VALID allowing for the data 
+    //  and size to be sent to the PC using USB endpoint ENDP1
+        SetEPTxValid(ENDP1);
+  40:	2001      	movs	r0, #1
+  42:	f7ff fffe 	bl	0 <SetEPTxValid>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:162
+    
+    //  Resetting count_out prevents the repeat of the same data being sent
+        count_out = 0;
+  46:	2300      	movs	r3, #0
+  48:	6023      	str	r3, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:169
+    //  The input from Hyperterminal is tested to determine if one of the 4
+    //  keys that we want has been pressed and assigns the buttonPressed a
+    //  value that is equal to the GPIO bit used in the EVO.  This allows the
+    //  same code to be used for both the EVO button and keyboard input
+        testKeyboard = 1;
+        if (msg_buf1[0] == 's') buttonPressed = 0x8000;
+  4a:	4b85      	ldr	r3, [pc, #532]	; (260 <main+0x260>)
+  4c:	781e      	ldrb	r6, [r3, #0]
+  4e:	2e73      	cmp	r6, #115	; 0x73
+  50:	f000 80fc 	beq.w	24c <main+0x24c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:170
+        if (msg_buf1[0] == 'u') buttonPressed = 0x400;
+  54:	2e75      	cmp	r6, #117	; 0x75
+  56:	f000 80fc 	beq.w	252 <main+0x252>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:171
+        if (msg_buf1[0] == 'd') buttonPressed = 0x800;
+  5a:	2e64      	cmp	r6, #100	; 0x64
+  5c:	f000 80ef 	beq.w	23e <main+0x23e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:172
+        if (msg_buf1[0] == 'r') buttonPressed = 0x200;
+  60:	2e72      	cmp	r6, #114	; 0x72
+  62:	f000 80ef 	beq.w	244 <main+0x244>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:173
+        if (msg_buf1[0] == 'l') buttonPressed = 0x100;
+  66:	2e6c      	cmp	r6, #108	; 0x6c
+  68:	bf0c      	ite	eq
+  6a:	f44f 7680 	moveq.w	r6, #256	; 0x100
+  6e:	2600      	movne	r6, #0
+  70:	e0ea      	b.n	248 <main+0x248>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:183
+    if(!testKeyboard){
+    
+    // the first statement reads the Joystick buttons using PORTD and masks
+    // the bits so that only one of the bits corresponding to the Joystick
+    // are tested
+        buttonPressed = GPIO_ReadInputData(GPIOD) & 0x0F00;
+  72:	487c      	ldr	r0, [pc, #496]	; (264 <main+0x264>)
+  74:	f7ff fffe 	bl	0 <GPIO_ReadInputData>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:189
+    
+    // Since the Joystick and Select button are on two separate PORTS, the
+    // bit on the GPIOE is tested. If it has been pressed, then the buttonPressed
+    // is assigned this value, otherwise it is assigned the value in the
+    // previous statement
+        if(GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_15)) buttonPressed = 0x8000;
+  78:	f44f 4100 	mov.w	r1, #32768	; 0x8000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:183
+    if(!testKeyboard){
+    
+    // the first statement reads the Joystick buttons using PORTD and masks
+    // the bits so that only one of the bits corresponding to the Joystick
+    // are tested
+        buttonPressed = GPIO_ReadInputData(GPIOD) & 0x0F00;
+  7c:	4604      	mov	r4, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:189
+    
+    // Since the Joystick and Select button are on two separate PORTS, the
+    // bit on the GPIOE is tested. If it has been pressed, then the buttonPressed
+    // is assigned this value, otherwise it is assigned the value in the
+    // previous statement
+        if(GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_15)) buttonPressed = 0x8000;
+  7e:	487a      	ldr	r0, [pc, #488]	; (268 <main+0x268>)
+  80:	f7ff fffe 	bl	0 <GPIO_ReadInputDataBit>
+  84:	b918      	cbnz	r0, 8e <main+0x8e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:183
+    if(!testKeyboard){
+    
+    // the first statement reads the Joystick buttons using PORTD and masks
+    // the bits so that only one of the bits corresponding to the Joystick
+    // are tested
+        buttonPressed = GPIO_ReadInputData(GPIOD) & 0x0F00;
+  86:	f404 6670 	and.w	r6, r4, #3840	; 0xf00
+  8a:	4604      	mov	r4, r0
+  8c:	e002      	b.n	94 <main+0x94>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:189
+    
+    // Since the Joystick and Select button are on two separate PORTS, the
+    // bit on the GPIOE is tested. If it has been pressed, then the buttonPressed
+    // is assigned this value, otherwise it is assigned the value in the
+    // previous statement
+        if(GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_15)) buttonPressed = 0x8000;
+  8e:	2400      	movs	r4, #0
+  90:	f44f 4600 	mov.w	r6, #32768	; 0x8000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:192
+    }
+ 
+    DRAW_SetCharMagniCoeff( 2 );
+  94:	2002      	movs	r0, #2
+  96:	f7ff fffe 	bl	0 <DRAW_SetCharMagniCoeff>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:193
+    DRAW_SetTextColor( RGB_RED );
+  9a:	20f8      	movs	r0, #248	; 0xf8
+  9c:	f7ff fffe 	bl	0 <DRAW_SetTextColor>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:196
+
+    // Test if either a button on the EVOPrimer was pressed or a Keyboard input
+    if(buttonPressed || testKeyboard)
+  a0:	b916      	cbnz	r6, a8 <main+0xa8>
+  a2:	2c00      	cmp	r4, #0
+  a4:	d14a      	bne.n	13c <main+0x13c>
+  a6:	e7bb      	b.n	20 <main+0x20>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:198
+    {
+        switch(buttonPressed) 
+  a8:	f5b6 6f80 	cmp.w	r6, #1024	; 0x400
+  ac:	4b6f      	ldr	r3, [pc, #444]	; (26c <main+0x26c>)
+  ae:	d016      	beq.n	de <main+0xde>
+  b0:	f04f 0400 	mov.w	r4, #0
+  b4:	d806      	bhi.n	c4 <main+0xc4>
+  b6:	f5b6 7f80 	cmp.w	r6, #256	; 0x100
+  ba:	d033      	beq.n	124 <main+0x124>
+  bc:	f5b6 7f00 	cmp.w	r6, #512	; 0x200
+  c0:	d13c      	bne.n	13c <main+0x13c>
+  c2:	e023      	b.n	10c <main+0x10c>
+  c4:	f5b6 6f00 	cmp.w	r6, #2048	; 0x800
+  c8:	d014      	beq.n	f4 <main+0xf4>
+  ca:	f5b6 4f00 	cmp.w	r6, #32768	; 0x8000
+  ce:	d135      	bne.n	13c <main+0x13c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:204
+        {
+            // SELECT Button or 's' Pressed and assign number for mesg to allow
+            // the displays of the same message on the EVO LCD and Hyperterminal 
+            case 0x8000:
+                mesg = 0;
+                DRAW_DisplayStringWithMode( 0,  5, buttonSelected[0],
+  d0:	2201      	movs	r2, #1
+  d2:	9400      	str	r4, [sp, #0]
+  d4:	9201      	str	r2, [sp, #4]
+  d6:	4620      	mov	r0, r4
+  d8:	2105      	movs	r1, #5
+  da:	681a      	ldr	r2, [r3, #0]
+  dc:	e005      	b.n	ea <main+0xea>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:210
+                                        ALL_SCREEN, NORMAL_TEXT, CENTER );
+            break;
+            // UP Button or 'u' Pressed
+            case 0x400:
+                mesg = 1;
+                DRAW_DisplayStringWithMode( 0,  5, buttonSelected[1],
+  de:	2000      	movs	r0, #0
+  e0:	2401      	movs	r4, #1
+  e2:	9000      	str	r0, [sp, #0]
+  e4:	9401      	str	r4, [sp, #4]
+  e6:	685a      	ldr	r2, [r3, #4]
+  e8:	2105      	movs	r1, #5
+  ea:	f04f 33ff 	mov.w	r3, #4294967295
+  ee:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:212
+                                        ALL_SCREEN, NORMAL_TEXT, CENTER );
+            break;   
+  f2:	e02f      	b.n	154 <main+0x154>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:216
+            // DOWN Button or 'd' Pressed
+            case 0x800:
+                mesg = 2;
+                DRAW_DisplayStringWithMode( 0,  5, buttonSelected[2],
+  f4:	2201      	movs	r2, #1
+  f6:	9400      	str	r4, [sp, #0]
+  f8:	9201      	str	r2, [sp, #4]
+  fa:	4620      	mov	r0, r4
+  fc:	689a      	ldr	r2, [r3, #8]
+  fe:	2105      	movs	r1, #5
+ 100:	f04f 33ff 	mov.w	r3, #4294967295
+ 104:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:215
+                DRAW_DisplayStringWithMode( 0,  5, buttonSelected[1],
+                                        ALL_SCREEN, NORMAL_TEXT, CENTER );
+            break;   
+            // DOWN Button or 'd' Pressed
+            case 0x800:
+                mesg = 2;
+ 108:	2402      	movs	r4, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:218
+                DRAW_DisplayStringWithMode( 0,  5, buttonSelected[2],
+                                        ALL_SCREEN, NORMAL_TEXT, CENTER );
+            break;    
+ 10a:	e023      	b.n	154 <main+0x154>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:222
+            // RIGHT Button or 'r' Pressed
+            case 0x200:
+                mesg = 3;
+                DRAW_DisplayStringWithMode( 0,  5, buttonSelected[3],
+ 10c:	2201      	movs	r2, #1
+ 10e:	9400      	str	r4, [sp, #0]
+ 110:	9201      	str	r2, [sp, #4]
+ 112:	4620      	mov	r0, r4
+ 114:	68da      	ldr	r2, [r3, #12]
+ 116:	2105      	movs	r1, #5
+ 118:	f04f 33ff 	mov.w	r3, #4294967295
+ 11c:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:221
+                DRAW_DisplayStringWithMode( 0,  5, buttonSelected[2],
+                                        ALL_SCREEN, NORMAL_TEXT, CENTER );
+            break;    
+            // RIGHT Button or 'r' Pressed
+            case 0x200:
+                mesg = 3;
+ 120:	2403      	movs	r4, #3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:224
+                DRAW_DisplayStringWithMode( 0,  5, buttonSelected[3],
+                                        ALL_SCREEN, NORMAL_TEXT, CENTER );
+            break;
+ 122:	e017      	b.n	154 <main+0x154>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:228
+            // LEFT Button or 'l' Pressed            
+            case 0x100:
+                mesg = 4;
+                DRAW_DisplayStringWithMode( 0,  5, buttonSelected[4],
+ 124:	2201      	movs	r2, #1
+ 126:	9400      	str	r4, [sp, #0]
+ 128:	9201      	str	r2, [sp, #4]
+ 12a:	4620      	mov	r0, r4
+ 12c:	691a      	ldr	r2, [r3, #16]
+ 12e:	2105      	movs	r1, #5
+ 130:	f04f 33ff 	mov.w	r3, #4294967295
+ 134:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:227
+                DRAW_DisplayStringWithMode( 0,  5, buttonSelected[3],
+                                        ALL_SCREEN, NORMAL_TEXT, CENTER );
+            break;
+            // LEFT Button or 'l' Pressed            
+            case 0x100:
+                mesg = 4;
+ 138:	2404      	movs	r4, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:230
+                DRAW_DisplayStringWithMode( 0,  5, buttonSelected[4],
+                                        ALL_SCREEN, NORMAL_TEXT, CENTER );
+            break;     
+ 13a:	e00b      	b.n	154 <main+0x154>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:234
+            // UNDEFINED keyboard input
+            default:
+                mesg = 5;
+                DRAW_DisplayStringWithMode( 0,  5, buttonSelected[5],
+ 13c:	2301      	movs	r3, #1
+ 13e:	9301      	str	r3, [sp, #4]
+ 140:	2000      	movs	r0, #0
+ 142:	4b4a      	ldr	r3, [pc, #296]	; (26c <main+0x26c>)
+ 144:	9000      	str	r0, [sp, #0]
+ 146:	695a      	ldr	r2, [r3, #20]
+ 148:	2105      	movs	r1, #5
+ 14a:	f04f 33ff 	mov.w	r3, #4294967295
+ 14e:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:233
+                DRAW_DisplayStringWithMode( 0,  5, buttonSelected[4],
+                                        ALL_SCREEN, NORMAL_TEXT, CENTER );
+            break;     
+            // UNDEFINED keyboard input
+            default:
+                mesg = 5;
+ 152:	2405      	movs	r4, #5
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:246
+        testKeyboard = 0;       
+        buttonPressed = 0;
+    
+        // The USB_SIL_Write function then sends the message of which key
+        // or button has been pressed, the messages are all a fixed length
+        USB_SIL_Write(EP1_IN, buttonSelected[mesg],13);
+ 154:	4b45      	ldr	r3, [pc, #276]	; (26c <main+0x26c>)
+ 156:	220d      	movs	r2, #13
+ 158:	f853 1024 	ldr.w	r1, [r3, r4, lsl #2]
+ 15c:	2081      	movs	r0, #129	; 0x81
+ 15e:	f7ff fffe 	bl	0 <USB_SIL_Write>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:247
+        SetEPTxValid(ENDP1);
+ 162:	2001      	movs	r0, #1
+ 164:	f7ff fffe 	bl	0 <SetEPTxValid>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:250
+ 
+        //  Display on LCD
+        DRAW_SetCharMagniCoeff( 2 );
+ 168:	2002      	movs	r0, #2
+ 16a:	f7ff fffe 	bl	0 <DRAW_SetCharMagniCoeff>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:252
+        DRAW_SetTextColor( RGB_RED );
+        DRAW_DisplayStringWithMode( 0,  30, "You Pressed the", 
+ 16e:	2400      	movs	r4, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:251
+        USB_SIL_Write(EP1_IN, buttonSelected[mesg],13);
+        SetEPTxValid(ENDP1);
+ 
+        //  Display on LCD
+        DRAW_SetCharMagniCoeff( 2 );
+        DRAW_SetTextColor( RGB_RED );
+ 170:	20f8      	movs	r0, #248	; 0xf8
+ 172:	f7ff fffe 	bl	0 <DRAW_SetTextColor>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:252
+        DRAW_DisplayStringWithMode( 0,  30, "You Pressed the", 
+ 176:	2601      	movs	r6, #1
+ 178:	4620      	mov	r0, r4
+ 17a:	211e      	movs	r1, #30
+ 17c:	4a3c      	ldr	r2, [pc, #240]	; (270 <main+0x270>)
+ 17e:	f04f 33ff 	mov.w	r3, #4294967295
+ 182:	9400      	str	r4, [sp, #0]
+ 184:	9601      	str	r6, [sp, #4]
+ 186:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:254
+                                    ALL_SCREEN, NORMAL_TEXT, CENTER );
+        DRAW_SetCharMagniCoeff( 1 );
+ 18a:	4630      	mov	r0, r6
+ 18c:	f7ff fffe 	bl	0 <DRAW_SetCharMagniCoeff>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:257
+
+        // toggle LED on EVO
+        STM_OPEN4_LEDToggle(LED1);
+ 190:	4620      	mov	r0, r4
+ 192:	f7ff fffe 	bl	0 <STM_OPEN4_LEDToggle>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:261
+
+        // Test the Joystick buttons, if pressed the EVO waits, providing
+        // a debouncing of the button
+        while(GPIO_ReadInputData(GPIOD) & 0x0F00){}
+ 196:	4833      	ldr	r0, [pc, #204]	; (d0 <GPIO_ReadInputData+0xd0>)
+ 198:	f7ff fffe 	bl	0 <GPIO_ReadInputData>
+ 19c:	f410 6f70 	tst.w	r0, #3840	; 0xf00
+ 1a0:	d1f9      	bne.n	196 <main+0x196>
+ 1a2:	e03e      	b.n	222 <main+0x222>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:270
+        while(STM_OPEN4_PBGetState(BUTTON_SEL))
+            {
+        // The Button_HoldCounter counts how long the button has been held
+        // for.  If it is greater than the SHUTDOWNCOUNT then the standard
+        // shutdown screen message is displayed
+                Button_HoldCounter++;
+ 1a4:	3501      	adds	r5, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:272
+
+                if ( Button_HoldCounter > SHUTDOWNCOUNT )
+ 1a6:	f5b5 1f80 	cmp.w	r5, #1048576	; 0x100000
+ 1aa:	d33a      	bcc.n	222 <main+0x222>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:274
+                {
+                    LCD_SetOffset( OFFSET_OFF );
+ 1ac:	2000      	movs	r0, #0
+ 1ae:	f7ff fffe 	bl	0 <LCD_SetOffset>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:275
+                    LCD_ClearAllScreen( RGB_BLACK );
+ 1b2:	2000      	movs	r0, #0
+ 1b4:	f7ff fffe 	bl	0 <LCD_ClearAllScreen>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:276
+                    LCD_SetBackLight(BACKLIGHTMIN);
+ 1b8:	f44f 5080 	mov.w	r0, #4096	; 0x1000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:279
+                    DRAW_SetDefaultColor();
+                    DRAW_RestoreCharMagniCoeff();
+                    DRAW_DisplayStringWithMode( 0, 100, 
+ 1bc:	2401      	movs	r4, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:276
+
+                if ( Button_HoldCounter > SHUTDOWNCOUNT )
+                {
+                    LCD_SetOffset( OFFSET_OFF );
+                    LCD_ClearAllScreen( RGB_BLACK );
+                    LCD_SetBackLight(BACKLIGHTMIN);
+ 1be:	f7ff fffe 	bl	0 <LCD_SetBackLight>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:277
+                    DRAW_SetDefaultColor();
+ 1c2:	f7ff fffe 	bl	0 <DRAW_SetDefaultColor>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:278
+                    DRAW_RestoreCharMagniCoeff();
+ 1c6:	f7ff fffe 	bl	0 <DRAW_RestoreCharMagniCoeff>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:279
+                    DRAW_DisplayStringWithMode( 0, 100, 
+ 1ca:	2000      	movs	r0, #0
+ 1cc:	2164      	movs	r1, #100	; 0x64
+ 1ce:	4a29      	ldr	r2, [pc, #164]	; (274 <main+0x274>)
+ 1d0:	f04f 33ff 	mov.w	r3, #4294967295
+ 1d4:	9400      	str	r4, [sp, #0]
+ 1d6:	9401      	str	r4, [sp, #4]
+ 1d8:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:281
+                        "Shutting down !", ALL_SCREEN, INVERTED_TEXT, CENTER );
+                    DRAW_DisplayStringWithMode( 0, 50, 
+ 1dc:	2000      	movs	r0, #0
+ 1de:	2132      	movs	r1, #50	; 0x32
+ 1e0:	4a25      	ldr	r2, [pc, #148]	; (278 <main+0x278>)
+ 1e2:	f04f 33ff 	mov.w	r3, #4294967295
+ 1e6:	9400      	str	r4, [sp, #0]
+ 1e8:	9401      	str	r4, [sp, #4]
+ 1ea:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:283
+                        "Release", ALL_SCREEN, INVERTED_TEXT, CENTER );
+                    DRAW_DisplayStringWithMode( 0, 20, 
+ 1ee:	2000      	movs	r0, #0
+ 1f0:	2114      	movs	r1, #20
+ 1f2:	4a22      	ldr	r2, [pc, #136]	; (27c <main+0x27c>)
+ 1f4:	f04f 33ff 	mov.w	r3, #4294967295
+ 1f8:	9400      	str	r4, [sp, #0]
+ 1fa:	9401      	str	r4, [sp, #4]
+ 1fc:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:285
+                        "the button !", ALL_SCREEN, INVERTED_TEXT, CENTER );
+                    DRAW_SetCharMagniCoeff( 1 );
+ 200:	4620      	mov	r0, r4
+ 202:	f7ff fffe 	bl	0 <DRAW_SetCharMagniCoeff>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:286
+                    STM_OPEN4_LEDToggle(LED2);
+ 206:	4620      	mov	r0, r4
+ 208:	f7ff fffe 	bl	0 <STM_OPEN4_LEDToggle>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:292
+                    
+                    //SHUTDOWN_Action(); *** doesn't really shutdown
+                // The select button is tested and when released will 
+                // clear the screen to black, but doesn't shutdown the EVO
+                // ... still trying to figure that one out!
+                    while(STM_OPEN4_PBGetState(BUTTON_SEL)){}
+ 20c:	2007      	movs	r0, #7
+ 20e:	f7ff fffe 	bl	0 <STM_OPEN4_PBGetState>
+ 212:	4604      	mov	r4, r0
+ 214:	2800      	cmp	r0, #0
+ 216:	d1f9      	bne.n	20c <main+0x20c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:293
+                    LCD_SetBackLightOff();
+ 218:	f7ff fffe 	bl	0 <LCD_SetBackLightOff>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:294
+                    LCD_ClearAllScreen( RGB_BLACK );
+ 21c:	4620      	mov	r0, r4
+ 21e:	f7ff fffe 	bl	0 <LCD_ClearAllScreen>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:265
+        // a debouncing of the button
+        while(GPIO_ReadInputData(GPIOD) & 0x0F00){}
+        
+        // Test if the SELECT button has been pressed and starts counting
+        // to see how long it has been held for
+        while(STM_OPEN4_PBGetState(BUTTON_SEL))
+ 222:	2007      	movs	r0, #7
+ 224:	f7ff fffe 	bl	0 <STM_OPEN4_PBGetState>
+ 228:	2800      	cmp	r0, #0
+ 22a:	d1bb      	bne.n	1a4 <main+0x1a4>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:299
+                    LCD_ClearAllScreen( RGB_BLACK );
+                }
+            
+            }
+            // Sends a carriage return and line feed to the Hyperterminal
+            USB_SIL_Write(EP1_IN, "\r\n",3);
+ 22c:	3081      	adds	r0, #129	; 0x81
+ 22e:	4914      	ldr	r1, [pc, #80]	; (280 <main+0x280>)
+ 230:	2203      	movs	r2, #3
+ 232:	f7ff fffe 	bl	0 <USB_SIL_Write>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:300
+            SetEPTxValid(ENDP1);
+ 236:	2001      	movs	r0, #1
+ 238:	f7ff fffe 	bl	0 <SetEPTxValid>
+ 23c:	e6f0      	b.n	20 <main+0x20>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:171
+    //  value that is equal to the GPIO bit used in the EVO.  This allows the
+    //  same code to be used for both the EVO button and keyboard input
+        testKeyboard = 1;
+        if (msg_buf1[0] == 's') buttonPressed = 0x8000;
+        if (msg_buf1[0] == 'u') buttonPressed = 0x400;
+        if (msg_buf1[0] == 'd') buttonPressed = 0x800;
+ 23e:	f44f 6600 	mov.w	r6, #2048	; 0x800
+ 242:	e001      	b.n	248 <main+0x248>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:172
+        if (msg_buf1[0] == 'r') buttonPressed = 0x200;
+ 244:	f44f 7600 	mov.w	r6, #512	; 0x200
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:173
+        if (msg_buf1[0] == 'l') buttonPressed = 0x100;
+ 248:	2401      	movs	r4, #1
+ 24a:	e723      	b.n	94 <main+0x94>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:169
+    //  The input from Hyperterminal is tested to determine if one of the 4
+    //  keys that we want has been pressed and assigns the buttonPressed a
+    //  value that is equal to the GPIO bit used in the EVO.  This allows the
+    //  same code to be used for both the EVO button and keyboard input
+        testKeyboard = 1;
+        if (msg_buf1[0] == 's') buttonPressed = 0x8000;
+ 24c:	f44f 4600 	mov.w	r6, #32768	; 0x8000
+ 250:	e7fa      	b.n	248 <main+0x248>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:170
+        if (msg_buf1[0] == 'u') buttonPressed = 0x400;
+ 252:	f44f 6680 	mov.w	r6, #1024	; 0x400
+ 256:	e7f7      	b.n	fffffff2 <count_out+0xfffffff2>
+	...
+ 264:	40011400 	.word	0x40011400
+ 268:	40011800 	.word	0x40011800
+ 26c:	00000000 	.word	0x00000000
+ 270:	00000072 	.word	0x00000072
+ 274:	00000082 	.word	0x00000082
+ 278:	00000092 	.word	0x00000092
+ 27c:	0000009a 	.word	0x0000009a
+ 280:	000000a7 	.word	0x000000a7
+
+Disassembly of section .text.StopAllPeripherals:
+
+00000000 <StopAllPeripherals>:
+StopAllPeripherals():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/main.c:311
+
+void StopAllPeripherals( void )
+{
+// PC13 = SHUTDOWN     = to "SHUTDOWN"        = 3 Output Push-pull  50Mhz
+//   GPIO_SetBits(GPIOC, 0x00002000); 
+}
+   0:	4770      	bx	lr

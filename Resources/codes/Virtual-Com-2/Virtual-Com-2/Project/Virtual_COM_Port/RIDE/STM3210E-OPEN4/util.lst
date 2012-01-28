@@ -1,0 +1,396 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\util.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\util.o
+
+
+Disassembly of section .text._int2str:
+
+00000000 <_int2str>:
+_int2str():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:48
+*  @param[in]     fillwithzero   Fill with zeros or spaces.
+*
+**/
+/******************************************************************************/
+static void _int2str( u8* ptr, int_t X, len_t digit, bool flagunsigned, bool fillwithzero )
+{
+   0:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:56
+    bool    fNeg     = 0;
+    uint_t  DIG      = 1;
+    len_t   i;
+    int_t   r;
+
+    for ( i = 1; i < digit; i++ )
+   4:	2501      	movs	r5, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:48
+*  @param[in]     fillwithzero   Fill with zeros or spaces.
+*
+**/
+/******************************************************************************/
+static void _int2str( u8* ptr, int_t X, len_t digit, bool flagunsigned, bool fillwithzero )
+{
+   6:	f89d 801c 	ldrb.w	r8, [sp, #28]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:52
+    u8      c;
+    bool    fFirst   = 0;
+    bool    fNeg     = 0;
+    uint_t  DIG      = 1;
+   a:	462c      	mov	r4, r5
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:56
+    len_t   i;
+    int_t   r;
+
+    for ( i = 1; i < digit; i++ )
+   c:	e002      	b.n	14 <_int2str+0x14>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:58
+    {
+        DIG *= 10;
+   e:	260a      	movs	r6, #10
+  10:	4374      	muls	r4, r6
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:56
+    bool    fNeg     = 0;
+    uint_t  DIG      = 1;
+    len_t   i;
+    int_t   r;
+
+    for ( i = 1; i < digit; i++ )
+  12:	3501      	adds	r5, #1
+  14:	4295      	cmp	r5, r2
+  16:	dbfa      	blt.n	e <_int2str+0xe>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:61
+    {
+        DIG *= 10;
+    }
+
+    if ( !flagunsigned && ( X < 0 ) )
+  18:	b92b      	cbnz	r3, 26 <_int2str+0x26>
+  1a:	2900      	cmp	r1, #0
+  1c:	da06      	bge.n	2c <_int2str+0x2c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:64
+    {
+        fNeg = 1;
+        r    = -X;
+  1e:	4249      	negs	r1, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:63
+        DIG *= 10;
+    }
+
+    if ( !flagunsigned && ( X < 0 ) )
+    {
+        fNeg = 1;
+  20:	f04f 0c01 	mov.w	ip, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:64
+        r    = -X;
+  24:	e003      	b.n	2e <_int2str+0x2e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:51
+/******************************************************************************/
+static void _int2str( u8* ptr, int_t X, len_t digit, bool flagunsigned, bool fillwithzero )
+{
+    u8      c;
+    bool    fFirst   = 0;
+    bool    fNeg     = 0;
+  26:	f04f 0c00 	mov.w	ip, #0
+  2a:	e000      	b.n	2e <_int2str+0x2e>
+  2c:	469c      	mov	ip, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:71
+    else
+    {
+        r = X;
+    }
+
+    for ( i = 0; i < digit; i++, DIG /= 10 )
+  2e:	2500      	movs	r5, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:50
+**/
+/******************************************************************************/
+static void _int2str( u8* ptr, int_t X, len_t digit, bool flagunsigned, bool fillwithzero )
+{
+    u8      c;
+    bool    fFirst   = 0;
+  30:	462f      	mov	r7, r5
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:71
+    else
+    {
+        r = X;
+    }
+
+    for ( i = 0; i < digit; i++, DIG /= 10 )
+  32:	e028      	b.n	86 <_int2str+0x86>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:73
+    {
+        c  = ( r / DIG );
+  34:	fbb1 f6f4 	udiv	r6, r1, r4
+  38:	b2f6      	uxtb	r6, r6
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:74
+        r -= ( c * DIG );
+  3a:	fb04 1116 	mls	r1, r4, r6, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:76
+
+        if ( fillwithzero || fFirst || c || ( i == ( digit - 1 ) ) )
+  3e:	f1b8 0f00 	cmp.w	r8, #0
+  42:	d106      	bne.n	52 <_int2str+0x52>
+  44:	b977      	cbnz	r7, 64 <_int2str+0x64>
+  46:	b92e      	cbnz	r6, 54 <_int2str+0x54>
+  48:	f102 39ff 	add.w	r9, r2, #4294967295
+  4c:	454d      	cmp	r5, r9
+  4e:	d113      	bne.n	78 <_int2str+0x78>
+  50:	e000      	b.n	54 <_int2str+0x54>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:78
+        {
+            if (( fFirst == 0 ) && !flagunsigned )
+  52:	b93f      	cbnz	r7, 64 <_int2str+0x64>
+  54:	b933      	cbnz	r3, 64 <_int2str+0x64>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:80
+            {
+                *ptr++ = fNeg ? '-' : ' ';
+  56:	f1bc 0f00 	cmp.w	ip, #0
+  5a:	bf0c      	ite	eq
+  5c:	2720      	moveq	r7, #32
+  5e:	272d      	movne	r7, #45	; 0x2d
+  60:	f800 7b01 	strb.w	r7, [r0], #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:83
+            }
+
+            *ptr++ = ( c % 10 ) + '0';
+  64:	270a      	movs	r7, #10
+  66:	fbb6 f9f7 	udiv	r9, r6, r7
+  6a:	fb07 6619 	mls	r6, r7, r9, r6
+  6e:	3630      	adds	r6, #48	; 0x30
+  70:	f800 6b01 	strb.w	r6, [r0], #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:84
+            fFirst = 1;
+  74:	3f09      	subs	r7, #9
+  76:	e002      	b.n	7e <_int2str+0x7e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:88
+        }
+        else
+        {
+            *ptr++ = ' ';
+  78:	2620      	movs	r6, #32
+  7a:	f800 6b01 	strb.w	r6, [r0], #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:71
+    else
+    {
+        r = X;
+    }
+
+    for ( i = 0; i < digit; i++, DIG /= 10 )
+  7e:	260a      	movs	r6, #10
+  80:	3501      	adds	r5, #1
+  82:	fbb4 f4f6 	udiv	r4, r4, r6
+  86:	4295      	cmp	r5, r2
+  88:	dbd4      	blt.n	34 <_int2str+0x34>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:92
+        {
+            *ptr++ = ' ';
+        }
+    }
+
+    *ptr++ = '\0';
+  8a:	2300      	movs	r3, #0
+  8c:	7003      	strb	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:93
+}
+  8e:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+
+Disassembly of section .text.UTIL_uint2str:
+
+00000000 <UTIL_uint2str>:
+UTIL_uint2str():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:119
+*                              \li 1   fill with zeros.
+*
+**/
+/********************************************************************************/
+void UTIL_uint2str( u8* ptr, uint_t X, len_t digit, bool fillwithzero )
+{
+   0:	b507      	push	{r0, r1, r2, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:120
+    _int2str( ptr, X, digit, 1, fillwithzero );
+   2:	9300      	str	r3, [sp, #0]
+   4:	2301      	movs	r3, #1
+   6:	f7ff fffe 	bl	0 <UTIL_uint2str>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:121
+}
+   a:	bd0e      	pop	{r1, r2, r3, pc}
+
+Disassembly of section .text.UTIL_int2str:
+
+00000000 <UTIL_int2str>:
+UTIL_int2str():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:143
+*                              \li 1   fill with zeros.
+*
+**/
+/******************************************************************************/
+void UTIL_int2str( u8* ptr, int_t X, len_t digit, bool fillwithzero )
+{
+   0:	b507      	push	{r0, r1, r2, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:144
+    _int2str( ptr, X, digit, 0, fillwithzero );
+   2:	9300      	str	r3, [sp, #0]
+   4:	2300      	movs	r3, #0
+   6:	f7ff fffe 	bl	0 <UTIL_int2str>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:145
+}
+   a:	bd0e      	pop	{r1, r2, r3, pc}
+
+Disassembly of section .text.fct_dummy:
+
+00000000 <fct_dummy>:
+fct_dummy():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:153
+/*******************************************************************************
+*
+*                    delayms
+*
+*******************************************************************************/
+void fct_dummy() {;}
+   0:	4770      	bx	lr
+
+Disassembly of section .text.Delayms:
+
+00000000 <Delayms>:
+Delayms():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:162
+    s32 i, j;
+    for ( i = 0; i < count; i++ )
+        //for ( j = 0; j < 1300; j++ )
+        for ( j = 0; j < 2600; j++ )
+            fct_dummy();
+}
+   0:	4770      	bx	lr
+
+Disassembly of section .text.delay:
+
+00000000 <delay>:
+delay():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:171
+    s32 i, j;
+    for ( i = 0; i < count; i++ )
+        //for ( j = 0; j < 1300; j++ )
+        for ( j = 0; j < 2600; j++ )
+            fct_dummy();
+}
+   0:	4770      	bx	lr
+
+Disassembly of section .text.my_strlen:
+
+00000000 <my_strlen>:
+my_strlen():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:189
+*
+**/
+/******************************************************************************/
+len_t my_strlen( const u8* p )
+{
+    len_t len = 0;
+   0:	2300      	movs	r3, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:191
+
+    for ( ; *p; p++ )
+   2:	e000      	b.n	6 <my_strlen+0x6>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:193
+    {
+        len++;
+   4:	3301      	adds	r3, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:191
+/******************************************************************************/
+len_t my_strlen( const u8* p )
+{
+    len_t len = 0;
+
+    for ( ; *p; p++ )
+   6:	5cc2      	ldrb	r2, [r0, r3]
+   8:	2a00      	cmp	r2, #0
+   a:	d1fb      	bne.n	4 <my_strlen+0x4>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:197
+    {
+        len++;
+    }
+
+    return len;
+}
+   c:	4618      	mov	r0, r3
+   e:	4770      	bx	lr
+
+Disassembly of section .text.UTIL_ReadBackupRegister:
+
+00000000 <UTIL_ReadBackupRegister>:
+UTIL_ReadBackupRegister():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:216
+*
+**/
+/******************************************************************************/
+backup_t UTIL_ReadBackupRegister( index_t BKP_DR )
+{
+    if ( BKP_DR < 11 )
+   0:	280a      	cmp	r0, #10
+   2:	dc06      	bgt.n	12 <UTIL_ReadBackupRegister+0x12>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:218
+    {
+        return ( *( vu16* )( BKP_BASE + 4 * BKP_DR ) );
+   4:	f100 5080 	add.w	r0, r0, #268435456	; 0x10000000
+   8:	f500 50d8 	add.w	r0, r0, #6912	; 0x1b00
+   c:	0080      	lsls	r0, r0, #2
+   e:	8800      	ldrh	r0, [r0, #0]
+  10:	e005      	b.n	1e <UTIL_ReadBackupRegister+0x1e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:220
+    }
+    else if ( BKP_DR < 43 )
+  12:	282a      	cmp	r0, #42	; 0x2a
+  14:	dc05      	bgt.n	22 <UTIL_ReadBackupRegister+0x22>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:222
+    {
+        return ( *( vu16* )( BKP_BASE + 4 * ( BKP_DR + 5 ) ) );
+  16:	4b04      	ldr	r3, [pc, #16]	; (28 <UTIL_ReadBackupRegister+0x28>)
+  18:	18c3      	adds	r3, r0, r3
+  1a:	009b      	lsls	r3, r3, #2
+  1c:	8818      	ldrh	r0, [r3, #0]
+  1e:	b280      	uxth	r0, r0
+  20:	4770      	bx	lr
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:224
+    }
+    else return 0;
+  22:	2000      	movs	r0, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:225
+}
+  24:	4770      	bx	lr
+  26:	bf00      	nop
+  28:	10001b05 	.word	0x10001b05
+
+Disassembly of section .text.UTIL_WriteBackupRegister:
+
+00000000 <UTIL_WriteBackupRegister>:
+UTIL_WriteBackupRegister():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:243
+*
+**/
+/********************************************************************************/
+void UTIL_WriteBackupRegister( index_t BKP_DR, backup_t Data )
+{
+    if ( BKP_DR < 11 )
+   0:	dc06280a 	.word	0xdc06280a
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:245
+    {
+        *( vu16* )( BKP_BASE + 4 * BKP_DR ) = Data;
+   4:	f100 5080 	add.w	r0, r0, #268435456	; 0x10000000
+   8:	f500 50d8 	add.w	r0, r0, #6912	; 0x1b00
+   c:	0080      	lsls	r0, r0, #2
+   e:	8001      	strh	r1, [r0, #0]
+  10:	4770      	bx	lr
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:247
+    }
+    else if ( BKP_DR < 43 )
+  12:	282a      	cmp	r0, #42	; 0x2a
+  14:	dc03      	bgt.n	1e <UTIL_WriteBackupRegister+0x1e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/util.c:249
+    {
+        *( vu16* )( BKP_BASE + 4 *( BKP_DR + 5 ) ) = Data;
+  16:	4b02      	ldr	r3, [pc, #8]	; (20 <UTIL_WriteBackupRegister+0x20>)
+  18:	18c3      	adds	r3, r0, r3
+  1a:	009b      	lsls	r3, r3, #2
+  1c:	8019      	strh	r1, [r3, #0]
+  1e:	4770      	bx	lr
+  20:	10001b05 	.word	0x10001b05

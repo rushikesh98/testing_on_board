@@ -1,0 +1,1269 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\lcd_spe.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\lcd_spe.o
+
+
+Disassembly of section .text.LCD_Interface_Init:
+
+00000000 <LCD_Interface_Init>:
+LCD_Interface_Init():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:60
+*  @attention  This function must <b>NOT</b> be called by the user.
+*
+**/
+/******************************************************************************/
+void LCD_Interface_Init( void )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:68
+    GPIO_InitTypeDef GPIO_InitStructure;
+
+    /*-- GPIO Configuration ------------------------------------------------------*/
+
+    /* SRAM Data lines configuration */
+    RCC_APB2PeriphClockCmd( GPIO_LCD_D1_PERIPH, ENABLE );
+   2:	2020      	movs	r0, #32
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:60
+*  @attention  This function must <b>NOT</b> be called by the user.
+*
+**/
+/******************************************************************************/
+void LCD_Interface_Init( void )
+{
+   4:	b096      	sub	sp, #88	; 0x58
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:68
+    GPIO_InitTypeDef GPIO_InitStructure;
+
+    /*-- GPIO Configuration ------------------------------------------------------*/
+
+    /* SRAM Data lines configuration */
+    RCC_APB2PeriphClockCmd( GPIO_LCD_D1_PERIPH, ENABLE );
+   6:	2101      	movs	r1, #1
+   8:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:69
+    RCC_APB2PeriphClockCmd( GPIO_LCD_D2_PERIPH, ENABLE );
+   c:	2040      	movs	r0, #64	; 0x40
+   e:	2101      	movs	r1, #1
+  10:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:72
+
+    GPIO_InitStructure.GPIO_Pin =  LCD_D0 | LCD_D1 | LCD_D2 | LCD_D3 ;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  14:	2518      	movs	r5, #24
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:73
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  16:	2403      	movs	r4, #3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:71
+
+    /* SRAM Data lines configuration */
+    RCC_APB2PeriphClockCmd( GPIO_LCD_D1_PERIPH, ENABLE );
+    RCC_APB2PeriphClockCmd( GPIO_LCD_D2_PERIPH, ENABLE );
+
+    GPIO_InitStructure.GPIO_Pin =  LCD_D0 | LCD_D1 | LCD_D2 | LCD_D3 ;
+  18:	f24c 0303 	movw	r3, #49155	; 0xc003
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:74
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init( GPIOx_D1_LCD, &GPIO_InitStructure );
+  1c:	a915      	add	r1, sp, #84	; 0x54
+  1e:	4838      	ldr	r0, [pc, #224]	; (100 <LCD_Interface_Init+0x100>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:71
+
+    /* SRAM Data lines configuration */
+    RCC_APB2PeriphClockCmd( GPIO_LCD_D1_PERIPH, ENABLE );
+    RCC_APB2PeriphClockCmd( GPIO_LCD_D2_PERIPH, ENABLE );
+
+    GPIO_InitStructure.GPIO_Pin =  LCD_D0 | LCD_D1 | LCD_D2 | LCD_D3 ;
+  20:	f8ad 3054 	strh.w	r3, [sp, #84]	; 0x54
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:72
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  24:	f88d 5057 	strb.w	r5, [sp, #87]	; 0x57
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:73
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  28:	f88d 4056 	strb.w	r4, [sp, #86]	; 0x56
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:74
+    GPIO_Init( GPIOx_D1_LCD, &GPIO_InitStructure );
+  2c:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:76
+
+    GPIO_InitStructure.GPIO_Pin =  LCD_D4 | LCD_D5 | LCD_D6 | LCD_D7 ;
+  30:	f44f 63f0 	mov.w	r3, #1920	; 0x780
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:79
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init( GPIOx_D2_LCD, &GPIO_InitStructure );
+  34:	a915      	add	r1, sp, #84	; 0x54
+  36:	4833      	ldr	r0, [pc, #204]	; (104 <LCD_Interface_Init+0x104>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:76
+    GPIO_InitStructure.GPIO_Pin =  LCD_D0 | LCD_D1 | LCD_D2 | LCD_D3 ;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init( GPIOx_D1_LCD, &GPIO_InitStructure );
+
+    GPIO_InitStructure.GPIO_Pin =  LCD_D4 | LCD_D5 | LCD_D6 | LCD_D7 ;
+  38:	f8ad 3054 	strh.w	r3, [sp, #84]	; 0x54
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:77
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  3c:	f88d 5057 	strb.w	r5, [sp, #87]	; 0x57
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:78
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  40:	f88d 4056 	strb.w	r4, [sp, #86]	; 0x56
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:79
+    GPIO_Init( GPIOx_D2_LCD, &GPIO_InitStructure );
+  44:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:82
+
+    /* NOE, NWE and NE1 configuration */
+    RCC_APB2PeriphClockCmd( GPIO_LCD_CTRL_PERIPH, ENABLE );
+  48:	2020      	movs	r0, #32
+  4a:	2101      	movs	r1, #1
+  4c:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:83
+    GPIO_InitStructure.GPIO_Pin = CtrlPin_RD | CtrlPin_WR | CtrlPin_RS;
+  50:	f241 0330 	movw	r3, #4144	; 0x1030
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:84
+    GPIO_Init( GPIOx_CTRL_LCD, &GPIO_InitStructure );
+  54:	a915      	add	r1, sp, #84	; 0x54
+  56:	482a      	ldr	r0, [pc, #168]	; (100 <LCD_Interface_Init+0x100>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:83
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init( GPIOx_D2_LCD, &GPIO_InitStructure );
+
+    /* NOE, NWE and NE1 configuration */
+    RCC_APB2PeriphClockCmd( GPIO_LCD_CTRL_PERIPH, ENABLE );
+    GPIO_InitStructure.GPIO_Pin = CtrlPin_RD | CtrlPin_WR | CtrlPin_RS;
+  58:	f8ad 3054 	strh.w	r3, [sp, #84]	; 0x54
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:84
+    GPIO_Init( GPIOx_CTRL_LCD, &GPIO_InitStructure );
+  5c:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:87
+
+    /* Reset : configured as regular GPIO, is not FSMC-controlled */
+    RCC_APB2PeriphClockCmd( GPIO_LCD_RST_PERIPH, ENABLE );
+  60:	2020      	movs	r0, #32
+  62:	2101      	movs	r1, #1
+  64:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:88
+    GPIO_InitStructure.GPIO_Pin = CtrlPin_RST;
+  68:	3528      	adds	r5, #40	; 0x28
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:89
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  6a:	2610      	movs	r6, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:90
+    GPIO_Init( GPIOx_RST_LCD, &GPIO_InitStructure );
+  6c:	a915      	add	r1, sp, #84	; 0x54
+  6e:	4824      	ldr	r0, [pc, #144]	; (100 <LCD_Interface_Init+0x100>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:88
+    GPIO_InitStructure.GPIO_Pin = CtrlPin_RD | CtrlPin_WR | CtrlPin_RS;
+    GPIO_Init( GPIOx_CTRL_LCD, &GPIO_InitStructure );
+
+    /* Reset : configured as regular GPIO, is not FSMC-controlled */
+    RCC_APB2PeriphClockCmd( GPIO_LCD_RST_PERIPH, ENABLE );
+    GPIO_InitStructure.GPIO_Pin = CtrlPin_RST;
+  70:	f8ad 5054 	strh.w	r5, [sp, #84]	; 0x54
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:89
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  74:	f88d 6057 	strb.w	r6, [sp, #87]	; 0x57
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:90
+    GPIO_Init( GPIOx_RST_LCD, &GPIO_InitStructure );
+  78:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:93
+
+    /* CS : configured as regular GPIO, is not FSMC-controlled */
+    RCC_APB2PeriphClockCmd( GPIO_LCD_CS_PERIPH, ENABLE );
+  7c:	2020      	movs	r0, #32
+  7e:	2101      	movs	r1, #1
+  80:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:94
+    GPIO_InitStructure.GPIO_Pin = CtrlPin_CS;
+  84:	347d      	adds	r4, #125	; 0x7d
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:96
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_Init( GPIOx_CS_LCD, &GPIO_InitStructure );
+  86:	a915      	add	r1, sp, #84	; 0x54
+  88:	481d      	ldr	r0, [pc, #116]	; (100 <LCD_Interface_Init+0x100>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:94
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_Init( GPIOx_RST_LCD, &GPIO_InitStructure );
+
+    /* CS : configured as regular GPIO, is not FSMC-controlled */
+    RCC_APB2PeriphClockCmd( GPIO_LCD_CS_PERIPH, ENABLE );
+    GPIO_InitStructure.GPIO_Pin = CtrlPin_CS;
+  8a:	f8ad 4054 	strh.w	r4, [sp, #84]	; 0x54
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:95
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  8e:	f88d 6057 	strb.w	r6, [sp, #87]	; 0x57
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:96
+    GPIO_Init( GPIOx_CS_LCD, &GPIO_InitStructure );
+  92:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:98
+
+    GPIO_WriteBit( GPIOx_RST_LCD, CtrlPin_RST, Bit_SET );   /* Reset active at LOW */
+  96:	4629      	mov	r1, r5
+  98:	2201      	movs	r2, #1
+  9a:	4819      	ldr	r0, [pc, #100]	; (100 <LCD_Interface_Init+0x100>)
+  9c:	f7ff fffe 	bl	0 <GPIO_WriteBit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:99
+    GPIO_WriteBit( GPIOx_CS_LCD, CtrlPin_CS, Bit_RESET );   /* CS active at LOW */
+  a0:	2200      	movs	r2, #0
+  a2:	4621      	mov	r1, r4
+  a4:	4816      	ldr	r0, [pc, #88]	; (100 <LCD_Interface_Init+0x100>)
+  a6:	f7ff fffe 	bl	0 <GPIO_WriteBit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:105
+
+
+    /*-- FSMC Configuration ------------------------------------------------------*/
+
+    /* Enable the FSMC Clock */
+    RCC_AHBPeriphClockCmd( RCC_AHBPeriph_FSMC, ENABLE );
+  aa:	2101      	movs	r1, #1
+  ac:	f44f 7080 	mov.w	r0, #256	; 0x100
+  b0:	f7ff fffe 	bl	0 <RCC_AHBPeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:107
+
+    p.FSMC_AddressSetupTime = 2;
+  b4:	2302      	movs	r3, #2
+  b6:	930e      	str	r3, [sp, #56]	; 0x38
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:108
+    p.FSMC_AddressHoldTime = 2;
+  b8:	930f      	str	r3, [sp, #60]	; 0x3c
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:109
+    p.FSMC_DataSetupTime = 2;
+  ba:	9310      	str	r3, [sp, #64]	; 0x40
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:110
+    p.FSMC_BusTurnAroundDuration = 5;
+  bc:	3303      	adds	r3, #3
+  be:	9311      	str	r3, [sp, #68]	; 0x44
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:111
+    p.FSMC_CLKDivision = 5;
+  c0:	9312      	str	r3, [sp, #72]	; 0x48
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:112
+    p.FSMC_DataLatency = 5;
+  c2:	9313      	str	r3, [sp, #76]	; 0x4c
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:113
+    p.FSMC_AccessMode = FSMC_AccessMode_A;
+  c4:	3b05      	subs	r3, #5
+  c6:	9314      	str	r3, [sp, #80]	; 0x50
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:115
+    
+    FSMC_NORSRAMInitStructure.FSMC_Bank = FSMC_Bank1_NORSRAM3;
+  c8:	3c7c      	subs	r4, #124	; 0x7c
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:116
+    FSMC_NORSRAMInitStructure.FSMC_DataAddressMux = FSMC_DataAddressMux_Disable;
+  ca:	9301      	str	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:117
+    FSMC_NORSRAMInitStructure.FSMC_MemoryType = FSMC_MemoryType_SRAM;
+  cc:	9302      	str	r3, [sp, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:118
+    FSMC_NORSRAMInitStructure.FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_8b;
+  ce:	9303      	str	r3, [sp, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:119
+    FSMC_NORSRAMInitStructure.FSMC_BurstAccessMode = FSMC_BurstAccessMode_Disable;
+  d0:	9304      	str	r3, [sp, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:120
+    FSMC_NORSRAMInitStructure.FSMC_WaitSignalPolarity = FSMC_WaitSignalPolarity_Low;  /* cf RM p363 + p384*/
+  d2:	9305      	str	r3, [sp, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:121
+    FSMC_NORSRAMInitStructure.FSMC_WrapMode = FSMC_WrapMode_Disable;
+  d4:	9306      	str	r3, [sp, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:122
+    FSMC_NORSRAMInitStructure.FSMC_WaitSignalActive = FSMC_WaitSignalActive_BeforeWaitState;
+  d6:	9307      	str	r3, [sp, #28]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:123
+    FSMC_NORSRAMInitStructure.FSMC_WriteOperation = FSMC_WriteOperation_Enable;
+  d8:	f44f 5280 	mov.w	r2, #4096	; 0x1000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:124
+    FSMC_NORSRAMInitStructure.FSMC_WaitSignal = FSMC_WaitSignal_Disable;
+  dc:	9309      	str	r3, [sp, #36]	; 0x24
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:125
+    FSMC_NORSRAMInitStructure.FSMC_ExtendedMode = FSMC_ExtendedMode_Disable;
+  de:	930a      	str	r3, [sp, #40]	; 0x28
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:126
+    FSMC_NORSRAMInitStructure.FSMC_WriteBurst = FSMC_WriteBurst_Disable;
+  e0:	930b      	str	r3, [sp, #44]	; 0x2c
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:130
+    FSMC_NORSRAMInitStructure.FSMC_ReadWriteTimingStruct = &p;
+    FSMC_NORSRAMInitStructure.FSMC_WriteTimingStruct = &p;
+
+    FSMC_NORSRAMInit( &FSMC_NORSRAMInitStructure );
+  e2:	4668      	mov	r0, sp
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:127
+    FSMC_NORSRAMInitStructure.FSMC_WaitSignalActive = FSMC_WaitSignalActive_BeforeWaitState;
+    FSMC_NORSRAMInitStructure.FSMC_WriteOperation = FSMC_WriteOperation_Enable;
+    FSMC_NORSRAMInitStructure.FSMC_WaitSignal = FSMC_WaitSignal_Disable;
+    FSMC_NORSRAMInitStructure.FSMC_ExtendedMode = FSMC_ExtendedMode_Disable;
+    FSMC_NORSRAMInitStructure.FSMC_WriteBurst = FSMC_WriteBurst_Disable;
+    FSMC_NORSRAMInitStructure.FSMC_ReadWriteTimingStruct = &p;
+  e4:	ab0e      	add	r3, sp, #56	; 0x38
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:115
+    p.FSMC_BusTurnAroundDuration = 5;
+    p.FSMC_CLKDivision = 5;
+    p.FSMC_DataLatency = 5;
+    p.FSMC_AccessMode = FSMC_AccessMode_A;
+    
+    FSMC_NORSRAMInitStructure.FSMC_Bank = FSMC_Bank1_NORSRAM3;
+  e6:	9400      	str	r4, [sp, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:123
+    FSMC_NORSRAMInitStructure.FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_8b;
+    FSMC_NORSRAMInitStructure.FSMC_BurstAccessMode = FSMC_BurstAccessMode_Disable;
+    FSMC_NORSRAMInitStructure.FSMC_WaitSignalPolarity = FSMC_WaitSignalPolarity_Low;  /* cf RM p363 + p384*/
+    FSMC_NORSRAMInitStructure.FSMC_WrapMode = FSMC_WrapMode_Disable;
+    FSMC_NORSRAMInitStructure.FSMC_WaitSignalActive = FSMC_WaitSignalActive_BeforeWaitState;
+    FSMC_NORSRAMInitStructure.FSMC_WriteOperation = FSMC_WriteOperation_Enable;
+  e8:	9208      	str	r2, [sp, #32]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:127
+    FSMC_NORSRAMInitStructure.FSMC_WaitSignal = FSMC_WaitSignal_Disable;
+    FSMC_NORSRAMInitStructure.FSMC_ExtendedMode = FSMC_ExtendedMode_Disable;
+    FSMC_NORSRAMInitStructure.FSMC_WriteBurst = FSMC_WriteBurst_Disable;
+    FSMC_NORSRAMInitStructure.FSMC_ReadWriteTimingStruct = &p;
+  ea:	930c      	str	r3, [sp, #48]	; 0x30
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:128
+    FSMC_NORSRAMInitStructure.FSMC_WriteTimingStruct = &p;
+  ec:	930d      	str	r3, [sp, #52]	; 0x34
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:130
+
+    FSMC_NORSRAMInit( &FSMC_NORSRAMInitStructure );
+  ee:	f7ff fffe 	bl	0 <FSMC_NORSRAMInit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:133
+
+    /* Enable FSMC Bank1_SRAM Bank */
+    FSMC_NORSRAMCmd( FSMC_Bank1_NORSRAM3, ENABLE );
+  f2:	4620      	mov	r0, r4
+  f4:	2101      	movs	r1, #1
+  f6:	f7ff fffe 	bl	0 <FSMC_NORSRAMCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:134
+}
+  fa:	b016      	add	sp, #88	; 0x58
+  fc:	bd70      	pop	{r4, r5, r6, pc}
+  fe:	bf00      	nop
+ 100:	40011400 	.word	0x40011400
+ 104:	40011800 	.word	0x40011800
+
+Disassembly of section .text.LCD_BackLightConfig:
+
+00000000 <LCD_BackLightConfig>:
+LCD_BackLightConfig():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:148
+*  Setting of the PWM that drives the backlight intensity.
+*
+**/
+/******************************************************************************/
+void LCD_BackLightConfig( void )
+{
+   0:	2020b5f7 	.word	0x2020b5f7
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:152
+    GPIO_InitTypeDef GPIO_InitStructure;
+
+    /* Enable GPIO clock  */
+    RCC_APB2PeriphClockCmd( GPIO_LCD_BL_PERIPH, ENABLE );
+   4:	2101      	movs	r1, #1
+   6:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:155
+
+    /* GPIO Configuration : TIM in Output */
+    GPIO_InitStructure.GPIO_Pin   = GPIO_BACKLIGHT_PIN;
+   a:	f44f 5300 	mov.w	r3, #8192	; 0x2000
+   e:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:156
+    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_PP;
+  12:	2318      	movs	r3, #24
+  14:	f88d 3007 	strb.w	r3, [sp, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:158
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init( GPIOx_BL_LCD, &GPIO_InitStructure );
+  18:	a901      	add	r1, sp, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:157
+    RCC_APB2PeriphClockCmd( GPIO_LCD_BL_PERIPH, ENABLE );
+
+    /* GPIO Configuration : TIM in Output */
+    GPIO_InitStructure.GPIO_Pin   = GPIO_BACKLIGHT_PIN;
+    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  1a:	3b15      	subs	r3, #21
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:158
+    GPIO_Init( GPIOx_BL_LCD, &GPIO_InitStructure );
+  1c:	4820      	ldr	r0, [pc, #128]	; (a0 <LCD_BackLightConfig+0xa0>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:157
+    RCC_APB2PeriphClockCmd( GPIO_LCD_BL_PERIPH, ENABLE );
+
+    /* GPIO Configuration : TIM in Output */
+    GPIO_InitStructure.GPIO_Pin   = GPIO_BACKLIGHT_PIN;
+    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  1e:	f88d 3006 	strb.w	r3, [sp, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:158
+    GPIO_Init( GPIOx_BL_LCD, &GPIO_InitStructure );
+  22:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:161
+
+    // Remaping TIM4 CH2 on PD13
+    RCC_APB2PeriphClockCmd( RCC_APB2Periph_AFIO, ENABLE );
+  26:	2001      	movs	r0, #1
+  28:	4601      	mov	r1, r0
+  2a:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:162
+    GPIO_PinRemapConfig( AFIO_MAPR_TIM4_REMAP, ENABLE );
+  2e:	2101      	movs	r1, #1
+  30:	f44f 5080 	mov.w	r0, #4096	; 0x1000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:171
+
+    /* Enable TIM clock */
+    RCC_APB1PeriphClockCmd( TIM_LCD_BL_PERIPH, ENABLE );
+
+    TIM_DeInit( TIM_LCD_BL );
+    TIM_TimeBaseStructInit( &TIM_TimeBaseStructure );
+  34:	4c1b      	ldr	r4, [pc, #108]	; (70 <GPIO_PinRemapConfig+0x70>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:162
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init( GPIOx_BL_LCD, &GPIO_InitStructure );
+
+    // Remaping TIM4 CH2 on PD13
+    RCC_APB2PeriphClockCmd( RCC_APB2Periph_AFIO, ENABLE );
+    GPIO_PinRemapConfig( AFIO_MAPR_TIM4_REMAP, ENABLE );
+  36:	f7ff fffe 	bl	0 <GPIO_PinRemapConfig>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:168
+
+    /* TIM Configuration -----------------------------------------------------*/
+    /* TIMCLK = 12 MHz, Prescaler = 0x0 */
+
+    /* Enable TIM clock */
+    RCC_APB1PeriphClockCmd( TIM_LCD_BL_PERIPH, ENABLE );
+  3a:	2101      	movs	r1, #1
+  3c:	2004      	movs	r0, #4
+  3e:	f7ff fffe 	bl	0 <RCC_APB1PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:170
+
+    TIM_DeInit( TIM_LCD_BL );
+  42:	4819      	ldr	r0, [pc, #100]	; (68 <TIM_DeInit+0x68>)
+  44:	f7ff fffe 	bl	0 <TIM_DeInit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:172
+    TIM_TimeBaseStructInit( &TIM_TimeBaseStructure );
+    TIM_OCStructInit( &TIM_OCInitStructure );
+  48:	f104 070a 	add.w	r7, r4, #10
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:171
+
+    /* Enable TIM clock */
+    RCC_APB1PeriphClockCmd( TIM_LCD_BL_PERIPH, ENABLE );
+
+    TIM_DeInit( TIM_LCD_BL );
+    TIM_TimeBaseStructInit( &TIM_TimeBaseStructure );
+  4c:	4620      	mov	r0, r4
+  4e:	f7ff fffe 	bl	0 <TIM_TimeBaseStructInit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:172
+    TIM_OCStructInit( &TIM_OCInitStructure );
+  52:	4638      	mov	r0, r7
+  54:	f7ff fffe 	bl	0 <TIM_OCStructInit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:176
+
+    /* Time base configuration */
+    TIM_TimeBaseStructure.TIM_Period          = 0xFFFF;
+    TIM_TimeBaseStructure.TIM_Prescaler       = 0x00;
+  58:	2500      	movs	r5, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:175
+    TIM_DeInit( TIM_LCD_BL );
+    TIM_TimeBaseStructInit( &TIM_TimeBaseStructure );
+    TIM_OCStructInit( &TIM_OCInitStructure );
+
+    /* Time base configuration */
+    TIM_TimeBaseStructure.TIM_Period          = 0xFFFF;
+  5a:	f04f 33ff 	mov.w	r3, #4294967295
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:179
+    TIM_TimeBaseStructure.TIM_Prescaler       = 0x00;
+    TIM_TimeBaseStructure.TIM_ClockDivision   = 0x0;
+    TIM_TimeBaseStructure.TIM_CounterMode     = TIM_CounterMode_Up;
+    TIM_TimeBaseInit( TIM_LCD_BL, &TIM_TimeBaseStructure );
+  5e:	4621      	mov	r1, r4
+  60:	4811      	ldr	r0, [pc, #68]	; (a8 <LCD_BackLightConfig+0xa8>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:175
+    TIM_DeInit( TIM_LCD_BL );
+    TIM_TimeBaseStructInit( &TIM_TimeBaseStructure );
+    TIM_OCStructInit( &TIM_OCInitStructure );
+
+    /* Time base configuration */
+    TIM_TimeBaseStructure.TIM_Period          = 0xFFFF;
+  62:	80a3      	strh	r3, [r4, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:176
+    TIM_TimeBaseStructure.TIM_Prescaler       = 0x00;
+  64:	8025      	strh	r5, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:177
+    TIM_TimeBaseStructure.TIM_ClockDivision   = 0x0;
+  66:	80e5      	strh	r5, [r4, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:178
+    TIM_TimeBaseStructure.TIM_CounterMode     = TIM_CounterMode_Up;
+  68:	8065      	strh	r5, [r4, #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:179
+    TIM_TimeBaseInit( TIM_LCD_BL, &TIM_TimeBaseStructure );
+  6a:	f7ff fffe 	bl	0 <TIM_TimeBaseInit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:182
+
+    /* Output Compare Toggle Mode configuration */
+    TIM_OCInitStructure.TIM_OCMode      = TIM_OCMode_PWM1;
+  6e:	2360      	movs	r3, #96	; 0x60
+  70:	8163      	strh	r3, [r4, #10]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:184
+    TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;   /* FWLib v2.0*/
+    TIM_OCInitStructure.TIM_Pulse       = Current_CCR_BackLightStart;
+  72:	4b0e      	ldr	r3, [pc, #56]	; (ac <LCD_BackLightConfig+0xac>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:183
+    TIM_TimeBaseStructure.TIM_CounterMode     = TIM_CounterMode_Up;
+    TIM_TimeBaseInit( TIM_LCD_BL, &TIM_TimeBaseStructure );
+
+    /* Output Compare Toggle Mode configuration */
+    TIM_OCInitStructure.TIM_OCMode      = TIM_OCMode_PWM1;
+    TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;   /* FWLib v2.0*/
+  74:	2601      	movs	r6, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:184
+    TIM_OCInitStructure.TIM_Pulse       = Current_CCR_BackLightStart;
+  76:	881b      	ldrh	r3, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:189
+
+//    TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low;
+    TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+
+    TIM_OCxInit( TIM_LCD_BL, &TIM_OCInitStructure );
+  78:	4639      	mov	r1, r7
+  7a:	480b      	ldr	r0, [pc, #44]	; (a8 <LCD_BackLightConfig+0xa8>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:184
+    TIM_TimeBaseInit( TIM_LCD_BL, &TIM_TimeBaseStructure );
+
+    /* Output Compare Toggle Mode configuration */
+    TIM_OCInitStructure.TIM_OCMode      = TIM_OCMode_PWM1;
+    TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;   /* FWLib v2.0*/
+    TIM_OCInitStructure.TIM_Pulse       = Current_CCR_BackLightStart;
+  7c:	8223      	strh	r3, [r4, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:183
+    TIM_TimeBaseStructure.TIM_CounterMode     = TIM_CounterMode_Up;
+    TIM_TimeBaseInit( TIM_LCD_BL, &TIM_TimeBaseStructure );
+
+    /* Output Compare Toggle Mode configuration */
+    TIM_OCInitStructure.TIM_OCMode      = TIM_OCMode_PWM1;
+    TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;   /* FWLib v2.0*/
+  7e:	81a6      	strh	r6, [r4, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:187
+    TIM_OCInitStructure.TIM_Pulse       = Current_CCR_BackLightStart;
+
+//    TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low;
+    TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+  80:	8265      	strh	r5, [r4, #18]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:189
+
+    TIM_OCxInit( TIM_LCD_BL, &TIM_OCInitStructure );
+  82:	f7ff fffe 	bl	0 <TIM_OC2Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:191
+
+    TIM_OCxPreloadConfig( TIM_LCD_BL, TIM_OCPreload_Disable );
+  86:	4629      	mov	r1, r5
+  88:	4807      	ldr	r0, [pc, #28]	; (a8 <LCD_BackLightConfig+0xa8>)
+  8a:	f7ff fffe 	bl	0 <TIM_OC2PreloadConfig>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:193
+
+    TIM_ARRPreloadConfig( TIM_LCD_BL, ENABLE );
+  8e:	4631      	mov	r1, r6
+  90:	4805      	ldr	r0, [pc, #20]	; (a8 <LCD_BackLightConfig+0xa8>)
+  92:	f7ff fffe 	bl	0 <TIM_ARRPreloadConfig>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:196
+
+    /* Go !!!*/
+    TIM_Cmd( TIM_LCD_BL, ENABLE );
+  96:	4804      	ldr	r0, [pc, #16]	; (a8 <LCD_BackLightConfig+0xa8>)
+  98:	4631      	mov	r1, r6
+  9a:	f7ff fffe 	bl	0 <TIM_Cmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:198
+
+}
+  9e:	bdfe      	pop	{r1, r2, r3, r4, r5, r6, r7, pc}
+  a0:	40011400 	.word	0x40011400
+  a4:	00000000 	.word	0x00000000
+  a8:	40000800 	.word	0x40000800
+  ac:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LCD_Write_Reg:
+
+00000000 <LCD_Write_Reg>:
+LCD_Write_Reg():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:214
+**/
+/******************************************************************************/
+inline void LCD_Write_Reg( u8 regadd, u16 value )
+{
+    // Set index of the register
+    *( u8 volatile* )( LCD_CMD_MODE_ADDR ) = 0;
+   0:	43d0f04f 	.word	0x43d0f04f
+   4:	2200      	movs	r2, #0
+   6:	701a      	strb	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:215
+    *( u8 volatile* )( LCD_CMD_MODE_ADDR ) = regadd;
+   8:	7018      	strb	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:218
+
+    // Write into the register (2 x 8 bits transfers, MSB first)
+    *( u8 volatile* )( LCD_DATA_MODE_ADDR ) = value >> 8;
+   a:	4b03      	ldr	r3, [pc, #12]	; (18 <LCD_Write_Reg+0x18>)
+   c:	0a0a      	lsrs	r2, r1, #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:219
+    *( u8 volatile* )( LCD_DATA_MODE_ADDR ) = value & 0xFF;
+   e:	b2c9      	uxtb	r1, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:218
+    // Set index of the register
+    *( u8 volatile* )( LCD_CMD_MODE_ADDR ) = 0;
+    *( u8 volatile* )( LCD_CMD_MODE_ADDR ) = regadd;
+
+    // Write into the register (2 x 8 bits transfers, MSB first)
+    *( u8 volatile* )( LCD_DATA_MODE_ADDR ) = value >> 8;
+  10:	701a      	strb	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:219
+    *( u8 volatile* )( LCD_DATA_MODE_ADDR ) = value & 0xFF;
+  12:	7019      	strb	r1, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:220
+}
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+  18:	68020000 	.word	0x68020000
+
+Disassembly of section .text.LCD_Read_Reg:
+
+00000000 <LCD_Read_Reg>:
+LCD_Read_Reg():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:237
+u16 LCD_Read_Reg( u8 regadd )
+{
+    u16 temp1, temp2;
+
+    // Set index of the register
+    *( u8 volatile* )( LCD_CMD_MODE_ADDR ) = 0;
+   0:	f04f 43d0 	mov.w	r3, #1744830464	; 0x68000000
+   4:	2200      	movs	r2, #0
+   6:	701a      	strb	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:238
+    *( u8 volatile* )( LCD_CMD_MODE_ADDR ) = regadd;
+   8:	7018      	strb	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:241
+
+    // Read the value of the register
+    temp1 = ( *( u8 volatile* )( LCD_DATA_MODE_ADDR ) ) << 8;
+   a:	4b03      	ldr	r3, [pc, #12]	; (18 <LCD_Read_Reg+0x18>)
+   c:	7818      	ldrb	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:242
+    temp2 = ( *( u8 volatile* )( LCD_DATA_MODE_ADDR ) );
+   e:	781b      	ldrb	r3, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:245
+
+    return ( temp1 | temp2 );
+}
+  10:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+  18:	68020000 	.word	0x68020000
+
+Disassembly of section .text.LCD_Reset:
+
+00000000 <LCD_Reset>:
+LCD_Reset():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:258
+*  Hard reset of the LCD.
+*
+**/
+/******************************************************************************/
+void LCD_Reset( void )
+{
+   0:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:259
+    GPIO_WriteBit( GPIOx_RST_LCD, CtrlPin_RST, Bit_RESET );     /* Reset active at LOW */
+   2:	2140      	movs	r1, #64	; 0x40
+   4:	2200      	movs	r2, #0
+   6:	4808      	ldr	r0, [pc, #32]	; (28 <LCD_Reset+0x28>)
+   8:	f7ff fffe 	bl	0 <GPIO_WriteBit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:260
+    Delayms( 300 );
+   c:	f44f 7096 	mov.w	r0, #300	; 0x12c
+  10:	f7ff fffe 	bl	0 <Delayms>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:261
+    GPIO_WriteBit( GPIOx_RST_LCD, CtrlPin_RST, Bit_SET );       /* Reset active at LOW */
+  14:	4804      	ldr	r0, [pc, #16]	; (28 <LCD_Reset+0x28>)
+  16:	2140      	movs	r1, #64	; 0x40
+  18:	2201      	movs	r2, #1
+  1a:	f7ff fffe 	bl	0 <GPIO_WriteBit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:262
+    Delayms( 100 );
+  1e:	2064      	movs	r0, #100	; 0x64
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:265
+
+    return;
+}
+  20:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:262
+void LCD_Reset( void )
+{
+    GPIO_WriteBit( GPIOx_RST_LCD, CtrlPin_RST, Bit_RESET );     /* Reset active at LOW */
+    Delayms( 300 );
+    GPIO_WriteBit( GPIOx_RST_LCD, CtrlPin_RST, Bit_SET );       /* Reset active at LOW */
+    Delayms( 100 );
+  24:	f7ff bffe 	b.w	0 <Delayms>
+  28:	40011400 	.word	0x40011400
+
+Disassembly of section .text.LCD_BackLightChange:
+
+00000000 <LCD_BackLightChange>:
+LCD_BackLightChange():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:281
+**/
+/******************************************************************************/
+void LCD_BackLightChange( void )
+{
+    /* Output Compare Toggle Mode configuration */
+    TIM_OCInitStructure.TIM_Pulse = Current_CCR_BackLightStart;
+   0:	49044b03 	.word	0x49044b03
+   4:	881b      	ldrh	r3, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:283
+
+    TIM_OCxInit( TIM_LCD_BL, &TIM_OCInitStructure );
+   6:	4804      	ldr	r0, [pc, #16]	; (18 <LCD_BackLightChange+0x18>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:281
+**/
+/******************************************************************************/
+void LCD_BackLightChange( void )
+{
+    /* Output Compare Toggle Mode configuration */
+    TIM_OCInitStructure.TIM_Pulse = Current_CCR_BackLightStart;
+   8:	820b      	strh	r3, [r1, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:283
+
+    TIM_OCxInit( TIM_LCD_BL, &TIM_OCInitStructure );
+   a:	310a      	adds	r1, #10
+   c:	f7ff bffe 	b.w	0 <TIM_OC2Init>
+	...
+  18:	40000800 	.word	0x40000800
+
+Disassembly of section .text.LCD_SetLogoBW:
+
+00000000 <LCD_SetLogoBW>:
+LCD_SetLogoBW():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:300
+*
+**/
+/******************************************************************************/
+void LCD_SetLogoBW( void )
+{
+    DRAW_SetImage(raiso_bw, (Screen_Width - RAISO_WIDTH) / 2, 280 - (RAISO_HEIGHT / 2) , RAISO_WIDTH, RAISO_HEIGHT) ;
+   0:	4b08      	ldr	r3, [pc, #32]	; (24 <LCD_SetLogoBW+0x24>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:299
+*  Draw the logo
+*
+**/
+/******************************************************************************/
+void LCD_SetLogoBW( void )
+{
+   2:	b507      	push	{r0, r1, r2, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:300
+    DRAW_SetImage(raiso_bw, (Screen_Width - RAISO_WIDTH) / 2, 280 - (RAISO_HEIGHT / 2) , RAISO_WIDTH, RAISO_HEIGHT) ;
+   4:	f9b3 1000 	ldrsh.w	r1, [r3]
+   8:	2331      	movs	r3, #49	; 0x31
+   a:	39c8      	subs	r1, #200	; 0xc8
+   c:	eb01 71d1 	add.w	r1, r1, r1, lsr #31
+  10:	1049      	asrs	r1, r1, #1
+  12:	9300      	str	r3, [sp, #0]
+  14:	4804      	ldr	r0, [pc, #16]	; (28 <LCD_SetLogoBW+0x28>)
+  16:	b209      	sxth	r1, r1
+  18:	f44f 7280 	mov.w	r2, #256	; 0x100
+  1c:	3397      	adds	r3, #151	; 0x97
+  1e:	f7ff fffe 	bl	0 <DRAW_SetImage>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:302
+//    DRAW_SetImage( primerUpic, ( Screen_Width - 180 ) / 2, ( Screen_Height - 174) / 2, 180, 174 ) ; /* 180x174 Image Size*/
+}
+  22:	bd0e      	pop	{r1, r2, r3, pc}
+	...
+
+Disassembly of section .text.LCD_Scroll:
+
+00000000 <LCD_Scroll>:
+LCD_Scroll():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:317
+*  Scroll the screen each line to the top
+*
+**/
+/******************************************************************************/
+void LCD_Scroll( u8 Ascii, coord_t CurX, coord_t* CurY, coord_t RightMargX, coord_t LeftMargX, coord_t HighMargY, coord_t LowMargY, color_t bGndColor, color_t textColor, mag_t CharMagniCoeff )
+{
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b091      	sub	sp, #68	; 0x44
+   6:	910c      	str	r1, [sp, #48]	; 0x30
+   8:	9206      	str	r2, [sp, #24]
+   a:	f8bd 1070 	ldrh.w	r1, [sp, #112]	; 0x70
+   e:	9a1f      	ldr	r2, [sp, #124]	; 0x7c
+  10:	461f      	mov	r7, r3
+  12:	f8ad 101e 	strh.w	r1, [sp, #30]
+  16:	f9bd 306c 	ldrsh.w	r3, [sp, #108]	; 0x6c
+  1a:	920f      	str	r2, [sp, #60]	; 0x3c
+  1c:	fa0f fa81 	sxth.w	sl, r1
+  20:	f8bd 2078 	ldrh.w	r2, [sp, #120]	; 0x78
+  24:	f8bd 1074 	ldrh.w	r1, [sp, #116]	; 0x74
+  28:	f8bd 5068 	ldrh.w	r5, [sp, #104]	; 0x68
+  2c:	930d      	str	r3, [sp, #52]	; 0x34
+  2e:	9108      	str	r1, [sp, #32]
+  30:	920e      	str	r2, [sp, #56]	; 0x38
+  32:	900b      	str	r0, [sp, #44]	; 0x2c
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:321
+    s16 Nblines, width, i, y;
+    extern u16 bmpTmp [LCD_DMA_SIZE];
+
+    InitListDMA();
+  34:	f7ff fffe 	bl	0 <InitListDMA>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:322
+    Nblines = ( LowMargY - *CurY ) / DeltaY;
+  38:	9b06      	ldr	r3, [sp, #24]
+  3a:	4c44      	ldr	r4, [pc, #272]	; (14c <LCD_Scroll+0x14c>)
+  3c:	f9b3 2000 	ldrsh.w	r2, [r3]
+  40:	7823      	ldrb	r3, [r4, #0]
+  42:	ebc2 020a 	rsb	r2, r2, sl
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:323
+    width = RightMargX - LeftMargX;
+  46:	1b7f      	subs	r7, r7, r5
+  48:	b2bf      	uxth	r7, r7
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:322
+{
+    s16 Nblines, width, i, y;
+    extern u16 bmpTmp [LCD_DMA_SIZE];
+
+    InitListDMA();
+    Nblines = ( LowMargY - *CurY ) / DeltaY;
+  4a:	fb92 f3f3 	sdiv	r3, r2, r3
+  4e:	b29b      	uxth	r3, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:323
+    width = RightMargX - LeftMargX;
+  50:	b2b9      	uxth	r1, r7
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:317
+*  Scroll the screen each line to the top
+*
+**/
+/******************************************************************************/
+void LCD_Scroll( u8 Ascii, coord_t CurX, coord_t* CurY, coord_t RightMargX, coord_t LeftMargX, coord_t HighMargY, coord_t LowMargY, color_t bGndColor, color_t textColor, mag_t CharMagniCoeff )
+{
+  52:	b22e      	sxth	r6, r5
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:322
+    s16 Nblines, width, i, y;
+    extern u16 bmpTmp [LCD_DMA_SIZE];
+
+    InitListDMA();
+    Nblines = ( LowMargY - *CurY ) / DeltaY;
+  54:	9309      	str	r3, [sp, #36]	; 0x24
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:323
+    width = RightMargX - LeftMargX;
+  56:	9504      	str	r5, [sp, #16]
+  58:	9705      	str	r7, [sp, #20]
+  5a:	910a      	str	r1, [sp, #40]	; 0x28
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:324
+    for ( i = 0; i < Nblines ; i++ )
+  5c:	f04f 0b00 	mov.w	fp, #0
+  60:	e05c      	b.n	11c <LCD_Scroll+0x11c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:326
+    {
+        for ( y = HighMargY - DeltaY; y >= LowMargY; y -= DeltaY )
+  62:	7827      	ldrb	r7, [r4, #0]
+  64:	9a0d      	ldr	r2, [sp, #52]	; 0x34
+  66:	1bd7      	subs	r7, r2, r7
+  68:	e044      	b.n	f4 <LCD_Scroll+0xf4>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:328
+        {
+            if ( width < PHYS_SCREEN_WIDTH )
+  6a:	f1b9 0fef 	cmp.w	r9, #239	; 0xef
+  6e:	4d38      	ldr	r5, [pc, #224]	; (150 <LCD_Scroll+0x150>)
+  70:	dc0c      	bgt.n	8c <LCD_Scroll+0x8c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:330
+                {
+                LCD_RectRead( LeftMargX, y - DeltaY, width, DeltaY, ( u8* ) &bmpTmp );
+  72:	7823      	ldrb	r3, [r4, #0]
+  74:	4630      	mov	r0, r6
+  76:	1af9      	subs	r1, r7, r3
+  78:	b209      	sxth	r1, r1
+  7a:	464a      	mov	r2, r9
+  7c:	9500      	str	r5, [sp, #0]
+  7e:	f7ff fffe 	bl	0 <LCD_RectRead>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:331
+                DRAW_SetImage( bmpTmp, LeftMargX, y, width, DeltaY );
+  82:	7823      	ldrb	r3, [r4, #0]
+  84:	4628      	mov	r0, r5
+  86:	9300      	str	r3, [sp, #0]
+  88:	4631      	mov	r1, r6
+  8a:	e02d      	b.n	e8 <LCD_Scroll+0xe8>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:335
+                }
+            else
+                {
+                LCD_RectRead( LeftMargX, y - DeltaY, PHYS_SCREEN_WIDTH, DeltaY, ( u8* ) &bmpTmp );
+  8c:	7823      	ldrb	r3, [r4, #0]
+  8e:	fa1f f987 	uxth.w	r9, r7
+  92:	ebc3 0109 	rsb	r1, r3, r9
+  96:	4630      	mov	r0, r6
+  98:	b209      	sxth	r1, r1
+  9a:	22f0      	movs	r2, #240	; 0xf0
+  9c:	9500      	str	r5, [sp, #0]
+  9e:	f7ff fffe 	bl	0 <LCD_RectRead>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:336
+                DRAW_SetImage( bmpTmp, LeftMargX, y, PHYS_SCREEN_WIDTH, DeltaY );
+  a2:	7823      	ldrb	r3, [r4, #0]
+  a4:	4628      	mov	r0, r5
+  a6:	9300      	str	r3, [sp, #0]
+  a8:	4631      	mov	r1, r6
+  aa:	4642      	mov	r2, r8
+  ac:	23f0      	movs	r3, #240	; 0xf0
+  ae:	f7ff fffe 	bl	0 <DRAW_SetImage>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:337
+                LCD_RectRead( LeftMargX + PHYS_SCREEN_WIDTH, y - DeltaY, width - PHYS_SCREEN_WIDTH, DeltaY, ( u8* ) &bmpTmp );
+  b2:	9904      	ldr	r1, [sp, #16]
+  b4:	7823      	ldrb	r3, [r4, #0]
+  b6:	f101 0cf0 	add.w	ip, r1, #240	; 0xf0
+  ba:	9905      	ldr	r1, [sp, #20]
+  bc:	fa0f fc8c 	sxth.w	ip, ip
+  c0:	f1a1 02f0 	sub.w	r2, r1, #240	; 0xf0
+  c4:	ebc3 0109 	rsb	r1, r3, r9
+  c8:	fa0f f982 	sxth.w	r9, r2
+  cc:	4660      	mov	r0, ip
+  ce:	b209      	sxth	r1, r1
+  d0:	464a      	mov	r2, r9
+  d2:	f8cd c00c 	str.w	ip, [sp, #12]
+  d6:	9500      	str	r5, [sp, #0]
+  d8:	f7ff fffe 	bl	0 <LCD_RectRead>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:338
+                DRAW_SetImage( bmpTmp, LeftMargX + PHYS_SCREEN_WIDTH, y, width - PHYS_SCREEN_WIDTH, DeltaY );
+  dc:	7823      	ldrb	r3, [r4, #0]
+  de:	f8dd c00c 	ldr.w	ip, [sp, #12]
+  e2:	9300      	str	r3, [sp, #0]
+  e4:	4628      	mov	r0, r5
+  e6:	4661      	mov	r1, ip
+  e8:	464b      	mov	r3, r9
+  ea:	4642      	mov	r2, r8
+  ec:	f7ff fffe 	bl	0 <DRAW_SetImage>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:326
+    InitListDMA();
+    Nblines = ( LowMargY - *CurY ) / DeltaY;
+    width = RightMargX - LeftMargX;
+    for ( i = 0; i < Nblines ; i++ )
+    {
+        for ( y = HighMargY - DeltaY; y >= LowMargY; y -= DeltaY )
+  f0:	7823      	ldrb	r3, [r4, #0]
+  f2:	1aff      	subs	r7, r7, r3
+  f4:	b2bf      	uxth	r7, r7
+  f6:	fa0f f887 	sxth.w	r8, r7
+  fa:	9b0a      	ldr	r3, [sp, #40]	; 0x28
+  fc:	45d0      	cmp	r8, sl
+  fe:	fa0f f983 	sxth.w	r9, r3
+ 102:	dab2      	bge.n	6a <LCD_Scroll+0x6a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:343
+                DRAW_SetImage( bmpTmp, LeftMargX + PHYS_SCREEN_WIDTH, y, width - PHYS_SCREEN_WIDTH, DeltaY );
+                }
+//            LIST_LCD_RectRead( LeftMargX, y - DeltaY, width, DeltaY ); // No multiread data with this controller
+//            LIST_DRAW_SetImage( LeftMargX, y, width, DeltaY );
+        }
+        LCD_FillRect( LeftMargX, LowMargY, width, DeltaY, bGndColor );
+ 104:	9908      	ldr	r1, [sp, #32]
+ 106:	7823      	ldrb	r3, [r4, #0]
+ 108:	9100      	str	r1, [sp, #0]
+ 10a:	4630      	mov	r0, r6
+ 10c:	4651      	mov	r1, sl
+ 10e:	464a      	mov	r2, r9
+ 110:	f7ff fffe 	bl	0 <LCD_FillRect>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:324
+    extern u16 bmpTmp [LCD_DMA_SIZE];
+
+    InitListDMA();
+    Nblines = ( LowMargY - *CurY ) / DeltaY;
+    width = RightMargX - LeftMargX;
+    for ( i = 0; i < Nblines ; i++ )
+ 114:	f10b 0b01 	add.w	fp, fp, #1
+ 118:	fa1f fb8b 	uxth.w	fp, fp
+ 11c:	9909      	ldr	r1, [sp, #36]	; 0x24
+ 11e:	fa0f f28b 	sxth.w	r2, fp
+ 122:	b20b      	sxth	r3, r1
+ 124:	429a      	cmp	r2, r3
+ 126:	db9c      	blt.n	62 <LCD_Scroll+0x62>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:345
+//            LIST_LCD_RectRead( LeftMargX, y - DeltaY, width, DeltaY ); // No multiread data with this controller
+//            LIST_DRAW_SetImage( LeftMargX, y, width, DeltaY );
+        }
+        LCD_FillRect( LeftMargX, LowMargY, width, DeltaY, bGndColor );
+    }
+    *CurY = LowMargY;
+ 128:	f8bd 301e 	ldrh.w	r3, [sp, #30]
+ 12c:	9a06      	ldr	r2, [sp, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:348
+
+    // Display the selected bitmap according to the provided ASCII character.
+    LCD_DisplayChar( CurX, *CurY, Ascii, textColor, bGndColor, CharMagniCoeff );
+ 12e:	9908      	ldr	r1, [sp, #32]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:345
+//            LIST_LCD_RectRead( LeftMargX, y - DeltaY, width, DeltaY ); // No multiread data with this controller
+//            LIST_DRAW_SetImage( LeftMargX, y, width, DeltaY );
+        }
+        LCD_FillRect( LeftMargX, LowMargY, width, DeltaY, bGndColor );
+    }
+    *CurY = LowMargY;
+ 130:	8013      	strh	r3, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:348
+
+    // Display the selected bitmap according to the provided ASCII character.
+    LCD_DisplayChar( CurX, *CurY, Ascii, textColor, bGndColor, CharMagniCoeff );
+ 132:	9a0f      	ldr	r2, [sp, #60]	; 0x3c
+ 134:	980c      	ldr	r0, [sp, #48]	; 0x30
+ 136:	921b      	str	r2, [sp, #108]	; 0x6c
+ 138:	9b0e      	ldr	r3, [sp, #56]	; 0x38
+ 13a:	9a0b      	ldr	r2, [sp, #44]	; 0x2c
+ 13c:	911a      	str	r1, [sp, #104]	; 0x68
+ 13e:	4651      	mov	r1, sl
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:350
+
+}
+ 140:	b011      	add	sp, #68	; 0x44
+ 142:	e8bd 4ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:348
+        LCD_FillRect( LeftMargX, LowMargY, width, DeltaY, bGndColor );
+    }
+    *CurY = LowMargY;
+
+    // Display the selected bitmap according to the provided ASCII character.
+    LCD_DisplayChar( CurX, *CurY, Ascii, textColor, bGndColor, CharMagniCoeff );
+ 146:	f7ff bffe 	b.w	0 <LCD_DisplayChar>
+ 14a:	bf00      	nop
+	...
+
+Disassembly of section .text.LCD_SendLCDCmd_RAM_Access_End:
+
+00000000 <LCD_SendLCDCmd_RAM_Access_End>:
+LCD_SendLCDCmd_RAM_Access_End():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:382
+*
+**/
+/******************************************************************************/
+void LCD_SendLCDCmd_RAM_Access_End( void )
+{
+}
+   0:	4770      	bx	lr
+
+Disassembly of section .text.LCD_SendLCDData16:
+
+00000000 <LCD_SendLCDData16>:
+LCD_SendLCDData16():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:459
+**/
+/******************************************************************************/
+void LCD_SendLCDData16( u8 Data_h, u8 Data_l )
+{
+    // Write into the current register
+    *( u8 volatile* )( LCD_DATA_MODE_ADDR ) = Data_h;
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <LCD_SendLCDData16+0x8>)
+   2:	7018      	strb	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:460
+    *( u8 volatile* )( LCD_DATA_MODE_ADDR ) = Data_l;
+   4:	7019      	strb	r1, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:462
+
+}
+   6:	4770      	bx	lr
+   8:	68020000 	.word	0x68020000
+
+Disassembly of section .text.LCD_SendLCDCmd:
+
+00000000 <LCD_SendLCDCmd>:
+LCD_SendLCDCmd():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:484
+**/
+/******************************************************************************/
+void LCD_SendLCDCmd( u8 Cmd )
+{
+    // Set index of the register
+    *( u8 volatile* )( LCD_CMD_MODE_ADDR ) = 0;
+   0:	f04f 43d0 	mov.w	r3, #1744830464	; 0x68000000
+   4:	2200      	movs	r2, #0
+   6:	701a      	strb	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:485
+    *( u8 volatile* )( LCD_CMD_MODE_ADDR ) = Cmd;
+   8:	7018      	strb	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:486
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.LCD_SendLCDCmd_Rotation_Access:
+
+00000000 <LCD_SendLCDCmd_Rotation_Access>:
+LCD_SendLCDCmd_Rotation_Access():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:437
+*
+**/
+/******************************************************************************/
+void LCD_SendLCDCmd_Rotation_Access( void )
+{
+    LCD_SendLCDCmd( ILI9325_ENTRY_MOD );
+   0:	2003      	movs	r0, #3
+   2:	f7ff bffe 	b.w	0 <LCD_SendLCDCmd_Rotation_Access>
+
+Disassembly of section .text.LCD_SendLCDCmd_RAM_Access:
+
+00000000 <LCD_SendLCDCmd_RAM_Access>:
+LCD_SendLCDCmd_RAM_Access():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:366
+*
+**/
+/******************************************************************************/
+void LCD_SendLCDCmd_RAM_Access( void )
+{
+    LCD_SendLCDCmd( ILI9325_GRAM_DATA );
+   0:	2022      	movs	r0, #34	; 0x22
+   2:	f7ff bffe 	b.w	0 <LCD_SendLCDCmd_RAM_Access>
+
+Disassembly of section .text.LCD_SendLCDData:
+
+00000000 <LCD_SendLCDData>:
+LCD_SendLCDData():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:506
+**/
+/******************************************************************************/
+void LCD_SendLCDData( u8 Data )
+{
+    // Write into the current register
+    *( u8 volatile* )( LCD_DATA_MODE_ADDR ) = Data;
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <LCD_SendLCDData+0x8>)
+   2:	7018      	strb	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:507
+}
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	68020000 	.word	0x68020000
+
+Disassembly of section .text.LCD_ReadLCDData:
+
+00000000 <LCD_ReadLCDData>:
+LCD_ReadLCDData():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:527
+**/
+/********************************************************************************/
+u32 LCD_ReadLCDData( void )
+{
+    /* Transfer data from the memory */
+    return (( *( u32 volatile* )( LCD_DATA_MODE_ADDR ) ) );
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <LCD_ReadLCDData+0x8>)
+   2:	6818      	ldr	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:528
+}
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	68020000 	.word	0x68020000
+
+Disassembly of section .text.LCD_PixelRead:
+
+00000000 <LCD_PixelRead>:
+LCD_PixelRead():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:402
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+inline void LCD_PixelRead( u8** ptbmp )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4604      	mov	r4, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:406
+    u8 temp1, temp2, blue, red;
+
+    // Send LCD RAM read command
+    LCD_SendLCDCmd( ILI9325_GRAM_DATA );
+   4:	2022      	movs	r0, #34	; 0x22
+   6:	f7ff fffe 	bl	0 <LCD_PixelRead>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:409
+
+    // Two first read bytes are dummy !
+    LCD_ReadLCDData();
+   a:	f7ff fffe 	bl	0 <LCD_PixelRead>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:410
+    LCD_ReadLCDData();
+   e:	f7ff fffe 	bl	0 <LCD_PixelRead>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:413
+
+    // Read the two bytes of the pixel
+    temp1 = ( u8 ) LCD_ReadLCDData();
+  12:	f7ff fffe 	bl	0 <LCD_PixelRead>
+  16:	b2c5      	uxtb	r5, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:415
+    blue = ( temp1 & 0xF8 ) >> 3;
+    temp2 = ( u8 ) LCD_ReadLCDData();
+  18:	f7ff fffe 	bl	0 <LCD_PixelRead>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:418
+    red = ( temp2 & 0x1F ) << 3;
+
+    *( *ptbmp ) = ( temp1 & 0x07 ) | red;
+  1c:	6823      	ldr	r3, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:415
+    LCD_ReadLCDData();
+
+    // Read the two bytes of the pixel
+    temp1 = ( u8 ) LCD_ReadLCDData();
+    blue = ( temp1 & 0xF8 ) >> 3;
+    temp2 = ( u8 ) LCD_ReadLCDData();
+  1e:	b2c0      	uxtb	r0, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:418
+    red = ( temp2 & 0x1F ) << 3;
+
+    *( *ptbmp ) = ( temp1 & 0x07 ) | red;
+  20:	f005 0207 	and.w	r2, r5, #7
+  24:	ea42 02c0 	orr.w	r2, r2, r0, lsl #3
+  28:	701a      	strb	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:419
+    *( *ptbmp + 1 ) = ( temp2 & 0xE0 ) | blue;
+  2a:	6823      	ldr	r3, [r4, #0]
+  2c:	f020 001f 	bic.w	r0, r0, #31
+  30:	ea40 05d5 	orr.w	r5, r0, r5, lsr #3
+  34:	705d      	strb	r5, [r3, #1]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:420
+    *ptbmp += 2;
+  36:	6823      	ldr	r3, [r4, #0]
+  38:	3302      	adds	r3, #2
+  3a:	6023      	str	r3, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:422
+
+}
+  3c:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.LCD_DrawPixel:
+
+00000000 <LCD_DrawPixel>:
+LCD_DrawPixel():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:548
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DrawPixel( coord_t XPos, coord_t YPos, color_t Color )
+{
+   0:	b510      	push	{r4, lr}
+   2:	4614      	mov	r4, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:550
+    /* Select LCD screen area. */
+    LCD_SetRect_For_Cmd( XPos, YPos, 1, 1 );
+   4:	2201      	movs	r2, #1
+   6:	4613      	mov	r3, r2
+   8:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:553
+
+    /* Send LCD RAM write command. */
+    LCD_SendLCDCmd( ILI9325_GRAM_DATA );
+   c:	2022      	movs	r0, #34	; 0x22
+   e:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:556
+
+    /* Draw pixel.*/
+    LCD_SendLCDData( Color );
+  12:	b2e0      	uxtb	r0, r4
+  14:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:557
+    LCD_SendLCDData( Color >> 8 );
+  18:	0a20      	lsrs	r0, r4, #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:559
+
+}
+  1a:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/lcd_spe.c:557
+    /* Send LCD RAM write command. */
+    LCD_SendLCDCmd( ILI9325_GRAM_DATA );
+
+    /* Draw pixel.*/
+    LCD_SendLCDData( Color );
+    LCD_SendLCDData( Color >> 8 );
+  1e:	f7ff bffe 	b.w	0 <LCD_DrawPixel>

@@ -1,0 +1,1125 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\hw_config.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\hw_config.o
+
+
+Disassembly of section .text.IntToUnicode:
+
+00000000 <IntToUnicode>:
+IntToUnicode():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:528
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len)
+{
+   0:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:531
+  uint8_t idx = 0;
+  
+  for( idx = 0 ; idx < len ; idx ++)
+   2:	2300      	movs	r3, #0
+   4:	e00c      	b.n	20 <IntToUnicode+0x20>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:533
+  {
+    if( ((value >> 28)) < 0xA )
+   6:	0f04      	lsrs	r4, r0, #28
+   8:	2c09      	cmp	r4, #9
+   a:	d801      	bhi.n	10 <IntToUnicode+0x10>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:535
+    {
+      pbuf[ 2* idx] = (value >> 28) + '0';
+   c:	3430      	adds	r4, #48	; 0x30
+   e:	e000      	b.n	12 <IntToUnicode+0x12>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:539
+    }
+    else
+    {
+      pbuf[2* idx] = (value >> 28) + 'A' - 10; 
+  10:	3437      	adds	r4, #55	; 0x37
+  12:	700c      	strb	r4, [r1, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:531
+*******************************************************************************/
+static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len)
+{
+  uint8_t idx = 0;
+  
+  for( idx = 0 ; idx < len ; idx ++)
+  14:	3301      	adds	r3, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:544
+      pbuf[2* idx] = (value >> 28) + 'A' - 10; 
+    }
+    
+    value = value << 4;
+    
+    pbuf[ 2* idx + 1] = 0;
+  16:	2400      	movs	r4, #0
+  18:	704c      	strb	r4, [r1, #1]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:542
+    else
+    {
+      pbuf[2* idx] = (value >> 28) + 'A' - 10; 
+    }
+    
+    value = value << 4;
+  1a:	0100      	lsls	r0, r0, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:531
+*******************************************************************************/
+static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len)
+{
+  uint8_t idx = 0;
+  
+  for( idx = 0 ; idx < len ; idx ++)
+  1c:	b2db      	uxtb	r3, r3
+  1e:	3102      	adds	r1, #2
+  20:	4293      	cmp	r3, r2
+  22:	d3f0      	bcc.n	6 <IntToUnicode+0x6>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:546
+    
+    value = value << 4;
+    
+    pbuf[ 2* idx + 1] = 0;
+  }
+}
+  24:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.Set_System:
+
+00000000 <Set_System>:
+Set_System():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:55
+* Description    : Configures Main system clocks & power
+* Input          : None.
+* Return         : None.
+*******************************************************************************/
+void Set_System(void)
+{
+   0:	b513      	push	{r0, r1, r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:62
+  GPIO_InitTypeDef GPIO_InitStructure;
+#endif /* USE_STM3210C_EVAL */
+
+  /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration -----------------------------*/   
+  /* RCC system reset(for debug purpose) */
+  RCC_DeInit();
+   2:	f7ff fffe 	bl	0 <RCC_DeInit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:65
+
+  /* Enable HSE */
+  RCC_HSEConfig(RCC_HSE_ON);
+   6:	f44f 3080 	mov.w	r0, #65536	; 0x10000
+   a:	f7ff fffe 	bl	0 <RCC_HSEConfig>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:68
+
+  /* Wait till HSE is ready */
+  HSEStartUpStatus = RCC_WaitForHSEStartUp();
+   e:	f7ff fffe 	bl	0 <RCC_WaitForHSEStartUp>
+  12:	4b1f      	ldr	r3, [pc, #124]	; (90 <Set_System+0x90>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:71
+
+#ifndef SIMULATOR
+  if (HSEStartUpStatus == SUCCESS)
+  14:	2801      	cmp	r0, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:68
+
+  /* Enable HSE */
+  RCC_HSEConfig(RCC_HSE_ON);
+
+  /* Wait till HSE is ready */
+  HSEStartUpStatus = RCC_WaitForHSEStartUp();
+  16:	4604      	mov	r4, r0
+  18:	7018      	strb	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:71
+
+#ifndef SIMULATOR
+  if (HSEStartUpStatus == SUCCESS)
+  1a:	d126      	bne.n	6a <Set_System+0x6a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:77
+#else
+  if (SUCCESS == SUCCESS)
+#endif
+  {
+    /* Enable Prefetch Buffer */
+    FLASH_PrefetchBufferCmd(FLASH_PrefetchBuffer_Enable);
+  1c:	2010      	movs	r0, #16
+  1e:	f7ff fffe 	bl	0 <FLASH_PrefetchBufferCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:80
+
+    /* Flash 2 wait state */
+    FLASH_SetLatency(FLASH_Latency_2);
+  22:	2002      	movs	r0, #2
+  24:	f7ff fffe 	bl	0 <FLASH_SetLatency>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:83
+ 
+    /* HCLK = SYSCLK */
+    RCC_HCLKConfig(RCC_SYSCLK_Div1); 
+  28:	2000      	movs	r0, #0
+  2a:	f7ff fffe 	bl	0 <RCC_HCLKConfig>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:86
+  
+    /* PCLK2 = HCLK */
+    RCC_PCLK2Config(RCC_HCLK_Div1); 
+  2e:	2000      	movs	r0, #0
+  30:	f7ff fffe 	bl	0 <RCC_PCLK2Config>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:89
+
+    /* PCLK1 = HCLK/2 */
+    RCC_PCLK1Config(RCC_HCLK_Div2);
+  34:	f44f 6080 	mov.w	r0, #1024	; 0x400
+  38:	f7ff fffe 	bl	0 <RCC_PCLK1Config>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:109
+    /* PLL configuration: PLLCLK = (PLL2 / 5) * 9 = 72 MHz */ 
+    RCC_PREDIV1Config(RCC_PREDIV1_Source_PLL2, RCC_PREDIV1_Div5);
+    RCC_PLLConfig(RCC_PLLSource_PREDIV1, RCC_PLLMul_9);
+#else
+    /* PLLCLK = 12MHz * 6 = 72 MHz */
+    RCC_PLLConfig(RCC_PLLSource_HSE_Div1, RCC_PLLMul_6);
+  3c:	f44f 3080 	mov.w	r0, #65536	; 0x10000
+  40:	f44f 1180 	mov.w	r1, #1048576	; 0x100000
+  44:	f7ff fffe 	bl	0 <RCC_PLLConfig>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:113
+#endif
+
+    /* Enable PLL */ 
+    RCC_PLLCmd(ENABLE);
+  48:	4620      	mov	r0, r4
+  4a:	f7ff fffe 	bl	0 <RCC_PLLCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:117
+
+    /* Wait till PLL is ready */
+#ifndef SIMULATOR
+    while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET)
+  4e:	2039      	movs	r0, #57	; 0x39
+  50:	f7ff fffe 	bl	0 <RCC_GetFlagStatus>
+  54:	2800      	cmp	r0, #0
+  56:	d0fa      	beq.n	4e <Set_System+0x4e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:122
+    {
+    }
+#endif
+    /* Select PLL as system clock source */
+    RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
+  58:	2002      	movs	r0, #2
+  5a:	f7ff fffe 	bl	0 <RCC_SYSCLKConfig>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:126
+
+    /* Wait till PLL is used as system clock source */
+#ifndef SIMULATOR
+  while(RCC_GetSYSCLKSource() != 0x08)
+  5e:	f7ff fffe 	bl	0 <RCC_GetSYSCLKSource>
+  62:	2808      	cmp	r0, #8
+  64:	4604      	mov	r4, r0
+  66:	d1fa      	bne.n	5e <Set_System+0x5e>
+  68:	e000      	b.n	6c <Set_System+0x6c>
+  6a:	e7fe      	b.n	6a <Set_System+0x6a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:143
+    }
+  }
+
+#ifndef USE_STM3210C_EVAL
+  /* Enable USB_DISCONNECT GPIO clock */
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIO_DISCONNECT, ENABLE);
+  6c:	2020      	movs	r0, #32
+  6e:	2101      	movs	r1, #1
+  70:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:147
+
+  /* Configure USB pull-up pin */
+  GPIO_InitStructure.GPIO_Pin = USB_DISCONNECT_PIN;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  74:	2303      	movs	r3, #3
+  76:	f88d 3006 	strb.w	r3, [sp, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:149
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD;
+  GPIO_Init(USB_DISCONNECT, &GPIO_InitStructure);
+  7a:	4806      	ldr	r0, [pc, #24]	; (94 <Set_System+0x94>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:148
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIO_DISCONNECT, ENABLE);
+
+  /* Configure USB pull-up pin */
+  GPIO_InitStructure.GPIO_Pin = USB_DISCONNECT_PIN;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD;
+  7c:	3311      	adds	r3, #17
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:149
+  GPIO_Init(USB_DISCONNECT, &GPIO_InitStructure);
+  7e:	a901      	add	r1, sp, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:146
+#ifndef USE_STM3210C_EVAL
+  /* Enable USB_DISCONNECT GPIO clock */
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIO_DISCONNECT, ENABLE);
+
+  /* Configure USB pull-up pin */
+  GPIO_InitStructure.GPIO_Pin = USB_DISCONNECT_PIN;
+  80:	f8ad 4004 	strh.w	r4, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:148
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD;
+  84:	f88d 3007 	strb.w	r3, [sp, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:149
+  GPIO_Init(USB_DISCONNECT, &GPIO_InitStructure);
+  88:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:152
+#endif /* USE_STM3210C_EVAL */
+
+}
+  8c:	bd1c      	pop	{r2, r3, r4, pc}
+  8e:	bf00      	nop
+  90:	00000000 	.word	0x00000000
+  94:	40011400 	.word	0x40011400
+
+Disassembly of section .text.Set_USBClock:
+
+00000000 <Set_USBClock>:
+Set_USBClock():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:170
+
+  /* Enable the USB clock */ 
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_OTG_FS, ENABLE) ;
+#else 
+  /* Select USBCLK source */
+  RCC_USBCLKConfig(RCC_USBCLKSource_PLLCLK_1Div5);
+   0:	2000      	movs	r0, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:161
+* Description    : Configures USB Clock input (48MHz)
+* Input          : None.
+* Return         : None.
+*******************************************************************************/
+void Set_USBClock(void)
+{
+   2:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:170
+
+  /* Enable the USB clock */ 
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_OTG_FS, ENABLE) ;
+#else 
+  /* Select USBCLK source */
+  RCC_USBCLKConfig(RCC_USBCLKSource_PLLCLK_1Div5);
+   4:	f7ff fffe 	bl	0 <RCC_USBCLKConfig>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:173
+  
+  /* Enable the USB clock */
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_USB, ENABLE);
+   8:	f44f 0000 	mov.w	r0, #8388608	; 0x800000
+   c:	2101      	movs	r1, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:175
+#endif /* STM32F10X_CL */
+}
+   e:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:173
+#else 
+  /* Select USBCLK source */
+  RCC_USBCLKConfig(RCC_USBCLKSource_PLLCLK_1Div5);
+  
+  /* Enable the USB clock */
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_USB, ENABLE);
+  12:	f7ff bffe 	b.w	0 <RCC_APB1PeriphClockCmd>
+
+Disassembly of section .text.Enter_LowPowerMode:
+
+00000000 <Enter_LowPowerMode>:
+Enter_LowPowerMode():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:186
+* Return         : None.
+*******************************************************************************/
+void Enter_LowPowerMode(void)
+{
+  /* Set the device state to suspend */
+  bDeviceState = SUSPENDED;
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <Enter_LowPowerMode+0x8>)
+   2:	2203      	movs	r2, #3
+   4:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:187
+}
+   6:	4770      	bx	lr
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.Leave_LowPowerMode:
+
+00000000 <Leave_LowPowerMode>:
+Leave_LowPowerMode():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:200
+void Leave_LowPowerMode(void)
+{
+  DEVICE_INFO *pInfo = &Device_Info;
+
+  /* Set the device state to the correct state */
+  if (pInfo->Current_Configuration != 0)
+   0:	4b04      	ldr	r3, [pc, #16]	; (14 <Leave_LowPowerMode+0x14>)
+   2:	7a9a      	ldrb	r2, [r3, #10]
+   4:	4b04      	ldr	r3, [pc, #16]	; (18 <Leave_LowPowerMode+0x18>)
+   6:	b10a      	cbz	r2, c <Leave_LowPowerMode+0xc>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:203
+  {
+    /* Device configured */
+    bDeviceState = CONFIGURED;
+   8:	2205      	movs	r2, #5
+   a:	e000      	b.n	e <Leave_LowPowerMode+0xe>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:207
+  }
+  else
+  {
+    bDeviceState = ATTACHED;
+   c:	2201      	movs	r2, #1
+   e:	601a      	str	r2, [r3, #0]
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+	...
+
+Disassembly of section .text.USB_Interrupts_Config:
+
+00000000 <USB_Interrupts_Config>:
+USB_Interrupts_Config():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:218
+* Description    : Configures the USB interrupts
+* Input          : None.
+* Return         : None.
+*******************************************************************************/
+void USB_Interrupts_Config(void)
+{
+   0:	b513      	push	{r0, r1, r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:221
+  NVIC_InitTypeDef NVIC_InitStructure;
+
+  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
+   2:	f44f 60c0 	mov.w	r0, #1536	; 0x600
+   6:	f7ff fffe 	bl	0 <NVIC_PriorityGroupConfig>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:231
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+#else
+  NVIC_InitStructure.NVIC_IRQChannel = USB_LP_CAN1_RX0_IRQn;
+   a:	2314      	movs	r3, #20
+   c:	f88d 3004 	strb.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:234
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0; // was: 1
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  10:	2401      	movs	r4, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:232
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+#else
+  NVIC_InitStructure.NVIC_IRQChannel = USB_LP_CAN1_RX0_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0; // was: 1
+  12:	3b14      	subs	r3, #20
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:235
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+  14:	a801      	add	r0, sp, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:232
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+#else
+  NVIC_InitStructure.NVIC_IRQChannel = USB_LP_CAN1_RX0_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0; // was: 1
+  16:	f88d 3005 	strb.w	r3, [sp, #5]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:233
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  1a:	f88d 3006 	strb.w	r3, [sp, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:234
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  1e:	f88d 4007 	strb.w	r4, [sp, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:235
+  NVIC_Init(&NVIC_InitStructure);
+  22:	f7ff fffe 	bl	0 <NVIC_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:239
+#endif /* STM32F10X_CL */
+
+  /* Enable USART Interrupt */
+  NVIC_InitStructure.NVIC_IRQChannel = OPEN4_COM1_IRQn;
+  26:	2326      	movs	r3, #38	; 0x26
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:241
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1; // was: 0
+  NVIC_Init(&NVIC_InitStructure);
+  28:	a801      	add	r0, sp, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:239
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+#endif /* STM32F10X_CL */
+
+  /* Enable USART Interrupt */
+  NVIC_InitStructure.NVIC_IRQChannel = OPEN4_COM1_IRQn;
+  2a:	f88d 3004 	strb.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:240
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1; // was: 0
+  2e:	f88d 4005 	strb.w	r4, [sp, #5]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:241
+  NVIC_Init(&NVIC_InitStructure);
+  32:	f7ff fffe 	bl	0 <NVIC_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:242
+}
+  36:	bd1c      	pop	{r2, r3, r4, pc}
+
+Disassembly of section .text.USB_Cable_Config:
+
+00000000 <USB_Cable_Config>:
+USB_Cable_Config():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:262
+  else
+  {
+    USB_DevDisconnect();
+  }
+#else /* USE_STM3210B_EVAL or USE_STM3210E_EVAL or USE_STM3210E_OPEN4 */
+  if (NewState != DISABLE)
+   0:	b118      	cbz	r0, a <USB_Cable_Config+0xa>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:264
+  {
+    GPIO_ResetBits(USB_DISCONNECT, USB_DISCONNECT_PIN);
+   2:	4804      	ldr	r0, [pc, #16]	; (14 <USB_Cable_Config+0x14>)
+   4:	2108      	movs	r1, #8
+   6:	f7ff bffe 	b.w	0 <GPIO_ResetBits>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:268
+  }
+  else
+  {
+    GPIO_SetBits(USB_DISCONNECT, USB_DISCONNECT_PIN);
+   a:	4802      	ldr	r0, [pc, #8]	; (14 <USB_Cable_Config+0x14>)
+   c:	2108      	movs	r1, #8
+   e:	f7ff bffe 	b.w	0 <GPIO_SetBits>
+  12:	bf00      	nop
+  14:	40011400 	.word	0x40011400
+
+Disassembly of section .text.USART_Config_Default:
+
+00000000 <USART_Config_Default>:
+USART_Config_Default():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:290
+        - One Stop Bit
+        - Parity Odd
+        - Hardware flow control desabled
+        - Receive and transmit enabled
+  */
+  USART_InitStructure.USART_BaudRate = 9600;
+   0:	490b      	ldr	r1, [pc, #44]	; (30 <USART_Config_Default+0x30>)
+   2:	f44f 5316 	mov.w	r3, #9600	; 0x2580
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:280
+* Description    :  configure the OPEN4_COM1 with default values.
+* Input          :  None.
+* Return         :  None.
+*******************************************************************************/
+void USART_Config_Default(void)
+{
+   6:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:290
+        - One Stop Bit
+        - Parity Odd
+        - Hardware flow control desabled
+        - Receive and transmit enabled
+  */
+  USART_InitStructure.USART_BaudRate = 9600;
+   8:	600b      	str	r3, [r1, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:293
+  USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+  USART_InitStructure.USART_StopBits = USART_StopBits_1;
+  USART_InitStructure.USART_Parity = USART_Parity_Odd;
+   a:	f44f 63c0 	mov.w	r3, #1536	; 0x600
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:291
+        - Parity Odd
+        - Hardware flow control desabled
+        - Receive and transmit enabled
+  */
+  USART_InitStructure.USART_BaudRate = 9600;
+  USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+   e:	2000      	movs	r0, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:293
+  USART_InitStructure.USART_StopBits = USART_StopBits_1;
+  USART_InitStructure.USART_Parity = USART_Parity_Odd;
+  10:	810b      	strh	r3, [r1, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:295
+  USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+  USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+  12:	230c      	movs	r3, #12
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:291
+        - Parity Odd
+        - Hardware flow control desabled
+        - Receive and transmit enabled
+  */
+  USART_InitStructure.USART_BaudRate = 9600;
+  USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+  14:	8088      	strh	r0, [r1, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:292
+  USART_InitStructure.USART_StopBits = USART_StopBits_1;
+  16:	80c8      	strh	r0, [r1, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:294
+  USART_InitStructure.USART_Parity = USART_Parity_Odd;
+  USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+  18:	8188      	strh	r0, [r1, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:295
+  USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+  1a:	814b      	strh	r3, [r1, #10]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:298
+
+  /* Configure and enable the USART */
+  STM_OPEN4_COMInit(COM1, &USART_InitStructure);
+  1c:	f7ff fffe 	bl	0 <STM_OPEN4_COMInit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:301
+
+  /* Enable the USART Receive interrupt */
+  USART_ITConfig(OPEN4_COM1, USART_IT_RXNE, ENABLE);
+  20:	4804      	ldr	r0, [pc, #16]	; (34 <USART_Config_Default+0x34>)
+  22:	f240 5125 	movw	r1, #1317	; 0x525
+  26:	2201      	movs	r2, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:302
+}
+  28:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:301
+
+  /* Configure and enable the USART */
+  STM_OPEN4_COMInit(COM1, &USART_InitStructure);
+
+  /* Enable the USART Receive interrupt */
+  USART_ITConfig(OPEN4_COM1, USART_IT_RXNE, ENABLE);
+  2c:	f7ff bffe 	b.w	0 <USART_ITConfig>
+  30:	00000000 	.word	0x00000000
+  34:	40004400 	.word	0x40004400
+
+Disassembly of section .text.USART_Config:
+
+00000000 <USART_Config>:
+USART_Config():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:313
+* Return         :  Configuration status
+                    TRUE : configuration done with success
+                    FALSE : configuration aborted.
+*******************************************************************************/
+bool USART_Config(void)
+{
+   0:	b508      	push	{r3, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:316
+
+  /* set the Stop bit*/
+  switch (linecoding.format)
+   2:	4b22      	ldr	r3, [pc, #136]	; (8c <USART_Config+0x8c>)
+   4:	791a      	ldrb	r2, [r3, #4]
+   6:	2a01      	cmp	r2, #1
+   8:	d006      	beq.n	18 <USART_Config+0x18>
+   a:	d302      	bcc.n	12 <USART_Config+0x12>
+   c:	2a02      	cmp	r2, #2
+   e:	d138      	bne.n	82 <USART_Config+0x82>
+  10:	e006      	b.n	20 <USART_Config+0x20>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:319
+  {
+    case 0:
+      USART_InitStructure.USART_StopBits = USART_StopBits_1;
+  12:	4a1f      	ldr	r2, [pc, #124]	; (90 <USART_Config+0x90>)
+  14:	2100      	movs	r1, #0
+  16:	e006      	b.n	26 <USART_Config+0x26>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:322
+      break;
+    case 1:
+      USART_InitStructure.USART_StopBits = USART_StopBits_1_5;
+  18:	4a1d      	ldr	r2, [pc, #116]	; (90 <USART_Config+0x90>)
+  1a:	f44f 5140 	mov.w	r1, #12288	; 0x3000
+  1e:	e002      	b.n	26 <USART_Config+0x26>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:325
+      break;
+    case 2:
+      USART_InitStructure.USART_StopBits = USART_StopBits_2;
+  20:	4a1b      	ldr	r2, [pc, #108]	; (90 <USART_Config+0x90>)
+  22:	f44f 5100 	mov.w	r1, #8192	; 0x2000
+  26:	80d1      	strh	r1, [r2, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:335
+      return (FALSE);
+    }
+  }
+
+  /* set the parity bit*/
+  switch (linecoding.paritytype)
+  28:	795a      	ldrb	r2, [r3, #5]
+  2a:	2a01      	cmp	r2, #1
+  2c:	d006      	beq.n	3c <USART_Config+0x3c>
+  2e:	d302      	bcc.n	36 <USART_Config+0x36>
+  30:	2a02      	cmp	r2, #2
+  32:	d126      	bne.n	82 <USART_Config+0x82>
+  34:	e006      	b.n	44 <USART_Config+0x44>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:338
+  {
+    case 0:
+      USART_InitStructure.USART_Parity = USART_Parity_No;
+  36:	4a16      	ldr	r2, [pc, #88]	; (90 <USART_Config+0x90>)
+  38:	2100      	movs	r1, #0
+  3a:	e006      	b.n	4a <USART_Config+0x4a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:341
+      break;
+    case 1:
+      USART_InitStructure.USART_Parity = USART_Parity_Even;
+  3c:	4a14      	ldr	r2, [pc, #80]	; (90 <USART_Config+0x90>)
+  3e:	f44f 6180 	mov.w	r1, #1024	; 0x400
+  42:	e002      	b.n	4a <USART_Config+0x4a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:344
+      break;
+    case 2:
+      USART_InitStructure.USART_Parity = USART_Parity_Odd;
+  44:	4a12      	ldr	r2, [pc, #72]	; (90 <USART_Config+0x90>)
+  46:	f44f 61c0 	mov.w	r1, #1536	; 0x600
+  4a:	8111      	strh	r1, [r2, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:354
+      return (FALSE);
+    }
+  }
+
+  /*set the data type : only 8bits and 9bits is supported */
+  switch (linecoding.datatype)
+  4c:	799a      	ldrb	r2, [r3, #6]
+  4e:	2a07      	cmp	r2, #7
+  50:	d002      	beq.n	58 <USART_Config+0x58>
+  52:	2a08      	cmp	r2, #8
+  54:	d115      	bne.n	82 <USART_Config+0x82>
+  56:	e002      	b.n	5e <USART_Config+0x5e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:358
+  {
+    case 0x07:
+      /* With this configuration a parity (Even or Odd) should be set */
+      USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+  58:	4a0d      	ldr	r2, [pc, #52]	; (90 <USART_Config+0x90>)
+  5a:	2100      	movs	r1, #0
+  5c:	e004      	b.n	68 <USART_Config+0x68>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:361
+      break;
+    case 0x08:
+      if (USART_InitStructure.USART_Parity == USART_Parity_No)
+  5e:	4a0c      	ldr	r2, [pc, #48]	; (90 <USART_Config+0x90>)
+  60:	8911      	ldrh	r1, [r2, #8]
+  62:	b109      	cbz	r1, 68 <USART_Config+0x68>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:367
+      {
+        USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+      }
+      else 
+      {
+        USART_InitStructure.USART_WordLength = USART_WordLength_9b;
+  64:	f44f 5180 	mov.w	r1, #4096	; 0x1000
+  68:	8091      	strh	r1, [r2, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:378
+      USART_Config_Default();
+      return (FALSE);
+    }
+  }
+
+  USART_InitStructure.USART_BaudRate = linecoding.bitrate;
+  6a:	681b      	ldr	r3, [r3, #0]
+  6c:	4908      	ldr	r1, [pc, #32]	; (90 <USART_Config+0x90>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:383
+  USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+  USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+ 
+  /* Configure and enable the USART */
+  STM_OPEN4_COMInit(COM1, &USART_InitStructure);
+  6e:	2000      	movs	r0, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:378
+      USART_Config_Default();
+      return (FALSE);
+    }
+  }
+
+  USART_InitStructure.USART_BaudRate = linecoding.bitrate;
+  70:	600b      	str	r3, [r1, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:379
+  USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+  72:	2300      	movs	r3, #0
+  74:	818b      	strh	r3, [r1, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:380
+  USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+  76:	230c      	movs	r3, #12
+  78:	814b      	strh	r3, [r1, #10]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:383
+ 
+  /* Configure and enable the USART */
+  STM_OPEN4_COMInit(COM1, &USART_InitStructure);
+  7a:	f7ff fffe 	bl	0 <STM_OPEN4_COMInit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:385
+
+  return (TRUE);
+  7e:	2001      	movs	r0, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:386
+}
+  80:	bd08      	pop	{r3, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:373
+      }
+      
+      break;
+    default :
+    {
+      USART_Config_Default();
+  82:	f7ff fffe 	bl	0 <USART_Config>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:374
+      return (FALSE);
+  86:	2000      	movs	r0, #0
+  88:	bd08      	pop	{r3, pc}
+  8a:	bf00      	nop
+	...
+
+Disassembly of section .text.USB_To_USART_Send_Data:
+
+00000000 <USB_To_USART_Send_Data>:
+USB_To_USART_Send_Data():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:396
+* Input          : data_buffer: data address.
+                   Nb_bytes: number of bytes to send.
+* Return         : none.
+*******************************************************************************/
+void USB_To_USART_Send_Data(uint8_t* data_buffer, uint8_t Nb_bytes)
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4606      	mov	r6, r0
+   4:	460d      	mov	r5, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:400
+  
+  uint32_t i;
+  
+  for (i = 0; i < Nb_bytes; i++)
+   6:	2400      	movs	r4, #0
+   8:	e00a      	b.n	20 <USB_To_USART_Send_Data+0x20>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:402
+  {
+    USART_SendData(OPEN4_COM1, *(data_buffer + i));
+   a:	4807      	ldr	r0, [pc, #28]	; (28 <USB_To_USART_Send_Data+0x28>)
+   c:	5d31      	ldrb	r1, [r6, r4]
+   e:	f7ff fffe 	bl	0 <USART_SendData>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:403
+    while(USART_GetFlagStatus(OPEN4_COM1, USART_FLAG_TXE) == RESET); 
+  12:	4805      	ldr	r0, [pc, #20]	; (28 <USB_To_USART_Send_Data+0x28>)
+  14:	2180      	movs	r1, #128	; 0x80
+  16:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+  1a:	2800      	cmp	r0, #0
+  1c:	d0f9      	beq.n	12 <USB_To_USART_Send_Data+0x12>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:400
+void USB_To_USART_Send_Data(uint8_t* data_buffer, uint8_t Nb_bytes)
+{
+  
+  uint32_t i;
+  
+  for (i = 0; i < Nb_bytes; i++)
+  1e:	3401      	adds	r4, #1
+  20:	42ac      	cmp	r4, r5
+  22:	d3f2      	bcc.n	a <USB_To_USART_Send_Data+0xa>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:405
+  {
+    USART_SendData(OPEN4_COM1, *(data_buffer + i));
+    while(USART_GetFlagStatus(OPEN4_COM1, USART_FLAG_TXE) == RESET); 
+  }  
+}
+  24:	bd70      	pop	{r4, r5, r6, pc}
+  26:	bf00      	nop
+  28:	40004400 	.word	0x40004400
+
+Disassembly of section .text.Handle_USBAsynchXfer:
+
+00000000 <Handle_USBAsynchXfer>:
+Handle_USBAsynchXfer():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:414
+* Description    : send data to USB.
+* Input          : None.
+* Return         : none.
+*******************************************************************************/
+void Handle_USBAsynchXfer (void)
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:419
+  
+  uint16_t USB_Tx_ptr;
+  uint16_t USB_Tx_length;
+  
+  if(USB_Tx_State != 1)
+   2:	4b1d      	ldr	r3, [pc, #116]	; (78 <Handle_USBAsynchXfer+0x78>)
+   4:	781a      	ldrb	r2, [r3, #0]
+   6:	2a01      	cmp	r2, #1
+   8:	d034      	beq.n	74 <Handle_USBAsynchXfer+0x74>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:421
+  {
+    if (USART_Rx_ptr_out == USART_RX_DATA_SIZE)
+   a:	685a      	ldr	r2, [r3, #4]
+   c:	f5b2 6f00 	cmp.w	r2, #2048	; 0x800
+  10:	d101      	bne.n	16 <Handle_USBAsynchXfer+0x16>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:423
+    {
+      USART_Rx_ptr_out = 0;
+  12:	2200      	movs	r2, #0
+  14:	605a      	str	r2, [r3, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:426
+    }
+    
+    if(USART_Rx_ptr_out == USART_Rx_ptr_in) 
+  16:	685a      	ldr	r2, [r3, #4]
+  18:	6898      	ldr	r0, [r3, #8]
+  1a:	4917      	ldr	r1, [pc, #92]	; (78 <Handle_USBAsynchXfer+0x78>)
+  1c:	4282      	cmp	r2, r0
+  1e:	d102      	bne.n	26 <Handle_USBAsynchXfer+0x26>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:428
+    {
+      USB_Tx_State = 0; 
+  20:	2300      	movs	r3, #0
+  22:	700b      	strb	r3, [r1, #0]
+  24:	bd70      	pop	{r4, r5, r6, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:434
+      return;
+    }
+    
+    if(USART_Rx_ptr_out > USART_Rx_ptr_in) /* rollback */
+    { 
+      USART_Rx_length = USART_RX_DATA_SIZE - USART_Rx_ptr_out;
+  26:	bf8c      	ite	hi
+  28:	f5c2 6000 	rsbhi	r0, r2, #2048	; 0x800
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:438
+    }
+    else 
+    {
+      USART_Rx_length = USART_Rx_ptr_in - USART_Rx_ptr_out;
+  2c:	ebc2 0000 	rsbls	r0, r2, r0
+  30:	60c8      	str	r0, [r1, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:441
+    }
+    
+    if (USART_Rx_length > VIRTUAL_COM_PORT_DATA_SIZE)
+  32:	68dc      	ldr	r4, [r3, #12]
+  34:	4910      	ldr	r1, [pc, #64]	; (78 <Handle_USBAsynchXfer+0x78>)
+  36:	2c40      	cmp	r4, #64	; 0x40
+  38:	b290      	uxth	r0, r2
+  3a:	d905      	bls.n	48 <Handle_USBAsynchXfer+0x48>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:446
+    {
+      USB_Tx_ptr = USART_Rx_ptr_out;
+      USB_Tx_length = VIRTUAL_COM_PORT_DATA_SIZE;
+      
+      USART_Rx_ptr_out += VIRTUAL_COM_PORT_DATA_SIZE;	
+  3c:	3240      	adds	r2, #64	; 0x40
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:447
+      USART_Rx_length -= VIRTUAL_COM_PORT_DATA_SIZE;	
+  3e:	3c40      	subs	r4, #64	; 0x40
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:446
+    if (USART_Rx_length > VIRTUAL_COM_PORT_DATA_SIZE)
+    {
+      USB_Tx_ptr = USART_Rx_ptr_out;
+      USB_Tx_length = VIRTUAL_COM_PORT_DATA_SIZE;
+      
+      USART_Rx_ptr_out += VIRTUAL_COM_PORT_DATA_SIZE;	
+  40:	604a      	str	r2, [r1, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:447
+      USART_Rx_length -= VIRTUAL_COM_PORT_DATA_SIZE;	
+  42:	60cc      	str	r4, [r1, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:444
+    }
+    
+    if (USART_Rx_length > VIRTUAL_COM_PORT_DATA_SIZE)
+    {
+      USB_Tx_ptr = USART_Rx_ptr_out;
+      USB_Tx_length = VIRTUAL_COM_PORT_DATA_SIZE;
+  44:	2540      	movs	r5, #64	; 0x40
+  46:	e004      	b.n	52 <Handle_USBAsynchXfer+0x52>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:454
+    else
+    {
+      USB_Tx_ptr = USART_Rx_ptr_out;
+      USB_Tx_length = USART_Rx_length;
+      
+      USART_Rx_ptr_out += USART_Rx_length;
+  48:	18a2      	adds	r2, r4, r2
+  4a:	604a      	str	r2, [r1, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:455
+      USART_Rx_length = 0;
+  4c:	2200      	movs	r2, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:452
+      USART_Rx_length -= VIRTUAL_COM_PORT_DATA_SIZE;	
+    }
+    else
+    {
+      USB_Tx_ptr = USART_Rx_ptr_out;
+      USB_Tx_length = USART_Rx_length;
+  4e:	b2a5      	uxth	r5, r4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:455
+      
+      USART_Rx_ptr_out += USART_Rx_length;
+      USART_Rx_length = 0;
+  50:	60ca      	str	r2, [r1, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:457
+    }
+    USB_Tx_State = 1; 
+  52:	2401      	movs	r4, #1
+  54:	701c      	strb	r4, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:462
+    
+#ifdef USE_STM3210C_EVAL
+    USB_SIL_Write(EP1_IN, &USART_Rx_Buffer[USB_Tx_ptr], USB_Tx_length);  
+#else
+    UserToPMABufferCopy(&USART_Rx_Buffer[USB_Tx_ptr], ENDP1_TXADDR, USB_Tx_length);
+  56:	4b09      	ldr	r3, [pc, #36]	; (7c <Handle_USBAsynchXfer+0x7c>)
+  58:	21c0      	movs	r1, #192	; 0xc0
+  5a:	1818      	adds	r0, r3, r0
+  5c:	462a      	mov	r2, r5
+  5e:	f7ff fffe 	bl	0 <UserToPMABufferCopy>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:463
+    SetEPTxCount(ENDP1, USB_Tx_length);
+  62:	4620      	mov	r0, r4
+  64:	4629      	mov	r1, r5
+  66:	f7ff fffe 	bl	0 <SetEPTxCount>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:464
+    SetEPTxValid(ENDP1); 
+  6a:	4620      	mov	r0, r4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:468
+#endif
+  }  
+  
+}
+  6c:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:464
+#ifdef USE_STM3210C_EVAL
+    USB_SIL_Write(EP1_IN, &USART_Rx_Buffer[USB_Tx_ptr], USB_Tx_length);  
+#else
+    UserToPMABufferCopy(&USART_Rx_Buffer[USB_Tx_ptr], ENDP1_TXADDR, USB_Tx_length);
+    SetEPTxCount(ENDP1, USB_Tx_length);
+    SetEPTxValid(ENDP1); 
+  70:	f7ff bffe 	b.w	0 <SetEPTxValid>
+  74:	bd70      	pop	{r4, r5, r6, pc}
+  76:	bf00      	nop
+	...
+
+Disassembly of section .text.USART_To_USB_Send_Data:
+
+00000000 <USART_To_USB_Send_Data>:
+USART_To_USB_Send_Data():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:476
+* Description    : send the received data from UART 0 to USB.
+* Input          : None.
+* Return         : none.
+*******************************************************************************/
+void USART_To_USB_Send_Data(void)
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:478
+  
+  if (linecoding.datatype == 7)
+   2:	4b0f      	ldr	r3, [pc, #60]	; (40 <USART_To_USB_Send_Data+0x40>)
+   4:	4c0f      	ldr	r4, [pc, #60]	; (44 <USART_To_USB_Send_Data+0x44>)
+   6:	799b      	ldrb	r3, [r3, #6]
+   8:	2b07      	cmp	r3, #7
+   a:	d106      	bne.n	1a <USART_To_USB_Send_Data+0x1a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:480
+  {
+    USART_Rx_Buffer[USART_Rx_ptr_in] = USART_ReceiveData(OPEN4_COM1) & 0x7F;
+   c:	480e      	ldr	r0, [pc, #56]	; (48 <USART_To_USB_Send_Data+0x48>)
+   e:	68a5      	ldr	r5, [r4, #8]
+  10:	f7ff fffe 	bl	0 <USART_ReceiveData>
+  14:	f000 007f 	and.w	r0, r0, #127	; 0x7f
+  18:	e005      	b.n	26 <USART_To_USB_Send_Data+0x26>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:482
+  }
+  else if (linecoding.datatype == 8)
+  1a:	2b08      	cmp	r3, #8
+  1c:	d105      	bne.n	2a <USART_To_USB_Send_Data+0x2a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:484
+  {
+    USART_Rx_Buffer[USART_Rx_ptr_in] = USART_ReceiveData(OPEN4_COM1);
+  1e:	480a      	ldr	r0, [pc, #40]	; (48 <USART_To_USB_Send_Data+0x48>)
+  20:	68a5      	ldr	r5, [r4, #8]
+  22:	f7ff fffe 	bl	0 <USART_ReceiveData>
+  26:	4b09      	ldr	r3, [pc, #36]	; (4c <USART_To_USB_Send_Data+0x4c>)
+  28:	5558      	strb	r0, [r3, r5]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:487
+  }
+  
+  USART_Rx_ptr_in++;
+  2a:	68a3      	ldr	r3, [r4, #8]
+  2c:	3301      	adds	r3, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:490
+  
+  /* To avoid buffer overflow */
+  if(USART_Rx_ptr_in == USART_RX_DATA_SIZE)
+  2e:	f5b3 6f00 	cmp.w	r3, #2048	; 0x800
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:487
+  else if (linecoding.datatype == 8)
+  {
+    USART_Rx_Buffer[USART_Rx_ptr_in] = USART_ReceiveData(OPEN4_COM1);
+  }
+  
+  USART_Rx_ptr_in++;
+  32:	60a3      	str	r3, [r4, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:490
+  
+  /* To avoid buffer overflow */
+  if(USART_Rx_ptr_in == USART_RX_DATA_SIZE)
+  34:	d102      	bne.n	3c <USART_To_USB_Send_Data+0x3c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:492
+  {
+    USART_Rx_ptr_in = 0;
+  36:	4b03      	ldr	r3, [pc, #12]	; (44 <USART_To_USB_Send_Data+0x44>)
+  38:	2200      	movs	r2, #0
+  3a:	609a      	str	r2, [r3, #8]
+  3c:	bd38      	pop	{r3, r4, r5, pc}
+  3e:	bf00      	nop
+	...
+  48:	40004400 	.word	0x40004400
+  4c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.Get_SerialNum:
+
+00000000 <Get_SerialNum>:
+Get_SerialNum():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:508
+void Get_SerialNum(void)
+{
+  uint32_t Device_Serial0, Device_Serial1, Device_Serial2;
+
+  Device_Serial0 = *(__IO uint32_t*)(0x1FFFF7E8);
+  Device_Serial1 = *(__IO uint32_t*)(0x1FFFF7EC);
+   0:	4b0a4a09 	.word	0x4b0a4a09
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:504
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void Get_SerialNum(void)
+{
+   4:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:507
+  uint32_t Device_Serial0, Device_Serial1, Device_Serial2;
+
+  Device_Serial0 = *(__IO uint32_t*)(0x1FFFF7E8);
+   6:	681b      	ldr	r3, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:508
+  Device_Serial1 = *(__IO uint32_t*)(0x1FFFF7EC);
+   8:	6814      	ldr	r4, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:509
+  Device_Serial2 = *(__IO uint32_t*)(0x1FFFF7F0);
+   a:	6850      	ldr	r0, [r2, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:513
+
+  Device_Serial0 += Device_Serial2;
+
+  if (Device_Serial0 != 0)
+   c:	18c0      	adds	r0, r0, r3
+   e:	d00a      	beq.n	26 <Get_SerialNum+0x26>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:515
+  {
+    IntToUnicode (Device_Serial0, &Virtual_Com_Port_StringSerial[2] , 8);
+  10:	2208      	movs	r2, #8
+  12:	4907      	ldr	r1, [pc, #28]	; (30 <Get_SerialNum+0x30>)
+  14:	f7ff fffe 	bl	0 <Get_SerialNum>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:516
+    IntToUnicode (Device_Serial1, &Virtual_Com_Port_StringSerial[18], 4);
+  18:	4906      	ldr	r1, [pc, #24]	; (34 <Get_SerialNum+0x34>)
+  1a:	4620      	mov	r0, r4
+  1c:	2204      	movs	r2, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:518
+  }
+}
+  1e:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/hw_config.c:516
+  Device_Serial0 += Device_Serial2;
+
+  if (Device_Serial0 != 0)
+  {
+    IntToUnicode (Device_Serial0, &Virtual_Com_Port_StringSerial[2] , 8);
+    IntToUnicode (Device_Serial1, &Virtual_Com_Port_StringSerial[18], 4);
+  22:	f7ff bffe 	b.w	0 <Get_SerialNum>
+  26:	bd10      	pop	{r4, pc}
+  28:	1ffff7ec 	.word	0x1ffff7ec
+  2c:	1ffff7e8 	.word	0x1ffff7e8
+  30:	00000002 	.word	0x00000002
+  34:	00000012 	.word	0x00000012

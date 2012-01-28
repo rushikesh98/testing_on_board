@@ -1,0 +1,325 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\stm32f10x_exti.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\stm32f10x_exti.o
+
+
+Disassembly of section .text.EXTI_DeInit:
+
+00000000 <EXTI_DeInit>:
+EXTI_DeInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:86
+  * @param  None
+  * @retval None
+  */
+void EXTI_DeInit(void)
+{
+  EXTI->IMR = 0x00000000;
+   0:	4b04      	ldr	r3, [pc, #16]	; (14 <EXTI_DeInit+0x14>)
+   2:	2200      	movs	r2, #0
+   4:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:87
+  EXTI->EMR = 0x00000000;
+   6:	605a      	str	r2, [r3, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:88
+  EXTI->RTSR = 0x00000000; 
+   8:	609a      	str	r2, [r3, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:89
+  EXTI->FTSR = 0x00000000; 
+   a:	60da      	str	r2, [r3, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:90
+  EXTI->PR = 0x000FFFFF;
+   c:	4a02      	ldr	r2, [pc, #8]	; (18 <EXTI_DeInit+0x18>)
+   e:	615a      	str	r2, [r3, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:91
+}
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+  14:	40010400 	.word	0x40010400
+  18:	000fffff 	.word	0x000fffff
+
+Disassembly of section .text.EXTI_Init:
+
+00000000 <EXTI_Init>:
+EXTI_Init():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:112
+  assert_param(IS_EXTI_LINE(EXTI_InitStruct->EXTI_Line));  
+  assert_param(IS_FUNCTIONAL_STATE(EXTI_InitStruct->EXTI_LineCmd));
+
+  tmp = (uint32_t)EXTI_BASE;
+     
+  if (EXTI_InitStruct->EXTI_LineCmd != DISABLE)
+   0:	7983      	ldrb	r3, [r0, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:101
+  * @param  EXTI_InitStruct: pointer to a EXTI_InitTypeDef structure
+  *   that contains the configuration information for the EXTI peripheral.
+  * @retval None
+  */
+void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct)
+{
+   2:	b510      	push	{r4, lr}
+   4:	6801      	ldr	r1, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:112
+  assert_param(IS_EXTI_LINE(EXTI_InitStruct->EXTI_Line));  
+  assert_param(IS_FUNCTIONAL_STATE(EXTI_InitStruct->EXTI_LineCmd));
+
+  tmp = (uint32_t)EXTI_BASE;
+     
+  if (EXTI_InitStruct->EXTI_LineCmd != DISABLE)
+   6:	2b00      	cmp	r3, #0
+   8:	d02b      	beq.n	62 <EXTI_Init+0x62>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:115
+  {
+    /* Clear EXTI line configuration */
+    EXTI->IMR &= ~EXTI_InitStruct->EXTI_Line;
+   a:	4b1b      	ldr	r3, [pc, #108]	; (78 <EXTI_Init+0x78>)
+   c:	43ca      	mvns	r2, r1
+   e:	681c      	ldr	r4, [r3, #0]
+  10:	ea02 0404 	and.w	r4, r2, r4
+  14:	601c      	str	r4, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:116
+    EXTI->EMR &= ~EXTI_InitStruct->EXTI_Line;
+  16:	685c      	ldr	r4, [r3, #4]
+  18:	4022      	ands	r2, r4
+  1a:	605a      	str	r2, [r3, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:118
+    
+    tmp += EXTI_InitStruct->EXTI_Mode;
+  1c:	7902      	ldrb	r2, [r0, #4]
+  1e:	18d2      	adds	r2, r2, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:120
+
+    *(__IO uint32_t *) tmp |= EXTI_InitStruct->EXTI_Line;
+  20:	6814      	ldr	r4, [r2, #0]
+  22:	ea44 0101 	orr.w	r1, r4, r1
+  26:	6011      	str	r1, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:123
+
+    /* Clear Rising Falling edge configuration */
+    EXTI->RTSR &= ~EXTI_InitStruct->EXTI_Line;
+  28:	6802      	ldr	r2, [r0, #0]
+  2a:	689c      	ldr	r4, [r3, #8]
+  2c:	43d1      	mvns	r1, r2
+  2e:	ea01 0404 	and.w	r4, r1, r4
+  32:	609c      	str	r4, [r3, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:124
+    EXTI->FTSR &= ~EXTI_InitStruct->EXTI_Line;
+  34:	68dc      	ldr	r4, [r3, #12]
+  36:	4021      	ands	r1, r4
+  38:	60d9      	str	r1, [r3, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:127
+    
+    /* Select the trigger for the selected external interrupts */
+    if (EXTI_InitStruct->EXTI_Trigger == EXTI_Trigger_Rising_Falling)
+  3a:	7941      	ldrb	r1, [r0, #5]
+  3c:	2910      	cmp	r1, #16
+  3e:	d107      	bne.n	50 <EXTI_Init+0x50>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:130
+    {
+      /* Rising Falling edge */
+      EXTI->RTSR |= EXTI_InitStruct->EXTI_Line;
+  40:	6899      	ldr	r1, [r3, #8]
+  42:	4311      	orrs	r1, r2
+  44:	6099      	str	r1, [r3, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:131
+      EXTI->FTSR |= EXTI_InitStruct->EXTI_Line;
+  46:	68d9      	ldr	r1, [r3, #12]
+  48:	ea41 0202 	orr.w	r2, r1, r2
+  4c:	60da      	str	r2, [r3, #12]
+  4e:	bd10      	pop	{r4, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:136
+    }
+    else
+    {
+      tmp = (uint32_t)EXTI_BASE;
+      tmp += EXTI_InitStruct->EXTI_Trigger;
+  50:	f101 4380 	add.w	r3, r1, #1073741824	; 0x40000000
+  54:	f503 3382 	add.w	r3, r3, #66560	; 0x10400
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:138
+
+      *(__IO uint32_t *) tmp |= EXTI_InitStruct->EXTI_Line;
+  58:	6819      	ldr	r1, [r3, #0]
+  5a:	ea41 0202 	orr.w	r2, r1, r2
+  5e:	601a      	str	r2, [r3, #0]
+  60:	bd10      	pop	{r4, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:143
+    }
+  }
+  else
+  {
+    tmp += EXTI_InitStruct->EXTI_Mode;
+  62:	7903      	ldrb	r3, [r0, #4]
+  64:	f103 4380 	add.w	r3, r3, #1073741824	; 0x40000000
+  68:	f503 3382 	add.w	r3, r3, #66560	; 0x10400
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:146
+
+    /* Disable the selected external lines */
+    *(__IO uint32_t *) tmp &= ~EXTI_InitStruct->EXTI_Line;
+  6c:	681a      	ldr	r2, [r3, #0]
+  6e:	ea22 0101 	bic.w	r1, r2, r1
+  72:	6019      	str	r1, [r3, #0]
+  74:	bd10      	pop	{r4, pc}
+  76:	bf00      	nop
+  78:	40010400 	.word	0x40010400
+
+Disassembly of section .text.EXTI_StructInit:
+
+00000000 <EXTI_StructInit>:
+EXTI_StructInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:158
+  *   be initialized.
+  * @retval None
+  */
+void EXTI_StructInit(EXTI_InitTypeDef* EXTI_InitStruct)
+{
+  EXTI_InitStruct->EXTI_Line = EXTI_LineNone;
+   0:	2300      	movs	r3, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:160
+  EXTI_InitStruct->EXTI_Mode = EXTI_Mode_Interrupt;
+  EXTI_InitStruct->EXTI_Trigger = EXTI_Trigger_Falling;
+   2:	220c      	movs	r2, #12
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:158
+  *   be initialized.
+  * @retval None
+  */
+void EXTI_StructInit(EXTI_InitTypeDef* EXTI_InitStruct)
+{
+  EXTI_InitStruct->EXTI_Line = EXTI_LineNone;
+   4:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:159
+  EXTI_InitStruct->EXTI_Mode = EXTI_Mode_Interrupt;
+   6:	7103      	strb	r3, [r0, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:160
+  EXTI_InitStruct->EXTI_Trigger = EXTI_Trigger_Falling;
+   8:	7142      	strb	r2, [r0, #5]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:161
+  EXTI_InitStruct->EXTI_LineCmd = DISABLE;
+   a:	7183      	strb	r3, [r0, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:162
+}
+   c:	4770      	bx	lr
+
+Disassembly of section .text.EXTI_GenerateSWInterrupt:
+
+00000000 <EXTI_GenerateSWInterrupt>:
+EXTI_GenerateSWInterrupt():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:175
+void EXTI_GenerateSWInterrupt(uint32_t EXTI_Line)
+{
+  /* Check the parameters */
+  assert_param(IS_EXTI_LINE(EXTI_Line));
+  
+  EXTI->SWIER |= EXTI_Line;
+   0:	4b02      	ldr	r3, [pc, #8]	; (c <EXTI_GenerateSWInterrupt+0xc>)
+   2:	691a      	ldr	r2, [r3, #16]
+   4:	ea40 0202 	orr.w	r2, r0, r2
+   8:	611a      	str	r2, [r3, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:176
+}
+   a:	4770      	bx	lr
+   c:	40010400 	.word	0x40010400
+
+Disassembly of section .text.EXTI_GetFlagStatus:
+
+00000000 <EXTI_GetFlagStatus>:
+EXTI_GetFlagStatus():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:191
+{
+  FlagStatus bitstatus = RESET;
+  /* Check the parameters */
+  assert_param(IS_GET_EXTI_LINE(EXTI_Line));
+  
+  if ((EXTI->PR & EXTI_Line) != (uint32_t)RESET)
+   0:	4b03      	ldr	r3, [pc, #12]	; (10 <EXTI_GetFlagStatus+0x10>)
+   2:	695b      	ldr	r3, [r3, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:193
+  {
+    bitstatus = SET;
+   4:	4218      	tst	r0, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:200
+  else
+  {
+    bitstatus = RESET;
+  }
+  return bitstatus;
+}
+   6:	bf0c      	ite	eq
+   8:	2000      	moveq	r0, #0
+   a:	2001      	movne	r0, #1
+   c:	4770      	bx	lr
+   e:	bf00      	nop
+  10:	40010400 	.word	0x40010400
+
+Disassembly of section .text.EXTI_ClearFlag:
+
+00000000 <EXTI_ClearFlag>:
+EXTI_ClearFlag():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:213
+void EXTI_ClearFlag(uint32_t EXTI_Line)
+{
+  /* Check the parameters */
+  assert_param(IS_EXTI_LINE(EXTI_Line));
+  
+  EXTI->PR = EXTI_Line;
+   0:	61584b01 	.word	0x61584b01
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:214
+}
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	40010400 	.word	0x40010400
+
+Disassembly of section .text.EXTI_GetITStatus:
+
+00000000 <EXTI_GetITStatus>:
+EXTI_GetITStatus():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:230
+  ITStatus bitstatus = RESET;
+  uint32_t enablestatus = 0;
+  /* Check the parameters */
+  assert_param(IS_GET_EXTI_LINE(EXTI_Line));
+  
+  enablestatus =  EXTI->IMR & EXTI_Line;
+   0:	4b05      	ldr	r3, [pc, #20]	; (18 <EXTI_GetITStatus+0x18>)
+   2:	681a      	ldr	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:231
+  if (((EXTI->PR & EXTI_Line) != (uint32_t)RESET) && (enablestatus != (uint32_t)RESET))
+   4:	695b      	ldr	r3, [r3, #20]
+   6:	4003      	ands	r3, r0
+   8:	d004      	beq.n	14 <EXTI_GetITStatus+0x14>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:233
+  {
+    bitstatus = SET;
+   a:	4210      	tst	r0, r2
+   c:	bf0c      	ite	eq
+   e:	2000      	moveq	r0, #0
+  10:	2001      	movne	r0, #1
+  12:	4770      	bx	lr
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:237
+  }
+  else
+  {
+    bitstatus = RESET;
+  14:	4618      	mov	r0, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:240
+  }
+  return bitstatus;
+}
+  16:	4770      	bx	lr
+  18:	40010400 	.word	0x40010400
+
+Disassembly of section .text.EXTI_ClearITPendingBit:
+
+00000000 <EXTI_ClearITPendingBit>:
+EXTI_ClearITPendingBit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:253
+void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
+{
+  /* Check the parameters */
+  assert_param(IS_EXTI_LINE(EXTI_Line));
+  
+  EXTI->PR = EXTI_Line;
+   0:	61584b01 	.word	0x61584b01
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/stm32f10x_exti.c:254
+}
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	40010400 	.word	0x40010400

@@ -1,0 +1,2421 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_core.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_core.o
+
+
+Disassembly of section .text.Standard_GetConfiguration:
+
+00000000 <Standard_GetConfiguration>:
+Standard_GetConfiguration():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:62
+* Output         : None.
+* Return         : Return 1 , if the request is invalid when "Length" is 0.
+*                  Return "Buffer" if the "Length" is not 0.
+*******************************************************************************/
+uint8_t *Standard_GetConfiguration(uint16_t Length)
+{
+   0:	b510      	push	{r4, lr}
+   2:	4c06      	ldr	r4, [pc, #24]	; (1c <Standard_GetConfiguration+0x1c>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:63
+  if (Length == 0)
+   4:	b918      	cbnz	r0, e <Standard_GetConfiguration+0xe>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:65
+  {
+    pInformation->Ctrl_Info.Usb_wLength =
+   6:	6823      	ldr	r3, [r4, #0]
+   8:	2201      	movs	r2, #1
+   a:	821a      	strh	r2, [r3, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:67
+      sizeof(pInformation->Current_Configuration);
+    return 0;
+   c:	bd10      	pop	{r4, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:69
+  }
+  pUser_Standard_Requests->User_GetConfiguration();
+   e:	4b04      	ldr	r3, [pc, #16]	; (20 <Standard_GetConfiguration+0x20>)
+  10:	681b      	ldr	r3, [r3, #0]
+  12:	681b      	ldr	r3, [r3, #0]
+  14:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:70
+  return (uint8_t *)&pInformation->Current_Configuration;
+  16:	6820      	ldr	r0, [r4, #0]
+  18:	300a      	adds	r0, #10
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:71
+}
+  1a:	bd10      	pop	{r4, pc}
+	...
+
+Disassembly of section .text.Standard_GetInterface:
+
+00000000 <Standard_GetInterface>:
+Standard_GetInterface():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:108
+* Output         : None.
+* Return         : Return 0, if the request is invalid when "Length" is 0.
+*                  Return "Buffer" if the "Length" is not 0.
+*******************************************************************************/
+uint8_t *Standard_GetInterface(uint16_t Length)
+{
+   0:	b510      	push	{r4, lr}
+   2:	4c06      	ldr	r4, [pc, #24]	; (1c <Standard_GetInterface+0x1c>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:109
+  if (Length == 0)
+   4:	b918      	cbnz	r0, e <Standard_GetInterface+0xe>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:111
+  {
+    pInformation->Ctrl_Info.Usb_wLength =
+   6:	6823      	ldr	r3, [r4, #0]
+   8:	2201      	movs	r2, #1
+   a:	821a      	strh	r2, [r3, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:113
+      sizeof(pInformation->Current_AlternateSetting);
+    return 0;
+   c:	bd10      	pop	{r4, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:115
+  }
+  pUser_Standard_Requests->User_GetInterface();
+   e:	4b04      	ldr	r3, [pc, #16]	; (20 <Standard_GetInterface+0x20>)
+  10:	681b      	ldr	r3, [r3, #0]
+  12:	689b      	ldr	r3, [r3, #8]
+  14:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:116
+  return (uint8_t *)&pInformation->Current_AlternateSetting;
+  16:	6820      	ldr	r0, [r4, #0]
+  18:	300c      	adds	r0, #12
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:117
+}
+  1a:	bd10      	pop	{r4, pc}
+	...
+
+Disassembly of section .text.Standard_GetStatus:
+
+00000000 <Standard_GetStatus>:
+Standard_GetStatus():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:164
+* Output         : None.
+* Return         : Return 0, if the request is at end of data block,
+*                  or is invalid when "Length" is 0.
+*******************************************************************************/
+uint8_t *Standard_GetStatus(uint16_t Length)
+{
+   0:	b508      	push	{r3, lr}
+   2:	4b26      	ldr	r3, [pc, #152]	; (9c <Standard_GetStatus+0x9c>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:165
+  if (Length == 0)
+   4:	b918      	cbnz	r0, e <Standard_GetStatus+0xe>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:167
+  {
+    pInformation->Ctrl_Info.Usb_wLength = 2;
+   6:	681b      	ldr	r3, [r3, #0]
+   8:	2202      	movs	r2, #2
+   a:	821a      	strh	r2, [r3, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:168
+    return 0;
+   c:	bd08      	pop	{r3, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:172
+  }
+
+  /* Reset Status Information */
+  StatusInfo.w = 0;
+   e:	4824      	ldr	r0, [pc, #144]	; (a0 <Standard_GetStatus+0xa0>)
+  10:	2200      	movs	r2, #0
+  12:	8002      	strh	r2, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:174
+
+  if (Type_Recipient == (STANDARD_REQUEST | DEVICE_RECIPIENT))
+  14:	681a      	ldr	r2, [r3, #0]
+  16:	7811      	ldrb	r1, [r2, #0]
+  18:	f011 017f 	ands.w	r1, r1, #127	; 0x7f
+  1c:	d113      	bne.n	46 <Standard_GetStatus+0x46>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:180
+  {
+    /*Get Device Status */
+    uint8_t Feature = pInformation->Current_Feature;
+
+    /* Remote Wakeup enabled */
+    if (ValBit(Feature, 5))
+  1e:	7a52      	ldrb	r2, [r2, #9]
+  20:	7801      	ldrb	r1, [r0, #0]
+  22:	f012 0f20 	tst.w	r2, #32
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:182
+    {
+      SetBit(StatusInfo0, 1);
+  26:	bf14      	ite	ne
+  28:	f041 0102 	orrne.w	r1, r1, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:186
+    }
+    else
+    {
+      ClrBit(StatusInfo0, 1);
+  2c:	f021 0102 	biceq.w	r1, r1, #2
+  30:	7001      	strb	r1, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:190
+    }      
+
+    /* Bus-powered */
+    if (ValBit(Feature, 6))
+  32:	f012 0f40 	tst.w	r2, #64	; 0x40
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:192
+    {
+      SetBit(StatusInfo0, 0);
+  36:	7802      	ldrb	r2, [r0, #0]
+  38:	bf14      	ite	ne
+  3a:	f042 0201 	orrne.w	r2, r2, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:196
+    }
+    else /* Self-powered */
+    {
+      ClrBit(StatusInfo0, 0);
+  3e:	f022 0201 	biceq.w	r2, r2, #1
+  42:	7002      	strb	r2, [r0, #0]
+  44:	e022      	b.n	8c <Standard_GetStatus+0x8c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:200
+    }
+  }
+  /*Interface Status*/
+  else if (Type_Recipient == (STANDARD_REQUEST | INTERFACE_RECIPIENT))
+  46:	2901      	cmp	r1, #1
+  48:	d027      	beq.n	9a <Standard_GetStatus+0x9a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:205
+  {
+    return (uint8_t *)&StatusInfo;
+  }
+  /*Get EndPoint Status*/
+  else if (Type_Recipient == (STANDARD_REQUEST | ENDPOINT_RECIPIENT))
+  4a:	2902      	cmp	r1, #2
+  4c:	d124      	bne.n	98 <Standard_GetStatus+0x98>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:208
+  {
+    uint8_t Related_Endpoint;
+    uint8_t wIndex0 = pInformation->USBwIndex0;
+  4e:	7952      	ldrb	r2, [r2, #5]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:210
+
+    Related_Endpoint = (wIndex0 & 0x0f);
+  50:	f002 030f 	and.w	r3, r2, #15
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:211
+    if (ValBit(wIndex0, 7))
+  54:	f012 0f80 	tst.w	r2, #128	; 0x80
+  58:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  5c:	d008      	beq.n	70 <Standard_GetStatus+0x70>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:214
+    {
+      /* IN endpoint */
+      if (_GetTxStallStatus(Related_Endpoint))
+  5e:	f103 4380 	add.w	r3, r3, #1073741824	; 0x40000000
+  62:	f503 43b8 	add.w	r3, r3, #23552	; 0x5c00
+  66:	681b      	ldr	r3, [r3, #0]
+  68:	f003 0330 	and.w	r3, r3, #48	; 0x30
+  6c:	2b10      	cmp	r3, #16
+  6e:	e008      	b.n	82 <Standard_GetStatus+0x82>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:222
+      }
+    }
+    else
+    {
+      /* OUT endpoint */
+      if (_GetRxStallStatus(Related_Endpoint))
+  70:	f103 4380 	add.w	r3, r3, #1073741824	; 0x40000000
+  74:	f503 43b8 	add.w	r3, r3, #23552	; 0x5c00
+  78:	681b      	ldr	r3, [r3, #0]
+  7a:	f403 5340 	and.w	r3, r3, #12288	; 0x3000
+  7e:	f5b3 5f80 	cmp.w	r3, #4096	; 0x1000
+  82:	d103      	bne.n	8c <Standard_GetStatus+0x8c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:224
+      {
+        SetBit(StatusInfo0, 0); /* OUT Endpoint stalled */
+  84:	7803      	ldrb	r3, [r0, #0]
+  86:	f043 0301 	orr.w	r3, r3, #1
+  8a:	7003      	strb	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:233
+  }
+  else
+  {
+    return NULL;
+  }
+  pUser_Standard_Requests->User_GetStatus();
+  8c:	4b05      	ldr	r3, [pc, #20]	; (a4 <Standard_GetStatus+0xa4>)
+  8e:	681b      	ldr	r3, [r3, #0]
+  90:	691b      	ldr	r3, [r3, #16]
+  92:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:234
+  return (uint8_t *)&StatusInfo;
+  94:	4802      	ldr	r0, [pc, #8]	; (a0 <Standard_GetStatus+0xa0>)
+  96:	bd08      	pop	{r3, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:231
+    }
+
+  }
+  else
+  {
+    return NULL;
+  98:	2000      	movs	r0, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:235
+  }
+  pUser_Standard_Requests->User_GetStatus();
+  return (uint8_t *)&StatusInfo;
+}
+  9a:	bd08      	pop	{r3, pc}
+	...
+
+Disassembly of section .text.DataStageIn:
+
+00000000 <DataStageIn>:
+DataStageIn():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:502
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void DataStageIn(void)
+{
+  ENDPOINT_INFO *pEPinfo = &pInformation->Ctrl_Info;
+   0:	4a23      	ldr	r2, [pc, #140]	; (90 <DataStageIn+0x90>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:501
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void DataStageIn(void)
+{
+   2:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:502
+  ENDPOINT_INFO *pEPinfo = &pInformation->Ctrl_Info;
+   6:	6814      	ldr	r4, [r2, #0]
+   8:	4690      	mov	r8, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:503
+  uint32_t save_wLength = pEPinfo->Usb_wLength;
+   a:	8a23      	ldrh	r3, [r4, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:504
+  uint32_t ControlState = pInformation->ControlState;
+   c:	7a26      	ldrb	r6, [r4, #8]
+   e:	4f21      	ldr	r7, [pc, #132]	; (94 <DataStageIn+0x94>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:509
+
+  uint8_t *DataBuffer;
+  uint32_t Length;
+
+  if ((save_wLength == 0) && (ControlState == LAST_IN_DATA))
+  10:	b9a3      	cbnz	r3, 3c <DataStageIn+0x3c>
+  12:	2e04      	cmp	r6, #4
+  14:	d112      	bne.n	3c <DataStageIn+0x3c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:511
+  {
+    if(Data_Mul_MaxPacketSize == TRUE)
+  16:	4920      	ldr	r1, [pc, #128]	; (98 <DataStageIn+0x98>)
+  18:	780a      	ldrb	r2, [r1, #0]
+  1a:	2a01      	cmp	r2, #1
+  1c:	d10a      	bne.n	34 <DataStageIn+0x34>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:514
+    {
+      /* No more data to send and empty packet */
+      Send0LengthData();
+  1e:	4a1f      	ldr	r2, [pc, #124]	; (9c <DataStageIn+0x9c>)
+  20:	6810      	ldr	r0, [r2, #0]
+  22:	4a1f      	ldr	r2, [pc, #124]	; (a0 <DataStageIn+0xa0>)
+  24:	b280      	uxth	r0, r0
+  26:	1882      	adds	r2, r0, r2
+  28:	0052      	lsls	r2, r2, #1
+  2a:	6013      	str	r3, [r2, #0]
+  2c:	2230      	movs	r2, #48	; 0x30
+  2e:	803a      	strh	r2, [r7, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:516
+      ControlState = LAST_IN_DATA;
+      Data_Mul_MaxPacketSize = FALSE;
+  30:	700b      	strb	r3, [r1, #0]
+  32:	e027      	b.n	84 <DataStageIn+0x84>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:528
+    #ifdef STM32F10X_CL      
+      PCD_EP_Read (ENDP0, 0, 0);
+    #endif  /* STM32F10X_CL */ 
+    
+    #ifndef STM32F10X_CL 
+      vSetEPTxStatus(EP_TX_STALL);
+  34:	2310      	movs	r3, #16
+  36:	803b      	strh	r3, [r7, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:521
+      Data_Mul_MaxPacketSize = FALSE;
+    }
+    else 
+    {
+      /* No more data to send so STALL the TX Status*/
+      ControlState = WAIT_STATUS_OUT;
+  38:	2607      	movs	r6, #7
+  3a:	e023      	b.n	84 <DataStageIn+0x84>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:535
+    }
+    
+    goto Expect_Status_Out;
+  }
+
+  Length = pEPinfo->PacketSize;
+  3c:	8aa5      	ldrh	r5, [r4, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:536
+  ControlState = (save_wLength <= Length) ? LAST_IN_DATA : IN_DATA;
+  3e:	42ab      	cmp	r3, r5
+  40:	bf8c      	ite	hi
+  42:	2602      	movhi	r6, #2
+  44:	2604      	movls	r6, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:543
+  if (Length > save_wLength)
+  {
+    Length = save_wLength;
+  }
+
+  DataBuffer = (*pEPinfo->CopyData)(Length);
+  46:	429d      	cmp	r5, r3
+  48:	bf28      	it	cs
+  4a:	461d      	movcs	r5, r3
+  4c:	4628      	mov	r0, r5
+  4e:	69a3      	ldr	r3, [r4, #24]
+  50:	4798      	blx	r3
+  52:	4681      	mov	r9, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:548
+
+#ifdef STM32F10X_CL
+  PCD_EP_Write (ENDP0, DataBuffer, Length);
+#else   
+  UserToPMABufferCopy(DataBuffer, GetEPTxAddr(ENDP0), Length);
+  54:	2000      	movs	r0, #0
+  56:	f7ff fffe 	bl	0 <GetEPTxAddr>
+  5a:	462a      	mov	r2, r5
+  5c:	4601      	mov	r1, r0
+  5e:	4648      	mov	r0, r9
+  60:	f7ff fffe 	bl	0 <UserToPMABufferCopy>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:551
+#endif /* STM32F10X_CL */ 
+
+  SetEPTxCount(ENDP0, Length);
+  64:	4629      	mov	r1, r5
+  66:	2000      	movs	r0, #0
+  68:	f7ff fffe 	bl	0 <SetEPTxCount>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:553
+
+  pEPinfo->Usb_wLength -= Length;
+  6c:	8a23      	ldrh	r3, [r4, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:555
+  pEPinfo->Usb_wOffset += Length;
+  vSetEPTxStatus(EP_TX_VALID);
+  6e:	2230      	movs	r2, #48	; 0x30
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:553
+  UserToPMABufferCopy(DataBuffer, GetEPTxAddr(ENDP0), Length);
+#endif /* STM32F10X_CL */ 
+
+  SetEPTxCount(ENDP0, Length);
+
+  pEPinfo->Usb_wLength -= Length;
+  70:	1b5b      	subs	r3, r3, r5
+  72:	8223      	strh	r3, [r4, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:554
+  pEPinfo->Usb_wOffset += Length;
+  74:	8a63      	ldrh	r3, [r4, #18]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:555
+  vSetEPTxStatus(EP_TX_VALID);
+  76:	803a      	strh	r2, [r7, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:554
+#endif /* STM32F10X_CL */ 
+
+  SetEPTxCount(ENDP0, Length);
+
+  pEPinfo->Usb_wLength -= Length;
+  pEPinfo->Usb_wOffset += Length;
+  78:	18ed      	adds	r5, r5, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:557
+  vSetEPTxStatus(EP_TX_VALID);
+
+  USB_StatusOut();/* Expect the host to abort the data IN stage */
+  7a:	4b0a      	ldr	r3, [pc, #40]	; (a4 <DataStageIn+0xa4>)
+  7c:	f44f 5240 	mov.w	r2, #12288	; 0x3000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:554
+#endif /* STM32F10X_CL */ 
+
+  SetEPTxCount(ENDP0, Length);
+
+  pEPinfo->Usb_wLength -= Length;
+  pEPinfo->Usb_wOffset += Length;
+  80:	8265      	strh	r5, [r4, #18]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:557
+  vSetEPTxStatus(EP_TX_VALID);
+
+  USB_StatusOut();/* Expect the host to abort the data IN stage */
+  82:	801a      	strh	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:560
+
+Expect_Status_Out:
+  pInformation->ControlState = ControlState;
+  84:	f8d8 3000 	ldr.w	r3, [r8]
+  88:	721e      	strb	r6, [r3, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:561
+}
+  8a:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  8e:	bf00      	nop
+	...
+  9c:	40005c50 	.word	0x40005c50
+  a0:	20003002 	.word	0x20003002
+  a4:	00000000 	.word	0x00000000
+
+Disassembly of section .text.Standard_SetConfiguration:
+
+00000000 <Standard_SetConfiguration>:
+Standard_SetConfiguration():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:83
+* Output         : None.
+* Return         : Return USB_SUCCESS, if the request is performed.
+*                  Return USB_UNSUPPORT, if the request is invalid.
+*******************************************************************************/
+RESULT Standard_SetConfiguration(void)
+{
+   0:	4b0bb510 	.word	0x4b0bb510
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:86
+
+  if ((pInformation->USBwValue0 <=
+      Device_Table.Total_Configuration) && (pInformation->USBwValue1 == 0)
+   4:	490b      	ldr	r1, [pc, #44]	; (34 <Standard_SetConfiguration+0x34>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:85
+*                  Return USB_UNSUPPORT, if the request is invalid.
+*******************************************************************************/
+RESULT Standard_SetConfiguration(void)
+{
+
+  if ((pInformation->USBwValue0 <=
+   6:	681b      	ldr	r3, [r3, #0]
+   8:	7849      	ldrb	r1, [r1, #1]
+   a:	78da      	ldrb	r2, [r3, #3]
+   c:	4291      	cmp	r1, r2
+   e:	d30a      	bcc.n	26 <Standard_SetConfiguration+0x26>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:86
+      Device_Table.Total_Configuration) && (pInformation->USBwValue1 == 0)
+  10:	7899      	ldrb	r1, [r3, #2]
+  12:	b941      	cbnz	r1, 26 <Standard_SetConfiguration+0x26>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:87
+      && (pInformation->USBwIndex == 0)) /*call Back usb spec 2.0*/
+  14:	889c      	ldrh	r4, [r3, #4]
+  16:	b944      	cbnz	r4, 2a <Standard_SetConfiguration+0x2a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:89
+  {
+    pInformation->Current_Configuration = pInformation->USBwValue0;
+  18:	729a      	strb	r2, [r3, #10]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:90
+    pUser_Standard_Requests->User_SetConfiguration();
+  1a:	4b07      	ldr	r3, [pc, #28]	; (38 <Standard_SetConfiguration+0x38>)
+  1c:	681b      	ldr	r3, [r3, #0]
+  1e:	685b      	ldr	r3, [r3, #4]
+  20:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:91
+    return USB_SUCCESS;
+  22:	4620      	mov	r0, r4
+  24:	bd10      	pop	{r4, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:95
+  }
+  else
+  {
+    return USB_UNSUPPORT;
+  26:	2002      	movs	r0, #2
+  28:	bd10      	pop	{r4, pc}
+  2a:	2002      	movs	r0, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:97
+  }
+}
+  2c:	bd10      	pop	{r4, pc}
+  2e:	bf00      	nop
+	...
+
+Disassembly of section .text.Standard_SetInterface:
+
+00000000 <Standard_SetInterface>:
+Standard_SetInterface():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:129
+* Output         : None.
+* Return         : - Return USB_SUCCESS, if the request is performed.
+*                  - Return USB_UNSUPPORT, if the request is invalid.
+*******************************************************************************/
+RESULT Standard_SetInterface(void)
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:133
+  RESULT Re;
+  /*Test if the specified Interface and Alternate Setting are supported by
+    the application Firmware*/
+  Re = (*pProperty->Class_Get_Interface_Setting)(pInformation->USBwIndex0, pInformation->USBwValue0);
+   2:	4c0f      	ldr	r4, [pc, #60]	; (40 <Standard_SetInterface+0x40>)
+   4:	4b0f      	ldr	r3, [pc, #60]	; (44 <Standard_SetInterface+0x44>)
+   6:	6822      	ldr	r2, [r4, #0]
+   8:	681b      	ldr	r3, [r3, #0]
+   a:	7950      	ldrb	r0, [r2, #5]
+   c:	699b      	ldr	r3, [r3, #24]
+   e:	78d1      	ldrb	r1, [r2, #3]
+  10:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:135
+
+  if (pInformation->Current_Configuration != 0)
+  12:	6823      	ldr	r3, [r4, #0]
+  14:	7a9a      	ldrb	r2, [r3, #10]
+  16:	b17a      	cbz	r2, 38 <Standard_SetInterface+0x38>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:137
+  {
+    if ((Re != USB_SUCCESS) || (pInformation->USBwIndex1 != 0)
+  18:	b970      	cbnz	r0, 38 <Standard_SetInterface+0x38>
+  1a:	791a      	ldrb	r2, [r3, #4]
+  1c:	b962      	cbnz	r2, 38 <Standard_SetInterface+0x38>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:138
+        || (pInformation->USBwValue1 != 0))
+  1e:	789d      	ldrb	r5, [r3, #2]
+  20:	b965      	cbnz	r5, 3c <Standard_SetInterface+0x3c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:144
+    {
+      return  USB_UNSUPPORT;
+    }
+    else if (Re == USB_SUCCESS)
+    {
+      pUser_Standard_Requests->User_SetInterface();
+  22:	4b09      	ldr	r3, [pc, #36]	; (48 <Standard_SetInterface+0x48>)
+  24:	681b      	ldr	r3, [r3, #0]
+  26:	68db      	ldr	r3, [r3, #12]
+  28:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:145
+      pInformation->Current_Interface = pInformation->USBwIndex0;
+  2a:	6823      	ldr	r3, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:147
+      pInformation->Current_AlternateSetting = pInformation->USBwValue0;
+      return USB_SUCCESS;
+  2c:	4628      	mov	r0, r5
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:145
+      return  USB_UNSUPPORT;
+    }
+    else if (Re == USB_SUCCESS)
+    {
+      pUser_Standard_Requests->User_SetInterface();
+      pInformation->Current_Interface = pInformation->USBwIndex0;
+  2e:	795a      	ldrb	r2, [r3, #5]
+  30:	72da      	strb	r2, [r3, #11]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:146
+      pInformation->Current_AlternateSetting = pInformation->USBwValue0;
+  32:	78da      	ldrb	r2, [r3, #3]
+  34:	731a      	strb	r2, [r3, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:147
+      return USB_SUCCESS;
+  36:	bd38      	pop	{r3, r4, r5, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:140
+  if (pInformation->Current_Configuration != 0)
+  {
+    if ((Re != USB_SUCCESS) || (pInformation->USBwIndex1 != 0)
+        || (pInformation->USBwValue1 != 0))
+    {
+      return  USB_UNSUPPORT;
+  38:	2002      	movs	r0, #2
+  3a:	bd38      	pop	{r3, r4, r5, pc}
+  3c:	2002      	movs	r0, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:153
+    }
+
+  }
+
+  return USB_UNSUPPORT;
+}
+  3e:	bd38      	pop	{r3, r4, r5, pc}
+	...
+
+Disassembly of section .text.Standard_ClearFeature:
+
+00000000 <Standard_ClearFeature>:
+Standard_ClearFeature():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:246
+* Output         : None.
+* Return         : - Return USB_SUCCESS, if the request is performed.
+*                  - Return USB_UNSUPPORT, if the request is invalid.
+*******************************************************************************/
+RESULT Standard_ClearFeature(void)
+{
+   0:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:247
+  uint32_t     Type_Rec = Type_Recipient;
+   2:	4b36      	ldr	r3, [pc, #216]	; (dc <Standard_ClearFeature+0xdc>)
+   4:	681b      	ldr	r3, [r3, #0]
+   6:	7818      	ldrb	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:251
+  uint32_t     Status;
+
+
+  if (Type_Rec == (STANDARD_REQUEST | DEVICE_RECIPIENT))
+   8:	f010 007f 	ands.w	r0, r0, #127	; 0x7f
+   c:	d104      	bne.n	18 <Standard_ClearFeature+0x18>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:253
+  {/*Device Clear Feature*/
+    ClrBit(pInformation->Current_Feature, 5);
+   e:	7a5a      	ldrb	r2, [r3, #9]
+  10:	f022 0220 	bic.w	r2, r2, #32
+  14:	725a      	strb	r2, [r3, #9]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:254
+    return USB_SUCCESS;
+  16:	bd10      	pop	{r4, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:256
+  }
+  else if (Type_Rec == (STANDARD_REQUEST | ENDPOINT_RECIPIENT))
+  18:	2802      	cmp	r0, #2
+  1a:	d15a      	bne.n	d2 <Standard_ClearFeature+0xd2>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:263
+    DEVICE* pDev;
+    uint32_t Related_Endpoint;
+    uint32_t wIndex0;
+    uint32_t rEP;
+
+    if ((pInformation->USBwValue != ENDPOINT_STALL)
+  1c:	885a      	ldrh	r2, [r3, #2]
+  1e:	2a00      	cmp	r2, #0
+  20:	d15a      	bne.n	d8 <Standard_ClearFeature+0xd8>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:264
+        || (pInformation->USBwIndex1 != 0))
+  22:	791a      	ldrb	r2, [r3, #4]
+  24:	2a00      	cmp	r2, #0
+  26:	d157      	bne.n	d8 <Standard_ClearFeature+0xd8>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:270
+    {
+      return USB_UNSUPPORT;
+    }
+
+    pDev = &Device_Table;
+    wIndex0 = pInformation->USBwIndex0;
+  28:	795a      	ldrb	r2, [r3, #5]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:285
+    else
+    {
+      Status = _GetEPRxStatus(Related_Endpoint);
+    }
+
+    if ((rEP >= pDev->Total_Endpoint) || (Status == 0)
+  2a:	4c2d      	ldr	r4, [pc, #180]	; (e0 <Standard_ClearFeature+0xe0>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:271
+      return USB_UNSUPPORT;
+    }
+
+    pDev = &Device_Table;
+    wIndex0 = pInformation->USBwIndex0;
+    rEP = wIndex0 & ~0x80;
+  2c:	f022 0080 	bic.w	r0, r2, #128	; 0x80
+  30:	0081      	lsls	r1, r0, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:278
+
+    if (ValBit(pInformation->USBwIndex0, 7))
+    {
+      /*Get Status of endpoint & stall the request if the related_ENdpoint
+      is Disabled*/
+      Status = _GetEPTxStatus(Related_Endpoint);
+  32:	f101 4180 	add.w	r1, r1, #1073741824	; 0x40000000
+  36:	f501 41b8 	add.w	r1, r1, #23552	; 0x5c00
+  3a:	6809      	ldr	r1, [r1, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:285
+    else
+    {
+      Status = _GetEPRxStatus(Related_Endpoint);
+    }
+
+    if ((rEP >= pDev->Total_Endpoint) || (Status == 0)
+  3c:	7824      	ldrb	r4, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:274
+    pDev = &Device_Table;
+    wIndex0 = pInformation->USBwIndex0;
+    rEP = wIndex0 & ~0x80;
+    Related_Endpoint = ENDP0 + rEP;
+
+    if (ValBit(pInformation->USBwIndex0, 7))
+  3e:	f012 0f80 	tst.w	r2, #128	; 0x80
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:278
+    {
+      /*Get Status of endpoint & stall the request if the related_ENdpoint
+      is Disabled*/
+      Status = _GetEPTxStatus(Related_Endpoint);
+  42:	bf14      	ite	ne
+  44:	f001 0130 	andne.w	r1, r1, #48	; 0x30
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:282
+    }
+    else
+    {
+      Status = _GetEPRxStatus(Related_Endpoint);
+  48:	f401 5140 	andeq.w	r1, r1, #12288	; 0x3000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:285
+    }
+
+    if ((rEP >= pDev->Total_Endpoint) || (Status == 0)
+  4c:	42a0      	cmp	r0, r4
+  4e:	d240      	bcs.n	d2 <Standard_ClearFeature+0xd2>
+  50:	2900      	cmp	r1, #0
+  52:	d03e      	beq.n	d2 <Standard_ClearFeature+0xd2>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:286
+        || (pInformation->Current_Configuration == 0))
+  54:	7a9b      	ldrb	r3, [r3, #10]
+  56:	2b00      	cmp	r3, #0
+  58:	d03d      	beq.n	d6 <Standard_ClearFeature+0xd6>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:292
+    {
+      return USB_UNSUPPORT;
+    }
+
+
+    if (wIndex0 & 0x80)
+  5a:	f012 0f80 	tst.w	r2, #128	; 0x80
+  5e:	ea4f 0480 	mov.w	r4, r0, lsl #2
+  62:	d011      	beq.n	88 <Standard_ClearFeature+0x88>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:295
+    {
+      /* IN endpoint */
+      if (_GetTxStallStatus(Related_Endpoint ))
+  64:	f104 4480 	add.w	r4, r4, #1073741824	; 0x40000000
+  68:	f504 44b8 	add.w	r4, r4, #23552	; 0x5c00
+  6c:	6823      	ldr	r3, [r4, #0]
+  6e:	f003 0330 	and.w	r3, r3, #48	; 0x30
+  72:	2b10      	cmp	r3, #16
+  74:	d127      	bne.n	c6 <Standard_ClearFeature+0xc6>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:298
+      {
+      #ifndef STM32F10X_CL
+        ClearDTOG_TX(Related_Endpoint);
+  76:	b2c4      	uxtb	r4, r0
+  78:	4620      	mov	r0, r4
+  7a:	f7ff fffe 	bl	0 <ClearDTOG_TX>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:300
+      #endif /* STM32F10X_CL */
+        SetEPTxStatus(Related_Endpoint, EP_TX_VALID);
+  7e:	4620      	mov	r0, r4
+  80:	2130      	movs	r1, #48	; 0x30
+  82:	f7ff fffe 	bl	0 <SetEPTxStatus>
+  86:	e01e      	b.n	c6 <Standard_ClearFeature+0xc6>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:306
+      }
+    }
+    else
+    {
+      /* OUT endpoint */
+      if (_GetRxStallStatus(Related_Endpoint))
+  88:	f104 4480 	add.w	r4, r4, #1073741824	; 0x40000000
+  8c:	f504 44b8 	add.w	r4, r4, #23552	; 0x5c00
+  90:	6823      	ldr	r3, [r4, #0]
+  92:	f403 5340 	and.w	r3, r3, #12288	; 0x3000
+  96:	f5b3 5f80 	cmp.w	r3, #4096	; 0x1000
+  9a:	d114      	bne.n	c6 <Standard_ClearFeature+0xc6>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:308
+      {
+        if (Related_Endpoint == ENDP0)
+  9c:	b928      	cbnz	r0, aa <Standard_ClearFeature+0xaa>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:311
+        {
+          /* After clear the STALL, enable the default endpoint receiver */
+          SetEPRxCount(Related_Endpoint, Device_Property.MaxPacketSize);
+  9e:	4b11      	ldr	r3, [pc, #68]	; (e4 <Standard_ClearFeature+0xe4>)
+  a0:	f893 102c 	ldrb.w	r1, [r3, #44]	; 0x2c
+  a4:	f7ff fffe 	bl	0 <SetEPRxCount>
+  a8:	e001      	b.n	6 <ClearDTOG_RX+0x6>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:317
+          _SetEPRxStatus(Related_Endpoint, EP_RX_VALID);
+        }
+        else
+        {
+        #ifndef STM32F10X_CL
+          ClearDTOG_RX(Related_Endpoint);
+  aa:	f7ff fffe 	bl	0 <ClearDTOG_RX>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:319
+        #endif /* STM32F10X_CL */
+          _SetEPRxStatus(Related_Endpoint, EP_RX_VALID);
+  ae:	6822      	ldr	r2, [r4, #0]
+  b0:	f64b 738f 	movw	r3, #49039	; 0xbf8f
+  b4:	ea02 0303 	and.w	r3, r2, r3
+  b8:	f483 5340 	eor.w	r3, r3, #12288	; 0x3000
+  bc:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  c0:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  c4:	6023      	str	r3, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:323
+        }
+      }
+    }
+    pUser_Standard_Requests->User_ClearFeature();
+  c6:	4b08      	ldr	r3, [pc, #32]	; (e8 <Standard_ClearFeature+0xe8>)
+  c8:	681b      	ldr	r3, [r3, #0]
+  ca:	695b      	ldr	r3, [r3, #20]
+  cc:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:324
+    return USB_SUCCESS;
+  ce:	2000      	movs	r0, #0
+  d0:	bd10      	pop	{r4, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:288
+    }
+
+    if ((rEP >= pDev->Total_Endpoint) || (Status == 0)
+        || (pInformation->Current_Configuration == 0))
+    {
+      return USB_UNSUPPORT;
+  d2:	2002      	movs	r0, #2
+  d4:	bd10      	pop	{r4, pc}
+  d6:	2002      	movs	r0, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:328
+    pUser_Standard_Requests->User_ClearFeature();
+    return USB_SUCCESS;
+  }
+
+  return USB_UNSUPPORT;
+}
+  d8:	bd10      	pop	{r4, pc}
+  da:	bf00      	nop
+	...
+
+Disassembly of section .text.Standard_SetEndPointFeature:
+
+00000000 <Standard_SetEndPointFeature>:
+Standard_SetEndPointFeature():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:339
+* Output         : None.
+* Return         : - Return USB_SUCCESS, if the request is performed.
+*                  - Return USB_UNSUPPORT, if the request is invalid.
+*******************************************************************************/
+RESULT Standard_SetEndPointFeature(void)
+{
+   0:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:345
+  uint32_t    wIndex0;
+  uint32_t    Related_Endpoint;
+  uint32_t    rEP;
+  uint32_t    Status;
+
+  wIndex0 = pInformation->USBwIndex0;
+   2:	4b23      	ldr	r3, [pc, #140]	; (90 <Standard_SetEndPointFeature+0x90>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:360
+  else
+  {
+    Status = _GetEPRxStatus(Related_Endpoint);
+  }
+
+  if (Related_Endpoint >= Device_Table.Total_Endpoint
+   4:	4c23      	ldr	r4, [pc, #140]	; (94 <Standard_SetEndPointFeature+0x94>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:345
+  uint32_t    wIndex0;
+  uint32_t    Related_Endpoint;
+  uint32_t    rEP;
+  uint32_t    Status;
+
+  wIndex0 = pInformation->USBwIndex0;
+   6:	6819      	ldr	r1, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:360
+  else
+  {
+    Status = _GetEPRxStatus(Related_Endpoint);
+  }
+
+  if (Related_Endpoint >= Device_Table.Total_Endpoint
+   8:	7824      	ldrb	r4, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:345
+  uint32_t    wIndex0;
+  uint32_t    Related_Endpoint;
+  uint32_t    rEP;
+  uint32_t    Status;
+
+  wIndex0 = pInformation->USBwIndex0;
+   a:	794a      	ldrb	r2, [r1, #5]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:346
+  rEP = wIndex0 & ~0x80;
+   c:	f022 0380 	bic.w	r3, r2, #128	; 0x80
+  10:	0098      	lsls	r0, r3, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:353
+
+  if (ValBit(pInformation->USBwIndex0, 7))
+  {
+    /* get Status of endpoint & stall the request if the related_ENdpoint
+    is Disabled*/
+    Status = _GetEPTxStatus(Related_Endpoint);
+  12:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+  16:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+  1a:	6800      	ldr	r0, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:349
+
+  wIndex0 = pInformation->USBwIndex0;
+  rEP = wIndex0 & ~0x80;
+  Related_Endpoint = ENDP0 + rEP;
+
+  if (ValBit(pInformation->USBwIndex0, 7))
+  1c:	f012 0f80 	tst.w	r2, #128	; 0x80
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:353
+  {
+    /* get Status of endpoint & stall the request if the related_ENdpoint
+    is Disabled*/
+    Status = _GetEPTxStatus(Related_Endpoint);
+  20:	bf14      	ite	ne
+  22:	f000 0030 	andne.w	r0, r0, #48	; 0x30
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:357
+  }
+  else
+  {
+    Status = _GetEPRxStatus(Related_Endpoint);
+  26:	f400 5040 	andeq.w	r0, r0, #12288	; 0x3000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:360
+  }
+
+  if (Related_Endpoint >= Device_Table.Total_Endpoint
+  2a:	42a3      	cmp	r3, r4
+  2c:	d22b      	bcs.n	86 <Standard_SetEndPointFeature+0x86>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:361
+      || pInformation->USBwValue != 0 || Status == 0
+  2e:	884c      	ldrh	r4, [r1, #2]
+  30:	bb4c      	cbnz	r4, 86 <Standard_SetEndPointFeature+0x86>
+  32:	b340      	cbz	r0, 86 <Standard_SetEndPointFeature+0x86>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:362
+      || pInformation->Current_Configuration == 0)
+  34:	7a89      	ldrb	r1, [r1, #10]
+  36:	b341      	cbz	r1, 8a <Standard_SetEndPointFeature+0x8a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:368
+  {
+    return USB_UNSUPPORT;
+  }
+  else
+  {
+    if (wIndex0 & 0x80)
+  38:	f012 0f80 	tst.w	r2, #128	; 0x80
+  3c:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  40:	d00b      	beq.n	5a <Standard_SetEndPointFeature+0x5a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:371
+    {
+      /* IN endpoint */
+      _SetEPTxStatus(Related_Endpoint, EP_TX_STALL);
+  42:	f103 4380 	add.w	r3, r3, #1073741824	; 0x40000000
+  46:	f503 43b8 	add.w	r3, r3, #23552	; 0x5c00
+  4a:	6819      	ldr	r1, [r3, #0]
+  4c:	f648 72bf 	movw	r2, #36799	; 0x8fbf
+  50:	ea01 0202 	and.w	r2, r1, r2
+  54:	f082 0210 	eor.w	r2, r2, #16
+  58:	e00a      	b.n	70 <Standard_SetEndPointFeature+0x70>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:377
+    }
+
+    else
+    {
+      /* OUT endpoint */
+      _SetEPRxStatus(Related_Endpoint, EP_RX_STALL);
+  5a:	f103 4380 	add.w	r3, r3, #1073741824	; 0x40000000
+  5e:	f503 43b8 	add.w	r3, r3, #23552	; 0x5c00
+  62:	6819      	ldr	r1, [r3, #0]
+  64:	f64b 728f 	movw	r2, #49039	; 0xbf8f
+  68:	ea01 0202 	and.w	r2, r1, r2
+  6c:	f482 5280 	eor.w	r2, r2, #4096	; 0x1000
+  70:	f442 4200 	orr.w	r2, r2, #32768	; 0x8000
+  74:	f042 0280 	orr.w	r2, r2, #128	; 0x80
+  78:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:380
+    }
+  }
+  pUser_Standard_Requests->User_SetEndPointFeature();
+  7a:	4b07      	ldr	r3, [pc, #28]	; (98 <Standard_SetEndPointFeature+0x98>)
+  7c:	681b      	ldr	r3, [r3, #0]
+  7e:	699b      	ldr	r3, [r3, #24]
+  80:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:381
+  return USB_SUCCESS;
+  82:	2000      	movs	r0, #0
+  84:	bd10      	pop	{r4, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:364
+
+  if (Related_Endpoint >= Device_Table.Total_Endpoint
+      || pInformation->USBwValue != 0 || Status == 0
+      || pInformation->Current_Configuration == 0)
+  {
+    return USB_UNSUPPORT;
+  86:	2002      	movs	r0, #2
+  88:	bd10      	pop	{r4, pc}
+  8a:	2002      	movs	r0, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:382
+      _SetEPRxStatus(Related_Endpoint, EP_RX_STALL);
+    }
+  }
+  pUser_Standard_Requests->User_SetEndPointFeature();
+  return USB_SUCCESS;
+}
+  8c:	bd10      	pop	{r4, pc}
+  8e:	bf00      	nop
+	...
+
+Disassembly of section .text.Standard_SetDeviceFeature:
+
+00000000 <Standard_SetDeviceFeature>:
+Standard_SetDeviceFeature():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:393
+* Output         : None.
+* Return         : - Return USB_SUCCESS, if the request is performed.
+*                  - Return USB_UNSUPPORT, if the request is invalid.
+*******************************************************************************/
+RESULT Standard_SetDeviceFeature(void)
+{
+   0:	b508      	push	{r3, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:394
+  SetBit(pInformation->Current_Feature, 5);
+   2:	4b06      	ldr	r3, [pc, #24]	; (1c <Standard_SetDeviceFeature+0x1c>)
+   4:	681b      	ldr	r3, [r3, #0]
+   6:	7a5a      	ldrb	r2, [r3, #9]
+   8:	f042 0220 	orr.w	r2, r2, #32
+   c:	725a      	strb	r2, [r3, #9]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:395
+  pUser_Standard_Requests->User_SetDeviceFeature();
+   e:	4b04      	ldr	r3, [pc, #16]	; (20 <Standard_SetDeviceFeature+0x20>)
+  10:	681b      	ldr	r3, [r3, #0]
+  12:	69db      	ldr	r3, [r3, #28]
+  14:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:397
+  return USB_SUCCESS;
+}
+  16:	2000      	movs	r0, #0
+  18:	bd08      	pop	{r3, pc}
+  1a:	bf00      	nop
+	...
+
+Disassembly of section .text.Standard_GetDescriptorData:
+
+00000000 <Standard_GetDescriptorData>:
+Standard_GetDescriptorData():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:422
+*******************************************************************************/
+uint8_t *Standard_GetDescriptorData(uint16_t Length, ONE_DESCRIPTOR *pDesc)
+{
+  uint32_t  wOffset;
+
+  wOffset = pInformation->Ctrl_Info.Usb_wOffset;
+   0:	4b05      	ldr	r3, [pc, #20]	; (18 <Standard_GetDescriptorData+0x18>)
+   2:	681a      	ldr	r2, [r3, #0]
+   4:	8a53      	ldrh	r3, [r2, #18]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:423
+  if (Length == 0)
+   6:	b918      	cbnz	r0, 10 <Standard_GetDescriptorData+0x10>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:425
+  {
+    pInformation->Ctrl_Info.Usb_wLength = pDesc->Descriptor_Size - wOffset;
+   8:	8889      	ldrh	r1, [r1, #4]
+   a:	1acb      	subs	r3, r1, r3
+   c:	8213      	strh	r3, [r2, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:426
+    return 0;
+   e:	4770      	bx	lr
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:429
+  }
+
+  return pDesc->Descriptor + wOffset;
+  10:	6808      	ldr	r0, [r1, #0]
+  12:	18c0      	adds	r0, r0, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:430
+}
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+  18:	00000000 	.word	0x00000000
+
+Disassembly of section .text.Post0_Process:
+
+00000000 <Post0_Process>:
+Post0_Process():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1015
+* Output         : None.
+* Return         : - 0 if the control State is in PAUSE
+*                  - 1 if not.
+*******************************************************************************/
+uint8_t Post0_Process(void)
+{
+   0:	b508      	push	{r3, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1020
+#ifdef STM32F10X_CL  
+  USB_OTG_EP *ep;
+#endif /* STM32F10X_CL */
+      
+  SetEPRxCount(ENDP0, Device_Property.MaxPacketSize);
+   2:	4b0c      	ldr	r3, [pc, #48]	; (34 <Post0_Process+0x34>)
+   4:	2000      	movs	r0, #0
+   6:	f893 102c 	ldrb.w	r1, [r3, #44]	; 0x2c
+   a:	f7ff fffe 	bl	0 <SetEPRxCount>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1022
+
+  if (pInformation->ControlState == STALLED)
+   e:	4b0a      	ldr	r3, [pc, #40]	; (38 <Post0_Process+0x38>)
+  10:	681b      	ldr	r3, [r3, #0]
+  12:	7a18      	ldrb	r0, [r3, #8]
+  14:	2808      	cmp	r0, #8
+  16:	d106      	bne.n	26 <Post0_Process+0x26>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1024
+  {
+    vSetEPRxStatus(EP_RX_STALL);
+  18:	4b08      	ldr	r3, [pc, #32]	; (3c <Post0_Process+0x3c>)
+  1a:	f44f 5280 	mov.w	r2, #4096	; 0x1000
+  1e:	801a      	strh	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1025
+    vSetEPTxStatus(EP_TX_STALL);
+  20:	4b07      	ldr	r3, [pc, #28]	; (40 <Post0_Process+0x40>)
+  22:	2210      	movs	r2, #16
+  24:	801a      	strh	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1049
+    OTGD_FS_EP0StartXfer(ep);    
+  }  
+#endif /* STM32F10X_CL */
+
+  return (pInformation->ControlState == PAUSE);
+}
+  26:	f1a0 0309 	sub.w	r3, r0, #9
+  2a:	4258      	negs	r0, r3
+  2c:	eb40 0003 	adc.w	r0, r0, r3
+  30:	bd08      	pop	{r3, pc}
+  32:	bf00      	nop
+	...
+
+Disassembly of section .text.Out0_Process:
+
+00000000 <Out0_Process>:
+Out0_Process():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:972
+* Input          : None.
+* Output         : None.
+* Return         : Post0_Process.
+*******************************************************************************/
+uint8_t Out0_Process(void)
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:973
+  uint32_t ControlState = pInformation->ControlState;
+   4:	4d2c      	ldr	r5, [pc, #176]	; (b8 <Out0_Process+0xb8>)
+   6:	682c      	ldr	r4, [r5, #0]
+   8:	7a23      	ldrb	r3, [r4, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:975
+
+  if ((ControlState == IN_DATA) || (ControlState == LAST_IN_DATA))
+   a:	2b02      	cmp	r3, #2
+   c:	d04d      	beq.n	aa <Out0_Process+0xaa>
+   e:	2b04      	cmp	r3, #4
+  10:	d04b      	beq.n	aa <Out0_Process+0xaa>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:980
+  {
+    /* host aborts the transfer before finish */
+    ControlState = STALLED;
+  }
+  else if ((ControlState == OUT_DATA) || (ControlState == LAST_OUT_DATA))
+  12:	2b03      	cmp	r3, #3
+  14:	d001      	beq.n	1a <Out0_Process+0x1a>
+  16:	2b05      	cmp	r3, #5
+  18:	d141      	bne.n	9e <Out0_Process+0x9e>
+DataStageOut():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:446
+  ENDPOINT_INFO *pEPinfo = &pInformation->Ctrl_Info;
+  uint32_t save_rLength;
+
+  save_rLength = pEPinfo->Usb_rLength;
+
+  if (pEPinfo->CopyData && save_rLength)
+  1a:	69a3      	ldr	r3, [r4, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:444
+void DataStageOut(void)
+{
+  ENDPOINT_INFO *pEPinfo = &pInformation->Ctrl_Info;
+  uint32_t save_rLength;
+
+  save_rLength = pEPinfo->Usb_rLength;
+  1c:	8a22      	ldrh	r2, [r4, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:446
+
+  if (pEPinfo->CopyData && save_rLength)
+  1e:	b1ab      	cbz	r3, 4c <Out0_Process+0x4c>
+  20:	b1a2      	cbz	r2, 4c <Out0_Process+0x4c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:451
+  {
+    uint8_t *Buffer;
+    uint32_t Length;
+
+    Length = pEPinfo->PacketSize;
+  22:	8aa6      	ldrh	r6, [r4, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:457
+    if (Length > save_rLength)
+    {
+      Length = save_rLength;
+    }
+
+    Buffer = (*pEPinfo->CopyData)(Length);
+  24:	4296      	cmp	r6, r2
+  26:	bf28      	it	cs
+  28:	4616      	movcs	r6, r2
+  2a:	4630      	mov	r0, r6
+  2c:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:458
+    pEPinfo->Usb_rLength -= Length;
+  2e:	8a23      	ldrh	r3, [r4, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:457
+    if (Length > save_rLength)
+    {
+      Length = save_rLength;
+    }
+
+    Buffer = (*pEPinfo->CopyData)(Length);
+  30:	4607      	mov	r7, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:458
+    pEPinfo->Usb_rLength -= Length;
+  32:	1b9b      	subs	r3, r3, r6
+  34:	8223      	strh	r3, [r4, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:459
+    pEPinfo->Usb_rOffset += Length;
+  36:	8a63      	ldrh	r3, [r4, #18]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:464
+
+  #ifdef STM32F10X_CL  
+    PCD_EP_Read(ENDP0, Buffer, Length); 
+  #else  
+    PMAToUserBufferCopy(Buffer, GetEPRxAddr(ENDP0), Length);
+  38:	2000      	movs	r0, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:459
+      Length = save_rLength;
+    }
+
+    Buffer = (*pEPinfo->CopyData)(Length);
+    pEPinfo->Usb_rLength -= Length;
+    pEPinfo->Usb_rOffset += Length;
+  3a:	18f3      	adds	r3, r6, r3
+  3c:	8263      	strh	r3, [r4, #18]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:464
+
+  #ifdef STM32F10X_CL  
+    PCD_EP_Read(ENDP0, Buffer, Length); 
+  #else  
+    PMAToUserBufferCopy(Buffer, GetEPRxAddr(ENDP0), Length);
+  3e:	f7ff fffe 	bl	0 <GetEPRxAddr>
+  42:	4632      	mov	r2, r6
+  44:	4601      	mov	r1, r0
+  46:	4638      	mov	r0, r7
+  48:	f7ff fffe 	bl	0 <PMAToUserBufferCopy>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:468
+  #endif  /* STM32F10X_CL */
+  }
+
+  if (pEPinfo->Usb_rLength != 0)
+  4c:	8a23      	ldrh	r3, [r4, #16]
+  4e:	b153      	cbz	r3, 66 <Out0_Process+0x66>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:470
+  {
+    vSetEPRxStatus(EP_RX_VALID);/* re-enable for next data reception */
+  50:	4b1a      	ldr	r3, [pc, #104]	; (bc <Out0_Process+0xbc>)
+  52:	f44f 5240 	mov.w	r2, #12288	; 0x3000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:471
+    SetEPTxCount(ENDP0, 0);
+  56:	2000      	movs	r0, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:470
+  #endif  /* STM32F10X_CL */
+  }
+
+  if (pEPinfo->Usb_rLength != 0)
+  {
+    vSetEPRxStatus(EP_RX_VALID);/* re-enable for next data reception */
+  58:	801a      	strh	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:471
+    SetEPTxCount(ENDP0, 0);
+  5a:	4601      	mov	r1, r0
+  5c:	f7ff fffe 	bl	0 <SetEPTxCount>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:472
+    vSetEPTxStatus(EP_TX_VALID);/* Expect the host to abort the data OUT stage */
+  60:	4b17      	ldr	r3, [pc, #92]	; (c0 <Out0_Process+0xc0>)
+  62:	2230      	movs	r2, #48	; 0x30
+  64:	801a      	strh	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:475
+  }
+  /* Set the next State*/
+  if (pEPinfo->Usb_rLength >= pEPinfo->PacketSize)
+  66:	8a23      	ldrh	r3, [r4, #16]
+  68:	8aa2      	ldrh	r2, [r4, #20]
+  6a:	429a      	cmp	r2, r3
+  6c:	d802      	bhi.n	74 <Out0_Process+0x74>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:477
+  {
+    pInformation->ControlState = OUT_DATA;
+  6e:	682b      	ldr	r3, [r5, #0]
+  70:	2203      	movs	r2, #3
+  72:	e002      	b.n	7a <Out0_Process+0x7a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:481
+  }
+  else
+  {
+    if (pEPinfo->Usb_rLength > 0)
+  74:	b11b      	cbz	r3, 7e <Out0_Process+0x7e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:483
+    {
+      pInformation->ControlState = LAST_OUT_DATA;
+  76:	682b      	ldr	r3, [r5, #0]
+  78:	2205      	movs	r2, #5
+  7a:	721a      	strb	r2, [r3, #8]
+  7c:	e00c      	b.n	98 <Out0_Process+0x98>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:487
+    }
+    else if (pEPinfo->Usb_rLength == 0)
+    {
+      pInformation->ControlState = WAIT_STATUS_IN;
+  7e:	682a      	ldr	r2, [r5, #0]
+  80:	2106      	movs	r1, #6
+  82:	7211      	strb	r1, [r2, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:488
+      USB_StatusIn();
+  84:	4a0f      	ldr	r2, [pc, #60]	; (c4 <Out0_Process+0xc4>)
+  86:	6811      	ldr	r1, [r2, #0]
+  88:	4a0f      	ldr	r2, [pc, #60]	; (c8 <Out0_Process+0xc8>)
+  8a:	b289      	uxth	r1, r1
+  8c:	188a      	adds	r2, r1, r2
+  8e:	0052      	lsls	r2, r2, #1
+  90:	6013      	str	r3, [r2, #0]
+  92:	4b0b      	ldr	r3, [pc, #44]	; (c0 <Out0_Process+0xc0>)
+  94:	2230      	movs	r2, #48	; 0x30
+  96:	801a      	strh	r2, [r3, #0]
+Out0_Process():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:983
+    ControlState = STALLED;
+  }
+  else if ((ControlState == OUT_DATA) || (ControlState == LAST_OUT_DATA))
+  {
+    DataStageOut();
+    ControlState = pInformation->ControlState; /* may be changed outside the function */
+  98:	682b      	ldr	r3, [r5, #0]
+  9a:	7a1b      	ldrb	r3, [r3, #8]
+  9c:	e006      	b.n	ac <Out0_Process+0xac>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:986
+  }
+
+  else if (ControlState == WAIT_STATUS_OUT)
+  9e:	2b07      	cmp	r3, #7
+  a0:	d103      	bne.n	aa <Out0_Process+0xaa>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:988
+  {
+    (*pProperty->Process_Status_OUT)();
+  a2:	4b0a      	ldr	r3, [pc, #40]	; (cc <Out0_Process+0xcc>)
+  a4:	681b      	ldr	r3, [r3, #0]
+  a6:	68db      	ldr	r3, [r3, #12]
+  a8:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:998
+
+
+  /* Unexpect state, STALL the endpoint */
+  else
+  {
+    ControlState = STALLED;
+  aa:	2308      	movs	r3, #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1001
+  }
+
+  pInformation->ControlState = ControlState;
+  ac:	682a      	ldr	r2, [r5, #0]
+  ae:	7213      	strb	r3, [r2, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1004
+
+  return Post0_Process();
+}
+  b0:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1003
+    ControlState = STALLED;
+  }
+
+  pInformation->ControlState = ControlState;
+
+  return Post0_Process();
+  b4:	f7ff bffe 	b.w	0 <Out0_Process>
+	...
+  c4:	40005c50 	.word	0x40005c50
+  c8:	20003002 	.word	0x20003002
+  cc:	00000000 	.word	0x00000000
+
+Disassembly of section .text.Setup0_Process:
+
+00000000 <Setup0_Process>:
+Setup0_Process():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:895
+  ep = PCD_GetOutEP(ENDP0);
+  pBuf.b = ep->xfer_buff;
+#else  
+  uint16_t offset = 1;
+  
+  pBuf.b = PMAAddr + (uint8_t *)(_GetEPRxAddr(ENDP0) * 2); /* *2 for 32 bits addr */
+   0:	4b8a      	ldr	r3, [pc, #552]	; (22c <Setup0_Process+0x22c>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:878
+* Input          : None.
+* Output         : None.
+* Return         : Post0_Process.
+*******************************************************************************/
+uint8_t Setup0_Process(void)
+{
+   2:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:895
+  ep = PCD_GetOutEP(ENDP0);
+  pBuf.b = ep->xfer_buff;
+#else  
+  uint16_t offset = 1;
+  
+  pBuf.b = PMAAddr + (uint8_t *)(_GetEPRxAddr(ENDP0) * 2); /* *2 for 32 bits addr */
+   4:	681a      	ldr	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:898
+#endif /* STM32F10X_CL */
+
+  if (pInformation->ControlState != PAUSE)
+   6:	4c8a      	ldr	r4, [pc, #552]	; (230 <Setup0_Process+0x230>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:895
+  ep = PCD_GetOutEP(ENDP0);
+  pBuf.b = ep->xfer_buff;
+#else  
+  uint16_t offset = 1;
+  
+  pBuf.b = PMAAddr + (uint8_t *)(_GetEPRxAddr(ENDP0) * 2); /* *2 for 32 bits addr */
+   8:	4b8a      	ldr	r3, [pc, #552]	; (234 <Setup0_Process+0x234>)
+   a:	b292      	uxth	r2, r2
+   c:	18d3      	adds	r3, r2, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:898
+#endif /* STM32F10X_CL */
+
+  if (pInformation->ControlState != PAUSE)
+   e:	6826      	ldr	r6, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:895
+  ep = PCD_GetOutEP(ENDP0);
+  pBuf.b = ep->xfer_buff;
+#else  
+  uint16_t offset = 1;
+  
+  pBuf.b = PMAAddr + (uint8_t *)(_GetEPRxAddr(ENDP0) * 2); /* *2 for 32 bits addr */
+  10:	005b      	lsls	r3, r3, #1
+  12:	681f      	ldr	r7, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:898
+#endif /* STM32F10X_CL */
+
+  if (pInformation->ControlState != PAUSE)
+  14:	7a33      	ldrb	r3, [r6, #8]
+  16:	2b09      	cmp	r3, #9
+  18:	d01a      	beq.n	50 <Setup0_Process+0x50>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:895
+  ep = PCD_GetOutEP(ENDP0);
+  pBuf.b = ep->xfer_buff;
+#else  
+  uint16_t offset = 1;
+  
+  pBuf.b = PMAAddr + (uint8_t *)(_GetEPRxAddr(ENDP0) * 2); /* *2 for 32 bits addr */
+  1a:	b2bf      	uxth	r7, r7
+  1c:	f107 5700 	add.w	r7, r7, #536870912	; 0x20000000
+  20:	f507 5740 	add.w	r7, r7, #12288	; 0x3000
+  24:	007f      	lsls	r7, r7, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:900
+#endif /* STM32F10X_CL */
+
+  if (pInformation->ControlState != PAUSE)
+  {
+    pInformation->USBbmRequestType = *pBuf.b++; /* bmRequestType */
+  26:	463d      	mov	r5, r7
+  28:	f815 3b01 	ldrb.w	r3, [r5], #1
+  2c:	7033      	strb	r3, [r6, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:901
+    pInformation->USBbRequest = *pBuf.b++; /* bRequest */
+  2e:	787b      	ldrb	r3, [r7, #1]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:905
+    pBuf.w += offset;  /* word not accessed because of 32 bits addressing */
+    pInformation->USBwValue = ByteSwap(*pBuf.w++); /* wValue */
+    pBuf.w += offset;  /* word not accessed because of 32 bits addressing */
+    pInformation->USBwIndex  = ByteSwap(*pBuf.w++); /* wIndex */
+  30:	370a      	adds	r7, #10
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:901
+#endif /* STM32F10X_CL */
+
+  if (pInformation->ControlState != PAUSE)
+  {
+    pInformation->USBbmRequestType = *pBuf.b++; /* bmRequestType */
+    pInformation->USBbRequest = *pBuf.b++; /* bRequest */
+  32:	7073      	strb	r3, [r6, #1]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:903
+    pBuf.w += offset;  /* word not accessed because of 32 bits addressing */
+    pInformation->USBwValue = ByteSwap(*pBuf.w++); /* wValue */
+  34:	f8b5 0003 	ldrh.w	r0, [r5, #3]
+  38:	f7ff fffe 	bl	0 <ByteSwap>
+  3c:	8070      	strh	r0, [r6, #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:905
+    pBuf.w += offset;  /* word not accessed because of 32 bits addressing */
+    pInformation->USBwIndex  = ByteSwap(*pBuf.w++); /* wIndex */
+  3e:	f8b5 0007 	ldrh.w	r0, [r5, #7]
+  42:	6826      	ldr	r6, [r4, #0]
+  44:	f7ff fffe 	bl	0 <ByteSwap>
+  48:	80b0      	strh	r0, [r6, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:907
+    pBuf.w += offset;  /* word not accessed because of 32 bits addressing */
+    pInformation->USBwLength = *pBuf.w; /* wLength */
+  4a:	6823      	ldr	r3, [r4, #0]
+  4c:	887f      	ldrh	r7, [r7, #2]
+  4e:	80df      	strh	r7, [r3, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:910
+  }
+
+  pInformation->ControlState = SETTING_UP;
+  50:	6822      	ldr	r2, [r4, #0]
+  52:	2301      	movs	r3, #1
+  54:	7213      	strb	r3, [r2, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:911
+  if (pInformation->USBwLength == 0)
+  56:	88d3      	ldrh	r3, [r2, #6]
+  58:	7855      	ldrb	r5, [r2, #1]
+  5a:	2b00      	cmp	r3, #0
+  5c:	d160      	bne.n	120 <Setup0_Process+0x120>
+NoData_Setup0():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:576
+{
+  RESULT Result = USB_UNSUPPORT;
+  uint32_t RequestNo = pInformation->USBbRequest;
+  uint32_t ControlState;
+
+  if (Type_Recipient == (STANDARD_REQUEST | DEVICE_RECIPIENT))
+  5e:	7813      	ldrb	r3, [r2, #0]
+  60:	f013 037f 	ands.w	r3, r3, #127	; 0x7f
+  64:	d12e      	bne.n	c4 <Setup0_Process+0xc4>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:580
+  {
+    /* Device Request*/
+    /* SET_CONFIGURATION*/
+    if (RequestNo == SET_CONFIGURATION)
+  66:	2d09      	cmp	r5, #9
+  68:	d102      	bne.n	70 <Setup0_Process+0x70>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:582
+    {
+      Result = Standard_SetConfiguration();
+  6a:	f7ff fffe 	bl	0 <Setup0_Process>
+  6e:	e03b      	b.n	e8 <Setup0_Process+0xe8>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:586
+    }
+
+    /*SET ADDRESS*/
+    else if (RequestNo == SET_ADDRESS)
+  70:	2d05      	cmp	r5, #5
+  72:	d10d      	bne.n	90 <Setup0_Process+0x90>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:588
+    {
+      if ((pInformation->USBwValue0 > 127) || (pInformation->USBwValue1 != 0)
+  74:	f992 3003 	ldrsb.w	r3, [r2, #3]
+  78:	2b00      	cmp	r3, #0
+  7a:	db4d      	blt.n	118 <Setup0_Process+0x118>
+  7c:	7893      	ldrb	r3, [r2, #2]
+  7e:	2b00      	cmp	r3, #0
+  80:	d14a      	bne.n	118 <Setup0_Process+0x118>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:589
+          || (pInformation->USBwIndex != 0)
+  82:	8893      	ldrh	r3, [r2, #4]
+  84:	2b00      	cmp	r3, #0
+  86:	d147      	bne.n	118 <Setup0_Process+0x118>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:590
+          || (pInformation->Current_Configuration != 0))
+  88:	7a93      	ldrb	r3, [r2, #10]
+  8a:	2b00      	cmp	r3, #0
+  8c:	d035      	beq.n	fa <Setup0_Process+0xfa>
+  8e:	e043      	b.n	118 <Setup0_Process+0x118>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:606
+         SetDeviceAddress(pInformation->USBwValue0);
+      #endif  /* STM32F10X_CL */
+      }
+    }
+    /*SET FEATURE for Device*/
+    else if (RequestNo == SET_FEATURE)
+  90:	2d03      	cmp	r5, #3
+  92:	d10b      	bne.n	ac <Setup0_Process+0xac>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:608
+    {
+      if ((pInformation->USBwValue0 == DEVICE_REMOTE_WAKEUP)
+  94:	78d3      	ldrb	r3, [r2, #3]
+  96:	2b01      	cmp	r3, #1
+  98:	d127      	bne.n	ea <Setup0_Process+0xea>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:609
+          && (pInformation->USBwIndex == 0)
+  9a:	8893      	ldrh	r3, [r2, #4]
+  9c:	bb2b      	cbnz	r3, ea <Setup0_Process+0xea>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:610
+          && (ValBit(pInformation->Current_Feature, 5)))
+  9e:	7a53      	ldrb	r3, [r2, #9]
+  a0:	f013 0f20 	tst.w	r3, #32
+  a4:	d021      	beq.n	46 <Setup0_Process+0x46>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:612
+      {
+        Result = Standard_SetDeviceFeature();
+  a6:	f7ff fffe 	bl	0 <Setup0_Process>
+  aa:	e01d      	b.n	e8 <Setup0_Process+0xe8>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:620
+      {
+        Result = USB_UNSUPPORT;
+      }
+    }
+    /*Clear FEATURE for Device */
+    else if (RequestNo == CLEAR_FEATURE)
+  ac:	2d01      	cmp	r5, #1
+  ae:	d11c      	bne.n	ea <Setup0_Process+0xea>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:622
+    {
+      if (pInformation->USBwValue0 == DEVICE_REMOTE_WAKEUP
+  b0:	78d3      	ldrb	r3, [r2, #3]
+  b2:	2b01      	cmp	r3, #1
+  b4:	d119      	bne.n	ea <Setup0_Process+0xea>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:623
+          && pInformation->USBwIndex == 0
+  b6:	8893      	ldrh	r3, [r2, #4]
+  b8:	b9bb      	cbnz	r3, ea <Setup0_Process+0xea>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:624
+          && ValBit(pInformation->Current_Feature, 5))
+  ba:	7a53      	ldrb	r3, [r2, #9]
+  bc:	f013 0f20 	tst.w	r3, #32
+  c0:	d013      	beq.n	ea <Setup0_Process+0xea>
+  c2:	e00a      	b.n	da <Setup0_Process+0xda>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:637
+    }
+
+  }
+
+  /* Interface Request*/
+  else if (Type_Recipient == (STANDARD_REQUEST | INTERFACE_RECIPIENT))
+  c4:	2b01      	cmp	r3, #1
+  c6:	d104      	bne.n	d2 <Setup0_Process+0xd2>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:640
+  {
+    /*SET INTERFACE*/
+    if (RequestNo == SET_INTERFACE)
+  c8:	2d0b      	cmp	r5, #11
+  ca:	d10e      	bne.n	ea <Setup0_Process+0xea>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:642
+    {
+      Result = Standard_SetInterface();
+  cc:	f7ff fffe 	bl	0 <Setup0_Process>
+  d0:	e00a      	b.n	e8 <Setup0_Process+0xe8>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:647
+    }
+  }
+
+  /* EndPoint Request*/
+  else if (Type_Recipient == (STANDARD_REQUEST | ENDPOINT_RECIPIENT))
+  d2:	2b02      	cmp	r3, #2
+  d4:	d109      	bne.n	ea <Setup0_Process+0xea>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:650
+  {
+    /*CLEAR FEATURE for EndPoint*/
+    if (RequestNo == CLEAR_FEATURE)
+  d6:	2d01      	cmp	r5, #1
+  d8:	d102      	bne.n	e0 <Setup0_Process+0xe0>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:652
+    {
+      Result = Standard_ClearFeature();
+  da:	f7ff fffe 	bl	0 <Setup0_Process>
+  de:	e003      	b.n	e8 <Setup0_Process+0xe8>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:655
+    }
+    /* SET FEATURE for EndPoint*/
+    else if (RequestNo == SET_FEATURE)
+  e0:	2d03      	cmp	r5, #3
+  e2:	d102      	bne.n	ea <Setup0_Process+0xea>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:657
+    {
+      Result = Standard_SetEndPointFeature();
+  e4:	f7ff fffe 	bl	0 <Setup0_Process>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:666
+  {
+    Result = USB_UNSUPPORT;
+  }
+
+
+  if (Result != USB_SUCCESS)
+  e8:	b138      	cbz	r0, fa <Setup0_Process+0xfa>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:668
+  {
+    Result = (*pProperty->Class_NoData_Setup)(RequestNo);
+  ea:	4b53      	ldr	r3, [pc, #332]	; (238 <Setup0_Process+0x238>)
+  ec:	4628      	mov	r0, r5
+  ee:	681b      	ldr	r3, [r3, #0]
+  f0:	695b      	ldr	r3, [r3, #20]
+  f2:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:669
+    if (Result == USB_NOT_READY)
+  f4:	2803      	cmp	r0, #3
+  f6:	d00d      	beq.n	114 <Setup0_Process+0x114>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:676
+      ControlState = PAUSE;
+      goto exit_NoData_Setup0;
+    }
+  }
+
+  if (Result != USB_SUCCESS)
+  f8:	b970      	cbnz	r0, 118 <Setup0_Process+0x118>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:684
+    goto exit_NoData_Setup0;
+  }
+
+  ControlState = WAIT_STATUS_IN;/* After no data stage SETUP */
+
+  USB_StatusIn();
+  fa:	4b4c      	ldr	r3, [pc, #304]	; (22c <Setup0_Process+0x22c>)
+  fc:	2130      	movs	r1, #48	; 0x30
+  fe:	681a      	ldr	r2, [r3, #0]
+ 100:	4b4e      	ldr	r3, [pc, #312]	; (23c <Setup0_Process+0x23c>)
+ 102:	b292      	uxth	r2, r2
+ 104:	18d3      	adds	r3, r2, r3
+ 106:	005b      	lsls	r3, r3, #1
+ 108:	2200      	movs	r2, #0
+ 10a:	601a      	str	r2, [r3, #0]
+ 10c:	4b4c      	ldr	r3, [pc, #304]	; (240 <Setup0_Process+0x240>)
+ 10e:	8019      	strh	r1, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:682
+  {
+    ControlState = STALLED;
+    goto exit_NoData_Setup0;
+  }
+
+  ControlState = WAIT_STATUS_IN;/* After no data stage SETUP */
+ 110:	2306      	movs	r3, #6
+ 112:	e002      	b.n	11a <Setup0_Process+0x11a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:671
+  if (Result != USB_SUCCESS)
+  {
+    Result = (*pProperty->Class_NoData_Setup)(RequestNo);
+    if (Result == USB_NOT_READY)
+    {
+      ControlState = PAUSE;
+ 114:	2309      	movs	r3, #9
+ 116:	e000      	b.n	11a <Setup0_Process+0x11a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:678
+    }
+  }
+
+  if (Result != USB_SUCCESS)
+  {
+    ControlState = STALLED;
+ 118:	2308      	movs	r3, #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:687
+  ControlState = WAIT_STATUS_IN;/* After no data stage SETUP */
+
+  USB_StatusIn();
+
+exit_NoData_Setup0:
+  pInformation->ControlState = ControlState;
+ 11a:	6822      	ldr	r2, [r4, #0]
+ 11c:	7213      	strb	r3, [r2, #8]
+ 11e:	e0de      	b.n	2de <Setup0_Process+0x2de>
+Data_Setup0():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:713
+
+  CopyRoutine = NULL;
+  wOffset = 0;
+
+  /*GET DESCRIPTOR*/
+  if (Request_No == GET_DESCRIPTOR)
+ 120:	2d06      	cmp	r5, #6
+ 122:	d116      	bne.n	152 <Setup0_Process+0x152>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:715
+  {
+    if (Type_Recipient == (STANDARD_REQUEST | DEVICE_RECIPIENT))
+ 124:	7813      	ldrb	r3, [r2, #0]
+ 126:	f013 0f7f 	tst.w	r3, #127	; 0x7f
+ 12a:	f040 8093 	bne.w	254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:717
+    {
+      uint8_t wValue1 = pInformation->USBwValue1;
+ 12e:	7892      	ldrb	r2, [r2, #2]
+ 130:	4b41      	ldr	r3, [pc, #260]	; (238 <Setup0_Process+0x238>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:718
+      if (wValue1 == DEVICE_DESCRIPTOR)
+ 132:	2a01      	cmp	r2, #1
+ 134:	d102      	bne.n	13c <Setup0_Process+0x13c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:720
+      {
+        CopyRoutine = pProperty->GetDeviceDescriptor;
+ 136:	681b      	ldr	r3, [r3, #0]
+ 138:	69db      	ldr	r3, [r3, #28]
+ 13a:	e06d      	b.n	218 <Setup0_Process+0x218>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:722
+      }
+      else if (wValue1 == CONFIG_DESCRIPTOR)
+ 13c:	2a02      	cmp	r2, #2
+ 13e:	d102      	bne.n	146 <Setup0_Process+0x146>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:724
+      {
+        CopyRoutine = pProperty->GetConfigDescriptor;
+ 140:	681b      	ldr	r3, [r3, #0]
+ 142:	6a1b      	ldr	r3, [r3, #32]
+ 144:	e068      	b.n	218 <Setup0_Process+0x218>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:726
+      }
+      else if (wValue1 == STRING_DESCRIPTOR)
+ 146:	2a03      	cmp	r2, #3
+ 148:	f040 8084 	bne.w	254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:728
+      {
+        CopyRoutine = pProperty->GetStringDescriptor;
+ 14c:	681b      	ldr	r3, [r3, #0]
+ 14e:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+ 150:	e062      	b.n	218 <Setup0_Process+0x218>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:734
+      }  /* End of GET_DESCRIPTOR */
+    }
+  }
+
+  /*GET STATUS*/
+  else if ((Request_No == GET_STATUS) && (pInformation->USBwValue == 0)
+ 152:	2d00      	cmp	r5, #0
+ 154:	d13a      	bne.n	1cc <Setup0_Process+0x1cc>
+ 156:	8851      	ldrh	r1, [r2, #2]
+ 158:	2900      	cmp	r1, #0
+ 15a:	d17b      	bne.n	254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:736
+           && (pInformation->USBwLength == 0x0002)
+           && (pInformation->USBwIndex1 == 0))
+ 15c:	6853      	ldr	r3, [r2, #4]
+ 15e:	f423 437f 	bic.w	r3, r3, #65280	; 0xff00
+ 162:	f5b3 3f00 	cmp.w	r3, #131072	; 0x20000
+ 166:	d175      	bne.n	254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:739
+  {
+    /* GET STATUS for Device*/
+    if ((Type_Recipient == (STANDARD_REQUEST | DEVICE_RECIPIENT))
+ 168:	7813      	ldrb	r3, [r2, #0]
+ 16a:	f013 037f 	ands.w	r3, r3, #127	; 0x7f
+ 16e:	d103      	bne.n	178 <Setup0_Process+0x178>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:740
+        && (pInformation->USBwIndex == 0))
+ 170:	8893      	ldrh	r3, [r2, #4]
+ 172:	2b00      	cmp	r3, #0
+ 174:	d04c      	beq.n	210 <Setup0_Process+0x210>
+ 176:	e06d      	b.n	254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:746
+    {
+      CopyRoutine = Standard_GetStatus;
+    }
+
+    /* GET STATUS for Interface*/
+    else if (Type_Recipient == (STANDARD_REQUEST | INTERFACE_RECIPIENT))
+ 178:	2b01      	cmp	r3, #1
+ 17a:	d10c      	bne.n	196 <Setup0_Process+0x196>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:748
+    {
+      if (((*pProperty->Class_Get_Interface_Setting)(pInformation->USBwIndex0, 0) == USB_SUCCESS)
+ 17c:	4b2e      	ldr	r3, [pc, #184]	; (238 <Setup0_Process+0x238>)
+ 17e:	7950      	ldrb	r0, [r2, #5]
+ 180:	681b      	ldr	r3, [r3, #0]
+ 182:	699b      	ldr	r3, [r3, #24]
+ 184:	4798      	blx	r3
+ 186:	2800      	cmp	r0, #0
+ 188:	d164      	bne.n	254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:749
+          && (pInformation->Current_Configuration != 0))
+ 18a:	4b29      	ldr	r3, [pc, #164]	; (230 <Setup0_Process+0x230>)
+ 18c:	681b      	ldr	r3, [r3, #0]
+ 18e:	7a9b      	ldrb	r3, [r3, #10]
+ 190:	2b00      	cmp	r3, #0
+ 192:	d13d      	bne.n	210 <Setup0_Process+0x210>
+ 194:	e05e      	b.n	254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:756
+        CopyRoutine = Standard_GetStatus;
+      }
+    }
+
+    /* GET STATUS for EndPoint*/
+    else if (Type_Recipient == (STANDARD_REQUEST | ENDPOINT_RECIPIENT))
+ 196:	2b02      	cmp	r3, #2
+ 198:	d15c      	bne.n	254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:758
+    {
+      Related_Endpoint = (pInformation->USBwIndex0 & 0x0f);
+ 19a:	7953      	ldrb	r3, [r2, #5]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:772
+      else
+      {
+        Status = _GetEPRxStatus(Related_Endpoint);
+      }
+
+      if ((Related_Endpoint < Device_Table.Total_Endpoint) && (Reserved == 0)
+ 19c:	4829      	ldr	r0, [pc, #164]	; (244 <Setup0_Process+0x244>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:758
+    }
+
+    /* GET STATUS for EndPoint*/
+    else if (Type_Recipient == (STANDARD_REQUEST | ENDPOINT_RECIPIENT))
+    {
+      Related_Endpoint = (pInformation->USBwIndex0 & 0x0f);
+ 19e:	f003 010f 	and.w	r1, r3, #15
+ 1a2:	008a      	lsls	r2, r1, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:765
+
+      if (ValBit(pInformation->USBwIndex0, 7))
+      {
+        /*Get Status of endpoint & stall the request if the related_ENdpoint
+        is Disabled*/
+        Status = _GetEPTxStatus(Related_Endpoint);
+ 1a4:	f102 4280 	add.w	r2, r2, #1073741824	; 0x40000000
+ 1a8:	f502 42b8 	add.w	r2, r2, #23552	; 0x5c00
+ 1ac:	6812      	ldr	r2, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:772
+      else
+      {
+        Status = _GetEPRxStatus(Related_Endpoint);
+      }
+
+      if ((Related_Endpoint < Device_Table.Total_Endpoint) && (Reserved == 0)
+ 1ae:	7800      	ldrb	r0, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:761
+    else if (Type_Recipient == (STANDARD_REQUEST | ENDPOINT_RECIPIENT))
+    {
+      Related_Endpoint = (pInformation->USBwIndex0 & 0x0f);
+      Reserved = pInformation->USBwIndex0 & 0x70;
+
+      if (ValBit(pInformation->USBwIndex0, 7))
+ 1b0:	f013 0f80 	tst.w	r3, #128	; 0x80
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:765
+      {
+        /*Get Status of endpoint & stall the request if the related_ENdpoint
+        is Disabled*/
+        Status = _GetEPTxStatus(Related_Endpoint);
+ 1b4:	bf14      	ite	ne
+ 1b6:	f002 0230 	andne.w	r2, r2, #48	; 0x30
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:769
+      }
+      else
+      {
+        Status = _GetEPRxStatus(Related_Endpoint);
+ 1ba:	f402 5240 	andeq.w	r2, r2, #12288	; 0x3000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:772
+      }
+
+      if ((Related_Endpoint < Device_Table.Total_Endpoint) && (Reserved == 0)
+ 1be:	4281      	cmp	r1, r0
+ 1c0:	d248      	bcs.n	254 <Setup0_Process+0x254>
+ 1c2:	f013 0f70 	tst.w	r3, #112	; 0x70
+ 1c6:	d145      	bne.n	254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:773
+          && (Status != 0))
+ 1c8:	bb12      	cbnz	r2, 210 <Setup0_Process+0x210>
+ 1ca:	e043      	b.n	254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:782
+    }
+
+  }
+
+  /*GET CONFIGURATION*/
+  else if (Request_No == GET_CONFIGURATION)
+ 1cc:	2d08      	cmp	r5, #8
+ 1ce:	d104      	bne.n	1da <Setup0_Process+0x1da>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:784
+  {
+    if (Type_Recipient == (STANDARD_REQUEST | DEVICE_RECIPIENT))
+ 1d0:	7813      	ldrb	r3, [r2, #0]
+ 1d2:	f013 0f7f 	tst.w	r3, #127	; 0x7f
+ 1d6:	d01d      	beq.n	214 <Setup0_Process+0x214>
+ 1d8:	e03c      	b.n	254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:790
+    {
+      CopyRoutine = Standard_GetConfiguration;
+    }
+  }
+  /*GET INTERFACE*/
+  else if (Request_No == GET_INTERFACE)
+ 1da:	2d0a      	cmp	r5, #10
+ 1dc:	d13a      	bne.n	254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:792
+  {
+    if ((Type_Recipient == (STANDARD_REQUEST | INTERFACE_RECIPIENT))
+ 1de:	7813      	ldrb	r3, [r2, #0]
+ 1e0:	f003 037f 	and.w	r3, r3, #127	; 0x7f
+ 1e4:	2b01      	cmp	r3, #1
+ 1e6:	d135      	bne.n	254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:793
+        && (pInformation->Current_Configuration != 0) && (pInformation->USBwValue == 0)
+ 1e8:	7a93      	ldrb	r3, [r2, #10]
+ 1ea:	2b00      	cmp	r3, #0
+ 1ec:	d032      	beq.n	254 <Setup0_Process+0x254>
+ 1ee:	8851      	ldrh	r1, [r2, #2]
+ 1f0:	2900      	cmp	r1, #0
+ 1f2:	d12f      	bne.n	254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:794
+        && (pInformation->USBwIndex1 == 0) && (pInformation->USBwLength == 0x0001)
+ 1f4:	6853      	ldr	r3, [r2, #4]
+ 1f6:	f423 437f 	bic.w	r3, r3, #65280	; 0xff00
+ 1fa:	f5b3 3f80 	cmp.w	r3, #65536	; 0x10000
+ 1fe:	d129      	bne.n	254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:795
+        && ((*pProperty->Class_Get_Interface_Setting)(pInformation->USBwIndex0, 0) == USB_SUCCESS))
+ 200:	4b0d      	ldr	r3, [pc, #52]	; (238 <Setup0_Process+0x238>)
+ 202:	7950      	ldrb	r0, [r2, #5]
+ 204:	681b      	ldr	r3, [r3, #0]
+ 206:	699b      	ldr	r3, [r3, #24]
+ 208:	4798      	blx	r3
+ 20a:	bb18      	cbnz	r0, 254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:797
+    {
+      CopyRoutine = Standard_GetInterface;
+ 20c:	4b0e      	ldr	r3, [pc, #56]	; (248 <Setup0_Process+0x248>)
+ 20e:	e004      	b.n	21a <Setup0_Process+0x21a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:775
+      }
+
+      if ((Related_Endpoint < Device_Table.Total_Endpoint) && (Reserved == 0)
+          && (Status != 0))
+      {
+        CopyRoutine = Standard_GetStatus;
+ 210:	4b0e      	ldr	r3, [pc, #56]	; (24c <Setup0_Process+0x24c>)
+ 212:	e002      	b.n	21a <Setup0_Process+0x21a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:786
+  /*GET CONFIGURATION*/
+  else if (Request_No == GET_CONFIGURATION)
+  {
+    if (Type_Recipient == (STANDARD_REQUEST | DEVICE_RECIPIENT))
+    {
+      CopyRoutine = Standard_GetConfiguration;
+ 214:	4b0e      	ldr	r3, [pc, #56]	; (250 <Setup0_Process+0x250>)
+ 216:	e000      	b.n	21a <Setup0_Process+0x21a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:802
+      CopyRoutine = Standard_GetInterface;
+    }
+
+  }
+  
+  if (CopyRoutine)
+ 218:	b1e3      	cbz	r3, 254 <Setup0_Process+0x254>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:804
+  {
+    pInformation->Ctrl_Info.Usb_wOffset = wOffset;
+ 21a:	6822      	ldr	r2, [r4, #0]
+ 21c:	2100      	movs	r1, #0
+ 21e:	8251      	strh	r1, [r2, #18]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:805
+    pInformation->Ctrl_Info.CopyData = CopyRoutine;
+ 220:	6193      	str	r3, [r2, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:808
+    /* sb in the original the cast to word was directly */
+    /* now the cast is made step by step */
+    (*CopyRoutine)(0);
+ 222:	2000      	movs	r0, #0
+ 224:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:809
+    Result = USB_SUCCESS;
+ 226:	2000      	movs	r0, #0
+ 228:	e01f      	b.n	26a <Setup0_Process+0x26a>
+ 22a:	bf00      	nop
+ 22c:	40005c50 	.word	0x40005c50
+ 230:	00000000 	.word	0x00000000
+ 234:	20003004 	.word	0x20003004
+ 238:	00000000 	.word	0x00000000
+ 23c:	20003002 	.word	0x20003002
+	...
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:813
+  }
+  else
+  {
+    Result = (*pProperty->Class_Data_Setup)(pInformation->USBbRequest);
+ 254:	4b24      	ldr	r3, [pc, #144]	; (2e8 <Setup0_Process+0x2e8>)
+ 256:	6822      	ldr	r2, [r4, #0]
+ 258:	681b      	ldr	r3, [r3, #0]
+ 25a:	7850      	ldrb	r0, [r2, #1]
+ 25c:	691b      	ldr	r3, [r3, #16]
+ 25e:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:814
+    if (Result == USB_NOT_READY)
+ 260:	2803      	cmp	r0, #3
+ 262:	d102      	bne.n	26a <Setup0_Process+0x26a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:816
+    {
+      pInformation->ControlState = PAUSE;
+ 264:	4b21      	ldr	r3, [pc, #132]	; (2ec <Setup0_Process+0x2ec>)
+ 266:	681b      	ldr	r3, [r3, #0]
+ 268:	e005      	b.n	276 <Setup0_Process+0x276>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:821
+      return;
+    }
+  }
+
+  if (pInformation->Ctrl_Info.Usb_wLength == 0xFFFF)
+ 26a:	6823      	ldr	r3, [r4, #0]
+ 26c:	f64f 71ff 	movw	r1, #65535	; 0xffff
+ 270:	8a1a      	ldrh	r2, [r3, #16]
+ 272:	428a      	cmp	r2, r1
+ 274:	d101      	bne.n	27a <Setup0_Process+0x27a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:824
+  {
+    /* Data is not ready, wait it */
+    pInformation->ControlState = PAUSE;
+ 276:	2209      	movs	r2, #9
+ 278:	e003      	b.n	282 <Setup0_Process+0x282>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:827
+    return;
+  }
+  if ((Result == USB_UNSUPPORT) || (pInformation->Ctrl_Info.Usb_wLength == 0))
+ 27a:	2802      	cmp	r0, #2
+ 27c:	d000      	beq.n	280 <Setup0_Process+0x280>
+ 27e:	b912      	cbnz	r2, 286 <Setup0_Process+0x286>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:830
+  {
+    /* Unsupported request */
+    pInformation->ControlState = STALLED;
+ 280:	2208      	movs	r2, #8
+ 282:	721a      	strb	r2, [r3, #8]
+ 284:	e02b      	b.n	2de <Setup0_Process+0x2de>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:835
+    return;
+  }
+
+
+  if (ValBit(pInformation->USBbmRequestType, 7))
+ 286:	f993 1000 	ldrsb.w	r1, [r3]
+ 28a:	2900      	cmp	r1, #0
+ 28c:	da21      	bge.n	2d2 <Setup0_Process+0x2d2>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:838
+  {
+    /* Device ==> Host */
+    __IO uint32_t wLength = pInformation->USBwLength;
+ 28e:	88d8      	ldrh	r0, [r3, #6]
+ 290:	9001      	str	r0, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:841
+     
+    /* Restrict the data length to be the one host asks for */
+    if (pInformation->Ctrl_Info.Usb_wLength > wLength)
+ 292:	9901      	ldr	r1, [sp, #4]
+ 294:	428a      	cmp	r2, r1
+ 296:	4914      	ldr	r1, [pc, #80]	; (2e8 <Setup0_Process+0x2e8>)
+ 298:	d902      	bls.n	2a0 <Setup0_Process+0x2a0>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:843
+    {
+      pInformation->Ctrl_Info.Usb_wLength = wLength;
+ 29a:	9a01      	ldr	r2, [sp, #4]
+ 29c:	821a      	strh	r2, [r3, #16]
+ 29e:	e010      	b.n	2c2 <Setup0_Process+0x2c2>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:846
+    }
+    
+    else if (pInformation->Ctrl_Info.Usb_wLength < pInformation->USBwLength)
+ 2a0:	4282      	cmp	r2, r0
+ 2a2:	d20e      	bcs.n	2c2 <Setup0_Process+0x2c2>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:848
+    {
+      if (pInformation->Ctrl_Info.Usb_wLength < pProperty->MaxPacketSize)
+ 2a4:	680b      	ldr	r3, [r1, #0]
+ 2a6:	f893 302c 	ldrb.w	r3, [r3, #44]	; 0x2c
+ 2aa:	429a      	cmp	r2, r3
+ 2ac:	d201      	bcs.n	2b2 <Setup0_Process+0x2b2>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:850
+      {
+        Data_Mul_MaxPacketSize = FALSE;
+ 2ae:	2200      	movs	r2, #0
+ 2b0:	e005      	b.n	2be <Setup0_Process+0x2be>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:852
+      }
+      else if ((pInformation->Ctrl_Info.Usb_wLength % pProperty->MaxPacketSize) == 0)
+ 2b2:	fb92 f0f3 	sdiv	r0, r2, r3
+ 2b6:	fb03 2210 	mls	r2, r3, r0, r2
+ 2ba:	b912      	cbnz	r2, 2c2 <Setup0_Process+0x2c2>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:854
+      {
+        Data_Mul_MaxPacketSize = TRUE;
+ 2bc:	3201      	adds	r2, #1
+ 2be:	4b0c      	ldr	r3, [pc, #48]	; (2f0 <Setup0_Process+0x2f0>)
+ 2c0:	701a      	strb	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:858
+      }
+    }   
+
+    pInformation->Ctrl_Info.PacketSize = pProperty->MaxPacketSize;
+ 2c2:	680a      	ldr	r2, [r1, #0]
+ 2c4:	6823      	ldr	r3, [r4, #0]
+ 2c6:	f892 202c 	ldrb.w	r2, [r2, #44]	; 0x2c
+ 2ca:	829a      	strh	r2, [r3, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:859
+    DataStageIn();
+ 2cc:	f7ff fffe 	bl	0 <Setup0_Process>
+ 2d0:	e005      	b.n	2de <Setup0_Process+0x2de>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:863
+  }
+  else
+  {
+    pInformation->ControlState = OUT_DATA;
+ 2d2:	2203      	movs	r2, #3
+ 2d4:	721a      	strb	r2, [r3, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:864
+    vSetEPRxStatus(EP_RX_VALID); /* enable for next data reception */
+ 2d6:	4b07      	ldr	r3, [pc, #28]	; (2f4 <Setup0_Process+0x2f4>)
+ 2d8:	f44f 5240 	mov.w	r2, #12288	; 0x3000
+ 2dc:	801a      	strh	r2, [r3, #0]
+Setup0_Process():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:922
+  {
+    /* Setup with data stage */
+    Data_Setup0();
+  }
+  return Post0_Process();
+}
+ 2de:	b003      	add	sp, #12
+ 2e0:	e8bd 40f0 	ldmia.w	sp!, {r4, r5, r6, r7, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:921
+  else
+  {
+    /* Setup with data stage */
+    Data_Setup0();
+  }
+  return Post0_Process();
+ 2e4:	f7ff bffe 	b.w	0 <Setup0_Process>
+	...
+
+Disassembly of section .text.SetDeviceAddress:
+
+00000000 <SetDeviceAddress>:
+SetDeviceAddress():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1059
+* Input          : - Val: device adress.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetDeviceAddress(uint8_t Val)
+{
+   0:	4b0fb570 	.word	0x4b0fb570
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1064
+#ifdef STM32F10X_CL 
+  PCD_EP_SetAddress ((uint8_t)Val);
+#else 
+  uint32_t i;
+  uint32_t nEP = Device_Table.Total_Endpoint;
+   4:	781d      	ldrb	r5, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1067
+
+  /* set address in every used endpoint */
+  for (i = 0; i < nEP; i++)
+   6:	2300      	movs	r3, #0
+   8:	e012      	b.n	30 <SetDeviceAddress+0x30>
+   a:	b2dc      	uxtb	r4, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1069
+  {
+    _SetEPAddress((uint8_t)i, (uint8_t)i);
+   c:	00a2      	lsls	r2, r4, #2
+   e:	f102 4280 	add.w	r2, r2, #1073741824	; 0x40000000
+  12:	f502 42b8 	add.w	r2, r2, #23552	; 0x5c00
+  16:	6816      	ldr	r6, [r2, #0]
+  18:	f444 4400 	orr.w	r4, r4, #32768	; 0x8000
+  1c:	f640 710f 	movw	r1, #3855	; 0xf0f
+  20:	f044 0480 	orr.w	r4, r4, #128	; 0x80
+  24:	ea06 0101 	and.w	r1, r6, r1
+  28:	ea44 0101 	orr.w	r1, r4, r1
+  2c:	6011      	str	r1, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1067
+#else 
+  uint32_t i;
+  uint32_t nEP = Device_Table.Total_Endpoint;
+
+  /* set address in every used endpoint */
+  for (i = 0; i < nEP; i++)
+  2e:	3301      	adds	r3, #1
+  30:	42ab      	cmp	r3, r5
+  32:	d3ea      	bcc.n	a <SetDeviceAddress+0xa>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1071
+  {
+    _SetEPAddress((uint8_t)i, (uint8_t)i);
+  } /* for */
+  _SetDADDR(Val | DADDR_EF); /* set device address and enable function */
+  34:	4b03      	ldr	r3, [pc, #12]	; (44 <SetDeviceAddress+0x44>)
+  36:	f040 0080 	orr.w	r0, r0, #128	; 0x80
+  3a:	6018      	str	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1073
+#endif  /* STM32F10X_CL */  
+}
+  3c:	bd70      	pop	{r4, r5, r6, pc}
+  3e:	bf00      	nop
+  40:	00000000 	.word	0x00000000
+  44:	40005c4c 	.word	0x40005c4c
+
+Disassembly of section .text.In0_Process:
+
+00000000 <In0_Process>:
+In0_Process():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:932
+* Input          : None.
+* Output         : None.
+* Return         : Post0_Process.
+*******************************************************************************/
+uint8_t In0_Process(void)
+{
+   0:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:933
+  uint32_t ControlState = pInformation->ControlState;
+   2:	4c13      	ldr	r4, [pc, #76]	; (50 <In0_Process+0x50>)
+   4:	6823      	ldr	r3, [r4, #0]
+   6:	7a1a      	ldrb	r2, [r3, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:935
+
+  if ((ControlState == IN_DATA) || (ControlState == LAST_IN_DATA))
+   8:	2a02      	cmp	r2, #2
+   a:	d001      	beq.n	10 <In0_Process+0x10>
+   c:	2a04      	cmp	r2, #4
+   e:	d104      	bne.n	1a <In0_Process+0x1a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:937
+  {
+    DataStageIn();
+  10:	f7ff fffe 	bl	0 <In0_Process>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:939
+    /* ControlState may be changed outside the function */
+    ControlState = pInformation->ControlState;
+  14:	6823      	ldr	r3, [r4, #0]
+  16:	7a1b      	ldrb	r3, [r3, #8]
+  18:	e014      	b.n	44 <In0_Process+0x44>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:942
+  }
+
+  else if (ControlState == WAIT_STATUS_IN)
+  1a:	2a06      	cmp	r2, #6
+  1c:	d111      	bne.n	42 <In0_Process+0x42>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:944
+  {
+    if ((pInformation->USBbRequest == SET_ADDRESS) &&
+  1e:	785a      	ldrb	r2, [r3, #1]
+  20:	2a05      	cmp	r2, #5
+  22:	d10a      	bne.n	3a <In0_Process+0x3a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:945
+        (Type_Recipient == (STANDARD_REQUEST | DEVICE_RECIPIENT)))
+  24:	781a      	ldrb	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:944
+    ControlState = pInformation->ControlState;
+  }
+
+  else if (ControlState == WAIT_STATUS_IN)
+  {
+    if ((pInformation->USBbRequest == SET_ADDRESS) &&
+  26:	f012 0f7f 	tst.w	r2, #127	; 0x7f
+  2a:	d106      	bne.n	3a <In0_Process+0x3a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:947
+        (Type_Recipient == (STANDARD_REQUEST | DEVICE_RECIPIENT)))
+    {
+      SetDeviceAddress(pInformation->USBwValue0);
+  2c:	78d8      	ldrb	r0, [r3, #3]
+  2e:	f7ff fffe 	bl	0 <In0_Process>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:948
+      pUser_Standard_Requests->User_SetDeviceAddress();
+  32:	4b08      	ldr	r3, [pc, #32]	; (54 <In0_Process+0x54>)
+  34:	681b      	ldr	r3, [r3, #0]
+  36:	6a1b      	ldr	r3, [r3, #32]
+  38:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:950
+    }
+    (*pProperty->Process_Status_IN)();
+  3a:	4b07      	ldr	r3, [pc, #28]	; (58 <In0_Process+0x58>)
+  3c:	681b      	ldr	r3, [r3, #0]
+  3e:	689b      	ldr	r3, [r3, #8]
+  40:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:956
+    ControlState = STALLED;
+  }
+
+  else
+  {
+    ControlState = STALLED;
+  42:	2308      	movs	r3, #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:959
+  }
+
+  pInformation->ControlState = ControlState;
+  44:	6822      	ldr	r2, [r4, #0]
+  46:	7213      	strb	r3, [r2, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:962
+
+  return Post0_Process();
+}
+  48:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:961
+    ControlState = STALLED;
+  }
+
+  pInformation->ControlState = ControlState;
+
+  return Post0_Process();
+  4c:	f7ff bffe 	b.w	0 <In0_Process>
+	...
+
+Disassembly of section .text.NOP_Process:
+
+00000000 <NOP_Process>:
+NOP_Process():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_core.c:1084
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void NOP_Process(void)
+{
+}
+   0:	4770      	bx	lr

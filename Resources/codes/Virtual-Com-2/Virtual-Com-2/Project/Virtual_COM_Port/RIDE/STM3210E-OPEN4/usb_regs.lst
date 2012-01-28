@@ -1,0 +1,1613 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_regs.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_regs.o
+
+
+Disassembly of section .text.SetCNTR:
+
+00000000 <SetCNTR>:
+SetCNTR():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:37
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetCNTR(uint16_t wRegValue)
+{
+  _SetCNTR(wRegValue);
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <SetCNTR+0x8>)
+   2:	6018      	str	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:38
+}
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	40005c40 	.word	0x40005c40
+
+Disassembly of section .text.GetCNTR:
+
+00000000 <GetCNTR>:
+GetCNTR():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:49
+* Output         : None.
+* Return         : CNTR register Value.
+*******************************************************************************/
+uint16_t GetCNTR(void)
+{
+  return(_GetCNTR());
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <GetCNTR+0x8>)
+   2:	6818      	ldr	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:50
+}
+   4:	b280      	uxth	r0, r0
+   6:	4770      	bx	lr
+   8:	40005c40 	.word	0x40005c40
+
+Disassembly of section .text.SetISTR:
+
+00000000 <SetISTR>:
+SetISTR():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:61
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetISTR(uint16_t wRegValue)
+{
+  _SetISTR(wRegValue);
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <SetISTR+0x8>)
+   2:	6018      	str	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:62
+}
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	40005c44 	.word	0x40005c44
+
+Disassembly of section .text.GetISTR:
+
+00000000 <GetISTR>:
+GetISTR():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:73
+* Output         : None.
+* Return         : ISTR register Value
+*******************************************************************************/
+uint16_t GetISTR(void)
+{
+  return(_GetISTR());
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <GetISTR+0x8>)
+   2:	6818      	ldr	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:74
+}
+   4:	b280      	uxth	r0, r0
+   6:	4770      	bx	lr
+   8:	40005c44 	.word	0x40005c44
+
+Disassembly of section .text.GetFNR:
+
+00000000 <GetFNR>:
+GetFNR():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:85
+* Output         : None.
+* Return         : FNR register Value
+*******************************************************************************/
+uint16_t GetFNR(void)
+{
+  return(_GetFNR());
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <GetFNR+0x8>)
+   2:	6818      	ldr	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:86
+}
+   4:	b280      	uxth	r0, r0
+   6:	4770      	bx	lr
+   8:	40005c48 	.word	0x40005c48
+
+Disassembly of section .text.SetDADDR:
+
+00000000 <SetDADDR>:
+SetDADDR():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:97
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetDADDR(uint16_t wRegValue)
+{
+  _SetDADDR(wRegValue);
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <SetDADDR+0x8>)
+   2:	6018      	str	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:98
+}
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	40005c4c 	.word	0x40005c4c
+
+Disassembly of section .text.GetDADDR:
+
+00000000 <GetDADDR>:
+GetDADDR():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:109
+* Output         : None.
+* Return         : DADDR register Value
+*******************************************************************************/
+uint16_t GetDADDR(void)
+{
+  return(_GetDADDR());
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <GetDADDR+0x8>)
+   2:	6818      	ldr	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:110
+}
+   4:	b280      	uxth	r0, r0
+   6:	4770      	bx	lr
+   8:	40005c4c 	.word	0x40005c4c
+
+Disassembly of section .text.SetBTABLE:
+
+00000000 <SetBTABLE>:
+SetBTABLE():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:121
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetBTABLE(uint16_t wRegValue)
+{
+  _SetBTABLE(wRegValue);
+   0:	f64f 73f8 	movw	r3, #65528	; 0xfff8
+   4:	4a02      	ldr	r2, [pc, #8]	; (10 <SetBTABLE+0x10>)
+   6:	ea00 0303 	and.w	r3, r0, r3
+   a:	6013      	str	r3, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:122
+}
+   c:	4770      	bx	lr
+   e:	bf00      	nop
+  10:	40005c50 	.word	0x40005c50
+
+Disassembly of section .text.GetBTABLE:
+
+00000000 <GetBTABLE>:
+GetBTABLE():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:133
+* Output         : None.
+* Return         : BTABLE address.
+*******************************************************************************/
+uint16_t GetBTABLE(void)
+{
+  return(_GetBTABLE());
+   0:	68184b01 	.word	0x68184b01
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:134
+}
+   4:	b280      	uxth	r0, r0
+   6:	4770      	bx	lr
+   8:	40005c50 	.word	0x40005c50
+
+Disassembly of section .text.SetENDPOINT:
+
+00000000 <SetENDPOINT>:
+SetENDPOINT():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:146
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetENDPOINT(uint8_t bEpNum, uint16_t wRegValue)
+{
+  _SetENDPOINT(bEpNum, wRegValue);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6001      	str	r1, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:147
+}
+   c:	4770      	bx	lr
+
+Disassembly of section .text.GetENDPOINT:
+
+00000000 <GetENDPOINT>:
+GetENDPOINT():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:158
+* Output         : None.
+* Return         : Endpoint register value.
+*******************************************************************************/
+uint16_t GetENDPOINT(uint8_t bEpNum)
+{
+  return(_GetENDPOINT(bEpNum));
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6800      	ldr	r0, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:159
+}
+   c:	b280      	uxth	r0, r0
+   e:	4770      	bx	lr
+
+Disassembly of section .text.SetEPType:
+
+00000000 <SetEPType>:
+SetEPType():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:171
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPType(uint8_t bEpNum, uint16_t wType)
+{
+  _SetEPType(bEpNum, wType);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6802      	ldr	r2, [r0, #0]
+   c:	f648 138f 	movw	r3, #35215	; 0x898f
+  10:	ea02 0303 	and.w	r3, r2, r3
+  14:	430b      	orrs	r3, r1
+  16:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:172
+}
+  18:	4770      	bx	lr
+
+Disassembly of section .text.GetEPType:
+
+00000000 <GetEPType>:
+GetEPType():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:183
+* Output         : None.
+* Return         : Endpoint Type
+*******************************************************************************/
+uint16_t GetEPType(uint8_t bEpNum)
+{
+  return(_GetEPType(bEpNum));
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6800      	ldr	r0, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:184
+}
+   c:	f400 60c0 	and.w	r0, r0, #1536	; 0x600
+  10:	4770      	bx	lr
+
+Disassembly of section .text.SetEPTxStatus:
+
+00000000 <SetEPTxStatus>:
+SetEPTxStatus():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:196
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPTxStatus(uint8_t bEpNum, uint16_t wState)
+{
+  _SetEPTxStatus(bEpNum, wState);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6802      	ldr	r2, [r0, #0]
+   c:	f648 73bf 	movw	r3, #36799	; 0x8fbf
+  10:	ea02 0303 	and.w	r3, r2, r3
+  14:	f001 0210 	and.w	r2, r1, #16
+  18:	b292      	uxth	r2, r2
+  1a:	b10a      	cbz	r2, 20 <SetEPTxStatus+0x20>
+  1c:	f083 0310 	eor.w	r3, r3, #16
+  20:	f001 0120 	and.w	r1, r1, #32
+  24:	b289      	uxth	r1, r1
+  26:	b109      	cbz	r1, 2c <SetEPTxStatus+0x2c>
+  28:	f083 0320 	eor.w	r3, r3, #32
+  2c:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  30:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  34:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:197
+}
+  36:	4770      	bx	lr
+
+Disassembly of section .text.SetEPRxStatus:
+
+00000000 <SetEPRxStatus>:
+SetEPRxStatus():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:209
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPRxStatus(uint8_t bEpNum, uint16_t wState)
+{
+  _SetEPRxStatus(bEpNum, wState);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6802      	ldr	r2, [r0, #0]
+   c:	f64b 738f 	movw	r3, #49039	; 0xbf8f
+  10:	ea02 0303 	and.w	r3, r2, r3
+  14:	f401 5280 	and.w	r2, r1, #4096	; 0x1000
+  18:	b292      	uxth	r2, r2
+  1a:	b10a      	cbz	r2, 20 <SetEPRxStatus+0x20>
+  1c:	f483 5380 	eor.w	r3, r3, #4096	; 0x1000
+  20:	f401 5100 	and.w	r1, r1, #8192	; 0x2000
+  24:	b289      	uxth	r1, r1
+  26:	b109      	cbz	r1, 2c <SetEPRxStatus+0x2c>
+  28:	f483 5300 	eor.w	r3, r3, #8192	; 0x2000
+  2c:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  30:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  34:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:210
+}
+  36:	4770      	bx	lr
+
+Disassembly of section .text.SetDouBleBuffEPStall:
+
+00000000 <SetDouBleBuffEPStall>:
+SetDouBleBuffEPStall():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:221
+*                  bDir: Endpoint direction.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetDouBleBuffEPStall(uint8_t bEpNum, uint8_t bDir)
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	460d      	mov	r5, r1
+   4:	4604      	mov	r4, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:223
+  uint16_t Endpoint_DTOG_Status;
+  Endpoint_DTOG_Status = GetENDPOINT(bEpNum);
+   6:	f7ff fffe 	bl	0 <SetDouBleBuffEPStall>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:224
+  if (bDir == EP_DBUF_OUT)
+   a:	2d01      	cmp	r5, #1
+   c:	d108      	bne.n	20 <SetDouBleBuffEPStall+0x20>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:226
+  { /* OUT double buffered endpoint */
+    _SetENDPOINT(bEpNum, Endpoint_DTOG_Status & ~EPRX_DTOG1);
+   e:	00a4      	lsls	r4, r4, #2
+  10:	f104 4480 	add.w	r4, r4, #1073741824	; 0x40000000
+  14:	f504 44b8 	add.w	r4, r4, #23552	; 0x5c00
+  18:	f420 5080 	bic.w	r0, r0, #4096	; 0x1000
+  1c:	6020      	str	r0, [r4, #0]
+  1e:	bd38      	pop	{r3, r4, r5, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:228
+  }
+  else if (bDir == EP_DBUF_IN)
+  20:	2d02      	cmp	r5, #2
+  22:	d107      	bne.n	34 <SetDouBleBuffEPStall+0x34>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:230
+  { /* IN double buffered endpoint */
+    _SetENDPOINT(bEpNum, Endpoint_DTOG_Status & ~EPTX_DTOG1);
+  24:	00a4      	lsls	r4, r4, #2
+  26:	f104 4480 	add.w	r4, r4, #1073741824	; 0x40000000
+  2a:	f504 44b8 	add.w	r4, r4, #23552	; 0x5c00
+  2e:	f020 0010 	bic.w	r0, r0, #16
+  32:	6020      	str	r0, [r4, #0]
+  34:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.GetEPTxStatus:
+
+00000000 <GetEPTxStatus>:
+GetEPTxStatus():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:243
+* Output         : None.
+* Return         : Endpoint TX Status
+*******************************************************************************/
+uint16_t GetEPTxStatus(uint8_t bEpNum)
+{
+  return(_GetEPTxStatus(bEpNum));
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6800      	ldr	r0, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:244
+}
+   c:	f000 0030 	and.w	r0, r0, #48	; 0x30
+  10:	4770      	bx	lr
+
+Disassembly of section .text.GetEPRxStatus:
+
+00000000 <GetEPRxStatus>:
+GetEPRxStatus():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:255
+* Output         : None.
+* Return         : Endpoint RX Status
+*******************************************************************************/
+uint16_t GetEPRxStatus(uint8_t bEpNum)
+{
+  return(_GetEPRxStatus(bEpNum));
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6800      	ldr	r0, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:256
+}
+   c:	f400 5040 	and.w	r0, r0, #12288	; 0x3000
+  10:	4770      	bx	lr
+
+Disassembly of section .text.SetEPTxValid:
+
+00000000 <SetEPTxValid>:
+SetEPTxValid():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:267
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPTxValid(uint8_t bEpNum)
+{
+  _SetEPTxStatus(bEpNum, EP_TX_VALID);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6802      	ldr	r2, [r0, #0]
+   c:	f648 73bf 	movw	r3, #36799	; 0x8fbf
+  10:	ea02 0303 	and.w	r3, r2, r3
+  14:	f083 0330 	eor.w	r3, r3, #48	; 0x30
+  18:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  1c:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  20:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:268
+}
+  22:	4770      	bx	lr
+
+Disassembly of section .text.SetEPRxValid:
+
+00000000 <SetEPRxValid>:
+SetEPRxValid():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:279
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPRxValid(uint8_t bEpNum)
+{
+  _SetEPRxStatus(bEpNum, EP_RX_VALID);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6802      	ldr	r2, [r0, #0]
+   c:	f64b 738f 	movw	r3, #49039	; 0xbf8f
+  10:	ea02 0303 	and.w	r3, r2, r3
+  14:	f483 5340 	eor.w	r3, r3, #12288	; 0x3000
+  18:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  1c:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  20:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:280
+}
+  22:	4770      	bx	lr
+
+Disassembly of section .text.SetEP_KIND:
+
+00000000 <SetEP_KIND>:
+SetEP_KIND():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:291
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEP_KIND(uint8_t bEpNum)
+{
+  _SetEP_KIND(bEpNum);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6802      	ldr	r2, [r0, #0]
+   c:	f640 630f 	movw	r3, #3599	; 0xe0f
+  10:	ea02 0303 	and.w	r3, r2, r3
+  14:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  18:	f443 73c0 	orr.w	r3, r3, #384	; 0x180
+  1c:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:292
+}
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.ClearEP_KIND:
+
+00000000 <ClearEP_KIND>:
+ClearEP_KIND():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:303
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void ClearEP_KIND(uint8_t bEpNum)
+{
+  _ClearEP_KIND(bEpNum);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6802      	ldr	r2, [r0, #0]
+   c:	f640 630f 	movw	r3, #3599	; 0xe0f
+  10:	ea02 0303 	and.w	r3, r2, r3
+  14:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  18:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  1c:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:304
+}
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.Clear_Status_Out:
+
+00000000 <Clear_Status_Out>:
+Clear_Status_Out():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:314
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void Clear_Status_Out(uint8_t bEpNum)
+{
+  _ClearEP_KIND(bEpNum);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6802      	ldr	r2, [r0, #0]
+   c:	f640 630f 	movw	r3, #3599	; 0xe0f
+  10:	ea02 0303 	and.w	r3, r2, r3
+  14:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  18:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  1c:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:315
+}
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.Set_Status_Out:
+
+00000000 <Set_Status_Out>:
+Set_Status_Out():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:325
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void Set_Status_Out(uint8_t bEpNum)
+{
+  _SetEP_KIND(bEpNum);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6802      	ldr	r2, [r0, #0]
+   c:	f640 630f 	movw	r3, #3599	; 0xe0f
+  10:	ea02 0303 	and.w	r3, r2, r3
+  14:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  18:	f443 73c0 	orr.w	r3, r3, #384	; 0x180
+  1c:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:326
+}
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.SetEPDoubleBuff:
+
+00000000 <SetEPDoubleBuff>:
+SetEPDoubleBuff():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:336
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPDoubleBuff(uint8_t bEpNum)
+{
+  _SetEP_KIND(bEpNum);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6802      	ldr	r2, [r0, #0]
+   c:	f640 630f 	movw	r3, #3599	; 0xe0f
+  10:	ea02 0303 	and.w	r3, r2, r3
+  14:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  18:	f443 73c0 	orr.w	r3, r3, #384	; 0x180
+  1c:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:337
+}
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.ClearEPDoubleBuff:
+
+00000000 <ClearEPDoubleBuff>:
+ClearEPDoubleBuff():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:347
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void ClearEPDoubleBuff(uint8_t bEpNum)
+{
+  _ClearEP_KIND(bEpNum);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6802      	ldr	r2, [r0, #0]
+   c:	f640 630f 	movw	r3, #3599	; 0xe0f
+  10:	ea02 0303 	and.w	r3, r2, r3
+  14:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  18:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  1c:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:348
+}
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.GetTxStallStatus:
+
+00000000 <GetTxStallStatus>:
+GetTxStallStatus():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:358
+* Output         : None.
+* Return         : Tx Stall status.
+*******************************************************************************/
+uint16_t GetTxStallStatus(uint8_t bEpNum)
+{
+  return(_GetTxStallStatus(bEpNum));
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6800      	ldr	r0, [r0, #0]
+   c:	f000 0030 	and.w	r0, r0, #48	; 0x30
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:359
+}
+  10:	f1a0 0310 	sub.w	r3, r0, #16
+  14:	4258      	negs	r0, r3
+  16:	eb40 0003 	adc.w	r0, r0, r3
+  1a:	4770      	bx	lr
+
+Disassembly of section .text.GetRxStallStatus:
+
+00000000 <GetRxStallStatus>:
+GetRxStallStatus():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:369
+* Output         : None.
+* Return         : Rx Stall status.
+*******************************************************************************/
+uint16_t GetRxStallStatus(uint8_t bEpNum)
+{
+  return(_GetRxStallStatus(bEpNum));
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6800      	ldr	r0, [r0, #0]
+   c:	f400 5040 	and.w	r0, r0, #12288	; 0x3000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:370
+}
+  10:	f5a0 5280 	sub.w	r2, r0, #4096	; 0x1000
+  14:	4250      	negs	r0, r2
+  16:	eb40 0002 	adc.w	r0, r0, r2
+  1a:	4770      	bx	lr
+
+Disassembly of section .text.ClearEP_CTR_RX:
+
+00000000 <ClearEP_CTR_RX>:
+ClearEP_CTR_RX():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:380
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void ClearEP_CTR_RX(uint8_t bEpNum)
+{
+  _ClearEP_CTR_RX(bEpNum);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6802      	ldr	r2, [r0, #0]
+   c:	f640 738f 	movw	r3, #3983	; 0xf8f
+  10:	ea02 0303 	and.w	r3, r2, r3
+  14:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:381
+}
+  16:	4770      	bx	lr
+
+Disassembly of section .text.ClearEP_CTR_TX:
+
+00000000 <ClearEP_CTR_TX>:
+ClearEP_CTR_TX():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:391
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void ClearEP_CTR_TX(uint8_t bEpNum)
+{
+  _ClearEP_CTR_TX(bEpNum);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6802      	ldr	r2, [r0, #0]
+   c:	f648 730f 	movw	r3, #36623	; 0x8f0f
+  10:	ea02 0303 	and.w	r3, r2, r3
+  14:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:392
+}
+  16:	4770      	bx	lr
+
+Disassembly of section .text.ToggleDTOG_RX:
+
+00000000 <ToggleDTOG_RX>:
+ToggleDTOG_RX():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:402
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void ToggleDTOG_RX(uint8_t bEpNum)
+{
+  _ToggleDTOG_RX(bEpNum);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6802      	ldr	r2, [r0, #0]
+   c:	f640 730f 	movw	r3, #3855	; 0xf0f
+  10:	ea02 0303 	and.w	r3, r2, r3
+  14:	f443 4340 	orr.w	r3, r3, #49152	; 0xc000
+  18:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  1c:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:403
+}
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.ToggleDTOG_TX:
+
+00000000 <ToggleDTOG_TX>:
+ToggleDTOG_TX():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:413
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void ToggleDTOG_TX(uint8_t bEpNum)
+{
+  _ToggleDTOG_TX(bEpNum);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6802      	ldr	r2, [r0, #0]
+   c:	f640 730f 	movw	r3, #3855	; 0xf0f
+  10:	ea02 0303 	and.w	r3, r2, r3
+  14:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  18:	f043 03c0 	orr.w	r3, r3, #192	; 0xc0
+  1c:	6003      	str	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:414
+}
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.ClearDTOG_RX:
+
+00000000 <ClearDTOG_RX>:
+ClearDTOG_RX():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:424
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void ClearDTOG_RX(uint8_t bEpNum)
+{
+  _ClearDTOG_RX(bEpNum);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6803      	ldr	r3, [r0, #0]
+   c:	f413 4f80 	tst.w	r3, #16384	; 0x4000
+  10:	d009      	beq.n	26 <ClearDTOG_RX+0x26>
+  12:	6802      	ldr	r2, [r0, #0]
+  14:	f640 730f 	movw	r3, #3855	; 0xf0f
+  18:	ea02 0303 	and.w	r3, r2, r3
+  1c:	f443 4340 	orr.w	r3, r3, #49152	; 0xc000
+  20:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  24:	6003      	str	r3, [r0, #0]
+  26:	4770      	bx	lr
+
+Disassembly of section .text.ClearDTOG_TX:
+
+00000000 <ClearDTOG_TX>:
+ClearDTOG_TX():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:435
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void ClearDTOG_TX(uint8_t bEpNum)
+{
+  _ClearDTOG_TX(bEpNum);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6803      	ldr	r3, [r0, #0]
+   c:	f013 0f40 	tst.w	r3, #64	; 0x40
+  10:	d009      	beq.n	26 <ClearDTOG_TX+0x26>
+  12:	6802      	ldr	r2, [r0, #0]
+  14:	f640 730f 	movw	r3, #3855	; 0xf0f
+  18:	ea02 0303 	and.w	r3, r2, r3
+  1c:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  20:	f043 03c0 	orr.w	r3, r3, #192	; 0xc0
+  24:	6003      	str	r3, [r0, #0]
+  26:	4770      	bx	lr
+
+Disassembly of section .text.SetEPAddress:
+
+00000000 <SetEPAddress>:
+SetEPAddress():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:447
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPAddress(uint8_t bEpNum, uint8_t bAddr)
+{
+  _SetEPAddress(bEpNum, bAddr);
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6803      	ldr	r3, [r0, #0]
+   c:	f441 4100 	orr.w	r1, r1, #32768	; 0x8000
+  10:	f640 720f 	movw	r2, #3855	; 0xf0f
+  14:	f041 0180 	orr.w	r1, r1, #128	; 0x80
+  18:	ea03 0202 	and.w	r2, r3, r2
+  1c:	ea41 0202 	orr.w	r2, r1, r2
+  20:	6002      	str	r2, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:448
+}
+  22:	4770      	bx	lr
+
+Disassembly of section .text.GetEPAddress:
+
+00000000 <GetEPAddress>:
+GetEPAddress():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:458
+* Output         : None.
+* Return         : Endpoint address.
+*******************************************************************************/
+uint8_t GetEPAddress(uint8_t bEpNum)
+{
+  return(_GetEPAddress(bEpNum));
+   0:	0080      	lsls	r0, r0, #2
+   2:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   6:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   a:	6800      	ldr	r0, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:459
+}
+   c:	f000 000f 	and.w	r0, r0, #15
+  10:	4770      	bx	lr
+
+Disassembly of section .text.SetEPTxAddr:
+
+00000000 <SetEPTxAddr>:
+SetEPTxAddr():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:470
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPTxAddr(uint8_t bEpNum, uint16_t wAddr)
+{
+  _SetEPTxAddr(bEpNum, wAddr);
+   0:	4b07      	ldr	r3, [pc, #28]	; (20 <SetEPTxAddr+0x20>)
+   2:	f64f 72fe 	movw	r2, #65534	; 0xfffe
+   6:	681b      	ldr	r3, [r3, #0]
+   8:	ea01 0202 	and.w	r2, r1, r2
+   c:	b29b      	uxth	r3, r3
+   e:	eb03 03c0 	add.w	r3, r3, r0, lsl #3
+  12:	f103 5300 	add.w	r3, r3, #536870912	; 0x20000000
+  16:	f503 5340 	add.w	r3, r3, #12288	; 0x3000
+  1a:	005b      	lsls	r3, r3, #1
+  1c:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:471
+}
+  1e:	4770      	bx	lr
+  20:	40005c50 	.word	0x40005c50
+
+Disassembly of section .text.SetEPRxAddr:
+
+00000000 <SetEPRxAddr>:
+SetEPRxAddr():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:482
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPRxAddr(uint8_t bEpNum, uint16_t wAddr)
+{
+  _SetEPRxAddr(bEpNum, wAddr);
+   0:	4a074b06 	.word	0x4a074b06
+   4:	681b      	ldr	r3, [r3, #0]
+   6:	b29b      	uxth	r3, r3
+   8:	eb03 03c0 	add.w	r3, r3, r0, lsl #3
+   c:	189a      	adds	r2, r3, r2
+   e:	f64f 73fe 	movw	r3, #65534	; 0xfffe
+  12:	0052      	lsls	r2, r2, #1
+  14:	ea01 0303 	and.w	r3, r1, r3
+  18:	6013      	str	r3, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:483
+}
+  1a:	4770      	bx	lr
+  1c:	40005c50 	.word	0x40005c50
+  20:	20003004 	.word	0x20003004
+
+Disassembly of section .text.GetEPTxAddr:
+
+00000000 <GetEPTxAddr>:
+GetEPTxAddr():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:493
+* Output         : None.
+* Return         : Rx buffer address. 
+*******************************************************************************/
+uint16_t GetEPTxAddr(uint8_t bEpNum)
+{
+  return(_GetEPTxAddr(bEpNum));
+   0:	681b4b05 	.word	0x681b4b05
+   4:	b29b      	uxth	r3, r3
+   6:	eb03 03c0 	add.w	r3, r3, r0, lsl #3
+   a:	f103 5300 	add.w	r3, r3, #536870912	; 0x20000000
+   e:	f503 5340 	add.w	r3, r3, #12288	; 0x3000
+  12:	005b      	lsls	r3, r3, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:494
+}
+  14:	8818      	ldrh	r0, [r3, #0]
+  16:	4770      	bx	lr
+  18:	40005c50 	.word	0x40005c50
+
+Disassembly of section .text.GetEPRxAddr:
+
+00000000 <GetEPRxAddr>:
+GetEPRxAddr():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:504
+* Output         : None.
+* Return         : Rx buffer address.
+*******************************************************************************/
+uint16_t GetEPRxAddr(uint8_t bEpNum)
+{
+  return(_GetEPRxAddr(bEpNum));
+   0:	4a054b04 	.word	0x4a054b04
+   4:	681b      	ldr	r3, [r3, #0]
+   6:	b29b      	uxth	r3, r3
+   8:	eb03 03c0 	add.w	r3, r3, r0, lsl #3
+   c:	189a      	adds	r2, r3, r2
+   e:	0052      	lsls	r2, r2, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:505
+}
+  10:	8810      	ldrh	r0, [r2, #0]
+  12:	4770      	bx	lr
+  14:	40005c50 	.word	0x40005c50
+  18:	20003004 	.word	0x20003004
+
+Disassembly of section .text.SetEPTxCount:
+
+00000000 <SetEPTxCount>:
+SetEPTxCount():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:516
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPTxCount(uint8_t bEpNum, uint16_t wCount)
+{
+  _SetEPTxCount(bEpNum, wCount);
+   0:	4b04      	ldr	r3, [pc, #16]	; (14 <SetEPTxCount+0x14>)
+   2:	4a05      	ldr	r2, [pc, #20]	; (18 <SetEPTxCount+0x18>)
+   4:	681b      	ldr	r3, [r3, #0]
+   6:	b29b      	uxth	r3, r3
+   8:	eb03 03c0 	add.w	r3, r3, r0, lsl #3
+   c:	189a      	adds	r2, r3, r2
+   e:	0052      	lsls	r2, r2, #1
+  10:	6011      	str	r1, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:517
+}
+  12:	4770      	bx	lr
+  14:	40005c50 	.word	0x40005c50
+  18:	20003002 	.word	0x20003002
+
+Disassembly of section .text.SetEPCountRxReg:
+
+00000000 <SetEPCountRxReg>:
+SetEPCountRxReg():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:528
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPCountRxReg(uint32_t *pdwReg, uint16_t wCount)
+{
+  _SetEPCountRxReg(dwReg, wCount);
+   0:	293e      	cmp	r1, #62	; 0x3e
+   2:	d909      	bls.n	18 <SetEPCountRxReg+0x18>
+   4:	094b      	lsrs	r3, r1, #5
+   6:	f011 0f1f 	tst.w	r1, #31
+   a:	d101      	bne.n	10 <SetEPCountRxReg+0x10>
+   c:	3b01      	subs	r3, #1
+   e:	b29b      	uxth	r3, r3
+  10:	029b      	lsls	r3, r3, #10
+  12:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  16:	e005      	b.n	24 <SetEPCountRxReg+0x24>
+  18:	084b      	lsrs	r3, r1, #1
+  1a:	f011 0f01 	tst.w	r1, #1
+  1e:	bf18      	it	ne
+  20:	3301      	addne	r3, #1
+  22:	029b      	lsls	r3, r3, #10
+  24:	6003      	str	r3, [r0, #0]
+  26:	4770      	bx	lr
+
+Disassembly of section .text.SetEPRxCount:
+
+00000000 <SetEPRxCount>:
+SetEPRxCount():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:540
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPRxCount(uint8_t bEpNum, uint16_t wCount)
+{
+  _SetEPRxCount(bEpNum, wCount);
+   0:	4b0d      	ldr	r3, [pc, #52]	; (38 <SetEPRxCount+0x38>)
+   2:	681a      	ldr	r2, [r3, #0]
+   4:	4b0d      	ldr	r3, [pc, #52]	; (3c <SetEPRxCount+0x3c>)
+   6:	b292      	uxth	r2, r2
+   8:	18d3      	adds	r3, r2, r3
+   a:	eb03 03c0 	add.w	r3, r3, r0, lsl #3
+   e:	005b      	lsls	r3, r3, #1
+  10:	293e      	cmp	r1, #62	; 0x3e
+  12:	d909      	bls.n	28 <SetEPRxCount+0x28>
+  14:	094a      	lsrs	r2, r1, #5
+  16:	f011 0f1f 	tst.w	r1, #31
+  1a:	d101      	bne.n	20 <SetEPRxCount+0x20>
+  1c:	3a01      	subs	r2, #1
+  1e:	b292      	uxth	r2, r2
+  20:	0292      	lsls	r2, r2, #10
+  22:	f442 4200 	orr.w	r2, r2, #32768	; 0x8000
+  26:	e005      	b.n	34 <SetEPRxCount+0x34>
+  28:	084a      	lsrs	r2, r1, #1
+  2a:	f011 0f01 	tst.w	r1, #1
+  2e:	bf18      	it	ne
+  30:	3201      	addne	r2, #1
+  32:	0292      	lsls	r2, r2, #10
+  34:	601a      	str	r2, [r3, #0]
+  36:	4770      	bx	lr
+  38:	40005c50 	.word	0x40005c50
+  3c:	20003006 	.word	0x20003006
+
+Disassembly of section .text.GetEPTxCount:
+
+00000000 <GetEPTxCount>:
+GetEPTxCount():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:551
+* Output         : None
+* Return         : Tx count value.
+*******************************************************************************/
+uint16_t GetEPTxCount(uint8_t bEpNum)
+{
+  return(_GetEPTxCount(bEpNum));
+   0:	4a064b05 	.word	0x4a064b05
+   4:	681b      	ldr	r3, [r3, #0]
+   6:	b29b      	uxth	r3, r3
+   8:	eb03 03c0 	add.w	r3, r3, r0, lsl #3
+   c:	189a      	adds	r2, r3, r2
+   e:	0052      	lsls	r2, r2, #1
+  10:	6810      	ldr	r0, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:552
+}
+  12:	0580      	lsls	r0, r0, #22
+  14:	0d80      	lsrs	r0, r0, #22
+  16:	4770      	bx	lr
+  18:	40005c50 	.word	0x40005c50
+  1c:	20003002 	.word	0x20003002
+
+Disassembly of section .text.GetEPRxCount:
+
+00000000 <GetEPRxCount>:
+GetEPRxCount():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:562
+* Output         : None.
+* Return         : Rx count value.
+*******************************************************************************/
+uint16_t GetEPRxCount(uint8_t bEpNum)
+{
+  return(_GetEPRxCount(bEpNum));
+   0:	4b05      	ldr	r3, [pc, #20]	; (18 <GetEPRxCount+0x18>)
+   2:	4a06      	ldr	r2, [pc, #24]	; (1c <GetEPRxCount+0x1c>)
+   4:	681b      	ldr	r3, [r3, #0]
+   6:	b29b      	uxth	r3, r3
+   8:	eb03 03c0 	add.w	r3, r3, r0, lsl #3
+   c:	189a      	adds	r2, r3, r2
+   e:	0052      	lsls	r2, r2, #1
+  10:	6810      	ldr	r0, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:563
+}
+  12:	0580      	lsls	r0, r0, #22
+  14:	0d80      	lsrs	r0, r0, #22
+  16:	4770      	bx	lr
+  18:	40005c50 	.word	0x40005c50
+  1c:	20003006 	.word	0x20003006
+
+Disassembly of section .text.SetEPDblBuffAddr:
+
+00000000 <SetEPDblBuffAddr>:
+SetEPDblBuffAddr():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:575
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPDblBuffAddr(uint8_t bEpNum, uint16_t wBuf0Addr, uint16_t wBuf1Addr)
+{
+  _SetEPDblBuffAddr(bEpNum, wBuf0Addr, wBuf1Addr);
+   0:	4b0d      	ldr	r3, [pc, #52]	; (38 <SetEPDblBuffAddr+0x38>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:574
+*                  wBuf1Addr: new address of buffer 1.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPDblBuffAddr(uint8_t bEpNum, uint16_t wBuf0Addr, uint16_t wBuf1Addr)
+{
+   2:	b530      	push	{r4, r5, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:575
+  _SetEPDblBuffAddr(bEpNum, wBuf0Addr, wBuf1Addr);
+   4:	681c      	ldr	r4, [r3, #0]
+   6:	681b      	ldr	r3, [r3, #0]
+   8:	00c0      	lsls	r0, r0, #3
+   a:	b29b      	uxth	r3, r3
+   c:	b2a4      	uxth	r4, r4
+   e:	1904      	adds	r4, r0, r4
+  10:	18c0      	adds	r0, r0, r3
+  12:	4b0a      	ldr	r3, [pc, #40]	; (3c <SetEPDblBuffAddr+0x3c>)
+  14:	f104 5400 	add.w	r4, r4, #536870912	; 0x20000000
+  18:	18c3      	adds	r3, r0, r3
+  1a:	f64f 75fe 	movw	r5, #65534	; 0xfffe
+  1e:	ea01 0505 	and.w	r5, r1, r5
+  22:	f504 5440 	add.w	r4, r4, #12288	; 0x3000
+  26:	0059      	lsls	r1, r3, #1
+  28:	f64f 73fe 	movw	r3, #65534	; 0xfffe
+  2c:	0064      	lsls	r4, r4, #1
+  2e:	ea02 0303 	and.w	r3, r2, r3
+  32:	6025      	str	r5, [r4, #0]
+  34:	600b      	str	r3, [r1, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:576
+}
+  36:	bd30      	pop	{r4, r5, pc}
+  38:	40005c50 	.word	0x40005c50
+  3c:	20003004 	.word	0x20003004
+
+Disassembly of section .text.SetEPDblBuf0Addr:
+
+00000000 <SetEPDblBuf0Addr>:
+SetEPDblBuf0Addr():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:587
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPDblBuf0Addr(uint8_t bEpNum, uint16_t wBuf0Addr)
+{
+  _SetEPDblBuf0Addr(bEpNum, wBuf0Addr);
+   0:	f64f4b07 	.word	0xf64f4b07
+   4:	72fe      	strb	r6, [r7, #11]
+   6:	681b      	ldr	r3, [r3, #0]
+   8:	ea01 0202 	and.w	r2, r1, r2
+   c:	b29b      	uxth	r3, r3
+   e:	eb03 03c0 	add.w	r3, r3, r0, lsl #3
+  12:	f103 5300 	add.w	r3, r3, #536870912	; 0x20000000
+  16:	f503 5340 	add.w	r3, r3, #12288	; 0x3000
+  1a:	005b      	lsls	r3, r3, #1
+  1c:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:588
+}
+  1e:	4770      	bx	lr
+  20:	40005c50 	.word	0x40005c50
+
+Disassembly of section .text.SetEPDblBuf1Addr:
+
+00000000 <SetEPDblBuf1Addr>:
+SetEPDblBuf1Addr():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:599
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPDblBuf1Addr(uint8_t bEpNum, uint16_t wBuf1Addr)
+{
+  _SetEPDblBuf1Addr(bEpNum, wBuf1Addr);
+   0:	4a074b06 	.word	0x4a074b06
+   4:	681b      	ldr	r3, [r3, #0]
+   6:	b29b      	uxth	r3, r3
+   8:	eb03 03c0 	add.w	r3, r3, r0, lsl #3
+   c:	189a      	adds	r2, r3, r2
+   e:	f64f 73fe 	movw	r3, #65534	; 0xfffe
+  12:	0052      	lsls	r2, r2, #1
+  14:	ea01 0303 	and.w	r3, r1, r3
+  18:	6013      	str	r3, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:600
+}
+  1a:	4770      	bx	lr
+  1c:	40005c50 	.word	0x40005c50
+  20:	20003004 	.word	0x20003004
+
+Disassembly of section .text.GetEPDblBuf0Addr:
+
+00000000 <GetEPDblBuf0Addr>:
+GetEPDblBuf0Addr():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:610
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+uint16_t GetEPDblBuf0Addr(uint8_t bEpNum)
+{
+  return(_GetEPDblBuf0Addr(bEpNum));
+   0:	681b4b05 	.word	0x681b4b05
+   4:	b29b      	uxth	r3, r3
+   6:	eb03 03c0 	add.w	r3, r3, r0, lsl #3
+   a:	f103 5300 	add.w	r3, r3, #536870912	; 0x20000000
+   e:	f503 5340 	add.w	r3, r3, #12288	; 0x3000
+  12:	005b      	lsls	r3, r3, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:611
+}
+  14:	8818      	ldrh	r0, [r3, #0]
+  16:	4770      	bx	lr
+  18:	40005c50 	.word	0x40005c50
+
+Disassembly of section .text.GetEPDblBuf1Addr:
+
+00000000 <GetEPDblBuf1Addr>:
+GetEPDblBuf1Addr():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:621
+* Output         : None.
+* Return         : Address of the Buffer 1.
+*******************************************************************************/
+uint16_t GetEPDblBuf1Addr(uint8_t bEpNum)
+{
+  return(_GetEPDblBuf1Addr(bEpNum));
+   0:	4a054b04 	.word	0x4a054b04
+   4:	681b      	ldr	r3, [r3, #0]
+   6:	b29b      	uxth	r3, r3
+   8:	eb03 03c0 	add.w	r3, r3, r0, lsl #3
+   c:	189a      	adds	r2, r3, r2
+   e:	0052      	lsls	r2, r2, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:622
+}
+  10:	8810      	ldrh	r0, [r2, #0]
+  12:	4770      	bx	lr
+  14:	40005c50 	.word	0x40005c50
+  18:	20003004 	.word	0x20003004
+
+Disassembly of section .text.SetEPDblBuffCount:
+
+00000000 <SetEPDblBuffCount>:
+SetEPDblBuffCount():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:633
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPDblBuffCount(uint8_t bEpNum, uint8_t bDir, uint16_t wCount)
+{
+  _SetEPDblBuffCount(bEpNum, bDir, wCount);
+   0:	2901      	cmp	r1, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:632
+* Input          : bEpNum,bDir, wCount
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPDblBuffCount(uint8_t bEpNum, uint8_t bDir, uint16_t wCount)
+{
+   2:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:633
+  _SetEPDblBuffCount(bEpNum, bDir, wCount);
+   4:	d124      	bne.n	50 <SetEPDblBuffCount+0x50>
+   6:	4b25      	ldr	r3, [pc, #148]	; (9c <SetEPDblBuffCount+0x9c>)
+   8:	4925      	ldr	r1, [pc, #148]	; (a0 <SetEPDblBuffCount+0xa0>)
+   a:	681b      	ldr	r3, [r3, #0]
+   c:	00c0      	lsls	r0, r0, #3
+   e:	b29b      	uxth	r3, r3
+  10:	1859      	adds	r1, r3, r1
+  12:	1809      	adds	r1, r1, r0
+  14:	004b      	lsls	r3, r1, #1
+  16:	2a3e      	cmp	r2, #62	; 0x3e
+  18:	d909      	bls.n	2e <SetEPDblBuffCount+0x2e>
+  1a:	0951      	lsrs	r1, r2, #5
+  1c:	f012 0f1f 	tst.w	r2, #31
+  20:	d101      	bne.n	26 <SetEPDblBuffCount+0x26>
+  22:	3901      	subs	r1, #1
+  24:	b289      	uxth	r1, r1
+  26:	0289      	lsls	r1, r1, #10
+  28:	f441 4100 	orr.w	r1, r1, #32768	; 0x8000
+  2c:	e005      	b.n	3a <SetEPDblBuffCount+0x3a>
+  2e:	0851      	lsrs	r1, r2, #1
+  30:	f012 0f01 	tst.w	r2, #1
+  34:	bf18      	it	ne
+  36:	3101      	addne	r1, #1
+  38:	0289      	lsls	r1, r1, #10
+  3a:	6019      	str	r1, [r3, #0]
+  3c:	4b17      	ldr	r3, [pc, #92]	; (9c <SetEPDblBuffCount+0x9c>)
+  3e:	6819      	ldr	r1, [r3, #0]
+  40:	4b18      	ldr	r3, [pc, #96]	; (a4 <SetEPDblBuffCount+0xa4>)
+  42:	b289      	uxth	r1, r1
+  44:	18cb      	adds	r3, r1, r3
+  46:	1818      	adds	r0, r3, r0
+  48:	0040      	lsls	r0, r0, #1
+  4a:	2a3e      	cmp	r2, #62	; 0x3e
+  4c:	d91e      	bls.n	8c <SetEPDblBuffCount+0x8c>
+  4e:	e012      	b.n	76 <SetEPDblBuffCount+0x76>
+  50:	2902      	cmp	r1, #2
+  52:	d122      	bne.n	9a <SetEPDblBuffCount+0x9a>
+  54:	4911      	ldr	r1, [pc, #68]	; (9c <SetEPDblBuffCount+0x9c>)
+  56:	00c0      	lsls	r0, r0, #3
+  58:	680c      	ldr	r4, [r1, #0]
+  5a:	4b11      	ldr	r3, [pc, #68]	; (a0 <SetEPDblBuffCount+0xa0>)
+  5c:	b2a4      	uxth	r4, r4
+  5e:	1904      	adds	r4, r0, r4
+  60:	18e3      	adds	r3, r4, r3
+  62:	005b      	lsls	r3, r3, #1
+  64:	601a      	str	r2, [r3, #0]
+  66:	680b      	ldr	r3, [r1, #0]
+  68:	b29b      	uxth	r3, r3
+  6a:	18c0      	adds	r0, r0, r3
+  6c:	4b0d      	ldr	r3, [pc, #52]	; (a4 <SetEPDblBuffCount+0xa4>)
+  6e:	18c3      	adds	r3, r0, r3
+  70:	005b      	lsls	r3, r3, #1
+  72:	601a      	str	r2, [r3, #0]
+  74:	bd10      	pop	{r4, pc}
+  76:	0953      	lsrs	r3, r2, #5
+  78:	f012 0f1f 	tst.w	r2, #31
+  7c:	d101      	bne.n	82 <SetEPDblBuffCount+0x82>
+  7e:	3b01      	subs	r3, #1
+  80:	b29b      	uxth	r3, r3
+  82:	029b      	lsls	r3, r3, #10
+  84:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  88:	6003      	str	r3, [r0, #0]
+  8a:	bd10      	pop	{r4, pc}
+  8c:	0853      	lsrs	r3, r2, #1
+  8e:	f012 0f01 	tst.w	r2, #1
+  92:	bf18      	it	ne
+  94:	3301      	addne	r3, #1
+  96:	029b      	lsls	r3, r3, #10
+  98:	6003      	str	r3, [r0, #0]
+  9a:	bd10      	pop	{r4, pc}
+  9c:	40005c50 	.word	0x40005c50
+  a0:	20003002 	.word	0x20003002
+  a4:	20003006 	.word	0x20003006
+
+Disassembly of section .text.SetEPDblBuf0Count:
+
+00000000 <SetEPDblBuf0Count>:
+SetEPDblBuf0Count():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:645
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPDblBuf0Count(uint8_t bEpNum, uint8_t bDir, uint16_t wCount)
+{
+  _SetEPDblBuf0Count(bEpNum, bDir, wCount);
+   0:	d11b2901 	.word	0xd11b2901
+   4:	4b13      	ldr	r3, [pc, #76]	; (54 <SetEPDblBuf0Count+0x54>)
+   6:	6819      	ldr	r1, [r3, #0]
+   8:	4b13      	ldr	r3, [pc, #76]	; (58 <SetEPDblBuf0Count+0x58>)
+   a:	b289      	uxth	r1, r1
+   c:	18cb      	adds	r3, r1, r3
+   e:	eb03 00c0 	add.w	r0, r3, r0, lsl #3
+  12:	0040      	lsls	r0, r0, #1
+  14:	2a3e      	cmp	r2, #62	; 0x3e
+  16:	d909      	bls.n	2c <SetEPDblBuf0Count+0x2c>
+  18:	0953      	lsrs	r3, r2, #5
+  1a:	f012 0f1f 	tst.w	r2, #31
+  1e:	d101      	bne.n	24 <SetEPDblBuf0Count+0x24>
+  20:	3b01      	subs	r3, #1
+  22:	b29b      	uxth	r3, r3
+  24:	029b      	lsls	r3, r3, #10
+  26:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  2a:	e005      	b.n	38 <SetEPDblBuf0Count+0x38>
+  2c:	0853      	lsrs	r3, r2, #1
+  2e:	f012 0f01 	tst.w	r2, #1
+  32:	bf18      	it	ne
+  34:	3301      	addne	r3, #1
+  36:	029b      	lsls	r3, r3, #10
+  38:	6003      	str	r3, [r0, #0]
+  3a:	4770      	bx	lr
+  3c:	2902      	cmp	r1, #2
+  3e:	d108      	bne.n	52 <SetEPDblBuf0Count+0x52>
+  40:	4b04      	ldr	r3, [pc, #16]	; (54 <SetEPDblBuf0Count+0x54>)
+  42:	681b      	ldr	r3, [r3, #0]
+  44:	b29b      	uxth	r3, r3
+  46:	eb03 00c0 	add.w	r0, r3, r0, lsl #3
+  4a:	4b03      	ldr	r3, [pc, #12]	; (58 <SetEPDblBuf0Count+0x58>)
+  4c:	18c3      	adds	r3, r0, r3
+  4e:	005b      	lsls	r3, r3, #1
+  50:	601a      	str	r2, [r3, #0]
+  52:	4770      	bx	lr
+  54:	40005c50 	.word	0x40005c50
+  58:	20003002 	.word	0x20003002
+
+Disassembly of section .text.SetEPDblBuf1Count:
+
+00000000 <SetEPDblBuf1Count>:
+SetEPDblBuf1Count():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:657
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void SetEPDblBuf1Count(uint8_t bEpNum, uint8_t bDir, uint16_t wCount)
+{
+  _SetEPDblBuf1Count(bEpNum, bDir, wCount);
+   0:	2901      	cmp	r1, #1
+   2:	d11b      	bne.n	3c <SetEPDblBuf1Count+0x3c>
+   4:	4b13      	ldr	r3, [pc, #76]	; (54 <SetEPDblBuf1Count+0x54>)
+   6:	6819      	ldr	r1, [r3, #0]
+   8:	4b13      	ldr	r3, [pc, #76]	; (58 <SetEPDblBuf1Count+0x58>)
+   a:	b289      	uxth	r1, r1
+   c:	18cb      	adds	r3, r1, r3
+   e:	eb03 00c0 	add.w	r0, r3, r0, lsl #3
+  12:	0040      	lsls	r0, r0, #1
+  14:	2a3e      	cmp	r2, #62	; 0x3e
+  16:	d909      	bls.n	2c <SetEPDblBuf1Count+0x2c>
+  18:	0953      	lsrs	r3, r2, #5
+  1a:	f012 0f1f 	tst.w	r2, #31
+  1e:	d101      	bne.n	24 <SetEPDblBuf1Count+0x24>
+  20:	3b01      	subs	r3, #1
+  22:	b29b      	uxth	r3, r3
+  24:	029b      	lsls	r3, r3, #10
+  26:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  2a:	e005      	b.n	38 <SetEPDblBuf1Count+0x38>
+  2c:	0853      	lsrs	r3, r2, #1
+  2e:	f012 0f01 	tst.w	r2, #1
+  32:	bf18      	it	ne
+  34:	3301      	addne	r3, #1
+  36:	029b      	lsls	r3, r3, #10
+  38:	6003      	str	r3, [r0, #0]
+  3a:	4770      	bx	lr
+  3c:	2902      	cmp	r1, #2
+  3e:	d108      	bne.n	52 <SetEPDblBuf1Count+0x52>
+  40:	4b04      	ldr	r3, [pc, #16]	; (54 <SetEPDblBuf1Count+0x54>)
+  42:	681b      	ldr	r3, [r3, #0]
+  44:	b29b      	uxth	r3, r3
+  46:	eb03 00c0 	add.w	r0, r3, r0, lsl #3
+  4a:	4b03      	ldr	r3, [pc, #12]	; (58 <SetEPDblBuf1Count+0x58>)
+  4c:	18c3      	adds	r3, r0, r3
+  4e:	005b      	lsls	r3, r3, #1
+  50:	601a      	str	r2, [r3, #0]
+  52:	4770      	bx	lr
+  54:	40005c50 	.word	0x40005c50
+  58:	20003006 	.word	0x20003006
+
+Disassembly of section .text.GetEPDblBuf0Count:
+
+00000000 <GetEPDblBuf0Count>:
+GetEPDblBuf0Count():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:669
+* Output         : None.
+* Return         : Endpoint Buffer 0 count
+*******************************************************************************/
+uint16_t GetEPDblBuf0Count(uint8_t bEpNum)
+{
+  return(_GetEPDblBuf0Count(bEpNum));
+   0:	4a064b05 	.word	0x4a064b05
+   4:	681b      	ldr	r3, [r3, #0]
+   6:	b29b      	uxth	r3, r3
+   8:	eb03 03c0 	add.w	r3, r3, r0, lsl #3
+   c:	189a      	adds	r2, r3, r2
+   e:	0052      	lsls	r2, r2, #1
+  10:	6810      	ldr	r0, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:670
+}
+  12:	0580      	lsls	r0, r0, #22
+  14:	0d80      	lsrs	r0, r0, #22
+  16:	4770      	bx	lr
+  18:	40005c50 	.word	0x40005c50
+  1c:	20003002 	.word	0x20003002
+
+Disassembly of section .text.GetEPDblBuf1Count:
+
+00000000 <GetEPDblBuf1Count>:
+GetEPDblBuf1Count():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:681
+* Output         : None.
+* Return         : Endpoint Buffer 1 count.
+*******************************************************************************/
+uint16_t GetEPDblBuf1Count(uint8_t bEpNum)
+{
+  return(_GetEPDblBuf1Count(bEpNum));
+   0:	4b05      	ldr	r3, [pc, #20]	; (18 <GetEPDblBuf1Count+0x18>)
+   2:	4a06      	ldr	r2, [pc, #24]	; (1c <GetEPDblBuf1Count+0x1c>)
+   4:	681b      	ldr	r3, [r3, #0]
+   6:	b29b      	uxth	r3, r3
+   8:	eb03 03c0 	add.w	r3, r3, r0, lsl #3
+   c:	189a      	adds	r2, r3, r2
+   e:	0052      	lsls	r2, r2, #1
+  10:	6810      	ldr	r0, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:682
+}
+  12:	0580      	lsls	r0, r0, #22
+  14:	0d80      	lsrs	r0, r0, #22
+  16:	4770      	bx	lr
+  18:	40005c50 	.word	0x40005c50
+  1c:	20003006 	.word	0x20003006
+
+Disassembly of section .text.GetEPDblBufDir:
+
+00000000 <GetEPDblBufDir>:
+GetEPDblBufDir():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:693
+* Return         : EP_DBUF_OUT, EP_DBUF_IN,
+*                  EP_DBUF_ERR if the endpoint counter not yet programmed.
+*******************************************************************************/
+EP_DBUF_DIR GetEPDblBufDir(uint8_t bEpNum)
+{
+  if ((uint16_t)(*_pEPRxCount(bEpNum) & 0xFC00) != 0)
+   0:	4b0d      	ldr	r3, [pc, #52]	; (38 <GetEPDblBufDir+0x38>)
+   2:	00c0      	lsls	r0, r0, #3
+   4:	681a      	ldr	r2, [r3, #0]
+   6:	490d      	ldr	r1, [pc, #52]	; (3c <GetEPDblBufDir+0x3c>)
+   8:	b292      	uxth	r2, r2
+   a:	1882      	adds	r2, r0, r2
+   c:	1851      	adds	r1, r2, r1
+   e:	0049      	lsls	r1, r1, #1
+  10:	880a      	ldrh	r2, [r1, #0]
+  12:	f412 4f7c 	tst.w	r2, #64512	; 0xfc00
+  16:	d10d      	bne.n	34 <GetEPDblBufDir+0x34>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:695
+    return(EP_DBUF_OUT);
+  else if (((uint16_t)(*_pEPTxCount(bEpNum)) & 0x03FF) != 0)
+  18:	681b      	ldr	r3, [r3, #0]
+  1a:	b29b      	uxth	r3, r3
+  1c:	18c0      	adds	r0, r0, r3
+  1e:	4b08      	ldr	r3, [pc, #32]	; (40 <GetEPDblBufDir+0x40>)
+  20:	18c3      	adds	r3, r0, r3
+  22:	005b      	lsls	r3, r3, #1
+  24:	8818      	ldrh	r0, [r3, #0]
+  26:	0580      	lsls	r0, r0, #22
+  28:	0d80      	lsrs	r0, r0, #22
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:696
+    return(EP_DBUF_IN);
+  2a:	2800      	cmp	r0, #0
+  2c:	bf14      	ite	ne
+  2e:	2002      	movne	r0, #2
+  30:	2000      	moveq	r0, #0
+  32:	4770      	bx	lr
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:694
+*                  EP_DBUF_ERR if the endpoint counter not yet programmed.
+*******************************************************************************/
+EP_DBUF_DIR GetEPDblBufDir(uint8_t bEpNum)
+{
+  if ((uint16_t)(*_pEPRxCount(bEpNum) & 0xFC00) != 0)
+    return(EP_DBUF_OUT);
+  34:	2001      	movs	r0, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:699
+  else if (((uint16_t)(*_pEPTxCount(bEpNum)) & 0x03FF) != 0)
+    return(EP_DBUF_IN);
+  else
+    return(EP_DBUF_ERR);
+}
+  36:	4770      	bx	lr
+  38:	40005c50 	.word	0x40005c50
+  3c:	20003006 	.word	0x20003006
+  40:	20003002 	.word	0x20003002
+
+Disassembly of section .text.FreeUserBuffer:
+
+00000000 <FreeUserBuffer>:
+FreeUserBuffer():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:710
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void FreeUserBuffer(uint8_t bEpNum, uint8_t bDir)
+{
+  if (bDir == EP_DBUF_OUT)
+   0:	2901      	cmp	r1, #1
+   2:	d10f      	bne.n	24 <FreeUserBuffer+0x24>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:712
+  { /* OUT double buffered endpoint */
+    _ToggleDTOG_TX(bEpNum);
+   4:	0080      	lsls	r0, r0, #2
+   6:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   a:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+   e:	6802      	ldr	r2, [r0, #0]
+  10:	f640 730f 	movw	r3, #3855	; 0xf0f
+  14:	ea02 0303 	and.w	r3, r2, r3
+  18:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  1c:	f043 03c0 	orr.w	r3, r3, #192	; 0xc0
+  20:	6003      	str	r3, [r0, #0]
+  22:	4770      	bx	lr
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:714
+  }
+  else if (bDir == EP_DBUF_IN)
+  24:	2902      	cmp	r1, #2
+  26:	d10e      	bne.n	46 <FreeUserBuffer+0x46>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:716
+  { /* IN double buffered endpoint */
+    _ToggleDTOG_RX(bEpNum);
+  28:	0080      	lsls	r0, r0, #2
+  2a:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+  2e:	f500 40b8 	add.w	r0, r0, #23552	; 0x5c00
+  32:	6802      	ldr	r2, [r0, #0]
+  34:	f640 730f 	movw	r3, #3855	; 0xf0f
+  38:	ea02 0303 	and.w	r3, r2, r3
+  3c:	f443 4340 	orr.w	r3, r3, #49152	; 0xc000
+  40:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  44:	6003      	str	r3, [r0, #0]
+  46:	4770      	bx	lr
+
+Disassembly of section .text.ToWord:
+
+00000000 <ToWord>:
+ToWord():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:732
+uint16_t ToWord(uint8_t bh, uint8_t bl)
+{
+  uint16_t wRet;
+  wRet = (uint16_t)bl | ((uint16_t)bh << 8);
+  return(wRet);
+}
+   0:	ea41 2000 	orr.w	r0, r1, r0, lsl #8
+   4:	4770      	bx	lr
+
+Disassembly of section .text.ByteSwap:
+
+00000000 <ByteSwap>:
+ByteSwap():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:745
+uint16_t ByteSwap(uint16_t wSwW)
+{
+  uint8_t bTemp;
+  uint16_t wRet;
+  bTemp = (uint8_t)(wSwW & 0xff);
+  wRet =  (wSwW >> 8) | ((uint16_t)bTemp << 8);
+   0:	b2c3      	uxtb	r3, r0
+   2:	0a00      	lsrs	r0, r0, #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_regs.c:747
+  return(wRet);
+}
+   4:	ea40 2003 	orr.w	r0, r0, r3, lsl #8
+   8:	4770      	bx	lr

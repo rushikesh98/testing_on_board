@@ -1,0 +1,280 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\misc.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\misc.o
+
+
+Disassembly of section .text.NVIC_PriorityGroupConfig:
+
+00000000 <NVIC_PriorityGroupConfig>:
+NVIC_PriorityGroupConfig():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:101
+{
+  /* Check the parameters */
+  assert_param(IS_NVIC_PRIORITY_GROUP(NVIC_PriorityGroup));
+  
+  /* Set the PRIGROUP[10:8] bits according to NVIC_PriorityGroup value */
+  SCB->AIRCR = AIRCR_VECTKEY_MASK | NVIC_PriorityGroup;
+   0:	f040 60be 	orr.w	r0, r0, #99614720	; 0x5f00000
+   4:	4b02      	ldr	r3, [pc, #8]	; (10 <NVIC_PriorityGroupConfig+0x10>)
+   6:	f440 2020 	orr.w	r0, r0, #655360	; 0xa0000
+   a:	60d8      	str	r0, [r3, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:102
+}
+   c:	4770      	bx	lr
+   e:	bf00      	nop
+  10:	e000ed00 	.word	0xe000ed00
+
+Disassembly of section .text.NVIC_Init:
+
+00000000 <NVIC_Init>:
+NVIC_Init():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:120
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NVIC_InitStruct->NVIC_IRQChannelCmd));
+  assert_param(IS_NVIC_PREEMPTION_PRIORITY(NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority));  
+  assert_param(IS_NVIC_SUB_PRIORITY(NVIC_InitStruct->NVIC_IRQChannelSubPriority));
+    
+  if (NVIC_InitStruct->NVIC_IRQChannelCmd != DISABLE)
+   0:	78c3      	ldrb	r3, [r0, #3]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:112
+  * @param  NVIC_InitStruct: pointer to a NVIC_InitTypeDef structure that contains
+  *   the configuration information for the specified NVIC peripheral.
+  * @retval None
+  */
+void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct)
+{
+   2:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:120
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NVIC_InitStruct->NVIC_IRQChannelCmd));
+  assert_param(IS_NVIC_PREEMPTION_PRIORITY(NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority));  
+  assert_param(IS_NVIC_SUB_PRIORITY(NVIC_InitStruct->NVIC_IRQChannelSubPriority));
+    
+  if (NVIC_InitStruct->NVIC_IRQChannelCmd != DISABLE)
+   4:	b1eb      	cbz	r3, 42 <NVIC_Init+0x42>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:123
+  {
+    /* Compute the Corresponding IRQ Priority --------------------------------*/    
+    tmppriority = (0x700 - ((SCB->AIRCR) & (uint32_t)0x700))>> 0x08;
+   6:	4b15      	ldr	r3, [pc, #84]	; (5c <NVIC_Init+0x5c>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:127
+    tmppre = (0x4 - tmppriority);
+    tmpsub = tmpsub >> tmppriority;
+
+    tmppriority = (uint32_t)NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority << tmppre;
+   8:	7841      	ldrb	r1, [r0, #1]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:123
+  assert_param(IS_NVIC_SUB_PRIORITY(NVIC_InitStruct->NVIC_IRQChannelSubPriority));
+    
+  if (NVIC_InitStruct->NVIC_IRQChannelCmd != DISABLE)
+  {
+    /* Compute the Corresponding IRQ Priority --------------------------------*/    
+    tmppriority = (0x700 - ((SCB->AIRCR) & (uint32_t)0x700))>> 0x08;
+   a:	68db      	ldr	r3, [r3, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:128
+    tmppre = (0x4 - tmppriority);
+    tmpsub = tmpsub >> tmppriority;
+
+    tmppriority = (uint32_t)NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority << tmppre;
+    tmppriority |=  NVIC_InitStruct->NVIC_IRQChannelSubPriority & tmpsub;
+   c:	7884      	ldrb	r4, [r0, #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:123
+  assert_param(IS_NVIC_SUB_PRIORITY(NVIC_InitStruct->NVIC_IRQChannelSubPriority));
+    
+  if (NVIC_InitStruct->NVIC_IRQChannelCmd != DISABLE)
+  {
+    /* Compute the Corresponding IRQ Priority --------------------------------*/    
+    tmppriority = (0x700 - ((SCB->AIRCR) & (uint32_t)0x700))>> 0x08;
+   e:	43db      	mvns	r3, r3
+  10:	f403 63e0 	and.w	r3, r3, #1792	; 0x700
+  14:	0a1b      	lsrs	r3, r3, #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:124
+    tmppre = (0x4 - tmppriority);
+  16:	f1c3 0204 	rsb	r2, r3, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:127
+    tmpsub = tmpsub >> tmppriority;
+
+    tmppriority = (uint32_t)NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority << tmppre;
+  1a:	4091      	lsls	r1, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:125
+  if (NVIC_InitStruct->NVIC_IRQChannelCmd != DISABLE)
+  {
+    /* Compute the Corresponding IRQ Priority --------------------------------*/    
+    tmppriority = (0x700 - ((SCB->AIRCR) & (uint32_t)0x700))>> 0x08;
+    tmppre = (0x4 - tmppriority);
+    tmpsub = tmpsub >> tmppriority;
+  1c:	220f      	movs	r2, #15
+  1e:	40da      	lsrs	r2, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:128
+
+    tmppriority = (uint32_t)NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority << tmppre;
+    tmppriority |=  NVIC_InitStruct->NVIC_IRQChannelSubPriority & tmpsub;
+  20:	4022      	ands	r2, r4
+  22:	430a      	orrs	r2, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:131
+    tmppriority = tmppriority << 0x04;
+        
+    NVIC->IP[NVIC_InitStruct->NVIC_IRQChannel] = tmppriority;
+  24:	4b0e      	ldr	r3, [pc, #56]	; (60 <NVIC_Init+0x60>)
+  26:	7801      	ldrb	r1, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:129
+    tmppre = (0x4 - tmppriority);
+    tmpsub = tmpsub >> tmppriority;
+
+    tmppriority = (uint32_t)NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority << tmppre;
+    tmppriority |=  NVIC_InitStruct->NVIC_IRQChannelSubPriority & tmpsub;
+    tmppriority = tmppriority << 0x04;
+  28:	0112      	lsls	r2, r2, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:131
+        
+    NVIC->IP[NVIC_InitStruct->NVIC_IRQChannel] = tmppriority;
+  2a:	18cb      	adds	r3, r1, r3
+  2c:	b2d2      	uxtb	r2, r2
+  2e:	f883 2300 	strb.w	r2, [r3, #768]	; 0x300
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:134
+    
+    /* Enable the Selected IRQ Channels --------------------------------------*/
+    NVIC->ISER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+  32:	7803      	ldrb	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:135
+      (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+  34:	2201      	movs	r2, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:134
+    tmppriority = tmppriority << 0x04;
+        
+    NVIC->IP[NVIC_InitStruct->NVIC_IRQChannel] = tmppriority;
+    
+    /* Enable the Selected IRQ Channels --------------------------------------*/
+    NVIC->ISER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+  36:	0959      	lsrs	r1, r3, #5
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:135
+      (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+  38:	f003 031f 	and.w	r3, r3, #31
+  3c:	fa12 f303 	lsls.w	r3, r2, r3
+  40:	e007      	b.n	52 <NVIC_Init+0x52>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:140
+  }
+  else
+  {
+    /* Disable the Selected IRQ Channels -------------------------------------*/
+    NVIC->ICER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+  42:	7803      	ldrb	r3, [r0, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:141
+      (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+  44:	2201      	movs	r2, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:140
+      (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+  }
+  else
+  {
+    /* Disable the Selected IRQ Channels -------------------------------------*/
+    NVIC->ICER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+  46:	0959      	lsrs	r1, r3, #5
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:141
+      (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+  48:	f003 031f 	and.w	r3, r3, #31
+  4c:	fa12 f303 	lsls.w	r3, r2, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:140
+      (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+  }
+  else
+  {
+    /* Disable the Selected IRQ Channels -------------------------------------*/
+    NVIC->ICER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+  50:	3120      	adds	r1, #32
+  52:	4a03      	ldr	r2, [pc, #12]	; (60 <NVIC_Init+0x60>)
+  54:	f842 3021 	str.w	r3, [r2, r1, lsl #2]
+  58:	bd10      	pop	{r4, pc}
+  5a:	bf00      	nop
+  5c:	e000ed00 	.word	0xe000ed00
+  60:	e000e100 	.word	0xe000e100
+
+Disassembly of section .text.NVIC_SetVectorTable:
+
+00000000 <NVIC_SetVectorTable>:
+NVIC_SetVectorTable():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:160
+{ 
+  /* Check the parameters */
+  assert_param(IS_NVIC_VECTTAB(NVIC_VectTab));
+  assert_param(IS_NVIC_OFFSET(Offset));  
+   
+  SCB->VTOR = NVIC_VectTab | (Offset & (uint32_t)0x1FFFFF80);
+   0:	4160f021 	.word	0x4160f021
+   4:	f021 017f 	bic.w	r1, r1, #127	; 0x7f
+   8:	4b01      	ldr	r3, [pc, #4]	; (10 <NVIC_SetVectorTable+0x10>)
+   a:	4301      	orrs	r1, r0
+   c:	6099      	str	r1, [r3, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:161
+}
+   e:	4770      	bx	lr
+  10:	e000ed00 	.word	0xe000ed00
+
+Disassembly of section .text.NVIC_SystemLPConfig:
+
+00000000 <NVIC_SystemLPConfig>:
+NVIC_SystemLPConfig():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:174
+  *     @arg NVIC_LP_SLEEPONEXIT
+  * @param  NewState: new state of LP condition. This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void NVIC_SystemLPConfig(uint8_t LowPowerMode, FunctionalState NewState)
+{
+   0:	4b04      	ldr	r3, [pc, #16]	; (14 <NVIC_SystemLPConfig+0x14>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:179
+  /* Check the parameters */
+  assert_param(IS_NVIC_LP(LowPowerMode));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));  
+  
+  if (NewState != DISABLE)
+   2:	b111      	cbz	r1, a <NVIC_SystemLPConfig+0xa>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:181
+  {
+    SCB->SCR |= LowPowerMode;
+   4:	691a      	ldr	r2, [r3, #16]
+   6:	4310      	orrs	r0, r2
+   8:	e002      	b.n	10 <NVIC_SystemLPConfig+0x10>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:185
+  }
+  else
+  {
+    SCB->SCR &= (uint32_t)(~(uint32_t)LowPowerMode);
+   a:	691a      	ldr	r2, [r3, #16]
+   c:	ea22 0000 	bic.w	r0, r2, r0
+  10:	6118      	str	r0, [r3, #16]
+  12:	4770      	bx	lr
+  14:	e000ed00 	.word	0xe000ed00
+
+Disassembly of section .text.SysTick_CLKSourceConfig:
+
+00000000 <SysTick_CLKSourceConfig>:
+SysTick_CLKSourceConfig():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:198
+  *     @arg SysTick_CLKSource_HCLK_Div8: AHB clock divided by 8 selected as SysTick clock source.
+  *     @arg SysTick_CLKSource_HCLK: AHB clock selected as SysTick clock source.
+  * @retval None
+  */
+void SysTick_CLKSourceConfig(uint32_t SysTick_CLKSource)
+{
+   0:	4b04      	ldr	r3, [pc, #16]	; (14 <SysTick_CLKSourceConfig+0x14>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:201
+  /* Check the parameters */
+  assert_param(IS_SYSTICK_CLK_SOURCE(SysTick_CLKSource));
+  if (SysTick_CLKSource == SysTick_CLKSource_HCLK)
+   2:	2804      	cmp	r0, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:203
+  {
+    SysTick->CTRL |= SysTick_CLKSource_HCLK;
+   4:	681a      	ldr	r2, [r3, #0]
+   6:	bf0c      	ite	eq
+   8:	f042 0204 	orreq.w	r2, r2, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32F10x_StdPeriph_Driver\src/misc.c:207
+  }
+  else
+  {
+    SysTick->CTRL &= SysTick_CLKSource_HCLK_Div8;
+   c:	f022 0204 	bicne.w	r2, r2, #4
+  10:	601a      	str	r2, [r3, #0]
+  12:	4770      	bx	lr
+  14:	e000e010 	.word	0xe000e010

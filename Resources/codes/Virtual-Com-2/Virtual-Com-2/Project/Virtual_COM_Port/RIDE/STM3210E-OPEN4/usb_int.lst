@@ -1,0 +1,389 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_int.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_int.o
+
+
+Disassembly of section .text.CTR_LP:
+
+00000000 <CTR_LP>:
+CTR_LP():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:43
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void CTR_LP(void)
+{
+   0:	b573      	push	{r0, r1, r4, r5, r6, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:44
+  __IO uint16_t wEPVal = 0;
+   2:	2300      	movs	r3, #0
+   4:	f8ad 3006 	strh.w	r3, [sp, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:46
+  /* stay in loop while pending ints */
+  while (((wIstr = _GetISTR()) & ISTR_CTR) != 0)
+   8:	e0a7      	b.n	15a <CTR_LP+0x15a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:49
+  {
+    /* extract highest priority endpoint number */
+    EPindex = (uint8_t)(wIstr & ISTR_EP_ID);
+   a:	8813      	ldrh	r3, [r2, #0]
+   c:	4c58      	ldr	r4, [pc, #352]	; (170 <CTR_LP+0x170>)
+   e:	f003 030f 	and.w	r3, r3, #15
+  12:	7023      	strb	r3, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:50
+    if (EPindex == 0)
+  14:	2b00      	cmp	r3, #0
+  16:	d16f      	bne.n	f8 <CTR_LP+0xf8>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:60
+
+      /* save RX & TX status */
+      /* and set both to NAK */
+
+
+	    SaveRState = _GetENDPOINT(ENDP0);
+  18:	4c56      	ldr	r4, [pc, #344]	; (174 <CTR_LP+0x174>)
+  1a:	4e57      	ldr	r6, [pc, #348]	; (178 <CTR_LP+0x178>)
+  1c:	6823      	ldr	r3, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:61
+	    SaveTState = SaveRState & EPTX_STAT;
+  1e:	4d57      	ldr	r5, [pc, #348]	; (17c <CTR_LP+0x17c>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:60
+
+      /* save RX & TX status */
+      /* and set both to NAK */
+
+
+	    SaveRState = _GetENDPOINT(ENDP0);
+  20:	b29b      	uxth	r3, r3
+  22:	8033      	strh	r3, [r6, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:61
+	    SaveTState = SaveRState & EPTX_STAT;
+  24:	8833      	ldrh	r3, [r6, #0]
+  26:	f003 0330 	and.w	r3, r3, #48	; 0x30
+  2a:	802b      	strh	r3, [r5, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:62
+	    SaveRState &=  EPRX_STAT;	
+  2c:	8833      	ldrh	r3, [r6, #0]
+  2e:	f403 5340 	and.w	r3, r3, #12288	; 0x3000
+  32:	8033      	strh	r3, [r6, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:64
+
+	    _SetEPRxTxStatus(ENDP0,EP_RX_NAK,EP_TX_NAK);
+  34:	6821      	ldr	r1, [r4, #0]
+  36:	f64b 73bf 	movw	r3, #49087	; 0xbfbf
+  3a:	ea01 0303 	and.w	r3, r1, r3
+  3e:	f483 5300 	eor.w	r3, r3, #8192	; 0x2000
+  42:	f083 0320 	eor.w	r3, r3, #32
+  46:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
+  4a:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  4e:	6023      	str	r3, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:68
+
+      /* DIR bit = origin of the interrupt */
+
+      if ((wIstr & ISTR_DIR) == 0)
+  50:	8813      	ldrh	r3, [r2, #0]
+  52:	f013 0f10 	tst.w	r3, #16
+  56:	d108      	bne.n	6a <CTR_LP+0x6a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:76
+
+        /* DIR = 0      => IN  int */
+        /* DIR = 0 implies that (EP_CTR_TX = 1) always  */
+
+
+        _ClearEP_CTR_TX(ENDP0);
+  58:	6822      	ldr	r2, [r4, #0]
+  5a:	f648 730f 	movw	r3, #36623	; 0x8f0f
+  5e:	ea02 0303 	and.w	r3, r2, r3
+  62:	6023      	str	r3, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:77
+        In0_Process();
+  64:	f7ff fffe 	bl	0 <In0_Process>
+  68:	e01e      	b.n	a8 <CTR_LP+0xa8>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:91
+        /* DIR = 1 */
+
+        /* DIR = 1 & CTR_RX       => SETUP or OUT int */
+        /* DIR = 1 & (CTR_TX | CTR_RX) => 2 int pending */
+
+        wEPVal = _GetENDPOINT(ENDP0);
+  6a:	6823      	ldr	r3, [r4, #0]
+  6c:	b29b      	uxth	r3, r3
+  6e:	f8ad 3006 	strh.w	r3, [sp, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:93
+        
+        if ((wEPVal &EP_SETUP) != 0)
+  72:	f8bd 3006 	ldrh.w	r3, [sp, #6]
+  76:	f413 6f00 	tst.w	r3, #2048	; 0x800
+  7a:	d008      	beq.n	8e <CTR_LP+0x8e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:95
+        {
+          _ClearEP_CTR_RX(ENDP0); /* SETUP bit kept frozen while CTR_RX = 1 */
+  7c:	6822      	ldr	r2, [r4, #0]
+  7e:	f640 738f 	movw	r3, #3983	; 0xf8f
+  82:	ea02 0303 	and.w	r3, r2, r3
+  86:	6023      	str	r3, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:96
+          Setup0_Process();
+  88:	f7ff fffe 	bl	0 <Setup0_Process>
+  8c:	e00c      	b.n	a8 <CTR_LP+0xa8>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:103
+
+		      _SetEPRxTxStatus(ENDP0,SaveRState,SaveTState);
+          return;
+        }
+
+        else if ((wEPVal & EP_CTR_RX) != 0)
+  8e:	f8bd 3006 	ldrh.w	r3, [sp, #6]
+  92:	b21b      	sxth	r3, r3
+  94:	2b00      	cmp	r3, #0
+  96:	da60      	bge.n	15a <CTR_LP+0x15a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:105
+        {
+          _ClearEP_CTR_RX(ENDP0);
+  98:	6822      	ldr	r2, [r4, #0]
+  9a:	f640 738f 	movw	r3, #3983	; 0xf8f
+  9e:	ea02 0303 	and.w	r3, r2, r3
+  a2:	6023      	str	r3, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:106
+          Out0_Process();
+  a4:	f7ff fffe 	bl	0 <Out0_Process>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:109
+          /* before terminate set Tx & Rx status */
+     
+		     _SetEPRxTxStatus(ENDP0,SaveRState,SaveTState);
+  a8:	6822      	ldr	r2, [r4, #0]
+  aa:	f64b 73bf 	movw	r3, #49087	; 0xbfbf
+  ae:	ea02 0303 	and.w	r3, r2, r3
+  b2:	8832      	ldrh	r2, [r6, #0]
+  b4:	f402 5280 	and.w	r2, r2, #4096	; 0x1000
+  b8:	b292      	uxth	r2, r2
+  ba:	b10a      	cbz	r2, c0 <CTR_LP+0xc0>
+  bc:	f483 5380 	eor.w	r3, r3, #4096	; 0x1000
+  c0:	8832      	ldrh	r2, [r6, #0]
+  c2:	f402 5200 	and.w	r2, r2, #8192	; 0x2000
+  c6:	b292      	uxth	r2, r2
+  c8:	b10a      	cbz	r2, ce <CTR_LP+0xce>
+  ca:	f483 5300 	eor.w	r3, r3, #8192	; 0x2000
+  ce:	882a      	ldrh	r2, [r5, #0]
+  d0:	f002 0210 	and.w	r2, r2, #16
+  d4:	b292      	uxth	r2, r2
+  d6:	b10a      	cbz	r2, dc <CTR_LP+0xdc>
+  d8:	f083 0310 	eor.w	r3, r3, #16
+  dc:	882a      	ldrh	r2, [r5, #0]
+  de:	f002 0220 	and.w	r2, r2, #32
+  e2:	b292      	uxth	r2, r2
+  e4:	b10a      	cbz	r2, ea <CTR_LP+0xea>
+  e6:	f083 0320 	eor.w	r3, r3, #32
+  ea:	4a25      	ldr	r2, [pc, #148]	; (180 <CTR_LP+0x180>)
+  ec:	ea43 0202 	orr.w	r2, r3, r2
+  f0:	4b20      	ldr	r3, [pc, #128]	; (174 <CTR_LP+0x174>)
+  f2:	b292      	uxth	r2, r2
+  f4:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:110
+          return;
+  f6:	e03a      	b.n	16e <CTR_LP+0x16e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:119
+    else
+    {
+      /* Decode and service non control endpoints interrupt  */
+
+      /* process related endpoint register */
+      wEPVal = _GetENDPOINT(EPindex);
+  f8:	009b      	lsls	r3, r3, #2
+  fa:	f103 4380 	add.w	r3, r3, #1073741824	; 0x40000000
+  fe:	f503 43b8 	add.w	r3, r3, #23552	; 0x5c00
+ 102:	681a      	ldr	r2, [r3, #0]
+ 104:	b292      	uxth	r2, r2
+ 106:	f8ad 2006 	strh.w	r2, [sp, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:120
+      if ((wEPVal & EP_CTR_RX) != 0)
+ 10a:	f8bd 2006 	ldrh.w	r2, [sp, #6]
+ 10e:	b212      	sxth	r2, r2
+ 110:	2a00      	cmp	r2, #0
+ 112:	da0b      	bge.n	12c <CTR_LP+0x12c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:123
+      {
+        /* clear int flag */
+        _ClearEP_CTR_RX(EPindex);
+ 114:	6819      	ldr	r1, [r3, #0]
+ 116:	f640 728f 	movw	r2, #3983	; 0xf8f
+ 11a:	ea01 0202 	and.w	r2, r1, r2
+ 11e:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:126
+
+        /* call OUT service function */
+        (*pEpInt_OUT[EPindex-1])();
+ 120:	7822      	ldrb	r2, [r4, #0]
+ 122:	4b18      	ldr	r3, [pc, #96]	; (184 <CTR_LP+0x184>)
+ 124:	3a01      	subs	r2, #1
+ 126:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 12a:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:130
+
+      } /* if((wEPVal & EP_CTR_RX) */
+
+      if ((wEPVal & EP_CTR_TX) != 0)
+ 12c:	f8bd 3006 	ldrh.w	r3, [sp, #6]
+ 130:	f013 0f80 	tst.w	r3, #128	; 0x80
+ 134:	d011      	beq.n	15a <CTR_LP+0x15a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:133
+      {
+        /* clear int flag */
+        _ClearEP_CTR_TX(EPindex);
+ 136:	7823      	ldrb	r3, [r4, #0]
+ 138:	f648 720f 	movw	r2, #36623	; 0x8f0f
+ 13c:	009b      	lsls	r3, r3, #2
+ 13e:	f103 4380 	add.w	r3, r3, #1073741824	; 0x40000000
+ 142:	f503 43b8 	add.w	r3, r3, #23552	; 0x5c00
+ 146:	6819      	ldr	r1, [r3, #0]
+ 148:	ea01 0202 	and.w	r2, r1, r2
+ 14c:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:136
+
+        /* call IN service function */
+        (*pEpInt_IN[EPindex-1])();
+ 14e:	7822      	ldrb	r2, [r4, #0]
+ 150:	4b0d      	ldr	r3, [pc, #52]	; (188 <CTR_LP+0x188>)
+ 152:	3a01      	subs	r2, #1
+ 154:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 158:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:46
+*******************************************************************************/
+void CTR_LP(void)
+{
+  __IO uint16_t wEPVal = 0;
+  /* stay in loop while pending ints */
+  while (((wIstr = _GetISTR()) & ISTR_CTR) != 0)
+ 15a:	4b0c      	ldr	r3, [pc, #48]	; (18c <CTR_LP+0x18c>)
+ 15c:	4a0c      	ldr	r2, [pc, #48]	; (190 <CTR_LP+0x190>)
+ 15e:	681b      	ldr	r3, [r3, #0]
+ 160:	b29b      	uxth	r3, r3
+ 162:	8013      	strh	r3, [r2, #0]
+ 164:	8813      	ldrh	r3, [r2, #0]
+ 166:	b21b      	sxth	r3, r3
+ 168:	2b00      	cmp	r3, #0
+ 16a:	f6ff af4e 	blt.w	a <CTR_LP+0xa>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:142
+      } /* if((wEPVal & EP_CTR_TX) != 0) */
+
+    }/* if(EPindex == 0) else */
+
+  }/* while(...) */
+}
+ 16e:	bd7c      	pop	{r2, r3, r4, r5, r6, pc}
+ 170:	00000000 	.word	0x00000000
+ 174:	40005c00 	.word	0x40005c00
+	...
+ 180:	ffff8080 	.word	0xffff8080
+	...
+ 18c:	40005c44 	.word	0x40005c44
+ 190:	00000000 	.word	0x00000000
+
+Disassembly of section .text.CTR_HP:
+
+00000000 <CTR_HP>:
+CTR_HP():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:153
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void CTR_HP(void)
+{
+   0:	e02ab508 	.word	0xe02ab508
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:158
+  uint32_t wEPVal = 0;
+
+  while (((wIstr = _GetISTR()) & ISTR_CTR) != 0)
+  {
+    _SetISTR((uint16_t)CLR_CTR); /* clear CTR flag */
+   4:	f647 71ff 	movw	r1, #32767	; 0x7fff
+   8:	6011      	str	r1, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:160
+    /* extract highest priority endpoint number */
+    EPindex = (uint8_t)(wIstr & ISTR_EP_ID);
+   a:	881b      	ldrh	r3, [r3, #0]
+   c:	4a18      	ldr	r2, [pc, #96]	; (70 <CTR_HP+0x70>)
+   e:	f003 030f 	and.w	r3, r3, #15
+  12:	7013      	strb	r3, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:162
+    /* process related endpoint register */
+    wEPVal = _GetENDPOINT(EPindex);
+  14:	009b      	lsls	r3, r3, #2
+  16:	f103 4380 	add.w	r3, r3, #1073741824	; 0x40000000
+  1a:	f503 43b8 	add.w	r3, r3, #23552	; 0x5c00
+  1e:	6819      	ldr	r1, [r3, #0]
+  20:	b289      	uxth	r1, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:163
+    if ((wEPVal & EP_CTR_RX) != 0)
+  22:	f411 4f00 	tst.w	r1, #32768	; 0x8000
+  26:	d009      	beq.n	3c <CTR_HP+0x3c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:166
+    {
+      /* clear int flag */
+      _ClearEP_CTR_RX(EPindex);
+  28:	6818      	ldr	r0, [r3, #0]
+  2a:	f640 718f 	movw	r1, #3983	; 0xf8f
+  2e:	ea00 0101 	and.w	r1, r0, r1
+  32:	6019      	str	r1, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:169
+
+      /* call OUT service function */
+      (*pEpInt_OUT[EPindex-1])();
+  34:	7812      	ldrb	r2, [r2, #0]
+  36:	4b0f      	ldr	r3, [pc, #60]	; (74 <CTR_HP+0x74>)
+  38:	3a01      	subs	r2, #1
+  3a:	e00b      	b.n	54 <CTR_HP+0x54>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:172
+
+    } /* if((wEPVal & EP_CTR_RX) */
+    else if ((wEPVal & EP_CTR_TX) != 0)
+  3c:	f011 0f80 	tst.w	r1, #128	; 0x80
+  40:	d00b      	beq.n	5a <CTR_HP+0x5a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:175
+    {
+      /* clear int flag */
+      _ClearEP_CTR_TX(EPindex);
+  42:	6818      	ldr	r0, [r3, #0]
+  44:	f648 710f 	movw	r1, #36623	; 0x8f0f
+  48:	ea00 0101 	and.w	r1, r0, r1
+  4c:	6019      	str	r1, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:178
+
+      /* call IN service function */
+      (*pEpInt_IN[EPindex-1])();
+  4e:	7812      	ldrb	r2, [r2, #0]
+  50:	4b09      	ldr	r3, [pc, #36]	; (78 <CTR_HP+0x78>)
+  52:	3a01      	subs	r2, #1
+  54:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+  58:	4798      	blx	r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:156
+*******************************************************************************/
+void CTR_HP(void)
+{
+  uint32_t wEPVal = 0;
+
+  while (((wIstr = _GetISTR()) & ISTR_CTR) != 0)
+  5a:	4a08      	ldr	r2, [pc, #32]	; (7c <CTR_HP+0x7c>)
+  5c:	4b08      	ldr	r3, [pc, #32]	; (80 <CTR_HP+0x80>)
+  5e:	6811      	ldr	r1, [r2, #0]
+  60:	b289      	uxth	r1, r1
+  62:	8019      	strh	r1, [r3, #0]
+  64:	8819      	ldrh	r1, [r3, #0]
+  66:	b209      	sxth	r1, r1
+  68:	2900      	cmp	r1, #0
+  6a:	dbcb      	blt.n	4 <CTR_HP+0x4>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Libraries\STM32_USB-FS-Device_Driver\src/usb_int.c:184
+
+
+    } /* if((wEPVal & EP_CTR_TX) != 0) */
+
+  }/* while(...) */
+}
+  6c:	bd08      	pop	{r3, pc}
+  6e:	bf00      	nop
+	...
+  7c:	40005c44 	.word	0x40005c44
+  80:	00000000 	.word	0x00000000

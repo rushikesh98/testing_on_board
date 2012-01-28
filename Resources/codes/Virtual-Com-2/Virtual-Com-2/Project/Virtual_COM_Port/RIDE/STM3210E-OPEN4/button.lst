@@ -1,0 +1,723 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\button.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\button.o
+
+
+Disassembly of section .text.JOYSTICK_Handler:
+
+00000000 <JOYSTICK_Handler>:
+JOYSTICK_Handler():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:149
+*  @attention  This function must <b>NOT</b> be called by the user.
+*
+**/
+/******************************************************************************/
+void JOYSTICK_Handler( void )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:150
+    enum JOYSTICK_state old_state_joy = Joystick_State;
+   2:	4c15      	ldr	r4, [pc, #84]	; (58 <JOYSTICK_Handler+0x58>)
+   4:	7825      	ldrb	r5, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:153
+    enum JOYSTICK_state new_state_joy;
+
+    new_state_joy = JOYSTICK_GetNewState();
+   6:	f7ff fffe 	bl	0 <JOYSTICK_GetNewState>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:155
+
+    if (( Joystick_Counter == 0 )  && ( new_state_joy != old_state_joy ) )
+   a:	4914      	ldr	r1, [pc, #80]	; (5c <JOYSTICK_Handler+0x5c>)
+   c:	4626      	mov	r6, r4
+   e:	680a      	ldr	r2, [r1, #0]
+  10:	460b      	mov	r3, r1
+  12:	b932      	cbnz	r2, 22 <JOYSTICK_Handler+0x22>
+  14:	b26d      	sxtb	r5, r5
+  16:	42a8      	cmp	r0, r5
+  18:	d003      	beq.n	22 <JOYSTICK_Handler+0x22>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:158
+    {
+        Joystick_State = new_state_joy;
+        Joystick_Counter ++;
+  1a:	2301      	movs	r3, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:157
+
+    new_state_joy = JOYSTICK_GetNewState();
+
+    if (( Joystick_Counter == 0 )  && ( new_state_joy != old_state_joy ) )
+    {
+        Joystick_State = new_state_joy;
+  1c:	7020      	strb	r0, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:158
+        Joystick_Counter ++;
+  1e:	600b      	str	r3, [r1, #0]
+  20:	bd70      	pop	{r4, r5, r6, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:160
+    }
+    else if (( Joystick_Counter < WEIGHTED_TIME( ANTI_BOUNCING_COUNT / 3 ) ) && fJoyWaitForRelease )
+  22:	4c0f      	ldr	r4, [pc, #60]	; (60 <JOYSTICK_Handler+0x60>)
+  24:	490f      	ldr	r1, [pc, #60]	; (64 <JOYSTICK_Handler+0x64>)
+  26:	7824      	ldrb	r4, [r4, #0]
+  28:	f851 5024 	ldr.w	r5, [r1, r4, lsl #2]
+  2c:	68cc      	ldr	r4, [r1, #12]
+  2e:	00ed      	lsls	r5, r5, #3
+  30:	fbb5 f1f4 	udiv	r1, r5, r4
+  34:	428a      	cmp	r2, r1
+  36:	d203      	bcs.n	40 <JOYSTICK_Handler+0x40>
+  38:	7919      	ldrb	r1, [r3, #4]
+  3a:	b109      	cbz	r1, 40 <JOYSTICK_Handler+0x40>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:162
+    {
+        Joystick_Counter++;
+  3c:	3201      	adds	r2, #1
+  3e:	e003      	b.n	48 <JOYSTICK_Handler+0x48>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:166
+    }
+    else
+    {
+        if ( fJoyWaitForRelease && ( new_state_joy != JOYSTICK_RELEASED ) )
+  40:	791a      	ldrb	r2, [r3, #4]
+  42:	b122      	cbz	r2, 4e <JOYSTICK_Handler+0x4e>
+  44:	b118      	cbz	r0, 4e <JOYSTICK_Handler+0x4e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:169
+        {
+            /* Restart again until release.*/
+            Joystick_Counter = 1;
+  46:	2201      	movs	r2, #1
+  48:	4b04      	ldr	r3, [pc, #16]	; (5c <JOYSTICK_Handler+0x5c>)
+  4a:	601a      	str	r2, [r3, #0]
+  4c:	bd70      	pop	{r4, r5, r6, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:173
+        }
+        else
+        {
+            Joystick_Counter   = 0;
+  4e:	2200      	movs	r2, #0
+  50:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:174
+            fJoyWaitForRelease = 0;
+  52:	711a      	strb	r2, [r3, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:175
+            Joystick_State     = new_state_joy;
+  54:	7030      	strb	r0, [r6, #0]
+  56:	bd70      	pop	{r4, r5, r6, pc}
+	...
+
+Disassembly of section .text.BUTTON_Handler:
+
+00000000 <BUTTON_Handler>:
+BUTTON_Handler():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:56
+*  @attention  This function must <b>NOT</b> be called by the user.
+*
+**/
+/******************************************************************************/
+void BUTTON_Handler( void )
+{
+   0:	e92d 41f3 	stmdb	sp!, {r0, r1, r4, r5, r6, r7, r8, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:63
+    enum BUTTON_state old_state = Button_State;
+    enum BUTTON_state new_state;
+
+    static divider_t divider = 0;
+
+    if ( ++divider % BUTTON_DIVIDER )
+   4:	4e42      	ldr	r6, [pc, #264]	; (110 <BUTTON_Handler+0x110>)
+   6:	220a      	movs	r2, #10
+   8:	68b3      	ldr	r3, [r6, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:58
+**/
+/******************************************************************************/
+void BUTTON_Handler( void )
+{
+    u8 state;
+    enum BUTTON_state old_state = Button_State;
+   a:	4f42      	ldr	r7, [pc, #264]	; (114 <BUTTON_Handler+0x114>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:63
+    enum BUTTON_state new_state;
+
+    static divider_t divider = 0;
+
+    if ( ++divider % BUTTON_DIVIDER )
+   c:	3301      	adds	r3, #1
+   e:	fb93 f5f2 	sdiv	r5, r3, r2
+  12:	fb02 3515 	mls	r5, r2, r5, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:58
+**/
+/******************************************************************************/
+void BUTTON_Handler( void )
+{
+    u8 state;
+    enum BUTTON_state old_state = Button_State;
+  16:	f897 8001 	ldrb.w	r8, [r7, #1]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:63
+    enum BUTTON_state new_state;
+
+    static divider_t divider = 0;
+
+    if ( ++divider % BUTTON_DIVIDER )
+  1a:	60b3      	str	r3, [r6, #8]
+  1c:	4634      	mov	r4, r6
+  1e:	2d00      	cmp	r5, #0
+  20:	d172      	bne.n	108 <BUTTON_Handler+0x108>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:68
+    {
+        return;
+    }
+
+    state = BUTTON_GetNewState();
+  22:	f7ff fffe 	bl	0 <BUTTON_GetNewState>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:71
+
+    /* Manage shutdown by a long pressing.*/
+    if ( state )
+  26:	2800      	cmp	r0, #0
+  28:	d03a      	beq.n	a0 <BUTTON_Handler+0xa0>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:75
+    {
+        Button_LongCounter++;
+
+        if ( Button_LongCounter > WEIGHTED_TIME( SHUTDOWNCOUNT ) )
+  2a:	493b      	ldr	r1, [pc, #236]	; (118 <BUTTON_Handler+0x118>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:73
+    state = BUTTON_GetNewState();
+
+    /* Manage shutdown by a long pressing.*/
+    if ( state )
+    {
+        Button_LongCounter++;
+  2c:	68f3      	ldr	r3, [r6, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:75
+
+        if ( Button_LongCounter > WEIGHTED_TIME( SHUTDOWNCOUNT ) )
+  2e:	4a3b      	ldr	r2, [pc, #236]	; (11c <BUTTON_Handler+0x11c>)
+  30:	7809      	ldrb	r1, [r1, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:73
+    state = BUTTON_GetNewState();
+
+    /* Manage shutdown by a long pressing.*/
+    if ( state )
+    {
+        Button_LongCounter++;
+  32:	3301      	adds	r3, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:75
+
+        if ( Button_LongCounter > WEIGHTED_TIME( SHUTDOWNCOUNT ) )
+  34:	f852 1021 	ldr.w	r1, [r2, r1, lsl #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:73
+    state = BUTTON_GetNewState();
+
+    /* Manage shutdown by a long pressing.*/
+    if ( state )
+    {
+        Button_LongCounter++;
+  38:	60f3      	str	r3, [r6, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:75
+
+        if ( Button_LongCounter > WEIGHTED_TIME( SHUTDOWNCOUNT ) )
+  3a:	26c8      	movs	r6, #200	; 0xc8
+  3c:	434e      	muls	r6, r1
+  3e:	68d1      	ldr	r1, [r2, #12]
+  40:	fbb6 f2f1 	udiv	r2, r6, r1
+  44:	4293      	cmp	r3, r2
+  46:	d92c      	bls.n	a2 <BUTTON_Handler+0xa2>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:77
+        {
+            LCD_SetOffset( OFFSET_OFF );
+  48:	4628      	mov	r0, r5
+  4a:	f7ff fffe 	bl	0 <LCD_SetOffset>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:78
+            LCD_ClearAllScreen( RGB_BLACK );
+  4e:	4628      	mov	r0, r5
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:81
+            DRAW_SetDefaultColor();
+            DRAW_RestoreCharMagniCoeff();
+            DRAW_DisplayStringWithMode( 0, 100, "Shutting down !", ALL_SCREEN, INVERTED_TEXT, CENTER );
+  50:	2401      	movs	r4, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:78
+        Button_LongCounter++;
+
+        if ( Button_LongCounter > WEIGHTED_TIME( SHUTDOWNCOUNT ) )
+        {
+            LCD_SetOffset( OFFSET_OFF );
+            LCD_ClearAllScreen( RGB_BLACK );
+  52:	f7ff fffe 	bl	0 <LCD_ClearAllScreen>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:79
+            DRAW_SetDefaultColor();
+  56:	f7ff fffe 	bl	0 <DRAW_SetDefaultColor>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:80
+            DRAW_RestoreCharMagniCoeff();
+  5a:	f7ff fffe 	bl	0 <DRAW_RestoreCharMagniCoeff>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:81
+            DRAW_DisplayStringWithMode( 0, 100, "Shutting down !", ALL_SCREEN, INVERTED_TEXT, CENTER );
+  5e:	4628      	mov	r0, r5
+  60:	2164      	movs	r1, #100	; 0x64
+  62:	4a2f      	ldr	r2, [pc, #188]	; (120 <BUTTON_Handler+0x120>)
+  64:	f04f 33ff 	mov.w	r3, #4294967295
+  68:	9400      	str	r4, [sp, #0]
+  6a:	9401      	str	r4, [sp, #4]
+  6c:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:82
+            DRAW_DisplayStringWithMode( 0, 50, "Release", ALL_SCREEN, INVERTED_TEXT, CENTER );
+  70:	4628      	mov	r0, r5
+  72:	2132      	movs	r1, #50	; 0x32
+  74:	4a2b      	ldr	r2, [pc, #172]	; (124 <BUTTON_Handler+0x124>)
+  76:	f04f 33ff 	mov.w	r3, #4294967295
+  7a:	9400      	str	r4, [sp, #0]
+  7c:	9401      	str	r4, [sp, #4]
+  7e:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:83
+            DRAW_DisplayStringWithMode( 0, 20, "the button !", ALL_SCREEN, INVERTED_TEXT, CENTER );
+  82:	4628      	mov	r0, r5
+  84:	2114      	movs	r1, #20
+  86:	4a28      	ldr	r2, [pc, #160]	; (128 <BUTTON_Handler+0x128>)
+  88:	f04f 33ff 	mov.w	r3, #4294967295
+  8c:	9400      	str	r4, [sp, #0]
+  8e:	9401      	str	r4, [sp, #4]
+  90:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:84
+            DRAW_SetCharMagniCoeff( 1 );
+  94:	4620      	mov	r0, r4
+  96:	f7ff fffe 	bl	0 <DRAW_SetCharMagniCoeff>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:88
+
+            while ( 1 )
+            {
+                SHUTDOWN_Action();
+  9a:	f7ff fffe 	bl	0 <SHUTDOWN_Action>
+  9e:	e7fc      	b.n	9a <BUTTON_Handler+0x9a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:94
+            }
+        }
+    }
+    else
+    {
+        Button_LongCounter = 0;
+  a0:	60f0      	str	r0, [r6, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:97
+    }
+
+    if (( Button_Mode == BUTTON_ONOFF ) || ( Button_Mode == BUTTON_ONOFF_FORMAIN ) )
+  a2:	78bb      	ldrb	r3, [r7, #2]
+  a4:	2b01      	cmp	r3, #1
+  a6:	d82a      	bhi.n	fe <BUTTON_Handler+0xfe>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:99
+    {
+        new_state = state ? BUTTON_PUSHED : BUTTON_RELEASED;
+  a8:	3800      	subs	r0, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:101
+
+        if (( Button_Counter == 0 )  && ( new_state != old_state ) )
+  aa:	6922      	ldr	r2, [r4, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:99
+        Button_LongCounter = 0;
+    }
+
+    if (( Button_Mode == BUTTON_ONOFF ) || ( Button_Mode == BUTTON_ONOFF_FORMAIN ) )
+    {
+        new_state = state ? BUTTON_PUSHED : BUTTON_RELEASED;
+  ac:	bf18      	it	ne
+  ae:	2001      	movne	r0, #1
+  b0:	4603      	mov	r3, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:101
+
+        if (( Button_Counter == 0 )  && ( new_state != old_state ) )
+  b2:	b93a      	cbnz	r2, c4 <BUTTON_Handler+0xc4>
+  b4:	b241      	sxtb	r1, r0
+  b6:	fa4f f888 	sxtb.w	r8, r8
+  ba:	4541      	cmp	r1, r8
+  bc:	d002      	beq.n	c4 <BUTTON_Handler+0xc4>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:103
+        {
+            Button_State = new_state;
+  be:	4b15      	ldr	r3, [pc, #84]	; (114 <BUTTON_Handler+0x114>)
+  c0:	7058      	strb	r0, [r3, #1]
+  c2:	e00d      	b.n	e0 <BUTTON_Handler+0xe0>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:106
+            Button_Counter++;
+        }
+        else if (( Button_Counter < WEIGHTED_TIME( ANTI_BOUNCING_COUNT ) )  && fWaitForRelease )
+  c4:	4814      	ldr	r0, [pc, #80]	; (118 <BUTTON_Handler+0x118>)
+  c6:	4915      	ldr	r1, [pc, #84]	; (11c <BUTTON_Handler+0x11c>)
+  c8:	7800      	ldrb	r0, [r0, #0]
+  ca:	2519      	movs	r5, #25
+  cc:	f851 0020 	ldr.w	r0, [r1, r0, lsl #2]
+  d0:	4345      	muls	r5, r0
+  d2:	68c8      	ldr	r0, [r1, #12]
+  d4:	fbb5 f1f0 	udiv	r1, r5, r0
+  d8:	428a      	cmp	r2, r1
+  da:	d205      	bcs.n	e8 <BUTTON_Handler+0xe8>
+  dc:	7d21      	ldrb	r1, [r4, #20]
+  de:	b119      	cbz	r1, e8 <BUTTON_Handler+0xe8>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:108
+        {
+            Button_Counter++;
+  e0:	4b0b      	ldr	r3, [pc, #44]	; (110 <BUTTON_Handler+0x110>)
+  e2:	3201      	adds	r2, #1
+  e4:	611a      	str	r2, [r3, #16]
+  e6:	e00a      	b.n	fe <BUTTON_Handler+0xfe>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:112
+        }
+        else
+        {
+            if ( fWaitForRelease && ( new_state == BUTTON_PUSHED ) )
+  e8:	7d22      	ldrb	r2, [r4, #20]
+  ea:	b122      	cbz	r2, f6 <BUTTON_Handler+0xf6>
+  ec:	b25a      	sxtb	r2, r3
+  ee:	b112      	cbz	r2, f6 <BUTTON_Handler+0xf6>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:115
+            {
+                /* Restart again until release.*/
+                Button_Counter = 1;
+  f0:	4b07      	ldr	r3, [pc, #28]	; (110 <BUTTON_Handler+0x110>)
+  f2:	611a      	str	r2, [r3, #16]
+  f4:	e008      	b.n	108 <BUTTON_Handler+0x108>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:121
+
+                return;
+            }
+            else
+            {
+                Button_Counter    = 0;
+  f6:	2200      	movs	r2, #0
+  f8:	6122      	str	r2, [r4, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:122
+                fWaitForRelease   = 0;
+  fa:	7522      	strb	r2, [r4, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:123
+                Button_State      = new_state;
+  fc:	707b      	strb	r3, [r7, #1]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:132
+
+    /* Call the Joystick management if available */
+#if JOYSTICK_AVAIL
+    JOYSTICK_Handler();
+#endif
+}
+  fe:	b002      	add	sp, #8
+ 100:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:130
+        }
+    }
+
+    /* Call the Joystick management if available */
+#if JOYSTICK_AVAIL
+    JOYSTICK_Handler();
+ 104:	f7ff bffe 	b.w	0 <BUTTON_Handler>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:132
+#endif
+}
+ 108:	b002      	add	sp, #8
+ 10a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+ 10e:	bf00      	nop
+	...
+ 124:	00000010 	.word	0x00000010
+ 128:	00000018 	.word	0x00000018
+
+Disassembly of section .text.JOYSTICK_CircularPermutation:
+
+00000000 <JOYSTICK_CircularPermutation>:
+JOYSTICK_CircularPermutation():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:207
+{
+    s8 i;
+    enum JOYSTICK_state direction = abs_direction;
+
+//    for(i = 0 ; i < iter ; i++)
+    for ( i = iter % 4; i > 0; --i )
+   0:	ea014b16 	.word	0xea014b16
+   4:	0303      	lsls	r3, r0, #12
+   6:	2b00      	.short	0x2b00
+   8:	3b01da03 	.word	0x3b01da03
+   c:	f063 0303 	orn	r3, r3, #3
+  10:	3301      	adds	r3, #1
+  12:	b2db      	uxtb	r3, r3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:204
+**/
+/******************************************************************************/
+enum JOYSTICK_state JOYSTICK_CircularPermutation( enum JOYSTICK_state abs_direction, s8 iter )
+{
+    s8 i;
+    enum JOYSTICK_state direction = abs_direction;
+  14:	4602      	mov	r2, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:207
+
+//    for(i = 0 ; i < iter ; i++)
+    for ( i = iter % 4; i > 0; --i )
+  16:	e01c      	b.n	52 <JOYSTICK_CircularPermutation+0x52>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:209
+    {
+        switch ( direction )
+  18:	3801      	subs	r0, #1
+  1a:	280c      	cmp	r0, #12
+  1c:	d817      	bhi.n	4e <JOYSTICK_CircularPermutation+0x4e>
+  1e:	e8df f000 	tbb	[pc, r0]
+  22:	0907      	.short	0x0907
+  24:	160f0d0b 	.word	0x160f0d0b
+  28:	16161615 	.word	0x16161615
+  2c:	1611      	.short	0x1611
+  2e:	13          	.byte	0x13
+  2f:	00          	.byte	0x00
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:212
+        {
+        case JOYSTICK_LEFT :
+            direction = JOYSTICK_UP;
+  30:	2202      	movs	r2, #2
+  32:	e00c      	b.n	4e <JOYSTICK_CircularPermutation+0x4e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:215
+            break;
+        case JOYSTICK_UP :
+            direction = JOYSTICK_RIGHT;
+  34:	2203      	movs	r2, #3
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:216
+            break;
+  36:	e00a      	b.n	4e <JOYSTICK_CircularPermutation+0x4e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:218
+        case JOYSTICK_RIGHT :
+            direction = JOYSTICK_DOWN;
+  38:	2204      	movs	r2, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:219
+            break;
+  3a:	e008      	b.n	4e <JOYSTICK_CircularPermutation+0x4e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:221
+        case JOYSTICK_DOWN :
+            direction = JOYSTICK_LEFT;
+  3c:	2201      	movs	r2, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:222
+            break;
+  3e:	e006      	b.n	4e <JOYSTICK_CircularPermutation+0x4e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:224
+        case JOYSTICK_LEFT_UP :
+            direction = JOYSTICK_RIGHT_UP;
+  40:	220b      	movs	r2, #11
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:225
+            break;
+  42:	e004      	b.n	4e <JOYSTICK_CircularPermutation+0x4e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:227
+        case JOYSTICK_RIGHT_UP :
+            direction = JOYSTICK_RIGHT_DOWN;
+  44:	220d      	movs	r2, #13
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:228
+            break;
+  46:	e002      	b.n	4e <JOYSTICK_CircularPermutation+0x4e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:230
+        case JOYSTICK_RIGHT_DOWN :
+            direction = JOYSTICK_LEFT_DOWN;
+  48:	2207      	movs	r2, #7
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:231
+            break;
+  4a:	e000      	b.n	4e <JOYSTICK_CircularPermutation+0x4e>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:233
+        case JOYSTICK_LEFT_DOWN :
+            direction = JOYSTICK_LEFT_UP;
+  4c:	2205      	movs	r2, #5
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:207
+{
+    s8 i;
+    enum JOYSTICK_state direction = abs_direction;
+
+//    for(i = 0 ; i < iter ; i++)
+    for ( i = iter % 4; i > 0; --i )
+  4e:	3b01      	subs	r3, #1
+  50:	b2db      	uxtb	r3, r3
+  52:	b259      	sxtb	r1, r3
+  54:	2900      	cmp	r1, #0
+  56:	b250      	sxtb	r0, r2
+  58:	dcde      	bgt.n	18 <JOYSTICK_CircularPermutation+0x18>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:239
+            break;
+        }
+    }
+
+    return direction;
+}
+  5a:	4770      	bx	lr
+  5c:	80000003 	.word	0x80000003
+
+Disassembly of section .text.BUTTON_GetMode:
+
+00000000 <BUTTON_GetMode>:
+BUTTON_GetMode():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:264
+**/
+/******************************************************************************/
+enum BUTTON_mode BUTTON_GetMode( void )
+{
+    return Button_Mode;
+}
+   0:	f9934b01 	.word	0xf9934b01
+   4:	0002      	movs	r2, r0
+   6:	4770      	bx	lr
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.BUTTON_SetMode:
+
+00000000 <BUTTON_SetMode>:
+BUTTON_SetMode():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:281
+*
+**/
+/********************************************************************************/
+void BUTTON_SetMode( enum BUTTON_mode mode )
+{
+    Button_Mode = mode;
+   0:	4b03      	ldr	r3, [pc, #12]	; (10 <BUTTON_SetMode+0x10>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:284
+
+#if POWER_MNGT
+    if ( mode == BUTTON_ONOFF_FORMAIN )
+   2:	2801      	cmp	r0, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:281
+*
+**/
+/********************************************************************************/
+void BUTTON_SetMode( enum BUTTON_mode mode )
+{
+    Button_Mode = mode;
+   4:	7098      	strb	r0, [r3, #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:284
+
+#if POWER_MNGT
+    if ( mode == BUTTON_ONOFF_FORMAIN )
+   6:	d101      	bne.n	c <BUTTON_SetMode+0xc>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:286
+    {
+        POWER_Set_Time();
+   8:	f7ff bffe 	b.w	0 <POWER_Set_Time>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:290
+    }
+    else
+    {
+        POWER_Reset_Time();
+   c:	f7ff bffe 	b.w	0 <POWER_Reset_Time>
+  10:	00000000 	.word	0x00000000
+
+Disassembly of section .text.BUTTON_GetState:
+
+00000000 <BUTTON_GetState>:
+BUTTON_GetState():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:311
+*
+**/
+/******************************************************************************/
+enum BUTTON_state BUTTON_GetState( void )
+{
+    if ( fWaitForRelease )
+   0:	4b07      	ldr	r3, [pc, #28]	; (20 <BUTTON_GetState+0x20>)
+   2:	7d1b      	ldrb	r3, [r3, #20]
+   4:	b94b      	cbnz	r3, 1a <BUTTON_GetState+0x1a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:316
+    {
+        return BUTTON_UNDEF;
+    }
+
+    if ( Button_State == BUTTON_PUSHED )
+   6:	4b07      	ldr	r3, [pc, #28]	; (24 <BUTTON_GetState+0x24>)
+   8:	7858      	ldrb	r0, [r3, #1]
+   a:	2801      	cmp	r0, #1
+   c:	d106      	bne.n	1c <BUTTON_GetState+0x1c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:318
+    {
+        if ( Button_Mode == BUTTON_ONOFF_FORMAIN )
+   e:	f993 3002 	ldrsb.w	r3, [r3, #2]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:320
+        {
+            return BUTTON_PUSHED_FORMAIN;
+  12:	2b01      	cmp	r3, #1
+  14:	bf08      	it	eq
+  16:	2002      	moveq	r0, #2
+  18:	e000      	b.n	1c <BUTTON_GetState+0x1c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:313
+/******************************************************************************/
+enum BUTTON_state BUTTON_GetState( void )
+{
+    if ( fWaitForRelease )
+    {
+        return BUTTON_UNDEF;
+  1a:	20ff      	movs	r0, #255	; 0xff
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:325
+            return BUTTON_PUSHED_FORMAIN;
+        }
+    }
+
+    return Button_State;
+}
+  1c:	b240      	sxtb	r0, r0
+  1e:	4770      	bx	lr
+	...
+
+Disassembly of section .text.BUTTON_WaitForRelease:
+
+00000000 <BUTTON_WaitForRelease>:
+BUTTON_WaitForRelease():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:340
+*
+**/
+/******************************************************************************/
+void BUTTON_WaitForRelease( void )
+{
+    fWaitForRelease = 1;
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <BUTTON_WaitForRelease+0x8>)
+   2:	2201      	movs	r2, #1
+   4:	751a      	strb	r2, [r3, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:341
+}
+   6:	4770      	bx	lr
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.JOYSTICK_GetState:
+
+00000000 <JOYSTICK_GetState>:
+JOYSTICK_GetState():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:357
+*  @return       The direction value.
+*
+*******************************************************************************/
+enum JOYSTICK_state JOYSTICK_GetState( void )
+{
+    if ( fJoyWaitForRelease )
+   0:	4b04      	ldr	r3, [pc, #16]	; (14 <JOYSTICK_GetState+0x14>)
+   2:	791b      	ldrb	r3, [r3, #4]
+   4:	b913      	cbnz	r3, c <JOYSTICK_GetState+0xc>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:360
+        return JOYSTICK_UNDEF;
+    else
+        return Joystick_State;
+   6:	4b04      	ldr	r3, [pc, #16]	; (18 <JOYSTICK_GetState+0x18>)
+   8:	7818      	ldrb	r0, [r3, #0]
+   a:	e000      	b.n	e <JOYSTICK_GetState+0xe>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:358
+*
+*******************************************************************************/
+enum JOYSTICK_state JOYSTICK_GetState( void )
+{
+    if ( fJoyWaitForRelease )
+        return JOYSTICK_UNDEF;
+   c:	20ff      	movs	r0, #255	; 0xff
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:361
+    else
+        return Joystick_State;
+}
+   e:	b240      	sxtb	r0, r0
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+	...
+
+Disassembly of section .text.JOYSTICK_WaitForRelease:
+
+00000000 <JOYSTICK_WaitForRelease>:
+JOYSTICK_WaitForRelease():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:377
+*
+**/
+/******************************************************************************/
+void JOYSTICK_WaitForRelease( void )
+{
+    fJoyWaitForRelease = 1;
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <JOYSTICK_WaitForRelease+0x8>)
+   2:	2201      	movs	r2, #1
+   4:	711a      	strb	r2, [r3, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\CircleOS\src/button.c:378
+}
+   6:	4770      	bx	lr
+   8:	00000000 	.word	0x00000000

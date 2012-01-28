@@ -1,0 +1,116 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_istr.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_istr.o
+
+
+Disassembly of section .text.USB_Istr:
+
+00000000 <USB_Istr>:
+USB_Istr():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_istr.c:67
+* Return         :
+*******************************************************************************/
+void USB_Istr(void)
+{
+
+  wIstr = _GetISTR();
+   0:	4a18      	ldr	r2, [pc, #96]	; (64 <USB_Istr+0x64>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_istr.c:65
+* Input          :
+* Output         :
+* Return         :
+*******************************************************************************/
+void USB_Istr(void)
+{
+   2:	b538      	push	{r3, r4, r5, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_istr.c:67
+
+  wIstr = _GetISTR();
+   4:	6811      	ldr	r1, [r2, #0]
+   6:	4b18      	ldr	r3, [pc, #96]	; (68 <USB_Istr+0x68>)
+   8:	b289      	uxth	r1, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_istr.c:70
+
+#if (IMR_MSK & ISTR_SOF)
+  if (wIstr & ISTR_SOF & wInterrupt_Mask)
+   a:	4c18      	ldr	r4, [pc, #96]	; (6c <USB_Istr+0x6c>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_istr.c:67
+* Return         :
+*******************************************************************************/
+void USB_Istr(void)
+{
+
+  wIstr = _GetISTR();
+   c:	8019      	strh	r1, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_istr.c:70
+
+#if (IMR_MSK & ISTR_SOF)
+  if (wIstr & ISTR_SOF & wInterrupt_Mask)
+   e:	8819      	ldrh	r1, [r3, #0]
+  10:	8820      	ldrh	r0, [r4, #0]
+  12:	461d      	mov	r5, r3
+  14:	ea00 0101 	and.w	r1, r0, r1
+  18:	f411 7f00 	tst.w	r1, #512	; 0x200
+  1c:	d009      	beq.n	32 <USB_Istr+0x32>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_istr.c:72
+  {
+    _SetISTR((uint16_t)CLR_SOF);
+  1e:	f64f 53ff 	movw	r3, #65023	; 0xfdff
+  22:	6013      	str	r3, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_istr.c:73
+    bIntPackSOF++;
+  24:	4b12      	ldr	r3, [pc, #72]	; (70 <USB_Istr+0x70>)
+  26:	781a      	ldrb	r2, [r3, #0]
+  28:	3201      	adds	r2, #1
+  2a:	b2d2      	uxtb	r2, r2
+  2c:	701a      	strb	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_istr.c:76
+
+#ifdef SOF_CALLBACK
+    SOF_Callback();
+  2e:	f7ff fffe 	bl	0 <SOF_Callback>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_istr.c:83
+  }
+#endif
+  /*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/  
+  
+#if (IMR_MSK & ISTR_CTR)
+  if (wIstr & ISTR_CTR & wInterrupt_Mask)
+  32:	882b      	ldrh	r3, [r5, #0]
+  34:	8822      	ldrh	r2, [r4, #0]
+  36:	ea02 0303 	and.w	r3, r2, r3
+  3a:	f413 4f00 	tst.w	r3, #32768	; 0x8000
+  3e:	d001      	beq.n	6 <CTR_LP+0x6>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_istr.c:87
+  {
+    /* servicing of the endpoint correct transfer interrupt */
+    /* clear of the CTR flag into the sub */
+    CTR_LP();
+  40:	f7ff fffe 	bl	0 <CTR_LP>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_istr.c:95
+#endif
+  }
+#endif
+  /*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/  
+#if (IMR_MSK & ISTR_RESET)
+  if (wIstr & ISTR_RESET & wInterrupt_Mask)
+  44:	882b      	ldrh	r3, [r5, #0]
+  46:	8822      	ldrh	r2, [r4, #0]
+  48:	ea02 0303 	and.w	r3, r2, r3
+  4c:	f413 6f80 	tst.w	r3, #1024	; 0x400
+  50:	d006      	beq.n	60 <USB_Istr+0x60>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_istr.c:97
+  {
+    _SetISTR((uint16_t)CLR_RESET);
+  52:	4b04      	ldr	r3, [pc, #16]	; (64 <USB_Istr+0x64>)
+  54:	f64f 32ff 	movw	r2, #64511	; 0xfbff
+  58:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_istr.c:98
+    Device_Property.Reset();
+  5a:	4b06      	ldr	r3, [pc, #24]	; (74 <USB_Istr+0x74>)
+  5c:	685b      	ldr	r3, [r3, #4]
+  5e:	4798      	blx	r3
+  60:	bd38      	pop	{r3, r4, r5, pc}
+  62:	bf00      	nop
+  64:	40005c44 	.word	0x40005c44
+	...

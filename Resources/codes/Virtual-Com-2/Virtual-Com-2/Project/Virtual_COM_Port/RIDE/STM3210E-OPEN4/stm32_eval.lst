@@ -1,0 +1,1639 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\stm32_eval.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\stm32_eval.o
+
+
+Disassembly of section .text.STM_OPEN4_LEDInit:
+
+00000000 <STM_OPEN4_LEDInit>:
+STM_OPEN4_LEDInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:174
+  *     @arg LED3
+  *     @arg LED4
+  * @retval None
+  */
+void STM_OPEN4_LEDInit(Led_TypeDef Led)
+{
+   0:	b537      	push	{r0, r1, r2, r4, r5, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:178
+  GPIO_InitTypeDef  GPIO_InitStructure;
+  
+  /* Enable the GPIO_LED Clock */
+  RCC_APB2PeriphClockCmd(GPIO_CLK[Led], ENABLE);
+   2:	4d0c      	ldr	r5, [pc, #48]	; (34 <STM_OPEN4_LEDInit+0x34>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:174
+  *     @arg LED3
+  *     @arg LED4
+  * @retval None
+  */
+void STM_OPEN4_LEDInit(Led_TypeDef Led)
+{
+   4:	4604      	mov	r4, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:178
+  GPIO_InitTypeDef  GPIO_InitStructure;
+  
+  /* Enable the GPIO_LED Clock */
+  RCC_APB2PeriphClockCmd(GPIO_CLK[Led], ENABLE);
+   6:	2101      	movs	r1, #1
+   8:	f855 0020 	ldr.w	r0, [r5, r0, lsl #2]
+   c:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:182
+
+  /* Configure the GPIO_LED pin */
+  GPIO_InitStructure.GPIO_Pin = GPIO_PIN[Led];
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  10:	2310      	movs	r3, #16
+  12:	f88d 3007 	strb.w	r3, [sp, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:183
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  16:	3b0d      	subs	r3, #13
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:181
+  
+  /* Enable the GPIO_LED Clock */
+  RCC_APB2PeriphClockCmd(GPIO_CLK[Led], ENABLE);
+
+  /* Configure the GPIO_LED pin */
+  GPIO_InitStructure.GPIO_Pin = GPIO_PIN[Led];
+  18:	eb05 0544 	add.w	r5, r5, r4, lsl #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:183
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  1c:	f88d 3006 	strb.w	r3, [sp, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:185
+
+  GPIO_Init(GPIO_PORT[Led], &GPIO_InitStructure);
+  20:	4b05      	ldr	r3, [pc, #20]	; (38 <STM_OPEN4_LEDInit+0x38>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:181
+  
+  /* Enable the GPIO_LED Clock */
+  RCC_APB2PeriphClockCmd(GPIO_CLK[Led], ENABLE);
+
+  /* Configure the GPIO_LED pin */
+  GPIO_InitStructure.GPIO_Pin = GPIO_PIN[Led];
+  22:	8a2d      	ldrh	r5, [r5, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:185
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+
+  GPIO_Init(GPIO_PORT[Led], &GPIO_InitStructure);
+  24:	f853 0024 	ldr.w	r0, [r3, r4, lsl #2]
+  28:	a901      	add	r1, sp, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:181
+  
+  /* Enable the GPIO_LED Clock */
+  RCC_APB2PeriphClockCmd(GPIO_CLK[Led], ENABLE);
+
+  /* Configure the GPIO_LED pin */
+  GPIO_InitStructure.GPIO_Pin = GPIO_PIN[Led];
+  2a:	f8ad 5004 	strh.w	r5, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:185
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+
+  GPIO_Init(GPIO_PORT[Led], &GPIO_InitStructure);
+  2e:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:186
+}
+  32:	bd3e      	pop	{r1, r2, r3, r4, r5, pc}
+	...
+
+Disassembly of section .text.STM_OPEN4_LEDOn:
+
+00000000 <STM_OPEN4_LEDOn>:
+STM_OPEN4_LEDOn():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:200
+  *     @arg LED4  
+  * @retval None
+  */
+void STM_OPEN4_LEDOn(Led_TypeDef Led)
+{
+  GPIO_PORT[Led]->BSRR = GPIO_PIN[Led];     
+   0:	4a04      	ldr	r2, [pc, #16]	; (14 <STM_OPEN4_LEDOn+0x14>)
+   2:	4b05      	ldr	r3, [pc, #20]	; (18 <STM_OPEN4_LEDOn+0x18>)
+   4:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+   8:	eb02 0040 	add.w	r0, r2, r0, lsl #1
+   c:	8a02      	ldrh	r2, [r0, #16]
+   e:	611a      	str	r2, [r3, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:201
+}
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+	...
+
+Disassembly of section .text.STM_OPEN4_LEDOff:
+
+00000000 <STM_OPEN4_LEDOff>:
+STM_OPEN4_LEDOff():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:215
+  *     @arg LED4 
+  * @retval None
+  */
+void STM_OPEN4_LEDOff(Led_TypeDef Led)
+{
+  GPIO_PORT[Led]->BRR = GPIO_PIN[Led];    
+   0:	4a04      	ldr	r2, [pc, #16]	; (14 <STM_OPEN4_LEDOff+0x14>)
+   2:	4b05      	ldr	r3, [pc, #20]	; (18 <STM_OPEN4_LEDOff+0x18>)
+   4:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+   8:	eb02 0040 	add.w	r0, r2, r0, lsl #1
+   c:	8a02      	ldrh	r2, [r0, #16]
+   e:	615a      	str	r2, [r3, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:216
+}
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+	...
+
+Disassembly of section .text.STM_OPEN4_LEDToggle:
+
+00000000 <STM_OPEN4_LEDToggle>:
+STM_OPEN4_LEDToggle():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:230
+  *     @arg LED4  
+  * @retval None
+  */
+void STM_OPEN4_LEDToggle(Led_TypeDef Led)
+{
+  GPIO_PORT[Led]->ODR ^= GPIO_PIN[Led];
+   0:	4b05      	ldr	r3, [pc, #20]	; (18 <STM_OPEN4_LEDToggle+0x18>)
+   2:	4906      	ldr	r1, [pc, #24]	; (1c <STM_OPEN4_LEDToggle+0x1c>)
+   4:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+   8:	eb01 0040 	add.w	r0, r1, r0, lsl #1
+   c:	68da      	ldr	r2, [r3, #12]
+   e:	8a01      	ldrh	r1, [r0, #16]
+  10:	ea81 0202 	eor.w	r2, r1, r2
+  14:	60da      	str	r2, [r3, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:231
+}
+  16:	4770      	bx	lr
+	...
+
+Disassembly of section .text.STM_OPEN4_PBInit:
+
+00000000 <STM_OPEN4_PBInit>:
+STM_OPEN4_PBInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:253
+  *     @arg BUTTON_MODE_EXTI: Button will be connected to EXTI line with interrupt
+  *                     generation capability  
+  * @retval None
+  */
+void STM_OPEN4_PBInit(Button_TypeDef Button, ButtonMode_TypeDef Button_Mode)
+{
+   0:	e92d 41ff 	stmdb	sp!, {r0, r1, r2, r3, r4, r5, r6, r7, r8, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:259
+  GPIO_InitTypeDef GPIO_InitStructure;
+  EXTI_InitTypeDef EXTI_InitStructure;
+  NVIC_InitTypeDef NVIC_InitStructure;
+
+  /* Enable the BUTTON Clock */
+  RCC_APB2PeriphClockCmd(BUTTON_CLK[Button] | RCC_APB2Periph_AFIO, ENABLE);
+   4:	4e22      	ldr	r6, [pc, #136]	; (90 <STM_OPEN4_PBInit+0x90>)
+   6:	0087      	lsls	r7, r0, #2
+   8:	19f3      	adds	r3, r6, r7
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:253
+  *     @arg BUTTON_MODE_EXTI: Button will be connected to EXTI line with interrupt
+  *                     generation capability  
+  * @retval None
+  */
+void STM_OPEN4_PBInit(Button_TypeDef Button, ButtonMode_TypeDef Button_Mode)
+{
+   a:	4604      	mov	r4, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:259
+  GPIO_InitTypeDef GPIO_InitStructure;
+  EXTI_InitTypeDef EXTI_InitStructure;
+  NVIC_InitTypeDef NVIC_InitStructure;
+
+  /* Enable the BUTTON Clock */
+  RCC_APB2PeriphClockCmd(BUTTON_CLK[Button] | RCC_APB2Periph_AFIO, ENABLE);
+   c:	6998      	ldr	r0, [r3, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:253
+  *     @arg BUTTON_MODE_EXTI: Button will be connected to EXTI line with interrupt
+  *                     generation capability  
+  * @retval None
+  */
+void STM_OPEN4_PBInit(Button_TypeDef Button, ButtonMode_TypeDef Button_Mode)
+{
+   e:	4688      	mov	r8, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:259
+  GPIO_InitTypeDef GPIO_InitStructure;
+  EXTI_InitTypeDef EXTI_InitStructure;
+  NVIC_InitTypeDef NVIC_InitStructure;
+
+  /* Enable the BUTTON Clock */
+  RCC_APB2PeriphClockCmd(BUTTON_CLK[Button] | RCC_APB2Periph_AFIO, ENABLE);
+  10:	f040 0001 	orr.w	r0, r0, #1
+  14:	2101      	movs	r1, #1
+  16:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:263
+
+  /* Configure Button pin as input floating */
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  GPIO_InitStructure.GPIO_Pin = BUTTON_PIN[Button];
+  1a:	eb06 0544 	add.w	r5, r6, r4, lsl #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:262
+
+  /* Enable the BUTTON Clock */
+  RCC_APB2PeriphClockCmd(BUTTON_CLK[Button] | RCC_APB2Periph_AFIO, ENABLE);
+
+  /* Configure Button pin as input floating */
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  1e:	2304      	movs	r3, #4
+  20:	f88d 300f 	strb.w	r3, [sp, #15]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:263
+  GPIO_InitStructure.GPIO_Pin = BUTTON_PIN[Button];
+  24:	8f2b      	ldrh	r3, [r5, #56]	; 0x38
+  26:	a904      	add	r1, sp, #16
+  28:	f821 3d04 	strh.w	r3, [r1, #-4]!
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:264
+  GPIO_Init(BUTTON_PORT[Button], &GPIO_InitStructure);
+  2c:	4b19      	ldr	r3, [pc, #100]	; (94 <STM_OPEN4_PBInit+0x94>)
+  2e:	19df      	adds	r7, r3, r7
+  30:	6938      	ldr	r0, [r7, #16]
+  32:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:267
+
+
+  if (Button_Mode == BUTTON_MODE_EXTI)
+  36:	f1b8 0f01 	cmp.w	r8, #1
+  3a:	d127      	bne.n	8c <STM_OPEN4_PBInit+0x8c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:270
+  {
+    /* Connect Button EXTI Line to Button GPIO Pin */
+    GPIO_EXTILineConfig(BUTTON_PORT_SOURCE[Button], BUTTON_PIN_SOURCE[Button]);
+  3c:	f895 0048 	ldrb.w	r0, [r5, #72]	; 0x48
+  40:	f895 1058 	ldrb.w	r1, [r5, #88]	; 0x58
+  44:	f7ff fffe 	bl	0 <GPIO_EXTILineConfig>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:273
+
+    /* Configure Button EXTI line */
+    EXTI_InitStructure.EXTI_Line = BUTTON_EXTI_LINE[Button];
+  48:	f8b5 3068 	ldrh.w	r3, [r5, #104]	; 0x68
+  4c:	9300      	str	r3, [sp, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:274
+    EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+  4e:	2300      	movs	r3, #0
+  50:	f88d 3004 	strb.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:276
+
+    if(Button != BUTTON_WAKEUP)
+  54:	b10c      	cbz	r4, 5a <STM_OPEN4_PBInit+0x5a>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:278
+    {
+      EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;  
+  56:	330c      	adds	r3, #12
+  58:	e000      	b.n	5c <STM_OPEN4_PBInit+0x5c>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:282
+    }
+    else
+    {
+      EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;  
+  5a:	2308      	movs	r3, #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:284
+    }
+    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+  5c:	2501      	movs	r5, #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:285
+    EXTI_Init(&EXTI_InitStructure);
+  5e:	4668      	mov	r0, sp
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:288
+
+    /* Enable and set Button EXTI Interrupt to the lowest priority */
+    NVIC_InitStructure.NVIC_IRQChannel = BUTTON_IRQn[Button];
+  60:	eb06 0644 	add.w	r6, r6, r4, lsl #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:282
+    {
+      EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;  
+    }
+    else
+    {
+      EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;  
+  64:	f88d 3005 	strb.w	r3, [sp, #5]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:284
+    }
+    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+  68:	f88d 5006 	strb.w	r5, [sp, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:285
+    EXTI_Init(&EXTI_InitStructure);
+  6c:	f7ff fffe 	bl	0 <EXTI_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:288
+
+    /* Enable and set Button EXTI Interrupt to the lowest priority */
+    NVIC_InitStructure.NVIC_IRQChannel = BUTTON_IRQn[Button];
+  70:	f8b6 3078 	ldrh.w	r3, [r6, #120]	; 0x78
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:293
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x0F;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x0F;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+
+    NVIC_Init(&NVIC_InitStructure); 
+  74:	a802      	add	r0, sp, #8
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:288
+    }
+    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+    EXTI_Init(&EXTI_InitStructure);
+
+    /* Enable and set Button EXTI Interrupt to the lowest priority */
+    NVIC_InitStructure.NVIC_IRQChannel = BUTTON_IRQn[Button];
+  76:	f88d 3008 	strb.w	r3, [sp, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:289
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x0F;
+  7a:	230f      	movs	r3, #15
+  7c:	f88d 3009 	strb.w	r3, [sp, #9]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:290
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x0F;
+  80:	f88d 300a 	strb.w	r3, [sp, #10]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:291
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  84:	f88d 500b 	strb.w	r5, [sp, #11]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:293
+
+    NVIC_Init(&NVIC_InitStructure); 
+  88:	f7ff fffe 	bl	0 <NVIC_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:295
+  }
+}
+  8c:	e8bd 81ff 	ldmia.w	sp!, {r0, r1, r2, r3, r4, r5, r6, r7, r8, pc}
+	...
+
+Disassembly of section .text.STM_OPEN4_PBGetState:
+
+00000000 <STM_OPEN4_PBGetState>:
+STM_OPEN4_PBGetState():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:312
+  *     @arg BUTTON_DOWN: Joystick Down Push Button
+  *     @arg BUTTON_SEL: Joystick Sel Push Button    
+  * @retval The Button GPIO pin value.
+  */
+uint32_t STM_OPEN4_PBGetState(Button_TypeDef Button)
+{
+   0:	b508      	push	{r3, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:313
+  return GPIO_ReadInputDataBit(BUTTON_PORT[Button], BUTTON_PIN[Button]);
+   2:	4a05      	ldr	r2, [pc, #20]	; (18 <STM_OPEN4_PBGetState+0x18>)
+   4:	4b05      	ldr	r3, [pc, #20]	; (1c <STM_OPEN4_PBGetState+0x1c>)
+   6:	eb02 0280 	add.w	r2, r2, r0, lsl #2
+   a:	eb03 0340 	add.w	r3, r3, r0, lsl #1
+   e:	8f19      	ldrh	r1, [r3, #56]	; 0x38
+  10:	6910      	ldr	r0, [r2, #16]
+  12:	f7ff fffe 	bl	0 <GPIO_ReadInputDataBit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:314
+}
+  16:	bd08      	pop	{r3, pc}
+	...
+
+Disassembly of section .text.STM_OPEN4_COMInit:
+
+00000000 <STM_OPEN4_COMInit>:
+STM_OPEN4_COMInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:327
+  * @param  USART_InitStruct: pointer to a USART_InitTypeDef structure that
+  *   contains the configuration information for the specified USART peripheral.
+  * @retval None
+  */
+void STM_OPEN4_COMInit(COM_TypeDef COM, USART_InitTypeDef* USART_InitStruct)
+{
+   0:	e92d 41f3 	stmdb	sp!, {r0, r1, r4, r5, r6, r7, r8, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:331
+  GPIO_InitTypeDef GPIO_InitStructure;
+
+  /* Enable GPIO clock */
+  RCC_APB2PeriphClockCmd(COM_TX_PORT_CLK[COM] | COM_RX_PORT_CLK[COM] | RCC_APB2Periph_AFIO, ENABLE);
+   4:	4e1d      	ldr	r6, [pc, #116]	; (7c <STM_OPEN4_COMInit+0x7c>)
+   6:	0084      	lsls	r4, r0, #2
+   8:	1935      	adds	r5, r6, r4
+   a:	f8d5 308c 	ldr.w	r3, [r5, #140]	; 0x8c
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:327
+  * @param  USART_InitStruct: pointer to a USART_InitTypeDef structure that
+  *   contains the configuration information for the specified USART peripheral.
+  * @retval None
+  */
+void STM_OPEN4_COMInit(COM_TypeDef COM, USART_InitTypeDef* USART_InitStruct)
+{
+   e:	4607      	mov	r7, r0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:331
+  GPIO_InitTypeDef GPIO_InitStructure;
+
+  /* Enable GPIO clock */
+  RCC_APB2PeriphClockCmd(COM_TX_PORT_CLK[COM] | COM_RX_PORT_CLK[COM] | RCC_APB2Periph_AFIO, ENABLE);
+  10:	f8d5 0088 	ldr.w	r0, [r5, #136]	; 0x88
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:327
+  * @param  USART_InitStruct: pointer to a USART_InitTypeDef structure that
+  *   contains the configuration information for the specified USART peripheral.
+  * @retval None
+  */
+void STM_OPEN4_COMInit(COM_TypeDef COM, USART_InitTypeDef* USART_InitStruct)
+{
+  14:	4688      	mov	r8, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:331
+  GPIO_InitTypeDef GPIO_InitStructure;
+
+  /* Enable GPIO clock */
+  RCC_APB2PeriphClockCmd(COM_TX_PORT_CLK[COM] | COM_RX_PORT_CLK[COM] | RCC_APB2Periph_AFIO, ENABLE);
+  16:	4318      	orrs	r0, r3
+  18:	2101      	movs	r1, #1
+  1a:	f040 0001 	orr.w	r0, r0, #1
+  1e:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:334
+
+  /* Enable UART clock */
+  RCC_APB1PeriphClockCmd(COM_USART_CLK[COM], ENABLE);
+  22:	f8d5 0090 	ldr.w	r0, [r5, #144]	; 0x90
+  26:	2101      	movs	r1, #1
+  28:	f7ff fffe 	bl	0 <RCC_APB1PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:338
+
+  /* Configure USART Tx as alternate function push-pull */
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  GPIO_InitStructure.GPIO_Pin = COM_TX_PIN[COM];
+  2c:	eb06 0547 	add.w	r5, r6, r7, lsl #1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:337
+
+  /* Enable UART clock */
+  RCC_APB1PeriphClockCmd(COM_USART_CLK[COM], ENABLE);
+
+  /* Configure USART Tx as alternate function push-pull */
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  30:	2318      	movs	r3, #24
+  32:	f88d 3007 	strb.w	r3, [sp, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:338
+  GPIO_InitStructure.GPIO_Pin = COM_TX_PIN[COM];
+  36:	f8b5 3094 	ldrh.w	r3, [r5, #148]	; 0x94
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:340
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_Init(COM_TX_PORT[COM], &GPIO_InitStructure);
+  3a:	a901      	add	r1, sp, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:338
+  /* Enable UART clock */
+  RCC_APB1PeriphClockCmd(COM_USART_CLK[COM], ENABLE);
+
+  /* Configure USART Tx as alternate function push-pull */
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  GPIO_InitStructure.GPIO_Pin = COM_TX_PIN[COM];
+  3c:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:339
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  40:	2303      	movs	r3, #3
+  42:	f88d 3006 	strb.w	r3, [sp, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:340
+  GPIO_Init(COM_TX_PORT[COM], &GPIO_InitStructure);
+  46:	4b0e      	ldr	r3, [pc, #56]	; (80 <STM_OPEN4_COMInit+0x80>)
+  48:	191c      	adds	r4, r3, r4
+  4a:	6b20      	ldr	r0, [r4, #48]	; 0x30
+  4c:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:343
+
+  /* Configure USART Rx as input floating */
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  50:	2304      	movs	r3, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:344
+  GPIO_InitStructure.GPIO_Pin = COM_RX_PIN[COM];
+  52:	f8b5 5096 	ldrh.w	r5, [r5, #150]	; 0x96
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:345
+  GPIO_Init(COM_RX_PORT[COM], &GPIO_InitStructure);
+  56:	eb0d 0103 	add.w	r1, sp, r3
+  5a:	6b60      	ldr	r0, [r4, #52]	; 0x34
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:343
+  GPIO_InitStructure.GPIO_Pin = COM_TX_PIN[COM];
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_Init(COM_TX_PORT[COM], &GPIO_InitStructure);
+
+  /* Configure USART Rx as input floating */
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  5c:	f88d 3007 	strb.w	r3, [sp, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:344
+  GPIO_InitStructure.GPIO_Pin = COM_RX_PIN[COM];
+  60:	f8ad 5004 	strh.w	r5, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:345
+  GPIO_Init(COM_RX_PORT[COM], &GPIO_InitStructure);
+  64:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:348
+
+  /* USART configuration */
+  USART_Init(COM_USART[COM], USART_InitStruct);
+  68:	6ba0      	ldr	r0, [r4, #56]	; 0x38
+  6a:	4641      	mov	r1, r8
+  6c:	f7ff fffe 	bl	0 <USART_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:351
+    
+  /* Enable USART */
+  USART_Cmd(COM_USART[COM], ENABLE);
+  70:	6ba0      	ldr	r0, [r4, #56]	; 0x38
+  72:	2101      	movs	r1, #1
+  74:	f7ff fffe 	bl	0 <USART_Cmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:352
+}
+  78:	e8bd 81fc 	ldmia.w	sp!, {r2, r3, r4, r5, r6, r7, r8, pc}
+	...
+
+Disassembly of section .text.SD_LowLevel_DeInit:
+
+00000000 <SD_LowLevel_DeInit>:
+SD_LowLevel_DeInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:360
+  * @brief  DeInitializes the SDIO interface.
+  * @param  None
+  * @retval None
+  */
+void SD_LowLevel_DeInit(void)
+{
+   0:	b513      	push	{r0, r1, r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:364
+  GPIO_InitTypeDef  GPIO_InitStructure;
+  
+  /*!< Disable SDIO Clock */
+  SDIO_ClockCmd(DISABLE);
+   2:	2000      	movs	r0, #0
+   4:	f7ff fffe 	bl	0 <SDIO_ClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:367
+  
+  /*!< Set Power State to OFF */
+  SDIO_SetPowerState(SDIO_PowerState_OFF);
+   8:	2000      	movs	r0, #0
+   a:	f7ff fffe 	bl	0 <SDIO_SetPowerState>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:377
+  /*!< Disable the SDIO AHB Clock */
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_SDIO, DISABLE);
+
+  /*!< Configure PC.08, PC.09, PC.10, PC.11, PC.12 pin: D0, D1, D2, D3, CLK pin */
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+   e:	2404      	movs	r4, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:370
+  
+  /*!< Set Power State to OFF */
+  SDIO_SetPowerState(SDIO_PowerState_OFF);
+
+  /*!< DeInitializes the SDIO peripheral */
+  SDIO_DeInit();
+  10:	f7ff fffe 	bl	0 <SDIO_DeInit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:373
+  
+  /*!< Disable the SDIO AHB Clock */
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_SDIO, DISABLE);
+  14:	2100      	movs	r1, #0
+  16:	f44f 6080 	mov.w	r0, #1024	; 0x400
+  1a:	f7ff fffe 	bl	0 <RCC_AHBPeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:376
+
+  /*!< Configure PC.08, PC.09, PC.10, PC.11, PC.12 pin: D0, D1, D2, D3, CLK pin */
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12;
+  1e:	f44f 53f8 	mov.w	r3, #7936	; 0x1f00
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:378
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  GPIO_Init(GPIOC, &GPIO_InitStructure);
+  22:	eb0d 0104 	add.w	r1, sp, r4
+  26:	4807      	ldr	r0, [pc, #28]	; (44 <SD_LowLevel_DeInit+0x44>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:376
+  
+  /*!< Disable the SDIO AHB Clock */
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_SDIO, DISABLE);
+
+  /*!< Configure PC.08, PC.09, PC.10, PC.11, PC.12 pin: D0, D1, D2, D3, CLK pin */
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12;
+  28:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:377
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  2c:	f88d 4007 	strb.w	r4, [sp, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:378
+  GPIO_Init(GPIOC, &GPIO_InitStructure);
+  30:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:382
+
+  /*!< Configure PD.02 CMD line */
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+  GPIO_Init(GPIOD, &GPIO_InitStructure);
+  34:	4804      	ldr	r0, [pc, #16]	; (48 <SD_LowLevel_DeInit+0x48>)
+  36:	eb0d 0104 	add.w	r1, sp, r4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:381
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  GPIO_Init(GPIOC, &GPIO_InitStructure);
+
+  /*!< Configure PD.02 CMD line */
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+  3a:	f8ad 4004 	strh.w	r4, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:382
+  GPIO_Init(GPIOD, &GPIO_InitStructure);
+  3e:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:383
+}
+  42:	bd1c      	pop	{r2, r3, r4, pc}
+  44:	40011000 	.word	0x40011000
+  48:	40011400 	.word	0x40011400
+
+Disassembly of section .text.SD_LowLevel_Init:
+
+00000000 <SD_LowLevel_Init>:
+SD_LowLevel_Init():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:392
+  *         data transfer).
+  * @param  None
+  * @retval None
+  */
+void SD_LowLevel_Init(void)
+{
+   0:	b507      	push	{r0, r1, r2, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:396
+  GPIO_InitTypeDef  GPIO_InitStructure;
+
+  /*!< GPIOC and GPIOD Periph clock enable */
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOD | SD_DETECT_GPIO_CLK, ENABLE);
+   2:	20b0      	movs	r0, #176	; 0xb0
+   4:	2101      	movs	r1, #1
+   6:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:399
+
+  /*!< Configure PC.08, PC.09, PC.10, PC.11, PC.12 pin: D0, D1, D2, D3, CLK pin */
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12;
+   a:	f44f 53f8 	mov.w	r3, #7936	; 0x1f00
+   e:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:400
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  12:	2303      	movs	r3, #3
+  14:	f88d 3006 	strb.w	r3, [sp, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:402
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  GPIO_Init(GPIOC, &GPIO_InitStructure);
+  18:	a901      	add	r1, sp, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:401
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOD | SD_DETECT_GPIO_CLK, ENABLE);
+
+  /*!< Configure PC.08, PC.09, PC.10, PC.11, PC.12 pin: D0, D1, D2, D3, CLK pin */
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  1a:	3315      	adds	r3, #21
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:402
+  GPIO_Init(GPIOC, &GPIO_InitStructure);
+  1c:	4810      	ldr	r0, [pc, #64]	; (60 <SD_LowLevel_Init+0x60>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:401
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOD | SD_DETECT_GPIO_CLK, ENABLE);
+
+  /*!< Configure PC.08, PC.09, PC.10, PC.11, PC.12 pin: D0, D1, D2, D3, CLK pin */
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  1e:	f88d 3007 	strb.w	r3, [sp, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:402
+  GPIO_Init(GPIOC, &GPIO_InitStructure);
+  22:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:405
+
+  /*!< Configure PD.02 CMD line */
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+  26:	2304      	movs	r3, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:406
+  GPIO_Init(GPIOD, &GPIO_InitStructure);
+  28:	a901      	add	r1, sp, #4
+  2a:	480e      	ldr	r0, [pc, #56]	; (64 <SD_LowLevel_Init+0x64>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:405
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  GPIO_Init(GPIOC, &GPIO_InitStructure);
+
+  /*!< Configure PD.02 CMD line */
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+  2c:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:406
+  GPIO_Init(GPIOD, &GPIO_InitStructure);
+  30:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:409
+
+  /*!< Configure SD_SPI_DETECT_PIN pin: SD Card detect pin */
+  GPIO_InitStructure.GPIO_Pin = SD_DETECT_PIN;
+  34:	f44f 6300 	mov.w	r3, #2048	; 0x800
+  38:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:411
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+  GPIO_Init(SD_DETECT_GPIO_PORT, &GPIO_InitStructure);
+  3c:	a901      	add	r1, sp, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:410
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+  GPIO_Init(GPIOD, &GPIO_InitStructure);
+
+  /*!< Configure SD_SPI_DETECT_PIN pin: SD Card detect pin */
+  GPIO_InitStructure.GPIO_Pin = SD_DETECT_PIN;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+  3e:	2348      	movs	r3, #72	; 0x48
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:411
+  GPIO_Init(SD_DETECT_GPIO_PORT, &GPIO_InitStructure);
+  40:	4809      	ldr	r0, [pc, #36]	; (68 <SD_LowLevel_Init+0x68>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:410
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+  GPIO_Init(GPIOD, &GPIO_InitStructure);
+
+  /*!< Configure SD_SPI_DETECT_PIN pin: SD Card detect pin */
+  GPIO_InitStructure.GPIO_Pin = SD_DETECT_PIN;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+  42:	f88d 3007 	strb.w	r3, [sp, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:411
+  GPIO_Init(SD_DETECT_GPIO_PORT, &GPIO_InitStructure);
+  46:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:414
+  
+  /*!< Enable the SDIO AHB Clock */
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_SDIO, ENABLE);
+  4a:	2101      	movs	r1, #1
+  4c:	f44f 6080 	mov.w	r0, #1024	; 0x400
+  50:	f7ff fffe 	bl	0 <RCC_AHBPeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:417
+
+  /*!< Enable the DMA2 Clock */
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA2, ENABLE);
+  54:	2002      	movs	r0, #2
+  56:	2101      	movs	r1, #1
+  58:	f7ff fffe 	bl	0 <RCC_AHBPeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:418
+}
+  5c:	bd0e      	pop	{r1, r2, r3, pc}
+  5e:	bf00      	nop
+  60:	40011000 	.word	0x40011000
+  64:	40011400 	.word	0x40011400
+  68:	40011c00 	.word	0x40011c00
+
+Disassembly of section .text.SD_LowLevel_DMA_TxConfig:
+
+00000000 <SD_LowLevel_DMA_TxConfig>:
+SD_LowLevel_DMA_TxConfig():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:427
+  * @param  BufferSRC: pointer to the source buffer
+  * @param  BufferSize: buffer size
+  * @retval None
+  */
+void SD_LowLevel_DMA_TxConfig(uint32_t *BufferSRC, uint32_t BufferSize)
+{
+   0:	4605b530 	.word	0x4605b530
+   4:	b08d      	sub	sp, #52	; 0x34
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:431
+
+  DMA_InitTypeDef DMA_InitStructure;
+
+  DMA_ClearFlag(DMA2_FLAG_TC4 | DMA2_FLAG_TE4 | DMA2_FLAG_HT4 | DMA2_FLAG_GL4);
+   6:	4814      	ldr	r0, [pc, #80]	; (58 <SD_LowLevel_DMA_TxConfig+0x58>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:427
+  * @param  BufferSRC: pointer to the source buffer
+  * @param  BufferSize: buffer size
+  * @retval None
+  */
+void SD_LowLevel_DMA_TxConfig(uint32_t *BufferSRC, uint32_t BufferSize)
+{
+   8:	460c      	mov	r4, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:431
+
+  DMA_InitTypeDef DMA_InitStructure;
+
+  DMA_ClearFlag(DMA2_FLAG_TC4 | DMA2_FLAG_TE4 | DMA2_FLAG_HT4 | DMA2_FLAG_GL4);
+   a:	f7ff fffe 	bl	0 <DMA_ClearFlag>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:434
+
+  /*!< DMA2 Channel4 disable */
+  DMA_Cmd(DMA2_Channel4, DISABLE);
+   e:	2100      	movs	r1, #0
+  10:	4812      	ldr	r0, [pc, #72]	; (5c <SD_LowLevel_DMA_TxConfig+0x5c>)
+  12:	f7ff fffe 	bl	0 <DMA_Cmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:442
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SDIO_FIFO_ADDRESS;
+  DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)BufferSRC;
+  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
+  DMA_InitStructure.DMA_BufferSize = BufferSize / 4;
+  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+  16:	2280      	movs	r2, #128	; 0x80
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:437
+
+  /*!< DMA2 Channel4 disable */
+  DMA_Cmd(DMA2_Channel4, DISABLE);
+
+  /*!< DMA2 Channel4 Config */
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SDIO_FIFO_ADDRESS;
+  18:	4b11      	ldr	r3, [pc, #68]	; (60 <SD_LowLevel_DMA_TxConfig+0x60>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:442
+  DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)BufferSRC;
+  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
+  DMA_InitStructure.DMA_BufferSize = BufferSize / 4;
+  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+  1a:	9206      	str	r2, [sp, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:443
+  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word;
+  1c:	f44f 7200 	mov.w	r2, #512	; 0x200
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:437
+
+  /*!< DMA2 Channel4 disable */
+  DMA_Cmd(DMA2_Channel4, DISABLE);
+
+  /*!< DMA2 Channel4 Config */
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SDIO_FIFO_ADDRESS;
+  20:	9301      	str	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:443
+  DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)BufferSRC;
+  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
+  DMA_InitStructure.DMA_BufferSize = BufferSize / 4;
+  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word;
+  22:	9207      	str	r2, [sp, #28]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:439
+  DMA_Cmd(DMA2_Channel4, DISABLE);
+
+  /*!< DMA2 Channel4 Config */
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SDIO_FIFO_ADDRESS;
+  DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)BufferSRC;
+  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
+  24:	2310      	movs	r3, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:444
+  DMA_InitStructure.DMA_BufferSize = BufferSize / 4;
+  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word;
+  DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Word;
+  26:	f44f 6200 	mov.w	r2, #2048	; 0x800
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:439
+  DMA_Cmd(DMA2_Channel4, DISABLE);
+
+  /*!< DMA2 Channel4 Config */
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SDIO_FIFO_ADDRESS;
+  DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)BufferSRC;
+  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
+  2a:	9303      	str	r3, [sp, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:444
+  DMA_InitStructure.DMA_BufferSize = BufferSize / 4;
+  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word;
+  DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Word;
+  2c:	9208      	str	r2, [sp, #32]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:441
+  /*!< DMA2 Channel4 Config */
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SDIO_FIFO_ADDRESS;
+  DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)BufferSRC;
+  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
+  DMA_InitStructure.DMA_BufferSize = BufferSize / 4;
+  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+  2e:	3b10      	subs	r3, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:446
+  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word;
+  DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Word;
+  DMA_InitStructure.DMA_Mode = DMA_Mode_Normal;
+  DMA_InitStructure.DMA_Priority = DMA_Priority_High;
+  30:	f44f 5200 	mov.w	r2, #8192	; 0x2000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:448
+  DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
+  DMA_Init(DMA2_Channel4, &DMA_InitStructure);
+  34:	a901      	add	r1, sp, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:440
+
+  /*!< DMA2 Channel4 Config */
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SDIO_FIFO_ADDRESS;
+  DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)BufferSRC;
+  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
+  DMA_InitStructure.DMA_BufferSize = BufferSize / 4;
+  36:	08a4      	lsrs	r4, r4, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:448
+  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word;
+  DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Word;
+  DMA_InitStructure.DMA_Mode = DMA_Mode_Normal;
+  DMA_InitStructure.DMA_Priority = DMA_Priority_High;
+  DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
+  DMA_Init(DMA2_Channel4, &DMA_InitStructure);
+  38:	4808      	ldr	r0, [pc, #32]	; (5c <SD_LowLevel_DMA_TxConfig+0x5c>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:438
+  /*!< DMA2 Channel4 disable */
+  DMA_Cmd(DMA2_Channel4, DISABLE);
+
+  /*!< DMA2 Channel4 Config */
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SDIO_FIFO_ADDRESS;
+  DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)BufferSRC;
+  3a:	9502      	str	r5, [sp, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:440
+  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
+  DMA_InitStructure.DMA_BufferSize = BufferSize / 4;
+  3c:	9404      	str	r4, [sp, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:441
+  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+  3e:	9305      	str	r3, [sp, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:445
+  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word;
+  DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Word;
+  DMA_InitStructure.DMA_Mode = DMA_Mode_Normal;
+  40:	9309      	str	r3, [sp, #36]	; 0x24
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:446
+  DMA_InitStructure.DMA_Priority = DMA_Priority_High;
+  42:	920a      	str	r2, [sp, #40]	; 0x28
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:447
+  DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
+  44:	930b      	str	r3, [sp, #44]	; 0x2c
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:448
+  DMA_Init(DMA2_Channel4, &DMA_InitStructure);
+  46:	f7ff fffe 	bl	0 <DMA_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:451
+
+  /*!< DMA2 Channel4 enable */
+  DMA_Cmd(DMA2_Channel4, ENABLE);  
+  4a:	4804      	ldr	r0, [pc, #16]	; (5c <SD_LowLevel_DMA_TxConfig+0x5c>)
+  4c:	2101      	movs	r1, #1
+  4e:	f7ff fffe 	bl	0 <DMA_Cmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:452
+}
+  52:	b00d      	add	sp, #52	; 0x34
+  54:	bd30      	pop	{r4, r5, pc}
+  56:	bf00      	nop
+  58:	1000f000 	.word	0x1000f000
+  5c:	40020444 	.word	0x40020444
+  60:	40018080 	.word	0x40018080
+
+Disassembly of section .text.SD_LowLevel_DMA_RxConfig:
+
+00000000 <SD_LowLevel_DMA_RxConfig>:
+SD_LowLevel_DMA_RxConfig():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:461
+  * @param  BufferDST: pointer to the destination buffer
+  * @param  BufferSize: buffer size
+  * @retval None
+  */
+void SD_LowLevel_DMA_RxConfig(uint32_t *BufferDST, uint32_t BufferSize)
+{
+   0:	4605b530 	.word	0x4605b530
+   4:	b08d      	sub	sp, #52	; 0x34
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:464
+  DMA_InitTypeDef DMA_InitStructure;
+
+  DMA_ClearFlag(DMA2_FLAG_TC4 | DMA2_FLAG_TE4 | DMA2_FLAG_HT4 | DMA2_FLAG_GL4);
+   6:	4813      	ldr	r0, [pc, #76]	; (54 <SD_LowLevel_DMA_RxConfig+0x54>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:461
+  * @param  BufferDST: pointer to the destination buffer
+  * @param  BufferSize: buffer size
+  * @retval None
+  */
+void SD_LowLevel_DMA_RxConfig(uint32_t *BufferDST, uint32_t BufferSize)
+{
+   8:	460c      	mov	r4, r1
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:464
+  DMA_InitTypeDef DMA_InitStructure;
+
+  DMA_ClearFlag(DMA2_FLAG_TC4 | DMA2_FLAG_TE4 | DMA2_FLAG_HT4 | DMA2_FLAG_GL4);
+   a:	f7ff fffe 	bl	0 <DMA_ClearFlag>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:467
+
+  /*!< DMA2 Channel4 disable */
+  DMA_Cmd(DMA2_Channel4, DISABLE);
+   e:	2100      	movs	r1, #0
+  10:	4811      	ldr	r0, [pc, #68]	; (58 <SD_LowLevel_DMA_RxConfig+0x58>)
+  12:	f7ff fffe 	bl	0 <DMA_Cmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:475
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SDIO_FIFO_ADDRESS;
+  DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)BufferDST;
+  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
+  DMA_InitStructure.DMA_BufferSize = BufferSize / 4;
+  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+  16:	2280      	movs	r2, #128	; 0x80
+  18:	9206      	str	r2, [sp, #24]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:470
+
+  /*!< DMA2 Channel4 disable */
+  DMA_Cmd(DMA2_Channel4, DISABLE);
+
+  /*!< DMA2 Channel4 Config */
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SDIO_FIFO_ADDRESS;
+  1a:	4b10      	ldr	r3, [pc, #64]	; (5c <SD_LowLevel_DMA_RxConfig+0x5c>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:476
+  DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)BufferDST;
+  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
+  DMA_InitStructure.DMA_BufferSize = BufferSize / 4;
+  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word;
+  1c:	f44f 7200 	mov.w	r2, #512	; 0x200
+  20:	9207      	str	r2, [sp, #28]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:477
+  DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Word;
+  22:	f44f 6200 	mov.w	r2, #2048	; 0x800
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:470
+
+  /*!< DMA2 Channel4 disable */
+  DMA_Cmd(DMA2_Channel4, DISABLE);
+
+  /*!< DMA2 Channel4 Config */
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SDIO_FIFO_ADDRESS;
+  26:	9301      	str	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:477
+  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
+  DMA_InitStructure.DMA_BufferSize = BufferSize / 4;
+  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word;
+  DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Word;
+  28:	9208      	str	r2, [sp, #32]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:472
+  DMA_Cmd(DMA2_Channel4, DISABLE);
+
+  /*!< DMA2 Channel4 Config */
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SDIO_FIFO_ADDRESS;
+  DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)BufferDST;
+  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
+  2a:	2300      	movs	r3, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:479
+  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word;
+  DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Word;
+  DMA_InitStructure.DMA_Mode = DMA_Mode_Normal;
+  DMA_InitStructure.DMA_Priority = DMA_Priority_High;
+  2c:	f44f 5200 	mov.w	r2, #8192	; 0x2000
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:481
+  DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
+  DMA_Init(DMA2_Channel4, &DMA_InitStructure);
+  30:	a901      	add	r1, sp, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:473
+
+  /*!< DMA2 Channel4 Config */
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SDIO_FIFO_ADDRESS;
+  DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)BufferDST;
+  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
+  DMA_InitStructure.DMA_BufferSize = BufferSize / 4;
+  32:	08a4      	lsrs	r4, r4, #2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:481
+  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word;
+  DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Word;
+  DMA_InitStructure.DMA_Mode = DMA_Mode_Normal;
+  DMA_InitStructure.DMA_Priority = DMA_Priority_High;
+  DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
+  DMA_Init(DMA2_Channel4, &DMA_InitStructure);
+  34:	4808      	ldr	r0, [pc, #32]	; (58 <SD_LowLevel_DMA_RxConfig+0x58>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:471
+  /*!< DMA2 Channel4 disable */
+  DMA_Cmd(DMA2_Channel4, DISABLE);
+
+  /*!< DMA2 Channel4 Config */
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SDIO_FIFO_ADDRESS;
+  DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)BufferDST;
+  36:	9502      	str	r5, [sp, #8]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:472
+  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
+  38:	9303      	str	r3, [sp, #12]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:473
+  DMA_InitStructure.DMA_BufferSize = BufferSize / 4;
+  3a:	9404      	str	r4, [sp, #16]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:474
+  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+  3c:	9305      	str	r3, [sp, #20]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:478
+  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word;
+  DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Word;
+  DMA_InitStructure.DMA_Mode = DMA_Mode_Normal;
+  3e:	9309      	str	r3, [sp, #36]	; 0x24
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:479
+  DMA_InitStructure.DMA_Priority = DMA_Priority_High;
+  40:	920a      	str	r2, [sp, #40]	; 0x28
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:480
+  DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
+  42:	930b      	str	r3, [sp, #44]	; 0x2c
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:481
+  DMA_Init(DMA2_Channel4, &DMA_InitStructure);
+  44:	f7ff fffe 	bl	0 <DMA_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:484
+
+  /*!< DMA2 Channel4 enable */
+  DMA_Cmd(DMA2_Channel4, ENABLE); 
+  48:	4803      	ldr	r0, [pc, #12]	; (58 <SD_LowLevel_DMA_RxConfig+0x58>)
+  4a:	2101      	movs	r1, #1
+  4c:	f7ff fffe 	bl	0 <DMA_Cmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:485
+}
+  50:	b00d      	add	sp, #52	; 0x34
+  52:	bd30      	pop	{r4, r5, pc}
+  54:	1000f000 	.word	0x1000f000
+  58:	40020444 	.word	0x40020444
+  5c:	40018080 	.word	0x40018080
+
+Disassembly of section .text.SD_WaitForDMAEndOfTransfer:
+
+00000000 <SD_WaitForDMAEndOfTransfer>:
+SD_WaitForDMAEndOfTransfer():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:493
+  * @brief  Wait For DMA End Of Transfer.
+  * @param  None
+  * @retval None
+  */
+void SD_WaitForDMAEndOfTransfer(void)
+{
+   0:	4803b508 	.word	0x4803b508
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:494
+  while (DMA_GetFlagStatus(DMA2_FLAG_TC4) == RESET)
+   4:	f7ff fffe 	bl	0 <DMA_GetFlagStatus>
+   8:	2800      	cmp	r0, #0
+   a:	d0fa      	beq.n	2 <SD_WaitForDMAEndOfTransfer+0x2>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:496
+  {}
+}
+   c:	bd08      	pop	{r3, pc}
+   e:	bf00      	nop
+  10:	10002000 	.word	0x10002000
+
+Disassembly of section .text.sFLASH_LowLevel_DeInit:
+
+00000000 <sFLASH_LowLevel_DeInit>:
+sFLASH_LowLevel_DeInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:504
+  * @brief  DeInitializes the peripherals used by the SPI FLASH driver.
+  * @param  None
+  * @retval None
+  */
+void sFLASH_LowLevel_DeInit(void)
+{
+   0:	b513      	push	{r0, r1, r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:508
+  GPIO_InitTypeDef GPIO_InitStructure;
+
+  /*!< Disable the sFLASH_SPI  */
+  SPI_Cmd(sFLASH_SPI, DISABLE);
+   2:	2100      	movs	r1, #0
+   4:	4816      	ldr	r0, [pc, #88]	; (60 <sFLASH_LowLevel_DeInit+0x60>)
+   6:	f7ff fffe 	bl	0 <SPI_Cmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:511
+  
+  /*!< DeInitializes the sFLASH_SPI */
+  SPI_I2S_DeInit(sFLASH_SPI);
+   a:	4815      	ldr	r0, [pc, #84]	; (60 <sFLASH_LowLevel_DeInit+0x60>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:518
+  /*!< sFLASH_SPI Periph clock disable */
+  RCC_APB2PeriphClockCmd(sFLASH_SPI_CLK, DISABLE);
+  
+  /*!< Configure sFLASH_SPI pins: SCK */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_SCK_PIN;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+   c:	2404      	movs	r4, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:511
+
+  /*!< Disable the sFLASH_SPI  */
+  SPI_Cmd(sFLASH_SPI, DISABLE);
+  
+  /*!< DeInitializes the sFLASH_SPI */
+  SPI_I2S_DeInit(sFLASH_SPI);
+   e:	f7ff fffe 	bl	0 <SPI_I2S_DeInit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:514
+  
+  /*!< sFLASH_SPI Periph clock disable */
+  RCC_APB2PeriphClockCmd(sFLASH_SPI_CLK, DISABLE);
+  12:	2100      	movs	r1, #0
+  14:	f44f 5080 	mov.w	r0, #4096	; 0x1000
+  18:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:517
+  
+  /*!< Configure sFLASH_SPI pins: SCK */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_SCK_PIN;
+  1c:	2320      	movs	r3, #32
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:519
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  GPIO_Init(sFLASH_SPI_SCK_GPIO_PORT, &GPIO_InitStructure);
+  1e:	eb0d 0104 	add.w	r1, sp, r4
+  22:	4810      	ldr	r0, [pc, #64]	; (64 <sFLASH_LowLevel_DeInit+0x64>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:517
+  
+  /*!< sFLASH_SPI Periph clock disable */
+  RCC_APB2PeriphClockCmd(sFLASH_SPI_CLK, DISABLE);
+  
+  /*!< Configure sFLASH_SPI pins: SCK */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_SCK_PIN;
+  24:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:518
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  28:	f88d 4007 	strb.w	r4, [sp, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:519
+  GPIO_Init(sFLASH_SPI_SCK_GPIO_PORT, &GPIO_InitStructure);
+  2c:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:522
+
+  /*!< Configure sFLASH_SPI pins: MISO */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_MISO_PIN;
+  30:	2340      	movs	r3, #64	; 0x40
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:523
+  GPIO_Init(sFLASH_SPI_MISO_GPIO_PORT, &GPIO_InitStructure);
+  32:	eb0d 0104 	add.w	r1, sp, r4
+  36:	480b      	ldr	r0, [pc, #44]	; (64 <sFLASH_LowLevel_DeInit+0x64>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:522
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_SCK_PIN;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  GPIO_Init(sFLASH_SPI_SCK_GPIO_PORT, &GPIO_InitStructure);
+
+  /*!< Configure sFLASH_SPI pins: MISO */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_MISO_PIN;
+  38:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:523
+  GPIO_Init(sFLASH_SPI_MISO_GPIO_PORT, &GPIO_InitStructure);
+  3c:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:526
+
+  /*!< Configure sFLASH_SPI pins: MOSI */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_MOSI_PIN;
+  40:	2380      	movs	r3, #128	; 0x80
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:527
+  GPIO_Init(sFLASH_SPI_MOSI_GPIO_PORT, &GPIO_InitStructure);
+  42:	eb0d 0104 	add.w	r1, sp, r4
+  46:	4807      	ldr	r0, [pc, #28]	; (64 <sFLASH_LowLevel_DeInit+0x64>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:526
+  /*!< Configure sFLASH_SPI pins: MISO */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_MISO_PIN;
+  GPIO_Init(sFLASH_SPI_MISO_GPIO_PORT, &GPIO_InitStructure);
+
+  /*!< Configure sFLASH_SPI pins: MOSI */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_MOSI_PIN;
+  48:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:527
+  GPIO_Init(sFLASH_SPI_MOSI_GPIO_PORT, &GPIO_InitStructure);
+  4c:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:531
+
+  /*!< Configure sFLASH_CS_PIN pin: sFLASH Card CS pin */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_CS_PIN;
+  GPIO_Init(sFLASH_CS_GPIO_PORT, &GPIO_InitStructure);
+  50:	4805      	ldr	r0, [pc, #20]	; (68 <sFLASH_LowLevel_DeInit+0x68>)
+  52:	eb0d 0104 	add.w	r1, sp, r4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:530
+  /*!< Configure sFLASH_SPI pins: MOSI */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_MOSI_PIN;
+  GPIO_Init(sFLASH_SPI_MOSI_GPIO_PORT, &GPIO_InitStructure);
+
+  /*!< Configure sFLASH_CS_PIN pin: sFLASH Card CS pin */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_CS_PIN;
+  56:	f8ad 4004 	strh.w	r4, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:531
+  GPIO_Init(sFLASH_CS_GPIO_PORT, &GPIO_InitStructure);
+  5a:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:532
+}
+  5e:	bd1c      	pop	{r2, r3, r4, pc}
+  60:	40013000 	.word	0x40013000
+  64:	40010800 	.word	0x40010800
+  68:	40010c00 	.word	0x40010c00
+
+Disassembly of section .text.sFLASH_LowLevel_Init:
+
+00000000 <sFLASH_LowLevel_Init>:
+sFLASH_LowLevel_Init():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:540
+  * @brief  Initializes the peripherals used by the SPI FLASH driver.
+  * @param  None
+  * @retval None
+  */
+void sFLASH_LowLevel_Init(void)
+{
+   0:	b507      	push	{r0, r1, r2, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:545
+  GPIO_InitTypeDef GPIO_InitStructure;
+
+  /*!< sFLASH_SPI_CS_GPIO, sFLASH_SPI_MOSI_GPIO, sFLASH_SPI_MISO_GPIO 
+       and sFLASH_SPI_SCK_GPIO Periph clock enable */
+  RCC_APB2PeriphClockCmd(sFLASH_CS_GPIO_CLK | sFLASH_SPI_MOSI_GPIO_CLK | sFLASH_SPI_MISO_GPIO_CLK |
+   2:	200c      	movs	r0, #12
+   4:	2101      	movs	r1, #1
+   6:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:549
+                         sFLASH_SPI_SCK_GPIO_CLK, ENABLE);
+
+  /*!< sFLASH_SPI Periph clock enable */
+  RCC_APB2PeriphClockCmd(sFLASH_SPI_CLK, ENABLE);
+   a:	2101      	movs	r1, #1
+   c:	f44f 5080 	mov.w	r0, #4096	; 0x1000
+  10:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:552
+  
+  /*!< Configure sFLASH_SPI pins: SCK */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_SCK_PIN;
+  14:	2320      	movs	r3, #32
+  16:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:553
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  1a:	2303      	movs	r3, #3
+  1c:	f88d 3006 	strb.w	r3, [sp, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:555
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  GPIO_Init(sFLASH_SPI_SCK_GPIO_PORT, &GPIO_InitStructure);
+  20:	a901      	add	r1, sp, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:554
+  RCC_APB2PeriphClockCmd(sFLASH_SPI_CLK, ENABLE);
+  
+  /*!< Configure sFLASH_SPI pins: SCK */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_SCK_PIN;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  22:	3315      	adds	r3, #21
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:555
+  GPIO_Init(sFLASH_SPI_SCK_GPIO_PORT, &GPIO_InitStructure);
+  24:	480e      	ldr	r0, [pc, #56]	; (60 <sFLASH_LowLevel_Init+0x60>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:554
+  RCC_APB2PeriphClockCmd(sFLASH_SPI_CLK, ENABLE);
+  
+  /*!< Configure sFLASH_SPI pins: SCK */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_SCK_PIN;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  26:	f88d 3007 	strb.w	r3, [sp, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:555
+  GPIO_Init(sFLASH_SPI_SCK_GPIO_PORT, &GPIO_InitStructure);
+  2a:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:558
+
+  /*!< Configure sFLASH_SPI pins: MISO */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_MISO_PIN;
+  2e:	2340      	movs	r3, #64	; 0x40
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:559
+  GPIO_Init(sFLASH_SPI_MISO_GPIO_PORT, &GPIO_InitStructure);
+  30:	a901      	add	r1, sp, #4
+  32:	480b      	ldr	r0, [pc, #44]	; (60 <sFLASH_LowLevel_Init+0x60>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:558
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  GPIO_Init(sFLASH_SPI_SCK_GPIO_PORT, &GPIO_InitStructure);
+
+  /*!< Configure sFLASH_SPI pins: MISO */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_MISO_PIN;
+  34:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:559
+  GPIO_Init(sFLASH_SPI_MISO_GPIO_PORT, &GPIO_InitStructure);
+  38:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:562
+
+  /*!< Configure sFLASH_SPI pins: MOSI */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_MOSI_PIN;
+  3c:	2380      	movs	r3, #128	; 0x80
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:563
+  GPIO_Init(sFLASH_SPI_MOSI_GPIO_PORT, &GPIO_InitStructure);
+  3e:	a901      	add	r1, sp, #4
+  40:	4807      	ldr	r0, [pc, #28]	; (60 <sFLASH_LowLevel_Init+0x60>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:562
+  /*!< Configure sFLASH_SPI pins: MISO */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_MISO_PIN;
+  GPIO_Init(sFLASH_SPI_MISO_GPIO_PORT, &GPIO_InitStructure);
+
+  /*!< Configure sFLASH_SPI pins: MOSI */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_MOSI_PIN;
+  42:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:563
+  GPIO_Init(sFLASH_SPI_MOSI_GPIO_PORT, &GPIO_InitStructure);
+  46:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:566
+
+  /*!< Configure sFLASH_CS_PIN pin: sFLASH Card CS pin */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_CS_PIN;
+  4a:	2304      	movs	r3, #4
+  4c:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:568
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  GPIO_Init(sFLASH_CS_GPIO_PORT, &GPIO_InitStructure);
+  50:	4804      	ldr	r0, [pc, #16]	; (64 <sFLASH_LowLevel_Init+0x64>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:567
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_MOSI_PIN;
+  GPIO_Init(sFLASH_SPI_MOSI_GPIO_PORT, &GPIO_InitStructure);
+
+  /*!< Configure sFLASH_CS_PIN pin: sFLASH Card CS pin */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_CS_PIN;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  52:	2310      	movs	r3, #16
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:568
+  GPIO_Init(sFLASH_CS_GPIO_PORT, &GPIO_InitStructure);
+  54:	a901      	add	r1, sp, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:567
+  GPIO_InitStructure.GPIO_Pin = sFLASH_SPI_MOSI_PIN;
+  GPIO_Init(sFLASH_SPI_MOSI_GPIO_PORT, &GPIO_InitStructure);
+
+  /*!< Configure sFLASH_CS_PIN pin: sFLASH Card CS pin */
+  GPIO_InitStructure.GPIO_Pin = sFLASH_CS_PIN;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  56:	f88d 3007 	strb.w	r3, [sp, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:568
+  GPIO_Init(sFLASH_CS_GPIO_PORT, &GPIO_InitStructure);
+  5a:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:569
+}
+  5e:	bd0e      	pop	{r1, r2, r3, pc}
+  60:	40010800 	.word	0x40010800
+  64:	40010c00 	.word	0x40010c00
+
+Disassembly of section .text.LM75_LowLevel_DeInit:
+
+00000000 <LM75_LowLevel_DeInit>:
+LM75_LowLevel_DeInit():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:577
+  * @brief  DeInitializes the LM75_I2C.
+  * @param  None
+  * @retval None
+  */
+void LM75_LowLevel_DeInit(void)
+{
+   0:	2100b507 	.word	0x2100b507
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:581
+  GPIO_InitTypeDef  GPIO_InitStructure;
+
+  /*!< Disable LM75_I2C */
+  I2C_Cmd(LM75_I2C, DISABLE);
+   4:	4812      	ldr	r0, [pc, #72]	; (4c <I2C_Cmd+0x4c>)
+   6:	f7ff fffe 	bl	0 <I2C_Cmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:583
+  /*!< DeInitializes the LM75_I2C */
+  I2C_DeInit(LM75_I2C);
+   a:	4811      	ldr	r0, [pc, #68]	; (48 <I2C_DeInit+0x48>)
+   c:	f7ff fffe 	bl	0 <I2C_DeInit>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:586
+  
+  /*!< LM75_I2C Periph clock disable */
+  RCC_APB1PeriphClockCmd(LM75_I2C_CLK, DISABLE);
+  10:	2100      	movs	r1, #0
+  12:	f44f 1000 	mov.w	r0, #2097152	; 0x200000
+  16:	f7ff fffe 	bl	0 <RCC_APB1PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:589
+    
+  /*!< Configure LM75_I2C pins: SCL */
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SCL_PIN;
+  1a:	2340      	movs	r3, #64	; 0x40
+  1c:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:590
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  20:	2304      	movs	r3, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:591
+  GPIO_Init(LM75_I2C_SCL_GPIO_PORT, &GPIO_InitStructure);
+  22:	eb0d 0103 	add.w	r1, sp, r3
+  26:	480b      	ldr	r0, [pc, #44]	; (54 <LM75_LowLevel_DeInit+0x54>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:590
+  /*!< LM75_I2C Periph clock disable */
+  RCC_APB1PeriphClockCmd(LM75_I2C_CLK, DISABLE);
+    
+  /*!< Configure LM75_I2C pins: SCL */
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SCL_PIN;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  28:	f88d 3007 	strb.w	r3, [sp, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:591
+  GPIO_Init(LM75_I2C_SCL_GPIO_PORT, &GPIO_InitStructure);
+  2c:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:594
+
+  /*!< Configure LM75_I2C pins: SDA */
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SDA_PIN;
+  30:	2380      	movs	r3, #128	; 0x80
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:595
+  GPIO_Init(LM75_I2C_SDA_GPIO_PORT, &GPIO_InitStructure);
+  32:	a901      	add	r1, sp, #4
+  34:	4807      	ldr	r0, [pc, #28]	; (54 <LM75_LowLevel_DeInit+0x54>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:594
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SCL_PIN;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  GPIO_Init(LM75_I2C_SCL_GPIO_PORT, &GPIO_InitStructure);
+
+  /*!< Configure LM75_I2C pins: SDA */
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SDA_PIN;
+  36:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:595
+  GPIO_Init(LM75_I2C_SDA_GPIO_PORT, &GPIO_InitStructure);
+  3a:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:598
+
+  /*!< Configure LM75_I2C pin: SMBUS ALERT */
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SMBUSALERT_PIN;
+  3e:	2320      	movs	r3, #32
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:599
+  GPIO_Init(LM75_I2C_SMBUSALERT_GPIO_PORT, &GPIO_InitStructure);
+  40:	4804      	ldr	r0, [pc, #16]	; (54 <LM75_LowLevel_DeInit+0x54>)
+  42:	a901      	add	r1, sp, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:598
+  /*!< Configure LM75_I2C pins: SDA */
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SDA_PIN;
+  GPIO_Init(LM75_I2C_SDA_GPIO_PORT, &GPIO_InitStructure);
+
+  /*!< Configure LM75_I2C pin: SMBUS ALERT */
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SMBUSALERT_PIN;
+  44:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:599
+  GPIO_Init(LM75_I2C_SMBUSALERT_GPIO_PORT, &GPIO_InitStructure);
+  48:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:600
+}
+  4c:	bd0e      	pop	{r1, r2, r3, pc}
+  4e:	bf00      	nop
+  50:	40005400 	.word	0x40005400
+  54:	40010c00 	.word	0x40010c00
+
+Disassembly of section .text.LM75_LowLevel_Init:
+
+00000000 <LM75_LowLevel_Init>:
+LM75_LowLevel_Init():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:608
+  * @brief  Initializes the LM75_I2C..
+  * @param  None
+  * @retval None
+  */
+void LM75_LowLevel_Init(void)
+{
+   0:	b507      	push	{r0, r1, r2, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:612
+  GPIO_InitTypeDef  GPIO_InitStructure;
+
+  /*!< LM75_I2C Periph clock enable */
+  RCC_APB1PeriphClockCmd(LM75_I2C_CLK, ENABLE);
+   2:	2101      	movs	r1, #1
+   4:	f44f 1000 	mov.w	r0, #2097152	; 0x200000
+   8:	f7ff fffe 	bl	0 <RCC_APB1PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:616
+    
+  /*!< LM75_I2C_SCL_GPIO_CLK, LM75_I2C_SDA_GPIO_CLK 
+       and LM75_I2C_SMBUSALERT_GPIO_CLK Periph clock enable */
+  RCC_APB2PeriphClockCmd(LM75_I2C_SCL_GPIO_CLK | LM75_I2C_SDA_GPIO_CLK |
+   c:	2008      	movs	r0, #8
+   e:	2101      	movs	r1, #1
+  10:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:620
+                         LM75_I2C_SMBUSALERT_GPIO_CLK, ENABLE);
+  
+  /*!< Configure LM75_I2C pins: SCL */
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SCL_PIN;
+  14:	2340      	movs	r3, #64	; 0x40
+  16:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:621
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  1a:	2303      	movs	r3, #3
+  1c:	f88d 3006 	strb.w	r3, [sp, #6]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:623
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;
+  GPIO_Init(LM75_I2C_SCL_GPIO_PORT, &GPIO_InitStructure);
+  20:	a901      	add	r1, sp, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:622
+                         LM75_I2C_SMBUSALERT_GPIO_CLK, ENABLE);
+  
+  /*!< Configure LM75_I2C pins: SCL */
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SCL_PIN;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;
+  22:	3319      	adds	r3, #25
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:623
+  GPIO_Init(LM75_I2C_SCL_GPIO_PORT, &GPIO_InitStructure);
+  24:	480b      	ldr	r0, [pc, #44]	; (54 <LM75_LowLevel_Init+0x54>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:622
+                         LM75_I2C_SMBUSALERT_GPIO_CLK, ENABLE);
+  
+  /*!< Configure LM75_I2C pins: SCL */
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SCL_PIN;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;
+  26:	f88d 3007 	strb.w	r3, [sp, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:623
+  GPIO_Init(LM75_I2C_SCL_GPIO_PORT, &GPIO_InitStructure);
+  2a:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:626
+
+  /*!< Configure LM75_I2C pins: SDA */
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SDA_PIN;
+  2e:	2380      	movs	r3, #128	; 0x80
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:627
+  GPIO_Init(LM75_I2C_SDA_GPIO_PORT, &GPIO_InitStructure);
+  30:	a901      	add	r1, sp, #4
+  32:	4808      	ldr	r0, [pc, #32]	; (54 <LM75_LowLevel_Init+0x54>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:626
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;
+  GPIO_Init(LM75_I2C_SCL_GPIO_PORT, &GPIO_InitStructure);
+
+  /*!< Configure LM75_I2C pins: SDA */
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SDA_PIN;
+  34:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:627
+  GPIO_Init(LM75_I2C_SDA_GPIO_PORT, &GPIO_InitStructure);
+  38:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:630
+
+  /*!< Configure LM75_I2C pin: SMBUS ALERT */
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SMBUSALERT_PIN;
+  3c:	2320      	movs	r3, #32
+  3e:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:632
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+  GPIO_Init(LM75_I2C_SMBUSALERT_GPIO_PORT, &GPIO_InitStructure); 
+  42:	4804      	ldr	r0, [pc, #16]	; (54 <LM75_LowLevel_Init+0x54>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:631
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SDA_PIN;
+  GPIO_Init(LM75_I2C_SDA_GPIO_PORT, &GPIO_InitStructure);
+
+  /*!< Configure LM75_I2C pin: SMBUS ALERT */
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SMBUSALERT_PIN;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+  44:	2348      	movs	r3, #72	; 0x48
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:632
+  GPIO_Init(LM75_I2C_SMBUSALERT_GPIO_PORT, &GPIO_InitStructure); 
+  46:	a901      	add	r1, sp, #4
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:631
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SDA_PIN;
+  GPIO_Init(LM75_I2C_SDA_GPIO_PORT, &GPIO_InitStructure);
+
+  /*!< Configure LM75_I2C pin: SMBUS ALERT */
+  GPIO_InitStructure.GPIO_Pin = LM75_I2C_SMBUSALERT_PIN;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+  48:	f88d 3007 	strb.w	r3, [sp, #7]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:632
+  GPIO_Init(LM75_I2C_SMBUSALERT_GPIO_PORT, &GPIO_InitStructure); 
+  4c:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\Utilities\STM32_EVAL\/stm3210e_open4/stm3210e_open4.c:633
+}
+  50:	bd0e      	pop	{r1, r2, r3, pc}
+  52:	bf00      	nop
+  54:	40010c00 	.word	0x40010c00

@@ -1,0 +1,399 @@
+
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_pwr.o:     file format elf32-littlearm
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\STM3210E-OPEN4\usb_pwr.o
+
+
+Disassembly of section .text.PowerOn:
+
+00000000 <PowerOn>:
+PowerOn():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:49
+* Input          : None.
+* Output         : None.
+* Return         : USB_SUCCESS.
+*******************************************************************************/
+RESULT PowerOn(void)
+{
+   0:	b508      	push	{r3, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:54
+#ifndef STM32F10X_CL
+  uint16_t wRegVal;
+
+  /*** cable plugged-in ? ***/
+  USB_Cable_Config(ENABLE);
+   2:	2001      	movs	r0, #1
+   4:	f7ff fffe 	bl	0 <USB_Cable_Config>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:58
+
+  /*** CNTR_PWDN = 0 ***/
+  wRegVal = CNTR_FRES;
+  _SetCNTR(wRegVal);
+   8:	4b06      	ldr	r3, [pc, #24]	; (24 <PowerOn+0x24>)
+   a:	2201      	movs	r2, #1
+   c:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:64
+
+  /*** CNTR_FRES = 0 ***/
+  wInterrupt_Mask = 0;
+  _SetCNTR(wInterrupt_Mask);
+  /*** Clear pending interrupts ***/
+  _SetISTR(0);
+   e:	4a06      	ldr	r2, [pc, #24]	; (28 <PowerOn+0x28>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:62
+  wRegVal = CNTR_FRES;
+  _SetCNTR(wRegVal);
+
+  /*** CNTR_FRES = 0 ***/
+  wInterrupt_Mask = 0;
+  _SetCNTR(wInterrupt_Mask);
+  10:	2000      	movs	r0, #0
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:66
+  /*** Clear pending interrupts ***/
+  _SetISTR(0);
+  /*** Set interrupt mask ***/
+  wInterrupt_Mask = CNTR_RESETM | CNTR_SUSPM | CNTR_WKUPM;
+  12:	4906      	ldr	r1, [pc, #24]	; (2c <PowerOn+0x2c>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:62
+  wRegVal = CNTR_FRES;
+  _SetCNTR(wRegVal);
+
+  /*** CNTR_FRES = 0 ***/
+  wInterrupt_Mask = 0;
+  _SetCNTR(wInterrupt_Mask);
+  14:	6018      	str	r0, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:64
+  /*** Clear pending interrupts ***/
+  _SetISTR(0);
+  16:	6010      	str	r0, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:66
+  /*** Set interrupt mask ***/
+  wInterrupt_Mask = CNTR_RESETM | CNTR_SUSPM | CNTR_WKUPM;
+  18:	f44f 52e0 	mov.w	r2, #7168	; 0x1c00
+  1c:	800a      	strh	r2, [r1, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:67
+  _SetCNTR(wInterrupt_Mask);
+  1e:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:71
+#endif /* STM32F10X_CL */
+
+  return USB_SUCCESS;
+}
+  20:	bd08      	pop	{r3, pc}
+  22:	bf00      	nop
+  24:	40005c40 	.word	0x40005c40
+  28:	40005c44 	.word	0x40005c44
+  2c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.PowerOff:
+
+00000000 <PowerOff>:
+PowerOff():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:81
+* Input          : None.
+* Output         : None.
+* Return         : USB_SUCCESS.
+*******************************************************************************/
+RESULT PowerOff()
+{
+   0:	4d06b538 	.word	0x4d06b538
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:84
+#ifndef STM32F10X_CL
+  /* disable all ints and force USB reset */
+  _SetCNTR(CNTR_FRES);
+   4:	2301      	movs	r3, #1
+   6:	602b      	str	r3, [r5, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:86
+  /* clear interrupt status register */
+  _SetISTR(0);
+   8:	4b05      	ldr	r3, [pc, #20]	; (20 <PowerOff+0x20>)
+   a:	2400      	movs	r4, #0
+   c:	601c      	str	r4, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:88
+  /* Disable the Pull-Up*/
+  USB_Cable_Config(DISABLE);
+   e:	4620      	mov	r0, r4
+  10:	f7ff fffe 	bl	0 <USB_Cable_Config>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:90
+  /* switch-off device */
+  _SetCNTR(CNTR_FRES + CNTR_PDWN);
+  14:	2303      	movs	r3, #3
+  16:	602b      	str	r3, [r5, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:97
+
+  /* sw variables reset */
+  /* ... */
+
+  return USB_SUCCESS;
+}
+  18:	4620      	mov	r0, r4
+  1a:	bd38      	pop	{r3, r4, r5, pc}
+  1c:	40005c40 	.word	0x40005c40
+  20:	40005c44 	.word	0x40005c44
+
+Disassembly of section .text.Suspend:
+
+00000000 <Suspend>:
+Suspend():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:114
+  uint16_t wCNTR;
+  /* suspend preparation */
+  /* ... */
+
+  /* macrocell enters suspend mode */
+  wCNTR = _GetCNTR();
+   0:	4b06      	ldr	r3, [pc, #24]	; (1c <Suspend+0x1c>)
+   2:	681a      	ldr	r2, [r3, #0]
+   4:	b292      	uxth	r2, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:116
+  wCNTR |= CNTR_FSUSP;
+  _SetCNTR(wCNTR);
+   6:	f042 0208 	orr.w	r2, r2, #8
+   a:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:125
+  /* power reduction */
+  /* ... on connected devices */
+
+#ifndef STM32F10X_CL
+  /* force low-power mode in the macrocell */
+  wCNTR = _GetCNTR();
+   c:	681a      	ldr	r2, [r3, #0]
+   e:	b292      	uxth	r2, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:127
+  wCNTR |= CNTR_LPMODE;
+  _SetCNTR(wCNTR);
+  10:	f042 0204 	orr.w	r2, r2, #4
+  14:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:132
+#endif /* STM32F10X_CL */
+
+  /* switch-off the clocks */
+  /* ... */
+  Enter_LowPowerMode();
+  16:	f7ff bffe 	b.w	0 <Enter_LowPowerMode>
+  1a:	bf00      	nop
+  1c:	40005c40 	.word	0x40005c40
+
+Disassembly of section .text.Resume_Init:
+
+00000000 <Resume_Init>:
+Resume_Init():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:144
+* Input          : None.
+* Output         : None.
+* Return         : USB_SUCCESS.
+*******************************************************************************/
+void Resume_Init(void)
+{
+   0:	b510      	push	{r4, lr}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:155
+  /* restart the clocks */
+  /* ...  */
+
+#ifndef STM32F10X_CL
+  /* CNTR_LPMODE = 0 */
+  wCNTR = _GetCNTR();
+   2:	4c06      	ldr	r4, [pc, #24]	; (1c <Resume_Init+0x1c>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:157
+  wCNTR &= (~CNTR_LPMODE);
+  _SetCNTR(wCNTR);
+   4:	f64f 73fb 	movw	r3, #65531	; 0xfffb
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:155
+  /* restart the clocks */
+  /* ...  */
+
+#ifndef STM32F10X_CL
+  /* CNTR_LPMODE = 0 */
+  wCNTR = _GetCNTR();
+   8:	6822      	ldr	r2, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:157
+  wCNTR &= (~CNTR_LPMODE);
+  _SetCNTR(wCNTR);
+   a:	ea02 0303 	and.w	r3, r2, r3
+   e:	6023      	str	r3, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:162
+#endif /* STM32F10X_CL */ 
+
+  /* restore full power */
+  /* ... on connected devices */
+  Leave_LowPowerMode();
+  10:	f7ff fffe 	bl	0 <Leave_LowPowerMode>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:166
+
+#ifndef STM32F10X_CL
+  /* reset FSUSP bit */
+  _SetCNTR(IMR_MSK);
+  14:	f44f 4306 	mov.w	r3, #34304	; 0x8600
+  18:	6023      	str	r3, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:172
+#endif /* STM32F10X_CL */
+
+  /* reverse suspend preparation */
+  /* ... */
+
+}
+  1a:	bd10      	pop	{r4, pc}
+  1c:	40005c40 	.word	0x40005c40
+
+Disassembly of section .text.Resume:
+
+00000000 <Resume>:
+Resume():
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:187
+*                  decrementing of the ESOF counter in different states.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void Resume(RESUME_STATE eResumeSetVal)
+{
+   0:	b510      	push	{r4, lr}
+   2:	4c20      	.short	0x4c20
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:192
+#ifndef STM32F10X_CL
+  uint16_t wCNTR;
+#endif /* STM32F10X_CL */
+
+  if (eResumeSetVal != RESUME_ESOF)
+   4:	2807      	cmp	r0, #7
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:193
+    ResumeS.eState = eResumeSetVal;
+   6:	bf18      	it	ne
+   8:	7020      	strbne	r0, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:195
+
+  switch (ResumeS.eState)
+   a:	7823      	ldrb	r3, [r4, #0]
+   c:	2b05      	cmp	r3, #5
+   e:	d835      	bhi.n	7c <Resume+0x7c>
+  10:	e8df f003 	tbb	[pc, r3]
+  14:	100b0703 	.word	0x100b0703
+  18:	2318      	.short	0x2318
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:198
+  {
+    case RESUME_EXTERNAL:
+      Resume_Init();
+  1a:	f7ff fffe 	bl	0 <Resume>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:199
+      ResumeS.eState = RESUME_OFF;
+  1e:	2306      	movs	r3, #6
+  20:	e006      	b.n	30 <Resume+0x30>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:202
+      break;
+    case RESUME_INTERNAL:
+      Resume_Init();
+  22:	f7ff fffe 	bl	0 <Resume>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:203
+      ResumeS.eState = RESUME_START;
+  26:	2304      	movs	r3, #4
+  28:	e002      	b.n	30 <Resume+0x30>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:206
+      break;
+    case RESUME_LATER:
+      ResumeS.bESOFcnt = 2;
+  2a:	2302      	movs	r3, #2
+  2c:	7063      	strb	r3, [r4, #1]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:207
+      ResumeS.eState = RESUME_WAIT;
+  2e:	3301      	adds	r3, #1
+  30:	7023      	strb	r3, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:208
+      break;
+  32:	bd10      	pop	{r4, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:210
+    case RESUME_WAIT:
+      ResumeS.bESOFcnt--;
+  34:	7863      	ldrb	r3, [r4, #1]
+  36:	3b01      	subs	r3, #1
+  38:	b2db      	uxtb	r3, r3
+  3a:	7063      	strb	r3, [r4, #1]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:211
+      if (ResumeS.bESOFcnt == 0)
+  3c:	7863      	ldrb	r3, [r4, #1]
+  3e:	b9fb      	cbnz	r3, 80 <Resume+0x80>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:212
+        ResumeS.eState = RESUME_START;
+  40:	2204      	movs	r2, #4
+  42:	e018      	b.n	76 <Resume+0x76>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:218
+      break;
+    case RESUME_START:
+     #ifdef STM32F10X_CL
+      OTGD_FS_SetRemoteWakeup();
+     #else 
+      wCNTR = _GetCNTR();
+  44:	4b10      	ldr	r3, [pc, #64]	; (88 <Resume+0x88>)
+  46:	681a      	ldr	r2, [r3, #0]
+  48:	b292      	uxth	r2, r2
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:220
+      wCNTR |= CNTR_RESUME;
+      _SetCNTR(wCNTR);
+  4a:	f042 0210 	orr.w	r2, r2, #16
+  4e:	601a      	str	r2, [r3, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:222
+     #endif /* STM32F10X_CL */
+      ResumeS.eState = RESUME_ON;
+  50:	2305      	movs	r3, #5
+  52:	7023      	strb	r3, [r4, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:223
+      ResumeS.bESOFcnt = 10;
+  54:	18db      	adds	r3, r3, r3
+  56:	7063      	strb	r3, [r4, #1]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:224
+      break;
+  58:	bd10      	pop	{r4, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:227
+    case RESUME_ON:
+    #ifndef STM32F10X_CL      
+      ResumeS.bESOFcnt--;
+  5a:	7863      	ldrb	r3, [r4, #1]
+  5c:	3b01      	subs	r3, #1
+  5e:	b2db      	uxtb	r3, r3
+  60:	7063      	strb	r3, [r4, #1]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:228
+      if (ResumeS.bESOFcnt == 0)
+  62:	7863      	ldrb	r3, [r4, #1]
+  64:	b963      	cbnz	r3, 80 <Resume+0x80>
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:234
+      {
+     #endif /* STM32F10X_CL */    
+       #ifdef STM32F10X_CL
+        OTGD_FS_ResetRemoteWakeup();
+       #else
+        wCNTR = _GetCNTR();
+  66:	4a08      	ldr	r2, [pc, #32]	; (88 <Resume+0x88>)
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:236
+        wCNTR &= (~CNTR_RESUME);
+        _SetCNTR(wCNTR);
+  68:	f64f 73ef 	movw	r3, #65519	; 0xffef
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:234
+      {
+     #endif /* STM32F10X_CL */    
+       #ifdef STM32F10X_CL
+        OTGD_FS_ResetRemoteWakeup();
+       #else
+        wCNTR = _GetCNTR();
+  6c:	6811      	ldr	r1, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:236
+        wCNTR &= (~CNTR_RESUME);
+        _SetCNTR(wCNTR);
+  6e:	ea01 0303 	and.w	r3, r1, r3
+  72:	6013      	str	r3, [r2, #0]
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:238
+       #endif /* STM32F10X_CL */
+        ResumeS.eState = RESUME_OFF;
+  74:	2206      	movs	r2, #6
+  76:	4b03      	ldr	r3, [pc, #12]	; (84 <Resume+0x84>)
+  78:	701a      	strb	r2, [r3, #0]
+  7a:	bd10      	pop	{r4, pc}
+C:\Downloaded Files\Virtual-Com-2\Virtual-Com-2\Project\Virtual_COM_Port\RIDE\src/usb_pwr.c:246
+     #endif /* STM32F10X_CL */
+      break;
+    case RESUME_OFF:
+    case RESUME_ESOF:
+    default:
+      ResumeS.eState = RESUME_OFF;
+  7c:	2306      	movs	r3, #6
+  7e:	7023      	strb	r3, [r4, #0]
+  80:	bd10      	pop	{r4, pc}
+  82:	bf00      	nop
+  84:	00000000 	.word	0x00000000
+  88:	40005c40 	.word	0x40005c40
