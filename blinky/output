@@ -1,0 +1,77 @@
+
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -c main.c gpio.c vector.c rcc.c flash.c 
+arm-none-eabi-ld -T linker.ld main.o gpio.o vector.o rcc.o flash.o -o main.elf
+arm-none-eabi-objcopy -O binary main.elf main.bin
+
+
+
+swatee@swatee-laptop:~/CodeSourcery/openocd-0.5.0/src$ openocd -f ../tcl/interface/olimex-arm-usb-tiny-h.cfg -f ../tcl/board/olimex_stm32_h107.cfg
+
+Open On-Chip Debugger 0.5.0 (2011-12-24-20:42)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.berlios.de/doc/doxygen/bugs.html
+Info : only one transport option; autoselect 'jtag'
+1000 kHz
+adapter_nsrst_delay: 100
+jtag_ntrst_delay: 100
+cortex_m3 reset_config sysresetreq
+
+
+
+
+> stm32f1x mass_erase 0 
+stm32x mass erase complete
+> flash write_image main.bin 0x08000000 bin
+wrote 4452 bytes from file main.bin in 0.325975s (13.337 KiB/s)
+> reset   
+JTAG tap: stm32.cpu tap/device found: 0x3ba00477 (mfg: 0x23b, part: 0xba00, ver: 0x3)
+JTAG tap: stm32.bs tap/device found: 0x06418041 (mfg: 0x020, part: 0x6418, ver: 0x0)
+> halt
+target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x81000000 pc: 0x080001b0 msp: 0x200007f0
+> resume
+> halt
+target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x81000000 pc: 0x080001b0 msp: 0x200007f0
+accepting 'gdb' connection from 3333
+acknowledgment received, but no packet pending
+stepi ignored. GDB will now fetch the register state from the target.
+dropped 'gdb' connection
+> shutdown
+shutdown command invoked
+> Connection closed by foreign host.
+swatee@swatee-laptop:~/CodeSourcery/openocd-0.5.0/src$ 
+
+
+
+
+(gdb) target remote localhost:3333
+Remote debugging using localhost:3333
+0x080001b0 in main ()
+(gdb) ni
+stepi ignored. GDB will now fetch the register state from the target.
+
+Program received signal SIGINT, Interrupt.
+0x080001b0 in main ()
+(gdb) c
+Continuing.
+^C
+Program received signal SIGINT, Interrupt.
+0x080001b0 in main ()
+(gdb) ni
+0x080001b2 in main ()
+(gdb) 
+0x080001a2 in main ()
+(gdb) 
+0x080001a4 in main ()
+(gdb) 
+0x080001a6 in main ()
+(gdb) 
+0x080001aa in main ()
+(gdb) 
+0x080001ac in main ()
+(gdb) 
+
