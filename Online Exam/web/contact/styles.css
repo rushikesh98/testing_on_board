@@ -1,0 +1,43 @@
+<style type="text/css">
+   a.homelink {color: #0000CD; text-decoration: none;  font-family : Verdana;  font-size : 12px;  }
+   a.homelink:link {color: #0000CD; text-decoration: none;  font-family : Verdana; font-size : 12px;  }
+   a.homelink:active {color: #0000CD; text-decoration: none;  font-family : Verdana;  font-size : 12px;   }
+   a.homelink:visited {color: #191970; text-decoration: none;  font-family : Verdana;  font-size : 12px;   }
+   a.homelink:hover {color: Blue; text-decoration: none;  font-family : Verdana;  font-size : 12px;   }
+      
+   .MessageBox {
+     	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 10pt;
+	background : #ADD8E6;
+    }
+
+    TD.MandatoryField {
+     	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 12px;
+	font-weight : bold;
+    }
+
+    TD.Field {
+     	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 12px;
+    }
+
+   .EmailField {
+     	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 10pt;
+	background : #ADD8E6;
+    }
+
+   .CustomerField {
+     	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 10pt;
+    }
+
+   .BlueButton {
+	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 9pt;
+	background-color : #ADD8E6;
+	border : thin outset #CCCCCC;
+    }
+   
+</style>

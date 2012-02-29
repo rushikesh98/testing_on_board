@@ -1,0 +1,543 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fswiss\fprq2\fcharset0 Verdana;}{\f1\fmodern\fprq1\fcharset0 Courier New;}{\f2\froman\fprq2\fcharset0 Times New Roman;}{\f3\fswiss\fprq2\fcharset0 Calibri;}{\f4\fswiss\fcharset0 Arial;}}
+{\colortbl ;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\generator Msftedit 5.41.15.1507;}\viewkind4\uc1\pard\cbpat2\qj\cf1\f0\fs18 What is the result of compiling and running the following code? \line\line\f1\fs20 interface Inter\{ \par
+void g(); \cf0\f2\fs24\par
+\cf1\f1\fs20\} \line abstract class SuperTest implements Inter\{ \par
+private void f()\{ \par
+System.out.print("Super"); \par
+\} \par
+\} \par
+class Test extends SuperTest\{ \par
+void g()\{ \par
+System.out.print("g"); \par
+\} \par
+void f()\{ \par
+System.out.print("Sub"); \par
+\} \par
+public static void main(String args[])\{ \par
+Test t=new Test(); \par
+t.f(); \par
+t.g(); \par
+\} \par
+\} \f0\fs18 Choices: \par
+A. Code does not compile because class Test attempts to override a private method. \par
+B. Code does not compile because class SuperTest does not implement the method g(). \par
+C. Code compiles fine and prints Subg. \par
+D. None of the above \par
+\par
+\pard\cbpat2\sa150\qj Correct Choice: D \par
+\pard\cbpat2\qj\f1\fs20\par
+\pard\sa200\cf0\f3\fs22 2 Which  statement is true?\par
+A   Has-a relationship always relay on inheritance.\par
+B  Has-a relationship always relay on instance variables\par
+C Has-a relationship always requires atleast two classes\par
+D Has-a relationship always relay on polymoephisam\par
+E Has-a relationship always tightly coupled\par
+Ans BGiven :\par
+\par
+3 Class clider\{\par
+\par
+Public final void flipper()\par
+\{System.out.println(\ldblquote Clidder\rdblquote );\par
+\}\par
+Public class Clidlets extends Clidders\{\par
+Public void flipper()\{System.out.println(\ldblquote Flipper Clidlet\rdblquote );\par
+Super.flipper();\par
+\}\par
+Public static void main(String [] args)\par
+\{\par
+new Clidlets.flipper()\par
+\}\}\par
+What is the result\par
+A Flip a clidlet\par
+B Flip a Clidder\par
+C Flip a Clidder Flip a clidlet\par
+D Flip a clidlet Flip a Clidder\par
+E compilation fails\par
+Ans EGive \par
+4   Class Top\par
+\{public Top(String s)\{System.out.println(\ldblquote B\rdblquote );\}\par
+\}\par
+Public class Bottom2 extends Top\{\par
+Public Bottom2(String s)\{ System.out.println(\ldblquote D\rdblquote );\}\par
+Public static void main(String args[])\par
+\{new Bottom2(\ldblquote C\rdblquote );\par
+System.out.println(\ldblquote\rdblquote );\par
+\}\}\par
+What is the result?\par
+A BD\par
+B DB\par
+C BCD\par
+D DBC\par
+E compilation fails.\par
+Ans E\par
+5 class Plant\{\par
+String getName()\par
+\{return "plant";\}\par
+plant getType()\par
+\{return this;\}\par
+\}\par
+class Flower extends Plant\{\par
+//insert code here\par
+\}\par
+class Tulip extends Flower\{\}\par
+which statement insert to compile?\par
+A Flower getType()\{return this;\}\par
+B String getType()\{return "this";\}\par
+C Plant getType()\{return "this";\}\par
+D Tulip getTYpe()\{return new Flower();\}\f2\par
+\f3 Ans A\par
+6 class zing\{\par
+protected Hmpf h;\par
+\}\par
+class Woop extends Zing\{\}\par
+class Hmpf\{\}\par
+\par
+which is true?\par
+A Woop is-a Hmpf and has-a Zing.\par
+B Zing is-a Woop and has-a Hmpf\par
+C Hmpf has-a Woop and Woop is-a Zing\par
+D Woop has-a Hmpf and Woop is-a Zing\par
+E Zing has-a H,pf and Zing is-a Woop.\par
+Ans D\par
+7     Which method names follow the JavaBean standard?\par
+A addSize\par
+B getnumber\par
+C delateNum\par
+D isColorado\par
+E putDimensions\par
+Ans D\par
+8 Given \par
+class Voop\{\par
+public static void main(String []args)\{\par
+doSuff(1);\par
+doStuff(2,3,4);\par
+\}\par
+//insert code\par
+\}\par
+\par
+8  public class Certkiller implement Runnable\{\par
+public void run()\{\par
+Syatem.out.print("Running");\par
+\}\par
+public static void main(String args[])\{\par
+Thread t= new Thread(new Certkiller());\par
+t.run();\par
+t.run();\par
+t.starrt();\par
+\}\par
+\}\par
+what is the result\par
+A Running\par
+B compilation fails\par
+C Runtime Error\par
+D prints RunningRunning\par
+E prints RunningRunningRunning\par
+Ans E\par
+9 Which declares a n abstract class?\par
+A public abstract class  Canine\{public Bark speak();\}\par
+B public abstract class Canine \{public Bark speak()\{\} \}\par
+C public class  Canine\{public Bark speak();\}\par
+D public class  Canine abstract \{public abstract Bark speak();\}\par
+E  public class  Canine abstract \{public abstarct Bark speak()\{\} \}\par
+\par
+Ans  \b B\par
+10 \b0 class Dog \{\}\par
+class Beagle extends Dog\{\}\par
+class Kennel\{\par
+public static void main(String args[])\{\par
+Beagle b1= new Beagle();\par
+Dog d1= new Dog();\par
+Dog d2=b1;\par
+//insert code\par
+\}\par
+\}\par
+Insert a suitable code\par
+A Beagle b2=(Beagle)d1;\par
+B Beagle b3=d2;\par
+C Beagle b4=d2;\par
+D Dog d2= b1;\par
+E None of these\par
+Ans A\par
+\par
+11 class CardBoard\{\par
+short story =5;\par
+CardBoard go(CardBoard cb)\{\par
+cb=null;\par
+return cb;\par
+\}\par
+public static void main(String args[])\{\par
+CardBoard c1=new CardBoard();\par
+CardBoard c2=new CardBoard();\par
+CardBoard c3=c1.go(c2);\par
+c1=null;\par
+\}\}\par
+At the end of main how many objects are eligible for GC?\par
+A 1\par
+B 0\par
+C 2\par
+D compilation fails\par
+E Exception at Runtime\par
+Ans C\par
+12  Which is represented in a UML class diagram?\par
+A ways to test an application\par
+B operations of classes and interface\par
+C relationship between classes and functions\par
+D the interaction between ojects in sequential order\par
+E All of the above \par
+Ans B\par
+13 which is a benefit of Swing Clients?\par
+A They are easier to deploy than thin clients.\par
+B They can be Used without a JRE on the client\par
+C They are more universally supported by browsers than thin clients.\par
+D They can provide a richer graphical user interface experience than thin client\par
+E None of the above\par
+\par
+Ans D\par
+14  A developer  must implement a "shopping cart " for a web-based application. The shopping cart must be able to maintain the state of the catr, but the state is not stored persistently. which J2EE technology is suited to this global?\par
+A JMS\par
+B JAX-RPC\par
+C enity beans\par
+D stateful session beans\par
+E stateless session Beans\par
+Ans D\par
+15 which is a requirement to use applets in a web browser?\par
+A A web container must be installed at the server\par
+B The java plug-in must be installed at the server\par
+C Java compiler must be installed at the server\par
+D JRE must be installed at the client\par
+E Java compiler must be installed at the client\par
+Ans D\par
+16 Which is true?\par
+A Class that extends another class CANNOT be well encapsulated.\par
+B Polymorphiam only applies when one class encapsulates another.\par
+C A class with a public instance variable CANNOT be well encapsulated.\par
+D A class with a private instance variable CANNOT be well encapsulated.\par
+E Class that extends another an abstract class CANNOT be well encapsulated.\par
+Ans C\par
+17 which technology provides a unified interface to multiple naming and directory services?\par
+A JNI\par
+B EJB\par
+C JNDI\par
+D JDBC\par
+E JavaMail\par
+Ans C\par
+18 Which is an advantage f applets over HTML and JavaScript clients?\par
+A Applets are more widely supported by browsers\par
+B Applets are downloaded more quickly to the client.\par
+C Applets can be use a wider variety of UI cmponent.\par
+D In their default state  applets heva access to the client's computer\par
+E Applets are light weigjt components\par
+\par
+Ans C\par
+19 which two are true ?\par
+A J2EE includes the MIDP API.\par
+B J2EE aplication developers need J2SE\par
+C J2EE includes servlet  API only\par
+D J2EE applications depend on web servers.\par
+E J2EE runs on consumer and embedded devices.\par
+Ans B\par
+ 20 Which option will correctly initilize the property com.example.property to someValue when invoking java?\par
+A -Pproperty,someValue\par
+B com.example.property=someValue\par
+C -Dcom.example.property=someValue\par
+D -Pcom.example.property.someValue\par
+E -P com.example .property someValue\par
+Ans C\par
+21 Given \par
+Class Test\{\par
+public static void main(String arg[])\{\par
+String str=new String("Welcome");\par
+//insert code\par
+\}\}\par
+which produce the output true\par
+A System.out.println(str.trim());\par
+B System.out.println(str.indexOf(1));\par
+C System.out.println(str.indexOf("W"));\par
+D System.out.println(str.startswith("W"));\par
+E System.out.println(str.startswith('W'));\par
+Ans D\par
+22 Which above a client's environment can be determined by an applet ?\par
+A type of web server\par
+B type of web browser\par
+C version of JVM\par
+D type of web container\par
+E all the above\par
+\par
+Ans  B\par
+23 publi class Employee\{\par
+public String name;\par
+//insert code\par
+public String getName()\{\par
+return name;\par
+\}\par
+public int getSalary()\{\par
+return salary;\par
+\}\par
+\}\par
+Which when inserted at line allows another class to get the value of the salary variable,but NOT change the valu of salary variable?\par
+A publc int salary\par
+B secure int salary\par
+c hidden int salary\par
+DPrivate int Salary\par
+E readOnly int salary\par
+Ans D\par
+24 Which one is true about HTML\par
+A HTML is an object oriented programing language\par
+B HTML document cannot be browse by a text editor\par
+C HTML  cannot  set  up hypertext links between documents\par
+D HTML uses tage to structure text into headings, paragraph and lists.\par
+E HTML is a server side script.\par
+Ans D\par
+25 which package contains classes used to cerate data collections such as maps or queues?\par
+A java.io\par
+B java.net\par
+C java.awt\par
+D java.util\par
+E java.lang\par
+Ans D\par
+26 Which is a benefit of servlet?\par
+A They  represents data in a persistent store.\par
+B Their lifecycles are managed by the container.\par
+C They allow you to embed java code in HTML\par
+D They can produce static content in response to web client requests.\par
+E They are html files\par
+Ans B\par
+27 which is a feature of JNDI?\par
+A an interface to search for oblects using attributes\par
+B connectivity to database and other tabular data sources\par
+c a defined common set of messaging concept and programming strategies.\par
+D an interface to store and retieve named java object of any type.\par
+E automaticly connect to a database\par
+Ans A\par
+\pard 28 Which is not a primitive data type in java\par
+A int\par
+B Char\par
+C boolean\par
+D byte\par
+E String \par
+Ans E\par
+\par
+29 A java programmer wants to develope a small application to run on mobile phones. which java edition is required to develop application ?\par
+A only J2SE\par
+B only J2EE\par
+C only J2ME\par
+D J2SE and J2EE\par
+E J2SE and J2ME\par
+\par
+Ans E\par
+30  Which one compile without error ?\par
+A     String s="Hello"\par
+B      String  s='Hello'\par
+C       String  s="Hello","","World"\par
+D     String  s="Hello"-"World"\par
+E      String  s=new String('Hello');\par
+Ans  A\par
+\par
+31  Given  String s= "  abcdcba ";\par
+int x=2;\par
+s=s.trim();\par
+if(s.length()<8)\{\par
+x=s.indexOf('c',3);\par
+\}\par
+System.out.println("X="+x);\par
+\par
+what is the output?\par
+A x=2\par
+B x=3\par
+c x=4\par
+D x=5\par
+E x=6\par
+Ans  C\par
+\par
+32 Which statement is true?\par
+\par
+A the JMS API is located in the java.jms package\par
+B JMS provide interfave to naming and directory services\par
+C JMS enables ab applicationto provide flexible,asynchronous data exchange.\par
+D JMS enablean application to provide tightly coupled distributed  communication\par
+E  A,B,D are true\par
+\par
+Ans C \par
+33 Given class B\{\}\par
+which demonstrates inheritance?\par
+A class A this B\{\}\par
+B class A super B\{\}\par
+C class A extends B\{\}\par
+D class A implements B\{\}\par
+E class A inherit B\{\}\par
+\par
+Ans C\par
+\par
+34 Whichis a benefit of JSP technology?\par
+\par
+A portability to any HTTP server\par
+B simplified Swing GUI development\par
+C separation of dynamic and static content\par
+D separation of sevlet without html\par
+E coding is simple\par
+\par
+Ans  C\par
+35 Which is true?\par
+A Javascript is the standard J@SE scripting language.\par
+B Javascript includes built-in libraries for involing methods.\par
+C javascript can be used as a server side script.\par
+D javascript can only used in browsers that have the java plug-in installed\par
+E javascript can be used to validate form inputs before they are sent to server\par
+\par
+\f4\fs20 Ans E\par
+\par
+36 what is true about javascript client?\par
+A They support all standard J2SE syntax\par
+B They must be hosted by J2EE containers.\par
+C They cannot write to the client's hard drive.\par
+D They equire java web start technology to be deployed.\par
+E Javascript is used by EJB container\par
+\par
+Ans C\par
+\par
+37 which statement about thread in java fails?\par
+A thread is a special type of method\par
+B The synchronizied keyword is used to lock objects\par
+C Thread whose execution has completed is no longer runnable.\par
+D Threads wait to be executed are generally chosen fr execution based on priority.\par
+E Therad waits when run method called \par
+\par
+Ans A\par
+\par
+38 which is associated with the business tier in a J2EE web-based application?\par
+A JSP\par
+B JDBC\par
+C Applet\par
+D Servlet\par
+E Swing\par
+\par
+Ans B\par
+\par
+39  Which is true about RMI?\par
+\par
+A RMI is used to create thin web clients\par
+B RMI allows objects to be sent from one computer to another\par
+C RMI is the java API used for executing quries on a database\par
+D RMI is used to develope applications for wireless mobile devices\par
+E RMI is the transport protocol used by web servers and browsers\par
+\par
+Ans B\par
+\par
+40 What is the correct name for J2EE?\par
+\par
+A Java 2 Platform ,Enterprise Edition\par
+B Java 2 Package ,Enterprise Edition\par
+ C Java 2 Platform ,Enterprise Environment\par
+D Java 2 Package ,Enterprise Environment\par
+E Java 2 Package ,Enterprise Edition\par
+\par
+Ans  A\par
+\par
+41 Class Test\{\par
+public staic void main(String args[])\{\par
+String s="Hello";\par
+s=s.replace("Bye");\par
+System.out.println("S"+s);\par
+\}\par
+\}\par
+\par
+What is the output\par
+A S Bye\par
+B S Byelo\par
+C S HeBye\par
+D compilation fails\par
+E S Hello\par
+\par
+Ans D\par
+\par
+42 which is true?\par
+\par
+A  All JDBC Drivers are pure java\par
+B The JDBC API is included in J2SE\par
+C The JDBC API is an extension of the ODBC API\par
+D JDBC is used to connect to MOM products\par
+E JDBC drivers are API s\par
+\par
+Ans B\par
+\par
+43  Which is an appropriate descroption of session beans?\par
+A They are used to store persistent data\par
+B They are used to share data among clients\par
+C They are used to represent data in an RDBMS\par
+D They are used to implements business process\par
+E All of the above\par
+\par
+Ans D\par
+\par
+44 Which is a required to use applets in a web browsers?\par
+\par
+A  A web container must be installed at the server.\par
+B The java plug  in must be installed on the servers\par
+C The java compiler must be installed on the client\par
+D The java Runtime Environment must be installed on the client\par
+E The java Runtime Environment must be installed on the Server.\par
+\par
+Ans D\par
+\par
+45 Which is true?\par
+A An abstract class can be extended by an interface\par
+B An abstract class can implement an interface\par
+C An interface can be extended by an abstract class\par
+\par
+D An interface cannot be extended by another interface\par
+E An abstract class cannot be extended by an abstract class\par
+\par
+Ans A\par
+\par
+46  Which keyword is used o create an enumeration?\par
+A enum\par
+B ENUM\par
+C const\par
+D enumeration\par
+E Enum\par
+\par
+Ans A\par
+\par
+47 which keyword supports looping?\par
+\par
+A if\par
+B for\par
+C switch\par
+D break\par
+E foreach\par
+\par
+Ans B\par
+\par
+48 Which is associated with the business tier in a J2EE web based application?\par
+A JSP\par
+B HTML\par
+CServlet\par
+D Entity Beans\par
+E JDBC\par
+\par
+Ans D\par
+\par
+49 Which is true about javascript and HTML\par
+\par
+A JavaScript is part of the J2SE\par
+B Javascript and HTML are NOT compiled\par
+C javaScript code is always processed on the server, NOT on the client\par
+\par
+D javaScript is guaranteed to be portable across all browsers on platform\par
+E JavaScript is a part os J2EE\par
+\par
+Ans B\par
+\par
+50 which Java technology uses standard mappings between Java classes and XML to support web services calls using the SOAP protocol?\par
+\par
+A EJB\par
+B JSP\par
+C JAXB\par
+D JAX-RPC\par
+E AJAX\par
+\par
+Ans D\par
+\par
+}
+ 

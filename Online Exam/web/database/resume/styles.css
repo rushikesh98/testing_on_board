@@ -1,0 +1,64 @@
+<style type="text/css">
+   a.homelink {color: #0000CD; text-decoration: none;  font-family : Verdana;  font-size : 12px;  }
+   a.homelink:link {color: #0000CD; text-decoration: none;  font-family : Verdana; font-size : 12px;  }
+   a.homelink:active {color: #0000CD; text-decoration: none;  font-family : Verdana;  font-size : 12px;   }
+   a.homelink:visited {color: #191970; text-decoration: none;  font-family : Verdana;  font-size : 12px;   }
+   a.homelink:hover {color: Blue; text-decoration: none;  font-family : Verdana;  font-size : 12px;   }
+      
+   .MessageBox {
+     	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 10pt;
+    }
+
+    TD.MandatoryField {
+     	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 12px;
+	font-weight : bold;
+    }
+
+    TD.Field {
+     	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 12px;
+    }
+
+   .EmailField {
+     	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 10pt;
+	background : #FEFEFE;
+	border : 1px dashed Black;
+    }
+
+
+   .Attach {
+     	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 10pt;
+	background : #EEEEEE;
+	border : 1px dashed Black;
+    }
+
+   .CustomerField {
+     	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 10pt;
+    }
+
+   .BlueButton {
+	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #DDDDFF;
+	border : thin outset #DDDDFF;
+    }
+
+   .WhiteButton {
+	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 9pt;
+	background-color : White;
+	border : thin dashed Black;
+	border-style : dotted dotted dotted dotted;
+	border-left : 1px dotted Black;
+	border-bottom : 1px dotted Black;
+	border-right : 1px dotted Black;
+	border-top : 1px dotted Black;
+    }
+   
+</style>
